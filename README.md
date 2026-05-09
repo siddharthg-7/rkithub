@@ -1,5 +1,4 @@
-# Smart Student Learning Platform
-
+# RKITHUB
 [![Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen.svg)]()
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%7C%20Vite-61dafb.svg)]()
 [![Backend](https://img.shields.io/badge/Backend-Firebase-orange.svg)]()
