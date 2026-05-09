@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 export const Contact = () => {
   const contactInfo = [
     { icon: Phone, title: 'Phone', details: '+91 98765 43210', sub: 'Mon-Sat from 9am to 6pm' },
-    { icon: Mail, title: 'Email', details: 'info@vhub.com', sub: 'We reply within 24 hours' },
+    { icon: Mail, title: 'Email', details: 'info@rkithub.com', sub: 'We reply within 24 hours' },
     { icon: MapPin, title: 'Office Address', details: 'Hitech City, Hyderabad', sub: 'Visit us for a demo session' },
     { icon: Clock, title: 'Working Hours', details: '9:00 AM - 7:00 PM', sub: 'Sunday Closed' }
   ];

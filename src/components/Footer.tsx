@@ -68,7 +68,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm text-white/70">
                 <Mail className="w-4 h-4 text-yellow-500" />
-                <span>info@vhub.com</span>
+                <span>info@rkithub.com</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin className="w-4 h-4 text-yellow-500 mt-0.5" />

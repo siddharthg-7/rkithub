@@ -1,36 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Users, 
-  Briefcase, 
-  Star, 
-  TrendingUp, 
-  Award,
-  BookMarked
-} from 'lucide-react';
+import { ArrowRight, Play, CheckCircle } from 'lucide-react';
 
 export const EdTechHero = () => {
+  // Combined data for a single rich row
+  const row = [
+    { title: "Live Coding Sessions", img: "/rkithub_coding_session.png" },
+    { title: "Students Working on Laptops", img: "/classroom_training.png" },
+    { title: "UI/UX Collaboration", img: "/mentor_guidance.png" },
+    { title: "Mock Interviews", img: "/placement_students.png" },
+    { title: "AI & Data Science Labs", img: "/rkithub_coding_session.png" },
+    { title: "Internship Workspaces", img: "/classroom_training.png" },
+    { title: "Cloud & DevOps Training", img: "/rkithub_coding_session.png" },
+    { title: "Hackathon Environments", img: "/classroom_training.png" },
+    { title: "Real-time Discussions", img: "/mentor_guidance.png" },
+    { title: "Mentors Guiding Students", img: "/mentor_guidance.png" },
+  ];
+
+  const items = [...row, ...row];
+
+  // Card width 260px, Gap 16px
+  // 10 items = 10 * 260 + 10 * 16 = 2760px
+  const scrollVariants = {
+    animate: {
+      x: [0, -2760],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 35,
+          ease: "linear",
+        },
+      },
+    },
+  };
+
   return (
-    <div className="relative bg-[#06152D] text-white overflow-hidden min-h-screen flex flex-col font-sans">
+    <div className="relative bg-[#020617] text-white overflow-hidden min-h-screen flex flex-col font-sans">
       
       {/* BACKGROUND EFFECTS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Gradient Mesh */}
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[150px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[120px]" />
-        <div className="absolute top-[30%] right-[20%] w-[400px] h-[400px] bg-yellow-500/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[1000px] h-[1000px] bg-blue-900/20 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#d4af37]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[30%] right-[10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px]" />
         
-        {/* Dotted Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ 
+        <div className="absolute inset-0 opacity-[0.02]" style={{ 
           backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', 
-          backgroundSize: '20px 20px' 
+          backgroundSize: '30px 30px' 
         }} />
-        
-        {/* Glowing Circles */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-400 rounded-full blur-sm animate-pulse" />
-        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-blue-400 rounded-full blur-sm animate-pulse delay-700" />
-        <div className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-indigo-400 rounded-full blur-sm animate-pulse delay-1000" />
       </div>
 
       {/* HERO SECTION */}
@@ -38,132 +55,107 @@ export const EdTechHero = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
-            {/* LEFT SIDE CONTENT */}
+            {/* LEFT SIDE CONTENT (50% Ratio) */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left"
+              className="flex flex-col items-start text-left"
             >
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border border-blue-800/50 px-4 py-1.5 rounded-full mb-6">
+                <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">RKITHUB Platform</span>
+              </div>
+              
               {/* Main Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.8rem] font-bold leading-[1.1] tracking-tight mb-6 text-white">
-                Build Skills.<br />
-                Get Trained.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">Get Placed.</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-6">
+                Build Industry Skills.<br />
+                Work on Real Projects.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">
+                  Get Hired Faster.
+                </span>
               </h1>
               
-              {/* Subtext */}
-              <p className="text-[1.05rem] text-white/70 font-medium leading-relaxed mb-8 max-w-xl">
-                Real-time projects, expert mentors, internship opportunities, and placement-focused programs designed for future tech professionals.
+              {/* Supporting Text */}
+              <p className="text-[1.05rem] text-slate-400 font-normal leading-relaxed mb-8 max-w-xl">
+                Immersive training programs designed by industry experts. Train on live production environments, get mentored by tech leaders, and secure your dream role at top-tier companies.
               </p>
               
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-12">
-                <button className="group bg-yellow-500 text-[#06152D] px-6 py-3.5 rounded-full font-bold text-[15px] hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-95 flex items-center gap-2">
-                  Explore Trainings
+              <div className="flex flex-wrap items-center gap-4 mb-10">
+                <button className="group bg-gradient-to-r from-yellow-500 to-yellow-600 text-[#020617] px-7 py-3.5 rounded-xl font-bold text-[15px] hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-95 flex items-center gap-2">
+                  Explore Programs
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="bg-transparent text-white border border-white/30 px-6 py-3.5 rounded-full font-bold text-[15px] hover:bg-white/5 hover:border-white transition-all hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] active:scale-95">
-                  Placement Records
+                <button className="bg-white/5 backdrop-blur-md text-white border border-white/10 px-7 py-3.5 rounded-xl font-bold text-[15px] hover:bg-white/10 hover:border-white/20 transition-all active:scale-95 flex items-center gap-2">
+                  View Placements
+                  <Play className="w-3.5 h-3.5 text-yellow-500" />
                 </button>
               </div>
-              
-              {/* Trust Indicators Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
-                {[
-                  { icon: Users, val: '1000+', label: 'Students Trained' },
-                  { icon: Briefcase, val: '50+', label: 'Hiring Partners' },
-                  { icon: Star, val: '95%', label: 'Satisfaction Rate' }
-                ].map((stat, i) => (
-                  <motion.div 
-                    key={i}
-                    whileHover={{ y: -5 }}
-                    className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-xl flex flex-col gap-2 group transition-all"
-                  >
-                    <div className="w-8 h-8 bg-yellow-500/10 rounded-lg flex items-center justify-center text-yellow-500 group-hover:scale-110 transition-transform">
-                      <stat.icon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-white">{stat.val}</div>
-                      <div className="text-[11px] font-medium text-white/50 uppercase tracking-wider">{stat.label}</div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* RIGHT SIDE CONTENT */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full flex justify-center lg:justify-end mt-10 lg:mt-0"
-            >
-              <div className="relative w-full max-w-[500px]">
-                {/* Circular Gradient Backdrop */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-blue-600/30 to-indigo-600/10 rounded-full blur-2xl z-0" />
-                
-                {/* Student Image */}
-                <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-                  <img 
-                    src="/placement_students.png" 
-                    alt="Placement Ready Students" 
-                    className="w-full h-auto object-cover"
-                  />
-                  {/* Overlay gradient to blend with background */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#06152D] via-transparent to-transparent opacity-60" />
+              {/* Trust Indicators */}
+              <div className="flex items-center gap-6 text-sm text-slate-500 border-t border-white/10 pt-6 w-full">
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-yellow-500" />
+                  <span>95% Success Rate</span>
                 </div>
-
-                {/* Floating Cards */}
-                {/* Card 1 */}
-                <motion.div 
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-6 -left-6 bg-white text-[#06152D] p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 border border-slate-100"
-                >
-                  <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-green-600">
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold">500+</div>
-                    <div className="text-xs font-medium text-slate-500">Placements</div>
-                  </div>
-                </motion.div>
-
-                {/* Card 2 */}
-                <motion.div 
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute bottom-12 -right-6 bg-white text-[#06152D] p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 border border-slate-100"
-                >
-                  <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600">
-                    <BookMarked className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold">Live Projects</div>
-                    <div className="text-xs font-medium text-slate-500">Industry Standard</div>
-                  </div>
-                </motion.div>
-
-                {/* Card 3 */}
-                <motion.div 
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute -bottom-4 left-10 bg-white text-[#06152D] p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 border border-slate-100"
-                >
-                  <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600">
-                    <Award className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold">Industry Mentors</div>
-                    <div className="text-xs font-medium text-slate-500">Expert Guidance</div>
-                  </div>
-                </motion.div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-yellow-500" />
+                  <span>50+ Hiring Partners</span>
+                </div>
               </div>
             </motion.div>
+
+            {/* RIGHT SIDE CONTENT: Vertical Cards in Horizontal Scroll (50% Ratio) */}
+            <div className="h-[500px] flex flex-col justify-center overflow-hidden relative mask-fade-h">
+              
+              <div className="relative w-full overflow-hidden">
+                <motion.div 
+                  variants={scrollVariants}
+                  animate="animate"
+                  className="flex gap-4 w-max"
+                >
+                  {items.map((item, i) => (
+                    <div key={i} className="relative group rounded-2xl overflow-hidden glass-card w-[260px] h-[380px] flex-shrink-0">
+                      <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/20 to-transparent opacity-80" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <p className="text-sm font-bold text-white tracking-wide">{item.title}</p>
+                      </div>
+                      
+                      {/* Interactive indicator like in the reference image */}
+                      <div className="absolute bottom-4 right-4 w-8 h-8 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Play className="w-3 h-3 text-white fill-white" />
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Gradient Overlays to fade horizontal edges */}
+              <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent z-10 pointer-events-none" />
+              <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-[#020617] via-[#020617]/80 to-transparent z-10 pointer-events-none" />
+            </div>
+
           </div>
         </div>
       </div>
+
+      {/* Custom Styles */}
+      <style>{`
+        .glass-card {
+          background: rgba(255, 255, 255, 0.01);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.03);
+          box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01), 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .mask-fade-h {
+          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+      `}</style>
     </div>
   );
 };
