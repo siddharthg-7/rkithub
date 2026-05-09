@@ -1,45 +1,100 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { BookOpen } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { GraduationCap, Menu, X } from 'lucide-react';
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const routes = [
+    { name: 'Home', path: '/' },
+    { name: 'Trainings', path: '/courses' },
+    { name: 'Placements', path: '/placements' },
+    { name: 'Clients', path: '/clients' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Events', path: '/events' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/70 backdrop-blur-xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full px-6 py-3.5 w-[92%] max-w-5xl flex justify-between items-center transition-all">
-      <Link to="/" onClick={() => window.scrollTo(0,0)} className="flex items-center gap-2.5 group">
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-md shadow-blue-600/20 group-hover:bg-blue-700 transition-colors">
-          <BookOpen className="w-4 h-4 text-white" />
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-lg border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full px-6 py-3 w-[92%] max-w-6xl flex justify-between items-center transition-all">
+      {/* Logo */}
+      <Link to="/" className="flex items-center gap-2 group">
+        <div className="w-9 h-9 bg-[#06152D] rounded-lg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <GraduationCap className="w-5 h-5 text-yellow-500" />
         </div>
-        <span className="text-[17px] font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">RK IT Hub</span>
+        <span className="text-lg font-bold tracking-tight text-[#06152D]">V-HUB</span>
       </Link>
-      
-      <div className="hidden md:flex items-center gap-8">
-        {[
-          { name: 'Home', path: '/' },
-          { name: 'Courses', path: '/courses' },
-          { name: 'Placements', path: '/placements' },
-          { name: 'Projects', path: '/projects' },
-          { name: 'About', path: '/about' }
-        ].map((item) => (
-          <Link 
-            key={item.name} 
-            to={item.path} 
-            onClick={() => window.scrollTo(0,0)}
-            className="relative text-[14px] font-semibold text-slate-500 transition-colors hover:text-slate-900 group"
-          >
-            {item.name}
-            <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full rounded-full"></span>
-          </Link>
-        ))}
+
+      {/* Center Routes */}
+      <div className="hidden md:flex items-center gap-6">
+        {routes.map((route) => {
+          const isActive = location.pathname === route.path;
+          return (
+            <Link 
+              key={route.name} 
+              to={route.path} 
+              className={`relative text-[14px] font-semibold transition-colors hover:text-[#06152D] py-2 ${
+                isActive ? 'text-[#06152D]' : 'text-slate-600'
+              }`}
+            >
+              {route.name}
+              <span className={`absolute bottom-0 left-0 h-[2px] bg-yellow-500 transition-all duration-300 ${
+                isActive ? 'w-full' : 'w-0 hover:w-full'
+              } rounded-full`} />
+            </Link>
+          );
+        })}
       </div>
-      
-      <div className="flex items-center gap-5">
-        <Link to="/login" onClick={() => window.scrollTo(0,0)} className="text-[14px] font-semibold text-slate-600 hover:text-slate-900 transition-colors">
-          Login
-        </Link>
-        <Link to="/signup" onClick={() => window.scrollTo(0,0)} className="text-[14px] font-bold bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/10 hover:shadow-xl hover:shadow-slate-900/20 active:scale-95">
-          Get Started
+
+      {/* Right Buttons */}
+      <div className="hidden md:flex items-center gap-4">
+        <button className="text-[14px] font-semibold text-slate-600 hover:text-[#06152D] transition-colors">
+          Talk to Counselor
+        </button>
+        <Link to="/signup" className="bg-[#06152D] text-white px-5 py-2 rounded-full font-bold text-[14px] hover:bg-[#0c234a] transition-all shadow-lg shadow-[#06152D]/10 hover:shadow-[#06152D]/20 active:scale-95">
+          Enroll Now
         </Link>
       </div>
+
+      {/* Mobile Menu Button */}
+      <div className="md:hidden">
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-[#06152D] p-2"
+        >
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-slate-200/60 shadow-xl p-4 md:hidden">
+          <div className="flex flex-col gap-3">
+            {routes.map((route) => (
+              <Link 
+                key={route.name} 
+                to={route.path} 
+                className="text-[14px] font-semibold text-slate-600 hover:text-[#06152D] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {route.name}
+              </Link>
+            ))}
+            <hr className="border-slate-100 my-1" />
+            <button className="text-[14px] font-semibold text-slate-600 hover:text-[#06152D] transition-colors text-left">
+              Talk to Counselor
+            </button>
+            <Link 
+              to="/signup" 
+              className="bg-[#06152D] text-white px-5 py-2 rounded-full font-bold text-[14px] hover:bg-[#0c234a] transition-all text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Enroll Now
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

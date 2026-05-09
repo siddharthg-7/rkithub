@@ -1,41 +1,42 @@
 import React from 'react';
-import { BookOpen, Globe, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="py-16 bg-white border-t border-slate-100 mt-auto w-full z-10 relative font-sans">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12">
+    <footer className="bg-[#06152D] text-white pt-24 pb-12 overflow-hidden font-sans relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           
-          {/* Brand Column */}
-          <div className="lg:col-span-2 flex flex-col items-start max-w-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white">
-                <BookOpen className="w-4 h-4" fill="currentColor" />
+          {/* Brand Info */}
+          <div className="lg:col-span-2">
+            <Link to="/" className="flex items-center gap-2 mb-4 group">
+              <div className="w-9 h-9 bg-yellow-500 rounded-lg flex items-center justify-center shadow-md">
+                <GraduationCap className="w-5 h-5 text-[#06152D]" />
               </div>
-              <span className="text-lg font-bold text-slate-900 tracking-tight">RK IT Hub</span>
-            </div>
-            <p className="text-sm text-slate-500 font-medium leading-relaxed mb-6">
-              Empowering the next generation of software engineers through immersive training and industry-led curriculum.
+              <span className="text-lg font-bold tracking-tight text-white">V-HUB</span>
+            </Link>
+            <p className="text-white/60 font-medium text-sm leading-relaxed mb-6 max-w-sm">
+              Empowering students with industry-ready skills and placement-focused learning. Join us to accelerate your tech career.
             </p>
-            <div className="flex items-center gap-3">
-              <button className="w-9 h-9 border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 hover:border-slate-300 transition-colors">
-                <Share2 className="w-4 h-4" />
-              </button>
-              <button className="w-9 h-9 border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 hover:border-slate-300 transition-colors">
-                <Globe className="w-4 h-4" />
-              </button>
+            <div className="flex gap-4">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-9 h-9 bg-white/5 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-[#06152D] transition-colors">
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links Columns */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Programs</h4>
+            <h4 className="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {['Full Stack Web Dev', 'Data Science & AI', 'Python Backend', 'Cloud Engineering'].map((item) => (
+              {['Home', 'Trainings', 'Placements', 'Clients', 'About Us', 'Events', 'Contact'].map((item) => (
                 <li key={item}>
-                  <Link to="/courses" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link to="/" className="text-sm font-medium text-white/70 hover:text-white hover:underline transition-all">
                     {item}
                   </Link>
                 </li>
@@ -43,12 +44,13 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Trainings */}
           <div>
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Resources</h4>
+            <h4 className="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-4">Trainings</h4>
             <ul className="space-y-3">
-              {['Blog', 'Success Stories', 'Documentation', 'Student Portal'].map((item) => (
+              {['Full Stack Dev', 'Python Pro', 'AI & Data Science', 'Software Testing', 'UI/UX Design'].map((item) => (
                 <li key={item}>
-                  <Link to="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link to="/" className="text-sm font-medium text-white/70 hover:text-white hover:underline transition-all">
                     {item}
                   </Link>
                 </li>
@@ -56,33 +58,37 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Support</h4>
+            <h4 className="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-4">Contact</h4>
             <ul className="space-y-3">
-              {['Contact Us', 'Terms of Service', 'Privacy Policy', 'Careers'].map((item) => (
-                <li key={item}>
-                  <Link to="/contact" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li className="flex items-center gap-2 text-sm text-white/70">
+                <Phone className="w-4 h-4 text-yellow-500" />
+                <span>+91 98765 43210</span>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-white/70">
+                <Mail className="w-4 h-4 text-yellow-500" />
+                <span>info@vhub.com</span>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-white/70">
+                <MapPin className="w-4 h-4 text-yellow-500 mt-0.5" />
+                <span>Hitech City, Hyderabad</span>
+              </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs font-medium text-slate-400">
-            © {new Date().getFullYear()} RK IT Hub. Built with <span className="text-red-500">❤️</span> and Code.
-          </p>
-          <div className="flex items-center gap-6">
-            <Link to="/" className="text-xs font-medium text-slate-400 hover:text-slate-900 transition-colors">System Status</Link>
-            <Link to="/" className="text-xs font-medium text-slate-400 hover:text-slate-900 transition-colors">Community</Link>
+        {/* Bottom Row */}
+        <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40">
+          <div>© {new Date().getFullYear()} V-HUB. All rights reserved.</div>
+          <div className="flex gap-6">
+            <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>
         </div>
+
       </div>
     </footer>
   );
 };
-
