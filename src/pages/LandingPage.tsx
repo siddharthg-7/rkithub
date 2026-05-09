@@ -48,7 +48,7 @@ export const LandingPage = () => {
               
               {/* Description */}
               <p className="text-[1.05rem] text-slate-500 font-medium leading-relaxed mb-8 max-w-[420px]">
-                Master Full Stack, Python, Java, AI, and Placement Skills through real projects, mentorship, and structured learning.
+                Master Full Stack, Python, Java, AI, and Placement Skills through real projects, mentorship, and structured learning designed for modern developers.
               </p>
               
               {/* CTA Buttons - Premium clean style */}
@@ -183,7 +183,7 @@ export const LandingPage = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">Modern Tech Stack</h3>
-                  <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-sm">Master React 18, Next.js, Tailwind CSS, and Framer Motion. Build what top companies are building today.</p>
+                  <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-sm">Master React 18, Next.js, Tailwind CSS, and Framer Motion. Build what top companies are building today with production-ready patterns.</p>
                 </div>
               </div>
               <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -204,7 +204,7 @@ export const LandingPage = () => {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Global Reach</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">Join a vibrant community of worldwide learners and mentors.</p>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">Join a vibrant community of worldwide learners and mentors connecting across timezones.</p>
               </div>
             </motion.div>
 
@@ -222,7 +222,7 @@ export const LandingPage = () => {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Enterprise Security</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">Learn authentication, authorization, and secure coding practices.</p>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">Learn professional-grade authentication, authorization, and secure coding practices for production.</p>
               </div>
             </motion.div>
 
@@ -242,7 +242,7 @@ export const LandingPage = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 text-white">Interactive Curriculum</h3>
-                  <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-md">Ditch the boring lectures. Learn by doing with our immersive, gamified learning experience designed by FAANG engineers.</p>
+                  <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-md">Ditch the boring lectures. Learn by doing with our immersive, gamified learning experience designed by FAANG engineers to simulate real-world team sprints.</p>
                 </div>
               </div>
               <Cpu className="absolute right-8 bottom-8 w-48 h-48 text-slate-800 rotate-12 group-hover:scale-110 group-hover:text-slate-700 transition-all duration-700" />

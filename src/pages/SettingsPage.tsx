@@ -122,6 +122,7 @@ export const SettingsPage: React.FC = () => {
                   placeholder=" "
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
+                  autoComplete="new-password"
                   required
                 />
                 <label htmlFor="new-password" className="floating-label">New Password</label>
