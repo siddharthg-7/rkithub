@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Trophy, TrendingUp, Users, DollarSign, ArrowRight, Star, Linkedin, Quote } from 'lucide-react';
+import { Trophy, TrendingUp, Users, DollarSign, ArrowRight, Star, Linkedin, Quote, CheckCircle2 } from 'lucide-react';
 
 const stats = [
   { label: 'Average Package', value: '6.5 LPA', icon: DollarSign },
@@ -37,6 +37,27 @@ const successStories = [
 ];
 
 export const PlacementsPage: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        const cardWidth = scrollRef.current.firstElementChild?.clientWidth || 300;
+        const gap = 32; // gap-8 is 32px
+        
+        // If we are at the end, scroll back to start
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+        }
+      }
+    }, 3000); // Scroll every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-sans">
       
@@ -99,49 +120,94 @@ export const PlacementsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* LinkedIn Style Cards */}
-      <section className="py-32 max-w-[1280px] mx-auto px-10">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-extrabold text-navy-900 tracking-tight mb-6">Alumni Success Stories</h2>
-          <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">See how our alumni transformed their careers through the RK IT Hub ecosystem.</p>
+      {/* Premium Horizontal Testimonials Section */}
+      <section className="py-32 relative overflow-hidden bg-slate-50">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-indigo-400/10 rounded-full blur-[120px]" />
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-10 mb-16 relative z-10">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100/80 px-3 py-1.5 rounded-full text-xs font-semibold text-blue-700 mb-4 shadow-sm">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+              </span>
+              Career Transformations
+            </div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl font-extrabold text-navy-900 tracking-tight mb-6"
+            >
+              Alumni Success Stories
+            </motion.h2>
+            <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
+              See how our alumni transformed their careers through the RK IT Hub ecosystem.
+            </p>
+          </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-10">
+        {/* Horizontal Scroll Container */}
+        <div 
+          ref={scrollRef}
+          className="relative w-full overflow-x-auto hide-scrollbar flex gap-8 px-[10%] py-10" 
+          style={{ scrollSnapType: 'x mandatory' }}
+        >
           {successStories.map((story, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-sm flex flex-col hover:shadow-2xl transition-all"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="flex-shrink-0 w-[350px] md:w-[450px] bg-white/80 backdrop-blur-xl border border-slate-200/60 rounded-[2.5rem] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-between"
+              style={{ scrollSnapAlign: 'center' }}
             >
-              <div className="flex items-center justify-between mb-10">
+              {/* Top Section */}
+              <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
-                  <img src={story.image} alt={story.name} className="w-14 h-14 rounded-2xl object-cover shadow-md" />
+                  <div className="relative">
+                    <img src={story.image} alt={story.name} className="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white" />
+                    <div className="absolute -top-1 -right-1 bg-green-500 text-white rounded-full p-0.5 border-2 border-white">
+                      <CheckCircle2 size={12} fill="currentColor" />
+                    </div>
+                  </div>
                   <div>
-                    <h4 className="font-bold text-navy-900">{story.name}</h4>
-                    <p className="text-xs font-medium text-slate-500">{story.role}</p>
+                    <h4 className="font-bold text-navy-900 text-lg">{story.name}</h4>
+                    <p className="text-sm font-medium text-slate-500">{story.role}</p>
                   </div>
                 </div>
-                <Linkedin size={24} className="text-blue-600" fill="currentColor" />
+                <button className="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center text-blue-600 hover:text-blue-700 hover:border-blue-200 hover:bg-blue-50 transition-colors shadow-sm">
+                  <Linkedin size={18} fill="currentColor" />
+                </button>
               </div>
               
-              <div className="mb-10 relative">
-                <Quote className="absolute -top-4 -left-4 text-slate-100 w-12 h-12 -z-10" />
-                <p className="text-slate-600 font-medium leading-relaxed italic">
+              {/* Middle Section */}
+              <div className="mb-8 relative min-h-[120px]">
+                <Quote className="absolute -top-4 -left-4 text-slate-100 w-16 h-16 -z-10 opacity-50" />
+                <p className="text-slate-600 font-medium leading-relaxed italic text-[1.05rem] relative z-10">
                   "{story.text}"
                 </p>
               </div>
               
-              <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
-                <div>
+              {/* Bottom Section: Premium Stats Row */}
+              <div className="pt-6 border-t border-slate-100 flex items-center justify-between gap-4">
+                <div className="bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Company</p>
-                  <p className="font-extrabold text-navy-900 text-lg">{story.company}</p>
+                  <p className="font-extrabold text-navy-900">{story.company}</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Package</p>
-                  <p className="font-extrabold text-blue-600 text-lg">{story.salary}</p>
+                <div className="bg-blue-50 px-4 py-2 rounded-xl border border-blue-100">
+                  <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-1">Package</p>
+                  <p className="font-extrabold text-blue-600">{story.salary}</p>
+                </div>
+                <div className="bg-slate-50 px-4 py-2 rounded-xl border border-slate-100 hidden md:block">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Status</p>
+                  <p className="font-extrabold text-slate-700">Placed</p>
                 </div>
               </div>
             </motion.div>
