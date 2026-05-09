@@ -15,7 +15,7 @@ const successStories = [
     role: 'SDE-II',
     company: 'Microsoft',
     salary: '32 LPA',
-    image: 'https://i.pravatar.cc/150?u=siddharth',
+    image: 'https://picsum.photos/seed/user1/150/150',
     text: "RK IT Hub's mentors provided the exact roadmap I needed to crack FAANG. The projects were industry-grade."
   },
   {
@@ -23,7 +23,7 @@ const successStories = [
     role: 'Cloud Architect',
     company: 'AWS',
     salary: '24 LPA',
-    image: 'https://i.pravatar.cc/150?u=anjali',
+    image: 'https://picsum.photos/seed/user2/150/150',
     text: "The placement support is unmatched. Multiple mock interviews and career coaching helped me land my dream role."
   },
   {
@@ -31,7 +31,7 @@ const successStories = [
     role: 'Frontend Engineer',
     company: 'Stripe',
     salary: '18 LPA',
-    image: 'https://i.pravatar.cc/150?u=rohit',
+    image: 'https://picsum.photos/seed/user3/150/150',
     text: "Learning the MERN stack through real-world projects made me confident during interviews. Best decision ever."
   }
 ];
@@ -71,9 +71,10 @@ export const PlacementsPage: React.FC = () => {
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="p-10 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all text-center"
             >
               <div className="w-14 h-14 bg-navy-900 text-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg">
@@ -107,12 +108,13 @@ export const PlacementsPage: React.FC = () => {
         
         <div className="grid md:grid-cols-3 gap-10">
           {successStories.map((story, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-sm flex flex-col hover:shadow-2xl transition-all"
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-sm flex flex-col hover:shadow-2xl transition-all"
             >
               <div className="flex items-center justify-between mb-10">
                 <div className="flex items-center gap-4">

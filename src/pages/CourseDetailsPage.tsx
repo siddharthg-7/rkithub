@@ -67,9 +67,9 @@ export const CourseDetailsPage: React.FC = () => {
             </div>
             
             <div className="flex flex-wrap gap-5">
-              <button className="px-10 py-4 bg-white text-navy-900 font-extrabold rounded-2xl shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2">
+              <Link to="/signup" className="px-10 py-4 bg-white text-navy-900 font-extrabold rounded-2xl shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2">
                 Enroll Now <ArrowRight size={18} />
-              </button>
+              </Link>
               <button className="px-10 py-4 bg-white/10 border border-white/10 text-white font-extrabold rounded-2xl hover:bg-white/20 transition-all flex items-center gap-2">
                 <Play className="text-blue-400" size={18} fill="currentColor" />
                 Watch Preview
@@ -112,7 +112,14 @@ export const CourseDetailsPage: React.FC = () => {
           <h2 className="text-4xl font-extrabold text-navy-900 tracking-tight mb-12">Curriculum Timeline</h2>
           <div className="space-y-4">
             {modules.map((module, i) => (
-              <div key={i} className="border border-slate-100 rounded-2xl overflow-hidden">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="border border-slate-100 rounded-2xl overflow-hidden"
+              >
                 <button 
                   onClick={() => setActiveModule(activeModule === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors"
@@ -144,14 +151,20 @@ export const CourseDetailsPage: React.FC = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         <div className="space-y-12">
           {/* Inquiry Form */}
-          <div className="bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-2xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-2xl"
+          >
             <h3 className="text-2xl font-extrabold text-navy-900 mb-8">Course Inquiry</h3>
             <form className="space-y-6">
               <div className="floating-label-group">
@@ -162,13 +175,19 @@ export const CourseDetailsPage: React.FC = () => {
                 <input type="email" id="inq-email" className="floating-label-input" placeholder=" " />
                 <label htmlFor="inq-email" className="floating-label">Email Address</label>
               </div>
-              <button className="btn-primary w-full shadow-navy-900/10">
+              <Link to="/signup" className="btn-primary w-full shadow-navy-900/10 flex justify-center mt-6">
                 Register Interest
-              </button>
+              </Link>
             </form>
-          </div>
+          </motion.div>
 
-          <div className="p-10 bg-slate-50 rounded-[2.5rem]">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="p-10 bg-slate-50 rounded-[2.5rem]"
+          >
             <h3 className="text-xl font-bold text-navy-900 mb-8">Placement Support</h3>
             <div className="space-y-6">
               {[
@@ -190,7 +209,7 @@ export const CourseDetailsPage: React.FC = () => {
                   <div className="font-black italic text-sm">AWS</div>
                </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -204,7 +223,14 @@ export const CourseDetailsPage: React.FC = () => {
               { title: 'FinTech Dashboard', tech: 'React, Node.js, SQL', diff: 'Medium' },
               { title: 'AI Recommendation Eng.', tech: 'Python, ML, Redis', diff: 'Expert' }
             ].map((p, i) => (
-              <div key={i} className="card-xl group hover:border-blue-600">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="card-xl group hover:border-blue-600"
+              >
                 <div className="w-12 h-12 bg-navy-900 text-white rounded-xl flex items-center justify-center mb-6">
                   <Code size={24} />
                 </div>
@@ -218,7 +244,7 @@ export const CourseDetailsPage: React.FC = () => {
                     Details
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

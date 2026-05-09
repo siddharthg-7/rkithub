@@ -33,6 +33,10 @@ export const SignupPage: React.FC = () => {
     setLoading(true);
     setError('');
     try {
+      if (role === 'admin' && email !== 'rkithub@gmail.com') {
+        throw new Error('Only authorized emails can register as Admin/Recruiter');
+      }
+
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 

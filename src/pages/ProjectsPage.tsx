@@ -7,7 +7,7 @@ const projects = [
     title: 'CloudScale CRM',
     student: 'Aravind K.',
     tech: ['React', 'AWS', 'Node.js', 'Redshift'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://picsum.photos/seed/project1/800/600',
     description: 'A high-concurrency CRM platform designed for enterprise scalability using microservices architecture.',
     stars: 124,
     difficulty: 'Expert'
@@ -16,7 +16,7 @@ const projects = [
     title: 'DeFi Wallet Connect',
     student: 'Priya S.',
     tech: ['TypeScript', 'Ethers.js', 'Solidity'],
-    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=800',
+    image: 'https://picsum.photos/seed/project2/800/600',
     description: 'Secure open-source wallet adapter supporting multiple chains and advanced gas optimization.',
     stars: 89,
     difficulty: 'Advanced'
@@ -25,7 +25,7 @@ const projects = [
     title: 'AI Content Guard',
     student: 'Samuel T.',
     tech: ['Python', 'PyTorch', 'FastAPI'],
-    image: 'https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=800',
+    image: 'https://picsum.photos/seed/project3/800/600',
     description: 'Real-time content moderation system using customized BERT models for toxic speech detection.',
     stars: 215,
     difficulty: 'Expert'
@@ -34,7 +34,7 @@ const projects = [
     title: 'PixelArt Engine',
     student: 'Meera R.',
     tech: ['Canvas API', 'Rust', 'Wasm'],
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://picsum.photos/seed/project4/800/600',
     description: 'High-performance pixel art creation engine compiled to WebAssembly for zero-latency editing.',
     stars: 56,
     difficulty: 'Intermediate'
@@ -72,9 +72,10 @@ export const ProjectsPage: React.FC = () => {
           {projects.map((project, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group"
             >
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-sm border border-slate-100 bg-white group-hover:shadow-2xl transition-all duration-500">
@@ -94,7 +95,7 @@ export const ProjectsPage: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-10">
+                <div className="p-8">
                   <div className="flex items-center justify-between mb-6">
                      <div className="flex flex-wrap gap-2">
                         {project.tech.map(t => (

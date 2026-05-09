@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sidebar } from '../components/Sidebar';
 import { 
@@ -12,15 +12,29 @@ import {
   Play
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
-
-const recentCourses = [
-  { id: 1, title: 'Mastering Advanced React Patterns', progress: 65, instructor: 'Sarah Jenkins', time: '2h 15m left' },
-  { id: 2, title: 'UI/UX Principles for Engineers', progress: 40, instructor: 'David Okafor', time: '5h 30m left' },
-  { id: 3, title: 'Cloud Infrastructure with AWS', progress: 10, instructor: 'Alex Chen', time: '12h left' }
-];
+import { db } from '../lib/firebase';
+import { collection, getDocs, query, limit, orderBy } from 'firebase/firestore';
 
 export const StudentDashboard: React.FC = () => {
   const { profile } = useAuth();
+  const [courses, setCourses] = useState<any[]>([]);
+
+  React.useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'), limit(3));
+        const snapshot = await getDocs(q);
+        const fetchedCourses: any[] = [];
+        snapshot.forEach(doc => {
+          fetchedCourses.push({ id: doc.id, ...doc.data() });
+        });
+        setCourses(fetchedCourses);
+      } catch (err) {
+        console.error("Failed to fetch courses", err);
+      }
+    };
+    fetchCourses();
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 flex font-sans">
@@ -77,7 +91,7 @@ export const StudentDashboard: React.FC = () => {
               <button className="text-sm font-bold text-navy-900 border-b border-transparent hover:border-navy-900 transition-all">View All</button>
             </div>
             <div className="space-y-6">
-              {recentCourses.map((course, i) => (
+              {courses.length > 0 ? courses.map((course, i) => (
                 <motion.div
                   key={course.id}
                   initial={{ opacity: 0, x: -10 }}
@@ -85,23 +99,27 @@ export const StudentDashboard: React.FC = () => {
                   transition={{ delay: 0.4 + i * 0.1 }}
                   className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex items-center gap-6 group hover:shadow-xl hover:shadow-slate-200/50 transition-all cursor-pointer"
                 >
-                  <div className="w-16 h-16 bg-slate-50 text-navy-900 rounded-2xl flex items-center justify-center group-hover:bg-navy-900 group-hover:text-white transition-all shadow-inner">
-                    <Play size={24} fill="currentColor" />
+                  <div className="w-16 h-16 bg-slate-50 text-navy-900 rounded-2xl flex items-center justify-center group-hover:bg-navy-900 group-hover:text-white transition-all shadow-inner overflow-hidden relative">
+                    {course.image ? <img src={course.image} className="w-full h-full object-cover opacity-50 mix-blend-multiply" alt="course" /> : <Play size={24} fill="currentColor" />}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-navy-900 leading-tight mb-2">{course.title}</h3>
                     <div className="flex items-center gap-4">
-                      <p className="text-xs font-bold text-slate-400 capitalize">{course.instructor}</p>
+                      <p className="text-xs font-bold text-slate-400 capitalize">{course.instructor || 'RK IT Hub'}</p>
                       <span className="w-1 h-1 bg-slate-200 rounded-full" />
-                      <p className="text-xs font-extrabold text-navy-900">{course.progress}% Completed</p>
+                      <p className="text-xs font-extrabold text-navy-900">0% Completed</p>
                     </div>
                     <div className="mt-5 w-full h-1.5 bg-slate-50 rounded-full overflow-hidden">
-                      <div className="h-full bg-navy-900 rounded-full shadow-sm" style={{ width: `${course.progress}%` }} />
+                      <div className="h-full bg-navy-900 rounded-full shadow-sm" style={{ width: `0%` }} />
                     </div>
                   </div>
                   <ChevronRight size={20} className="text-slate-300 group-hover:text-navy-900 group-hover:translate-x-1 transition-all mr-2" />
                 </motion.div>
-              ))}
+              )) : (
+                <div className="p-8 text-center bg-white border border-slate-100 rounded-2xl text-slate-500 font-medium">
+                  No recent courses available. Enroll in a course to get started!
+                </div>
+              )}
             </div>
           </div>
           

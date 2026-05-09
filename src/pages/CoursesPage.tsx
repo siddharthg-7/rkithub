@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Search, Filter, BookOpen, Clock, Users, Star, ArrowRight } from 'lucide-react';
+import { db } from '../lib/firebase';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
-const courses = [
+const initialCourses = [
   {
     slug: 'full-stack-development',
     title: 'Full Stack Development',
@@ -12,7 +14,7 @@ const courses = [
     level: 'Advanced',
     mentor: 'Arjun Reddy',
     projects: 12,
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600',
+    image: 'https://picsum.photos/seed/course1/600/400',
     category: 'Full Stack',
     badges: ['Placement Support', 'Live Projects']
   },
@@ -24,7 +26,7 @@ const courses = [
     level: 'Beginner',
     mentor: 'Suresh Kumar',
     projects: 8,
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600',
+    image: 'https://picsum.photos/seed/course2/600/400',
     category: 'Python',
     badges: ['Certification', 'Beginner Friendly']
   },
@@ -36,7 +38,7 @@ const courses = [
     level: 'Intermediate',
     mentor: 'Priya Sharma',
     projects: 6,
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600',
+    image: 'https://picsum.photos/seed/course3/600/400',
     category: 'Java',
     badges: ['Interview Prep', 'Problem Solving']
   },
@@ -48,7 +50,7 @@ const courses = [
     level: 'Advanced',
     mentor: 'Dr. Vivek Rao',
     projects: 5,
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600',
+    image: 'https://picsum.photos/seed/course4/600/400',
     category: 'AI/ML',
     badges: ['Deep Learning', 'PyTorch']
   },
@@ -60,13 +62,66 @@ const courses = [
     level: 'Intermediate',
     mentor: 'Neeta Reddy',
     projects: 10,
-    image: 'https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?auto=format&fit=crop&q=80&w=600',
+    image: 'https://picsum.photos/seed/course5/600/400',
     category: 'SDET',
     badges: ['Automation', 'QA Support']
   }
 ];
 
 export const CoursesPage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+  const [placementOnly, setPlacementOnly] = useState(false);
+  const [dbCourses, setDbCourses] = useState<any[]>([]);
+
+  React.useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const q = query(collection(db, 'courses'), orderBy('createdAt', 'desc'));
+        const snapshot = await getDocs(q);
+        const fetched: any[] = [];
+        snapshot.forEach(doc => {
+          fetched.push({ 
+            id: doc.id, 
+            badges: [], // Admin created courses won't have badges for now
+            duration: 'Flexible',
+            level: doc.data().difficulty,
+            mentor: doc.data().instructor,
+            ...doc.data() 
+          });
+        });
+        setDbCourses(fetched);
+      } catch (err) {
+        console.error("Failed to fetch courses", err);
+      }
+    };
+    fetchCourses();
+  }, []);
+
+  const allCourses = useMemo(() => {
+    return [...initialCourses, ...dbCourses];
+  }, [dbCourses]);
+
+  const toggleCategory = (cat: string) => {
+    setSelectedCategories(prev => prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]);
+  };
+
+  const toggleLevel = (level: string) => {
+    setSelectedLevels(prev => prev.includes(level) ? prev.filter(l => l !== level) : [...prev, level]);
+  };
+
+  const filteredCourses = useMemo(() => {
+    return allCourses.filter(course => {
+      const matchSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          course.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(course.category);
+      const matchLevel = selectedLevels.length === 0 || selectedLevels.includes(course.level);
+      const matchPlacement = !placementOnly || course.badges.includes('Placement Support');
+      return matchSearch && matchCategory && matchLevel && matchPlacement;
+    });
+  }, [searchTerm, selectedCategories, selectedLevels, placementOnly]);
+
   return (
     <div className="min-h-screen bg-white font-sans">
       
@@ -96,7 +151,12 @@ export const CoursesPage: React.FC = () => {
             <div className="space-y-3">
               {['Full Stack', 'Python', 'Java', 'AI/ML', 'SDET'].map((cat) => (
                 <label key={cat} className="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" className="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                  <input 
+                    type="checkbox" 
+                    className="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500" 
+                    checked={selectedCategories.includes(cat)}
+                    onChange={() => toggleCategory(cat)}
+                  />
                   <span className="text-slate-600 font-medium group-hover:text-navy-900 transition-colors">{cat}</span>
                 </label>
               ))}
@@ -108,7 +168,12 @@ export const CoursesPage: React.FC = () => {
             <div className="space-y-3">
               {['Beginner', 'Intermediate', 'Advanced'].map((level) => (
                 <label key={level} className="flex items-center gap-3 cursor-pointer group">
-                  <input type="checkbox" className="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                  <input 
+                    type="checkbox" 
+                    className="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500" 
+                    checked={selectedLevels.includes(level)}
+                    onChange={() => toggleLevel(level)}
+                  />
                   <span className="text-slate-600 font-medium group-hover:text-navy-900 transition-colors">{level}</span>
                 </label>
               ))}
@@ -118,7 +183,12 @@ export const CoursesPage: React.FC = () => {
           <div className="pt-6 border-t border-slate-100">
             <label className="flex items-center justify-between cursor-pointer group">
               <span className="font-bold text-navy-900">Placement Support</span>
-              <input type="checkbox" className="w-10 h-5 bg-slate-200 rounded-full appearance-none checked:bg-blue-600 transition-colors relative" />
+              <input 
+                type="checkbox" 
+                className="w-10 h-5 bg-slate-200 rounded-full appearance-none checked:bg-blue-600 transition-colors relative" 
+                checked={placementOnly}
+                onChange={(e) => setPlacementOnly(e.target.checked)}
+              />
             </label>
           </div>
         </aside>
@@ -132,6 +202,8 @@ export const CoursesPage: React.FC = () => {
               className="floating-label-input" 
               placeholder="Search courses..." 
               id="course-search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <label htmlFor="course-search" className="floating-label">Search for courses, skills, or mentors</label>
             <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
@@ -139,13 +211,15 @@ export const CoursesPage: React.FC = () => {
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 gap-8">
-            {courses.map((course, i) => (
+            {filteredCourses.length > 0 ? (
+              filteredCourses.map((course, i) => (
               <motion.div
                 key={course.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all group flex flex-col"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all group flex flex-col"
               >
                 <div className="h-48 overflow-hidden relative">
                   <img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -180,7 +254,7 @@ export const CoursesPage: React.FC = () => {
                       <span className="text-xs font-bold text-navy-900">{course.mentor}</span>
                     </div>
                     <Link 
-                      to={`/courses/${course.slug}`}
+                      to="/signup"
                       className="text-sm font-bold text-navy-900 flex items-center gap-2 hover:gap-3 transition-all"
                     >
                       Enroll <ArrowRight size={16} />
@@ -188,7 +262,12 @@ export const CoursesPage: React.FC = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              ))
+            ) : (
+              <div className="col-span-2 py-20 text-center text-slate-500 font-medium">
+                No courses found matching your criteria.
+              </div>
+            )}
           </div>
         </div>
       </div>

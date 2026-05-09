@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { LogOut, LayoutDashboard, Settings, User, ShieldCheck, BookOpen } from 'lucide-react';
+import { LogOut, LayoutDashboard, Settings, User, ShieldCheck, BookOpen, MessageSquare, FolderPlus, Bell } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { auth } from '../lib/firebase';
 
@@ -11,13 +11,16 @@ export const Sidebar: React.FC = () => {
 
   const navItems = [
     { label: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
+    { label: 'Notifications', icon: Bell, path: '/notifications' },
     { label: 'Profile', icon: User, path: '/profile' },
     { label: 'Settings', icon: Settings, path: '/settings' },
   ];
 
-  if (isAdmin) {
-    navItems.push({ label: 'Admin Panel', icon: ShieldCheck, path: '/admin' });
-  }
+  const adminNavItems = [
+    { label: 'Admin Panel', icon: ShieldCheck, path: '/admin' },
+    { label: 'Manage Courses', icon: FolderPlus, path: '/admin/courses' },
+    { label: 'Send Broadcast', icon: MessageSquare, path: '/admin/notifications' },
+  ];
 
   return (
     <div className="w-64 bg-navy-900 text-white h-screen fixed left-0 top-0 hidden md:flex flex-col border-r border-white/10 shadow-2xl z-40">
@@ -56,6 +59,35 @@ export const Sidebar: React.FC = () => {
             </Link>
           );
         })}
+        {isAdmin && (
+          <>
+            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-4 mt-8 mb-4">Administration</div>
+            {adminNavItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all relative group ${
+                    isActive 
+                      ? 'bg-white/10 text-white shadow-xl shadow-black/20 border border-white/5' 
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div 
+                      layoutId="active-sidebar"
+                      className="absolute left-0 w-1 h-6 bg-white rounded-r-full"
+                    />
+                  )}
+                  <Icon size={20} className={isActive ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'} />
+                  <span className="font-bold text-sm tracking-tight">{item.label}</span>
+                </Link>
+              );
+            })}
+          </>
+        )}
       </nav>
 
       <div className="p-6">
