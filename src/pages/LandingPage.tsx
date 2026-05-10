@@ -1,26 +1,24 @@
 import React from 'react';
-import { CoverflowHero } from '../components/CoverflowHero';
-import { WhyStruggle } from '../components/WhyStruggle';
-import { Trainings } from '../components/Trainings';
-import { Placements } from '../components/Placements';
-import { Clients } from '../components/Clients';
-import { SuccessStories } from '../components/SuccessStories';
-import { AboutUs } from '../components/AboutUs';
-import { CTABanner } from '../components/CTABanner';
-import { Contact } from '../components/Contact';
+import { CorporateHero } from '../components/CorporateHero';
+import { LiveBatchStrip } from '../components/LiveBatchStrip';
+import { TrainingModes } from '../components/TrainingModes';
+import { PopularCourses } from '../components/PopularCourses';
+import { WhyChoose } from '../components/WhyChoose';
+import { Testimonials } from '../components/Testimonials';
+import { AboutSection } from '../components/AboutSection';
+import { ContactSection } from '../components/ContactSection';
 
 export const LandingPage = () => {
   return (
     <div className="relative">
-      <CoverflowHero />
-      <WhyStruggle />
-      <Trainings />
-      <Placements />
-      <Clients />
-      <SuccessStories />
-      <AboutUs />
-      <CTABanner />
-      <Contact />
+      <CorporateHero />
+      <LiveBatchStrip />
+      <TrainingModes />
+      <PopularCourses />
+      <WhyChoose />
+      <Testimonials />
+      <AboutSection />
+      <ContactSection />
     </div>
   );
 };
