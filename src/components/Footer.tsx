@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -13,10 +13,7 @@ export const Footer = () => {
           {/* Brand Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4 group">
-              <div className="w-9 h-9 bg-yellow-500 rounded-lg flex items-center justify-center shadow-md">
-                <GraduationCap className="w-5 h-5 text-[#06152D]" />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-white">V-HUB</span>
+              <img src="/logo.png" alt="RK IT Training HUB" className="h-14 w-auto object-contain" />
             </Link>
             <p className="text-white/60 font-medium text-sm leading-relaxed mb-6 max-w-sm">
               Empowering students with industry-ready skills and placement-focused learning. Join us to accelerate your tech career.
@@ -48,7 +45,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-4">Trainings</h4>
             <ul className="space-y-3">
-              {['Full Stack Dev', 'Python Pro', 'AI & Data Science', 'Software Testing', 'UI/UX Design'].map((item) => (
+              {['Java Development', 'Full Stack Dev', 'Python Pro', 'Testing Tools', 'Selenium', 'Digital Marketing'].map((item) => (
                 <li key={item}>
                   <Link to="/" className="text-sm font-medium text-white/70 hover:text-white hover:underline transition-all">
                     {item}
@@ -64,15 +61,15 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-white/70">
                 <Phone className="w-4 h-4 text-yellow-500" />
-                <span>+91 98765 43210</span>
+                <span>+91-9000926486</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-white/70">
                 <Mail className="w-4 h-4 text-yellow-500" />
-                <span>info@rkithub.com</span>
+                <span>rrkithub@gmail.com</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin className="w-4 h-4 text-yellow-500 mt-0.5" />
-                <span>Hitech City, Hyderabad</span>
+                <span>Kondapur, Hitech City</span>
               </li>
             </ul>
           </div>
@@ -81,7 +78,7 @@ export const Footer = () => {
 
         {/* Bottom Row */}
         <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40">
-          <div>© {new Date().getFullYear()} V-HUB. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} RK IT Training HUB. All rights reserved.</div>
           <div className="flex gap-6">
             <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/" className="hover:text-white transition-colors">Terms & Conditions</Link>

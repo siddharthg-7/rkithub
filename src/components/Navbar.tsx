@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { GraduationCap, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,10 +20,7 @@ export const Navbar = () => {
     <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-lg border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full px-6 py-3 w-[92%] max-w-6xl flex justify-between items-center transition-all">
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2 group">
-        <div className="w-9 h-9 bg-[#06152D] rounded-lg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-          <GraduationCap className="w-5 h-5 text-yellow-500" />
-        </div>
-        <span className="text-lg font-bold tracking-tight text-[#06152D]">RKITHUB</span>
+        <img src="/logo.png" alt="RK IT Training HUB" className="h-14 w-auto object-contain" />
       </Link>
 
       {/* Center Routes */}
