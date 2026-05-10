@@ -153,6 +153,12 @@ export const Placements = () => {
               </motion.div>
             ))}
           </div>
+          
+          <div className="text-center mt-12">
+            <a href="#success-stories" className="inline-flex items-center gap-2 bg-[#06152D] text-white px-6 py-3 rounded-lg font-bold hover:bg-yellow-500 hover:text-[#06152D] transition-all">
+              View More Success Stories
+            </a>
+          </div>
         </div>
 
       </div>

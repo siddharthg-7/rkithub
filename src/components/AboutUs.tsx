@@ -4,8 +4,8 @@ import { Target, Compass, History, Users, CheckCircle2 } from 'lucide-react';
 
 export const AboutUs = () => {
   const blocks = [
-    { icon: Target, title: 'Our Vision', desc: 'To be the leading training platform that empowers every student with industry-ready skills.' },
-    { icon: Compass, title: 'Our Mission', desc: 'To bridge the gap between academic education and industry requirements through practical training.' }
+    { icon: Target, title: 'Our Vision', desc: 'To empower B.E/B.Tech, M.C.A, and M.Tech students with industry-oriented training and software job-focused courses.' },
+    { icon: Compass, title: 'Our Mission', desc: 'To bridge the gap between academic learning and industry requirements by providing software job-oriented training.' }
   ];
 
   const points = [
@@ -50,7 +50,7 @@ export const AboutUs = () => {
           >
             <h3 className="text-2xl font-bold text-[#06152D] mb-6">Building the Future of Tech Education</h3>
             <p className="text-slate-600 font-medium text-[15px] leading-relaxed mb-8">
-              Founded by industry veterans, V-HUB is dedicated to transforming how students prepare for tech careers. We don't just teach theory; we build practical skills through real-world projects and mentorship.
+              Since its inception in 2015, RK IT Training HUB has been at the forefront of delivering exceptional technical education and IT services. Our mission is to empower individuals and organizations by providing innovative, tailored solutions that align with the ever-changing demands of the IT industry.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
@@ -102,8 +102,8 @@ export const AboutUs = () => {
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-lg font-bold">50+</div>
-                <div className="text-xs font-medium text-slate-500">Expert Mentors</div>
+                <div className="text-lg font-bold">10+</div>
+                <div className="text-xs font-medium text-slate-500">Expert Trainers</div>
               </div>
             </motion.div>
 
@@ -116,7 +116,7 @@ export const AboutUs = () => {
                 <History className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-lg font-bold">5+ Years</div>
+                <div className="text-lg font-bold">11+ Years</div>
                 <div className="text-xs font-medium text-white/50">Of Excellence</div>
               </div>
             </motion.div>

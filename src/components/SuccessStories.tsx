@@ -31,7 +31,7 @@ export const SuccessStories = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#FAFAFA] relative overflow-hidden font-sans">
+    <section id="success-stories" className="py-24 bg-[#FAFAFA] relative overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Header */}
