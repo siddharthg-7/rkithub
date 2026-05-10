@@ -21,11 +21,7 @@ export const CoverflowHero = () => {
   return (
     <section className="hero bg-[#020617] text-white overflow-hidden min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
       <div className="text-center max-w-4xl mx-auto px-6 mb-12">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border border-blue-800/50 px-4 py-1.5 rounded-full mb-6">
-          <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse" />
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">RKITHUB Platform</span>
-        </div>
+
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-6">
           RK IT Training HUB<br />
