@@ -95,12 +95,18 @@ export const Contact = () => {
         </div>
 
         {/* Map Placeholder */}
-        <div className="mt-16 bg-[#FAFAFA] h-[300px] rounded-3xl border border-slate-100 flex items-center justify-center text-slate-400 font-medium">
+        <a 
+          href="https://maps.app.goo.gl/cRHJ1JJEns7B8pce9" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mt-16 bg-[#FAFAFA] h-[300px] rounded-3xl border border-slate-100 flex flex-col items-center justify-center text-slate-600 font-medium hover:border-yellow-500 transition-colors group"
+        >
           <div className="text-center">
-            <MapPin className="w-8 h-8 mx-auto mb-2 text-slate-300" />
-            Interactive Map Placeholder
+            <MapPin className="w-8 h-8 mx-auto mb-2 text-yellow-500 group-hover:scale-110 transition-transform" />
+            <div className="text-lg font-bold text-[#06152D] mb-1">View Location on Google Maps</div>
+            <p className="text-sm text-slate-500">Click to open map in a new tab</p>
           </div>
-        </div>
+        </a>
 
       </div>
     </section>

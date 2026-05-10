@@ -19,7 +19,11 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/80 backdrop-blur-lg border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full px-6 py-3 w-[92%] max-w-6xl flex justify-between items-center transition-all">
       {/* Logo */}
-      <Link to="/" className="flex items-center gap-2 group">
+      <Link 
+        to="/" 
+        className="flex items-center gap-2 group"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
         <img src="/logo.png" alt="RK IT Training HUB" className="h-14 w-auto object-contain" />
       </Link>
 
