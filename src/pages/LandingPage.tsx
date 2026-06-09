@@ -1,6 +1,7 @@
 import React from 'react';
 import { CorporateHero } from '../components/CorporateHero';
 import { StatsSection } from '../components/StatsSection';
+import { LiveBatchStrip } from '../components/LiveBatchStrip';
 import { TrainingModes } from '../components/TrainingModes';
 import { PopularCourses } from '../components/PopularCourses';
 import { WhyChoose } from '../components/WhyChoose';
@@ -19,8 +20,11 @@ export const LandingPage = () => {
         
         {/* 2. Stats Bar */}
         <StatsSection />
-        
-        {/* 3. Training Modes */}
+
+        {/* 3. Live Placement Announcements */}
+        <LiveBatchStrip />
+
+        {/* 4. Training Modes */}
         <TrainingModes />
 
         {/* 4. Popular Courses */}
