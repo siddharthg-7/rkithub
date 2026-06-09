@@ -1,66 +1,96 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Amit Kumar',
-      role: 'Java Developer',
-      company: 'TCS',
-      review: 'The Java Full Stack course was excellent. The trainer had deep knowledge and the real-time projects helped me clear my interviews with confidence.',
-      avatar: 'AK',
-    },
-    {
-      name: 'Priya Sharma',
-      role: 'Python Developer',
+      name: 'Rohit Kumar',
+      course: 'Java Full Stack',
       company: 'Infosys',
-      review: 'I joined the Python course with no coding background. The step-by-step approach and patience of the trainer made it easy for me to learn.',
-      avatar: 'PS',
+      review: 'The Java Full Stack course was excellent. The trainer had deep knowledge and the real-time projects helped me clear my interviews with confidence.',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
     },
     {
-      name: 'Rahul Verma',
-      role: 'MERN Stack Developer',
+      name: 'Neha Patel',
+      course: 'Python Full Stack',
+      company: 'TCS',
+      review: 'I joined the Python course with no coding background. The step-by-step approach and patience of the trainer made it easy for me to learn.',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
+    },
+    {
+      name: 'Vikram Reddy',
+      course: 'MERN Stack',
       company: 'Wipro',
       review: 'Great place to learn web development. The placement assistance is real, they helped me prepare my resume and scheduled interviews.',
-      avatar: 'RV',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
     },
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-[#07294D] font-sans">What Our Students Say</h2>
-          <p className="text-gray-600 mt-2 font-sans">Hear from our successfully placed students.</p>
-        </div>
+    <div id="testimonials" className="flex flex-col h-full w-full pr-0 lg:pr-8">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.8 }}
+        className="text-[20px] font-[800] text-[#0F172A] mb-6"
+      >
+        What Our Students Say
+      </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="relative w-full">
+        <button className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-500 shadow-md hover:text-[#0B4F9C] hover:border-[#0B4F9C] z-10 transition-colors">
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+        
+        <button className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-500 shadow-md hover:text-[#0B4F9C] hover:border-[#0B4F9C] z-10 transition-colors">
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((testimonial, i) => (
-            <div key={i} className="bg-white border border-gray-100 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              key={i} 
+              className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex flex-col relative group hover:shadow-md transition-all duration-300"
+            >
+              <div className="text-[#0B4F9C] text-3xl font-serif leading-none mb-2 opacity-50">"</div>
+              
               {/* Stars */}
-              <div className="flex gap-1 mb-4 text-yellow-500">
+              <div className="flex gap-0.5 mb-3 text-[#EAB308]">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-current" />
+                  <Star key={j} className="w-3 h-3 fill-current" />
                 ))}
               </div>
 
-              {/* Review */}
-              <p className="text-gray-600 text-sm mb-6 font-sans flex-grow">"{testimonial.review}"</p>
+              {/* Review Text */}
+              <p className="text-[#475569] text-[11px] leading-relaxed mb-6 flex-grow font-[500]">
+                {testimonial.review}
+              </p>
 
-              {/* Student Info */}
-              <div className="flex items-center gap-4 border-t border-gray-50 pt-4 mt-auto">
-                <div className="w-10 h-10 bg-blue-50 text-[#07294D] rounded-full flex items-center justify-center font-bold text-sm">
-                  {testimonial.avatar}
-                </div>
+              {/* Student Details */}
+              <div className="mt-auto flex items-center gap-3">
+                <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full object-cover" />
                 <div>
-                  <h4 className="font-bold text-gray-800 text-sm">{testimonial.name}</h4>
-                  <p className="text-xs text-gray-500">{testimonial.role} at <span className="font-semibold text-[#07294D]">{testimonial.company}</span></p>
+                  <h4 className="font-[800] text-[#0F172A] text-[12px] leading-tight mb-0.5">{testimonial.name}</h4>
+                  <p className="text-[10px] text-[#64748B] font-[600] leading-tight">{testimonial.course}</p>
+                  <p className="text-[10px] text-[#64748B] font-[600] leading-tight">Placed at {testimonial.company}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
+        
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          <div className="w-2 h-2 rounded-full bg-[#0B4F9C]"></div>
+          <div className="w-2 h-2 rounded-full bg-gray-200"></div>
+          <div className="w-2 h-2 rounded-full bg-gray-200"></div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };

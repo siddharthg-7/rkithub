@@ -1,32 +1,23 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone, BookOpen, Users, Briefcase, Award } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export const CorporateHero = () => {
   return (
-    <div className="relative w-full min-h-[600px] h-auto py-16 lg:py-0 overflow-hidden">
+    <div className="relative w-full h-[600px] overflow-hidden">
       {/* Background Image with Overlay */}
-      <motion.div 
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+      <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/hero_classroom.png')" }}
       >
         <div className="absolute inset-0 bg-[#07294D]/85 mix-blend-multiply"></div>
-      </motion.div>
+      </div>
 
       {/* Content Container */}
-      <div className="relative max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center mt-8 lg:mt-0">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
           
           {/* Left Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="lg:col-span-7 text-white space-y-6 pt-12 lg:pt-0"
-          >
+          <div className="lg:col-span-7 text-white space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold font-sans leading-tight">
               Build Your Career with Industry-Focused IT Training
             </h1>
@@ -34,25 +25,20 @@ export const CorporateHero = () => {
               Master Full Stack Development, AI & ML, Data Science, and Automation Testing through practical learning and real-time projects.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
-              <a href="#contact" className="bg-[#22C55E] hover:bg-[#16A34A] text-white px-6 py-3 rounded-md font-bold text-base transition-colors flex items-center gap-2 shadow-lg shadow-green-900/20">
+              <button className="bg-[#22C55E] hover:bg-[#16A34A] text-white px-6 py-3 rounded-md font-bold text-base transition-colors flex items-center gap-2 shadow-lg shadow-green-900/20">
                 <Phone className="w-5 h-5" />
                 Talk To Counselor
-              </a>
-              <a href="#courses" className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 py-3 rounded-md font-bold text-base transition-colors flex items-center gap-2">
+              </button>
+              <button className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-6 py-3 rounded-md font-bold text-base transition-colors flex items-center gap-2">
                 <BookOpen className="w-5 h-5" />
                 Explore Courses
-              </a>
+              </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Content - Achievement Badge/Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end pb-8 lg:pb-0"
-          >
-            <div className="bg-white rounded-lg p-8 shadow-xl max-w-sm w-full space-y-6 relative z-10">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="bg-white rounded-lg p-8 shadow-xl max-w-sm w-full space-y-6">
               <h3 className="text-[#07294D] text-xl font-bold border-b pb-3 border-gray-100">
                 Why RK IT Hub?
               </h3>
@@ -89,7 +75,7 @@ export const CorporateHero = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

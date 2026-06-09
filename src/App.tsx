@@ -6,12 +6,7 @@ import { LandingPage } from './pages/LandingPage';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
-import { CoursesPage } from './pages/CoursesPage';
 import { CourseDetailsPage } from './pages/CourseDetailsPage';
-import { PlacementsPage } from './pages/PlacementsPage';
-import { ProjectsPage } from './pages/ProjectsPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
 import { StudentDashboard } from './pages/StudentDashboard';
 import { ProfilePage } from './pages/ProfilePage';
 import { SettingsPage } from './pages/SettingsPage';
@@ -22,10 +17,12 @@ import { AdminNotificationsPage } from './pages/AdminNotificationsPage';
 import { PublicLayout } from './components/PublicLayout';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
   return null;
 }
 
@@ -41,12 +38,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:slug" element={<CourseDetailsPage />} />
-            <Route path="/placements" element={<PlacementsPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
           </Route>
 
           {/* Protected Student Routes */}

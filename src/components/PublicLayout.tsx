@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { WhatsAppButton } from './WhatsAppButton';
+import { GoogleReviewButton } from './GoogleReviewButton';
 
 export const PublicLayout = () => {
   return (
@@ -13,6 +14,7 @@ export const PublicLayout = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <GoogleReviewButton />
     </div>
   );
 };
