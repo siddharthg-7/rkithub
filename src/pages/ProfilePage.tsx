@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from '../components/Sidebar';
 import { useAuth } from '../contexts/AuthContext';
 import { doc, updateDoc } from 'firebase/firestore';
@@ -12,6 +12,18 @@ export const ProfilePage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  // Keep local name in sync when profile loads from context
+  useEffect(() => {
+    if (profile?.name) setName(profile.name);
+  }, [profile?.name]);
+
+  // Auto-clear success message after 3 seconds
+  useEffect(() => {
+    if (!success) return;
+    const timer = setTimeout(() => setSuccess(''), 3000);
+    return () => clearTimeout(timer);
+  }, [success]);
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,11 +72,11 @@ export const ProfilePage: React.FC = () => {
 
             <div className="flex items-center gap-6 mb-8">
               <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-blue-600/20">
-                {profile?.name.charAt(0)}
+                {profile?.name?.charAt(0) ?? '?'}
               </div>
               <div>
-                <p className="text-xl font-bold text-navy-900">{profile?.name}</p>
-                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">{profile?.role}</p>
+                <p className="text-xl font-bold text-navy-900">{profile?.name ?? ''}</p>
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">{profile?.role ?? ''}</p>
               </div>
             </div>
 

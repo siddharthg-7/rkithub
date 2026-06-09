@@ -18,6 +18,7 @@ import { collection, getDocs, query, limit, orderBy } from 'firebase/firestore';
 export const StudentDashboard: React.FC = () => {
   const { profile } = useAuth();
   const [courses, setCourses] = useState<any[]>([]);
+  const [coursesLoading, setCoursesLoading] = useState(true);
 
   React.useEffect(() => {
     const fetchCourses = async () => {
@@ -31,6 +32,8 @@ export const StudentDashboard: React.FC = () => {
         setCourses(fetchedCourses);
       } catch (err) {
         console.error("Failed to fetch courses", err);
+      } finally {
+        setCoursesLoading(false);
       }
     };
     fetchCourses();
@@ -42,7 +45,7 @@ export const StudentDashboard: React.FC = () => {
       <main className="flex-1 md:ml-64 p-10">
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-8">
           <div>
-            <h1 className="text-4xl font-extrabold text-navy-900 tracking-tight">Good Morning, {profile?.name.split(' ')[0]} 👋</h1>
+            <h1 className="text-4xl font-extrabold text-navy-900 tracking-tight">Good Morning, {profile?.name?.split(' ')[0] ?? 'there'} 👋</h1>
             <p className="text-slate-500 font-medium text-lg mt-2">Continue your learning journey where you left off.</p>
           </div>
           <div className="flex items-center gap-4 w-full md:w-auto">
@@ -91,7 +94,11 @@ export const StudentDashboard: React.FC = () => {
               <button className="text-sm font-bold text-navy-900 border-b border-transparent hover:border-navy-900 transition-all">View All</button>
             </div>
             <div className="space-y-6">
-              {courses.length > 0 ? courses.map((course, i) => (
+              {coursesLoading ? (
+                <div className="flex justify-center p-12">
+                  <div className="w-8 h-8 border-4 border-navy-900/20 border-t-navy-900 rounded-full animate-spin" />
+                </div>
+              ) : courses.length > 0 ? courses.map((course, i) => (
                 <motion.div
                   key={course.id}
                   initial={{ opacity: 0, x: -10 }}

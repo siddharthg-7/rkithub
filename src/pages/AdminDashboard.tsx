@@ -23,13 +23,18 @@ export const AdminDashboard: React.FC = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const querySnapshot = await getDocs(collection(db, 'users'));
-      const userData: UserProfile[] = [];
-      querySnapshot.forEach((doc) => {
-        userData.push(doc.data() as UserProfile);
-      });
-      setUsers(userData);
-      setLoading(false);
+      try {
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        const userData: UserProfile[] = [];
+        querySnapshot.forEach((doc) => {
+          userData.push(doc.data() as UserProfile);
+        });
+        setUsers(userData);
+      } catch (err) {
+        console.error('Failed to fetch users', err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchUsers();

@@ -9,6 +9,14 @@ export const Sidebar: React.FC = () => {
   const { profile, isAdmin } = useAuth();
   const location = useLocation();
 
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+    } catch (err) {
+      console.error('Sign out failed', err);
+    }
+  };
+
   const navItems = [
     { label: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
     { label: 'Notifications', icon: Bell, path: '/notifications' },
@@ -94,15 +102,15 @@ export const Sidebar: React.FC = () => {
         <div className="bg-white/5 border border-white/10 rounded-2xl p-4 mb-4 backdrop-blur-md">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-navy-700 to-navy-800 border border-white/20 flex items-center justify-center text-white font-bold text-lg">
-              {profile?.name.charAt(0)}
+              {profile?.name?.charAt(0) ?? '?'}
             </div>
             <div className="overflow-hidden">
-              <p className="text-sm font-bold truncate text-white">{profile?.name}</p>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{profile?.role}</p>
+              <p className="text-sm font-bold truncate text-white">{profile?.name ?? ''}</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">{profile?.role ?? ''}</p>
             </div>
           </div>
           <button
-            onClick={() => auth.signOut()}
+            onClick={handleSignOut}
             className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-black bg-white font-bold text-xs hover:bg-slate-100 transition-all shadow-lg"
           >
             <LogOut size={14} />

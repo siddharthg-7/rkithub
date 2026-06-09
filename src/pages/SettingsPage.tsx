@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from '../components/Sidebar';
 import { useAuth } from '../contexts/AuthContext';
 import { updatePassword } from 'firebase/auth';
@@ -14,6 +14,13 @@ export const SettingsPage: React.FC = () => {
   // Mock settings state
   const [notifications, setNotifications] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
+
+  // Auto-clear success message after 3 seconds
+  useEffect(() => {
+    if (!success) return;
+    const timer = setTimeout(() => setSuccess(''), 3000);
+    return () => clearTimeout(timer);
+  }, [success]);
 
   const handleUpdatePassword = async (e: React.FormEvent) => {
     e.preventDefault();
