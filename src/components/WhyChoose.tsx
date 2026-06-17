@@ -35,7 +35,7 @@ export const WhyChoose = () => {
         >
           <div className="rounded-xl overflow-hidden shadow-md bg-white w-full h-[220px]">
             <img
-              src="/assets/7.png"
+              src="/assets/rkithub-1.png"
               alt="Classroom Training"
               className="w-full h-full object-cover"
             />
