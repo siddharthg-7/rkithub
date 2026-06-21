@@ -18,37 +18,41 @@ export const ContactSection = () => {
           <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
             <h3 className="text-xl font-[800] text-[#0F172A] mb-6">Send Us a Message</h3>
             <form className="space-y-4">
-              <div className="space-y-1.5">
-                <label className="block text-[13px] font-[700] text-[#0F172A]">Full Name</label>
+              <div className="floating-label-group">
                 <input 
                   type="text" 
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B4F9C]/20 focus:border-[#0B4F9C] transition-all text-[14px] text-[#0F172A]" 
-                  placeholder="John Doe" 
+                  id="contact-name"
+                  className="floating-label-input" 
+                  placeholder=" " 
                 />
+                <label htmlFor="contact-name" className="floating-label">Full Name</label>
               </div>
-              <div className="space-y-1.5">
-                <label className="block text-[13px] font-[700] text-[#0F172A]">Email Address</label>
+              <div className="floating-label-group">
                 <input 
                   type="email" 
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B4F9C]/20 focus:border-[#0B4F9C] transition-all text-[14px] text-[#0F172A]" 
-                  placeholder="john@example.com" 
+                  id="contact-email"
+                  className="floating-label-input" 
+                  placeholder=" " 
                 />
+                <label htmlFor="contact-email" className="floating-label">Email Address</label>
               </div>
-              <div className="space-y-1.5">
-                <label className="block text-[13px] font-[700] text-[#0F172A]">Phone Number</label>
+              <div className="floating-label-group">
                 <input 
                   type="tel" 
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B4F9C]/20 focus:border-[#0B4F9C] transition-all text-[14px] text-[#0F172A]" 
-                  placeholder="+91 XXXXX XXXXX" 
+                  id="contact-phone"
+                  className="floating-label-input" 
+                  placeholder=" " 
                 />
+                <label htmlFor="contact-phone" className="floating-label">Phone Number</label>
               </div>
-              <div className="space-y-1.5">
-                <label className="block text-[13px] font-[700] text-[#0F172A]">Your Message</label>
+              <div className="floating-label-group">
                 <textarea 
+                  id="contact-message"
                   rows={4} 
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0B4F9C]/20 focus:border-[#0B4F9C] transition-all text-[14px] text-[#0F172A] resize-none" 
-                  placeholder="How can we help you today?"
+                  className="floating-label-input resize-none" 
+                  placeholder=" "
                 ></textarea>
+                <label htmlFor="contact-message" className="floating-label">Your Message</label>
               </div>
               <div className="pt-2">
                 <button 
@@ -70,7 +74,12 @@ export const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-[800] text-[#0F172A] text-[15px] mb-1">Our Location</h4>
-                <p className="text-[#475569] text-[13px] leading-relaxed font-medium">Plot No. 12, Above HDFC Bank, Kondapur, Hitech City, Hyderabad - 500084</p>
+                <p className="text-[#475569] text-[13px] leading-relaxed font-medium">
+                  Hive Space 2.0, Whitefield<br/>
+                  Ramalayam Temple Road<br/>
+                  HITECH City, Hyderabad TG-500084<br/>
+                  (partnered with V-Hub)
+                </p>
               </div>
             </div>
 

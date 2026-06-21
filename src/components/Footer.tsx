@@ -75,7 +75,12 @@ export const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">
                   <MapPin className="w-4 h-4 text-[#22C55E] group-hover:text-white" />
                 </div>
-                <span className="text-[15px] text-gray-400 leading-relaxed pt-1">Plot No. 12, Above HDFC Bank, Kondapur, Hyderabad - 500084</span>
+                <span className="text-[15px] text-gray-400 leading-relaxed pt-1">
+                  Hive Space 2.0, Whitefield<br/>
+                  Ramalayam Temple Road<br/>
+                  HITECH City, Hyderabad TG-500084<br/>
+                  (partnered with V-Hub)
+                </span>
               </li>
               <li className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">

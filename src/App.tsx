@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LandingPage } from './pages/LandingPage';
@@ -15,6 +15,8 @@ import { AdminDashboard } from './pages/AdminDashboard';
 import { AdminCoursesPage } from './pages/AdminCoursesPage';
 import { AdminNotificationsPage } from './pages/AdminNotificationsPage';
 import { PublicLayout } from './components/PublicLayout';
+
+import { InternshipsPage } from './pages/InternshipsPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -39,6 +41,7 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/courses/:slug" element={<CourseDetailsPage />} />
+            <Route path="/internships" element={<InternshipsPage />} />
           </Route>
 
           {/* Protected Student Routes */}

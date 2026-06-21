@@ -64,19 +64,18 @@ export const ForgotPasswordPage: React.FC = () => {
                 <p>{error}</p>
               </div>
             )}
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-navy-900 ml-2">Email Address</label>
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-navy-900/10 focus:bg-white transition-all font-medium text-navy-900"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
+            <div className="floating-label-group">
+              <input
+                type="email"
+                id="reset-email"
+                className="floating-label-input"
+                placeholder=" "
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <label htmlFor="reset-email" className="floating-label">Email Address</label>
+              <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
             </div>
             <button
               type="submit"

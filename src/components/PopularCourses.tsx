@@ -33,13 +33,40 @@ export const PopularCourses = () => {
       icon: Database
     },
     {
-      title: 'Data Science & AI',
-      description: 'Learn Data Analysis, Machine Learning, and AI with real-time projects.',
-      technologies: ['Python', 'ML', 'AI'],
+      title: 'Data Science',
+      description: 'Learn Data Analysis, Machine Learning, and statistics with real-time projects.',
+      technologies: ['Python', 'Data Analysis', 'Stats'],
       duration: '6 Months',
       path: '/courses/data-science',
       featured: false,
       icon: Search
+    },
+    {
+      title: 'AI & ML',
+      description: 'Build intelligent systems, neural networks, and deep learning models.',
+      technologies: ['AI', 'Deep Learning', 'PyTorch'],
+      duration: '6 Months',
+      path: '/courses/ai-ml',
+      featured: false,
+      icon: Search
+    },
+    {
+      title: 'Selenium',
+      description: 'Automate web testing seamlessly and ensure software quality.',
+      technologies: ['Selenium', 'Automation', 'Java'],
+      duration: '2 Months',
+      path: '/courses/selenium',
+      featured: false,
+      icon: Layout
+    },
+    {
+      title: 'Cypress',
+      description: 'Modern front-end testing for the modern web.',
+      technologies: ['Cypress', 'JavaScript', 'Testing'],
+      duration: '2 Months',
+      path: '/courses/cypress',
+      featured: false,
+      icon: Code2
     }
   ];
 
