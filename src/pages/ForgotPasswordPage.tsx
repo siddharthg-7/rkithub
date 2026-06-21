@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Mail, ArrowLeft, CheckCircle2, AlertCircle, BookOpen } from 'lucide-react';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../lib/firebase';
+import { Logo } from '../components/Logo';
 
 export const ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -33,11 +34,8 @@ export const ForgotPasswordPage: React.FC = () => {
         className="max-w-md w-full bg-white p-10 rounded-3xl shadow-2xl border border-slate-100"
       >
         <div className="text-center mb-8">
-          <Link to="/" className="flex items-center justify-center gap-2 mb-10">
-            <div className="w-8 h-8 bg-navy-900 rounded-lg flex items-center justify-center text-white">
-              <BookOpen size={20} />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-navy-900">RK IT Hub</span>
+          <Link to="/" className="flex items-center justify-center mb-10">
+            <Logo imageClassName="h-9 w-auto object-contain" />
           </Link>
           {submitted ? (
             <div className="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-green-100">

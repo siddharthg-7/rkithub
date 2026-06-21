@@ -80,7 +80,7 @@ export const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-[800] text-[#0F172A] text-[15px] mb-1">Phone Number</h4>
-                <p className="text-[#475569] text-[13px] leading-relaxed font-medium">+91-9000926486<br/>040-XXXXXX</p>
+                <p className="text-[#475569] text-[13px] leading-relaxed font-medium">+91-7702949304<br/>+91-9000926486</p>
               </div>
             </div>
 

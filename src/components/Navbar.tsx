@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Mail, Phone, ChevronDown, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +29,7 @@ export const Navbar = () => {
     { name: 'Home', path: '#' },
     { name: 'Trainings', path: '#courses', hasDropdown: true },
     { name: 'Placements', path: '#placements' },
-    { name: 'Projects', path: '#projects' },
+    { name: 'Internships', path: '#internships' },
     { name: 'About Us', path: '#about' },
     { name: 'Contact', path: '#contact' },
   ];
@@ -42,9 +43,9 @@ export const Navbar = () => {
             <Mail className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">rrkithub@gmail.com</span>
           </a>
-          <a href="tel:+919000926486" className="flex items-center gap-2 hover:text-[#22C55E] transition-colors font-medium">
+          <a href="tel:+917702949304" className="flex items-center gap-2 hover:text-[#22C55E] transition-colors font-medium">
             <Phone className="w-3.5 h-3.5" />
-            <span>+91-9000926486</span>
+            <span>+91-7702949304, 9000926486</span>
           </a>
         </div>
         <div className="flex items-center gap-6">
@@ -69,9 +70,8 @@ export const Navbar = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 font-bold text-2xl text-[#0B4F9C]">
-            <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain" />
-            <span className="hidden sm:inline tracking-tight">RK IT HUB</span>
+          <a href="#">
+            <Logo imageClassName="h-10 w-auto object-contain" textClassName="hidden sm:flex flex-col justify-center" />
           </a>
 
           {/* Center Navigation */}

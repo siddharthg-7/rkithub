@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer = () => {
   const quickLinks = [
@@ -14,33 +15,15 @@ export const Footer = () => {
     <footer className="bg-[#0F172A] text-white pt-20 pb-8 font-sans border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
-        {/* Top Section - Newsletter/CTA */}
-        <div className="bg-[#1E293B] rounded-2xl p-8 md:p-10 mb-16 flex flex-col md:flex-row items-center justify-between gap-8 border border-gray-700/50 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#0B4F9C]/20 blur-3xl rounded-full"></div>
-          <div className="relative z-10 max-w-xl">
-            <h3 className="text-2xl md:text-3xl font-[700] mb-2 text-white">Subscribe to our newsletter</h3>
-            <p className="text-gray-400">Get the latest updates on new courses, batches, and tech industry insights.</p>
-          </div>
-          <div className="relative z-10 w-full md:w-auto flex flex-col sm:flex-row gap-3">
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="px-5 py-3.5 bg-[#0F172A] border border-gray-600 rounded-xl focus:outline-none focus:border-[#22C55E] text-white w-full sm:w-72"
-            />
-            <button className="bg-[#22C55E] hover:bg-[#1CA345] text-white px-6 py-3.5 rounded-xl font-bold transition-colors flex items-center justify-center gap-2">
-              Subscribe <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
+
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-gray-800">
           
           {/* Brand Info */}
           <div className="lg:pr-8">
-            <a href="#" className="flex items-center gap-2 mb-6">
-              <img src="/logo.png" alt="RK IT Training HUB" className="h-12 w-auto object-contain bg-white rounded p-1" />
-              <span className="font-[800] text-xl tracking-tight">RK IT HUB</span>
+            <a href="#" className="flex items-center mb-6">
+              <Logo light={true} imageClassName="h-12 w-auto object-contain bg-white rounded p-1" />
             </a>
             <p className="text-gray-400 text-[15px] leading-relaxed mb-8">
               Transforming careers with industry-ready skills and placement-focused learning since 2015. We build the tech leaders of tomorrow.
@@ -98,7 +81,10 @@ export const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">
                   <Phone className="w-4 h-4 text-[#22C55E] group-hover:text-white" />
                 </div>
-                <span className="text-[15px] text-gray-400">+91-9000926486</span>
+                <div className="flex flex-col">
+                  <span className="text-[15px] text-gray-400">+91-7702949304</span>
+                  <span className="text-[15px] text-gray-400">+91-9000926486</span>
+                </div>
               </li>
               <li className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">

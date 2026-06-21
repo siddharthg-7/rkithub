@@ -44,7 +44,7 @@ export const StatsSection = () => {
             </div>
             <div className="flex flex-col">
               <div className="text-2xl md:text-[28px] font-[800] text-white leading-tight">
-                300+
+                3000+
               </div>
               <p className="text-[13px] text-blue-100 font-medium">
                 Students Trained
@@ -59,7 +59,7 @@ export const StatsSection = () => {
             </div>
             <div className="flex flex-col">
               <div className="text-2xl md:text-[28px] font-[800] text-white leading-tight">
-                50+
+                10+
               </div>
               <p className="text-[13px] text-blue-100 font-medium">
                 Hiring Partners

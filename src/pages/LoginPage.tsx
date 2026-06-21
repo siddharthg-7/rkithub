@@ -22,6 +22,7 @@ import {
   GoogleAuthProvider 
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
+import { Logo } from '../components/Logo';
 
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -74,11 +75,8 @@ export const LoginPage: React.FC = () => {
 
         <div className="relative z-10 max-w-4xl w-full flex flex-col justify-between h-full">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 self-start">
-            <div className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center border border-white/20 backdrop-blur-md">
-              <BookOpen size={20} className="text-white" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white">RK IT Hub</span>
+          <Link to="/" className="flex items-center self-start">
+            <Logo light={true} />
           </Link>
 
           {/* Center Content with Lottie */}

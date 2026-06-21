@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { LogOut, LayoutDashboard, Settings, User, ShieldCheck, BookOpen, MessageSquare, FolderPlus, Bell } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { auth } from '../lib/firebase';
+import { Logo } from './Logo';
 
 export const Sidebar: React.FC = () => {
   const { profile, isAdmin } = useAuth();
@@ -33,11 +34,8 @@ export const Sidebar: React.FC = () => {
   return (
     <div className="w-64 bg-navy-900 text-white h-screen fixed left-0 top-0 hidden md:flex flex-col border-r border-white/10 shadow-2xl z-40">
       <div className="p-8 pb-12">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center border border-white/20">
-            <BookOpen className="text-white w-5 h-5" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white">RK IT Hub</span>
+        <Link to="/" className="flex items-center">
+          <Logo light={true} imageClassName="h-8 w-auto object-contain" textClassName="flex flex-col justify-center transform scale-75 origin-left" />
         </Link>
       </div>
 

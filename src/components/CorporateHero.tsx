@@ -68,7 +68,7 @@ export const CorporateHero = () => {
                     <Users className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-800">300+ Students</h4>
+                    <h4 className="font-bold text-gray-800">3000+ Students</h4>
                     <p className="text-sm text-gray-500">Trained &amp; Placed</p>
                   </div>
                 </div>

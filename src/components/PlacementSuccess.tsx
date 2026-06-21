@@ -4,14 +4,15 @@ import { motion } from 'framer-motion';
 
 export const PlacementSuccess = () => {
   const companies = [
+    { name: 'CGI',          src: '/logo_cgi_color.png' },
     { name: 'TCS',          src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
     { name: 'Infosys',      src: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
-    { name: 'Accenture',    src: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg' },
+    { name: 'Broadridge',   src: '/broadridge.svg' },
     { name: 'Wipro',        src: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
     { name: 'Cognizant',    src: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
     { name: 'Capgemini',    src: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
-    { name: 'HCL',          src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/HCL_Technologies_logo.svg/1920px-HCL_Technologies_logo.svg.png?_=20100214041014' },
-    { name: 'Tech Mahindra',src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/HCL_Technologies_logo.svg/1920px-HCL_Technologies_logo.svg.png?_=20100214041014' },
+    { name: 'Virtusa',      src: '/virtusa.png' },
+    { name: 'Tech Mahindra',src: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' },
   ];
 
   const placements = [
@@ -74,7 +75,7 @@ export const PlacementSuccess = () => {
             transition={{ duration: 0.4, delay: i * 0.05 }}
             src={company.src}
             alt={company.name}
-            className="max-h-8 max-w-[80px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
+            className="max-h-8 max-w-[80px] object-contain transition-all opacity-100"
           />
         ))}
       </motion.div>

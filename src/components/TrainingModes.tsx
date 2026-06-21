@@ -4,11 +4,7 @@ import { motion } from 'framer-motion';
 
 export const TrainingModes = () => {
   const modes = [
-    {
-      title: 'Classroom Training',
-      description: 'Experience hands-on learning in our state-of-the-art classrooms with direct interaction with trainers.',
-      icon: Monitor,
-    },
+
     {
       title: 'Online Training',
       description: 'Learn from the comfort of your home with our interactive live online sessions and recorded videos.',
@@ -39,7 +35,7 @@ export const TrainingModes = () => {
           <p className="text-[#475569] text-base font-medium">Choose the mode that fits your schedule and learning style.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {modes.map((mode, i) => {
             const Icon = mode.icon;
             return (
