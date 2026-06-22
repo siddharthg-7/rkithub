@@ -33,7 +33,7 @@ const plans = [
     icon: Rocket,
     prices: {
       monthly: { price: '549', originalPrice: '1099', suffix: '/mo' },
-      onetime: { price: '1499', originalPrice: '2999', suffix: '' }
+      onetime: { price: '2999', originalPrice: '5999', suffix: '' }
     },
     description: 'Ideal for students looking to build strong portfolios.',
     features: [
@@ -54,12 +54,12 @@ const plans = [
     }
   },
   {
-    id: 'elite',
-    name: 'Elite',
+    id: 'career-accelerator',
+    name: 'Career Accelerator',
     icon: Crown,
     prices: {
       monthly: { price: '749', originalPrice: '1499', suffix: '/mo' },
-      onetime: { price: '1999', originalPrice: '3999', suffix: '' }
+      onetime: { price: '5999', originalPrice: '11999', suffix: '' }
     },
     description: 'For serious learners seeking mentorship and placements.',
     features: [
@@ -69,7 +69,7 @@ const plans = [
       'Mock Interviews',
       'LinkedIn Optimization',
     ],
-    cta: 'Join Elite',
+    cta: 'Join Accelerator',
     theme: {
       primary: '#EF4444',
       secondary: '#FB7185',
@@ -77,17 +77,43 @@ const plans = [
       borderHover: 'hover:border-[#EF4444]',
       text: 'text-[#EF4444]'
     }
+  },
+  {
+    id: 'premium',
+    name: 'Premium Industry Experience',
+    icon: Sparkles,
+    prices: {
+      monthly: { price: '999', originalPrice: '1999', suffix: '/mo' },
+      onetime: { price: '9999', originalPrice: '19999', suffix: '' }
+    },
+    description: 'The ultimate package with guaranteed support and live clients.',
+    features: [
+      'Everything in Accelerator',
+      'Live Client Projects',
+      '1-on-1 CTO Mentorship',
+      'Guaranteed Placement Help',
+      'Letter of Recommendation',
+    ],
+    cta: 'Go Premium',
+    theme: {
+      primary: '#8B5CF6',
+      secondary: '#C4B5FD',
+      bgHover: 'hover:shadow-[#8B5CF6]/20',
+      borderHover: 'hover:border-[#8B5CF6]',
+      text: 'text-[#8B5CF6]'
+    }
   }
 ];
 
 const comparisonData = [
-  { feature: 'Training Hours', starter: '20+ Hours', pro: '50+ Hours', elite: '100+ Hours' },
-  { feature: 'Projects', starter: '1 Mini', pro: '1 Major', elite: 'Live Client' },
-  { feature: 'Certificate', starter: true, pro: true, elite: true },
-  { feature: 'Resume Support', starter: false, pro: true, elite: true },
-  { feature: 'Interview Prep', starter: false, pro: 'Basic', elite: 'Advanced' },
-  { feature: 'Mentorship', starter: false, pro: false, elite: '1-on-1' },
-  { feature: 'Mock Interviews', starter: false, pro: false, elite: true },
+  { feature: 'Training Hours', starter: '20+ Hours', pro: '50+ Hours', accelerator: '100+ Hours', premium: '200+ Hours' },
+  { feature: 'Projects', starter: '1 Mini', pro: '1 Major', accelerator: 'Live Project', premium: 'Live Client' },
+  { feature: 'Certificate', starter: true, pro: true, accelerator: true, premium: true },
+  { feature: 'Resume Support', starter: false, pro: true, accelerator: true, premium: true },
+  { feature: 'Interview Prep', starter: false, pro: 'Basic', accelerator: 'Advanced', premium: 'Expert' },
+  { feature: 'Mentorship', starter: false, pro: false, accelerator: 'Group', premium: '1-on-1' },
+  { feature: 'Mock Interviews', starter: false, pro: false, accelerator: true, premium: true },
+  { feature: 'Recommendation Letter', starter: false, pro: false, accelerator: false, premium: true },
 ];
 
 export const PricingSection = () => {
@@ -179,7 +205,7 @@ export const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32 max-w-7xl mx-auto items-stretch">
           {plans.map((plan, index) => {
             const currentPrice = plan.prices[billingCycle];
             
@@ -191,7 +217,7 @@ export const PricingSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -12 }}
-              className={`relative flex flex-col p-8 lg:p-10 rounded-[32px] bg-white/70 backdrop-blur-[24px] border border-white/50 shadow-[0_10px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group ${plan.theme.bgHover} ${plan.theme.borderHover} ${plan.popular ? 'lg:scale-105 z-10' : 'z-0'}`}
+              className={`relative flex flex-col p-6 lg:p-8 rounded-[32px] bg-white/70 backdrop-blur-[24px] border border-white/50 shadow-[0_10px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group ${plan.theme.bgHover} ${plan.theme.borderHover} ${plan.popular ? 'lg:scale-105 z-10' : 'z-0'}`}
               style={{
                 boxShadow: plan.popular ? '0 20px 80px rgba(245, 158, 11, 0.15)' : '',
                 border: plan.popular ? '2px solid rgba(245, 158, 11, 0.3)' : ''
@@ -217,20 +243,20 @@ export const PricingSection = () => {
               <div className="flex flex-col flex-grow relative z-10">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-[#0F172A] font-['Plus_Jakarta_Sans'] mb-2">{plan.name}</h3>
-                    <p className="text-[#64748B] text-sm h-10 font-['Inter']">{plan.description}</p>
+                    <h3 className="text-xl font-bold text-[#0F172A] font-['Plus_Jakarta_Sans'] mb-2">{plan.name}</h3>
+                    <p className="text-[#64748B] text-xs h-10 font-['Inter']">{plan.description}</p>
                   </div>
                   <motion.div 
-                    className={`w-12 h-12 rounded-2xl flex items-center justify-center bg-gray-50 border border-gray-100 ${plan.theme.text}`}
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gray-50 border border-gray-100 ${plan.theme.text}`}
                     whileHover={{ rotate: 10, scale: 1.1 }}
                   >
-                    <plan.icon size={24} />
+                    <plan.icon size={20} />
                   </motion.div>
                 </div>
                 
                 <div className="mb-8">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-gray-400 font-medium line-through decoration-2 decoration-gray-300 text-lg">
+                    <span className="text-gray-400 font-medium line-through decoration-2 decoration-gray-300 text-sm">
                       ₹{currentPrice.originalPrice}
                     </span>
                   </div>
@@ -239,20 +265,20 @@ export const PricingSection = () => {
                       key={currentPrice.price}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-5xl font-[900] text-[#0F172A] tracking-tighter font-['Clash_Display',sans-serif]"
+                      className="text-4xl lg:text-5xl font-[900] text-[#0F172A] tracking-tighter font-['Clash_Display',sans-serif]"
                     >
                       ₹{currentPrice.price}
                     </motion.span>
-                    <span className="text-gray-500 font-bold ml-1">{currentPrice.suffix}</span>
+                    <span className="text-gray-500 font-bold ml-1 text-sm">{currentPrice.suffix}</span>
                   </div>
                 </div>
 
                 <div className="flex-grow">
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className={`w-5 h-5 shrink-0 ${plan.theme.text}`} />
-                        <span className="text-[#334155] text-[15px] font-['Inter'] font-medium">{feature}</span>
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${plan.theme.text}`} />
+                        <span className="text-[#334155] text-sm font-['Inter'] font-medium leading-tight">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -261,11 +287,11 @@ export const PricingSection = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-full py-4 rounded-2xl font-bold text-[16px] transition-all flex items-center justify-center gap-2 font-['Inter'] text-white shadow-lg`}
+                  className={`w-full py-3.5 rounded-2xl font-bold text-[15px] transition-all flex items-center justify-center gap-2 font-['Inter'] text-white shadow-lg mt-auto`}
                   style={{ backgroundColor: plan.theme.primary }}
                 >
                   {plan.cta}
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} />
                 </motion.button>
               </div>
             </motion.div>
@@ -279,18 +305,19 @@ export const PricingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto bg-white/60 backdrop-blur-xl rounded-[32px] border border-gray-200/50 shadow-xl overflow-hidden mb-16 md:mb-32"
+          className="max-w-6xl mx-auto bg-white/60 backdrop-blur-xl rounded-[32px] border border-gray-200/50 shadow-xl overflow-hidden mb-16 md:mb-32"
         >
           <div className="p-6 md:p-12">
             <h3 className="text-2xl md:text-3xl font-bold text-[#0F172A] font-['Plus_Jakarta_Sans'] text-center mb-8 md:mb-10">Compare Plans</h3>
             <div className="overflow-x-auto pb-4">
-              <table className="w-full text-left border-collapse min-w-[600px]">
+              <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="py-4 px-4 font-semibold text-gray-500 font-['Inter'] w-1/3">Features</th>
-                    <th className="py-4 px-4 font-bold text-[#10B981] font-['Inter'] text-center w-2/9">Starter</th>
-                    <th className="py-4 px-4 font-bold text-[#F59E0B] font-['Inter'] text-center w-2/9">Professional</th>
-                    <th className="py-4 px-4 font-bold text-[#EF4444] font-['Inter'] text-center w-2/9">Elite</th>
+                    <th className="py-4 px-4 font-semibold text-gray-500 font-['Inter'] w-1/5">Features</th>
+                    <th className="py-4 px-4 font-bold text-[#10B981] font-['Inter'] text-center w-1/5">Starter</th>
+                    <th className="py-4 px-4 font-bold text-[#F59E0B] font-['Inter'] text-center w-1/5">Professional</th>
+                    <th className="py-4 px-4 font-bold text-[#EF4444] font-['Inter'] text-center w-1/5">Accelerator</th>
+                    <th className="py-4 px-4 font-bold text-[#8B5CF6] font-['Inter'] text-center w-1/5">Premium</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -308,9 +335,14 @@ export const PricingSection = () => {
                         ) : row.pro}
                       </td>
                       <td className="py-4 px-4 text-center text-gray-600 font-['Inter']">
-                        {typeof row.elite === 'boolean' ? (
-                          row.elite ? <CheckCircle2 className="w-5 h-5 mx-auto text-[#EF4444]" /> : <span className="text-gray-300">-</span>
-                        ) : row.elite}
+                        {typeof row.accelerator === 'boolean' ? (
+                          row.accelerator ? <CheckCircle2 className="w-5 h-5 mx-auto text-[#EF4444]" /> : <span className="text-gray-300">-</span>
+                        ) : row.accelerator}
+                      </td>
+                      <td className="py-4 px-4 text-center text-gray-600 font-['Inter'] bg-purple-50/30 group-hover:bg-purple-50/50 transition-colors">
+                        {typeof row.premium === 'boolean' ? (
+                          row.premium ? <CheckCircle2 className="w-5 h-5 mx-auto text-[#8B5CF6]" /> : <span className="text-gray-300">-</span>
+                        ) : row.premium}
                       </td>
                     </tr>
                   ))}

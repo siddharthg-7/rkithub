@@ -7,13 +7,13 @@ export const ImpactMetrics = () => {
   const metrics = [
     {
       icon: <Users size={24} className="text-[var(--color-primary)]" />,
-      value: 500,
+      value: 3000,
       suffix: '+',
       label: 'Interns Trained'
     },
     {
       icon: <Briefcase size={24} className="text-[var(--color-primary)]" />,
-      value: 120,
+      value: 100,
       suffix: '+',
       label: 'Live Projects'
     },
@@ -25,7 +25,7 @@ export const ImpactMetrics = () => {
     },
     {
       icon: <Building2 size={24} className="text-[var(--color-primary)]" />,
-      value: 80,
+      value: 10,
       suffix: '+',
       label: 'Hiring Partners'
     }

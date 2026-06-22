@@ -30,7 +30,7 @@ export const ValueStrip = () => {
       <div className="max-w-[1280px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center py-8 lg:py-0">
           
-          {/* Left prominent text */}
+        
           <div className="border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 pr-0 lg:pr-8">
             <h2 className="text-2xl lg:text-3xl font-[800] text-white leading-tight font-['Inter']">
               Why RK IT Internship?

@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, Briefcase, Code, Send } from 'lucide-react';
 
 export const LearningJourney = () => {
   const steps = [
-    { icon: <BookOpen className="w-5 h-5" />, title: 'Watch Tutorials', subtitle: 'Learn concepts from videos and online resources.', num: 1 },
+    { icon: <BookOpen className="w-5 h-5" />, title: 'Learm from experts ', subtitle: 'Learn concepts from videos and online resources.', num: 1 },
     { icon: <Code className="w-5 h-5" />, title: 'Build Projects', subtitle: 'Practice by building small projects on your own.', num: 2 },
     { icon: <Briefcase className="w-5 h-5" />, title: 'Gain Experience', subtitle: 'Work on real projects, solve real problems, get real exposure.', num: 3 },
     { icon: <Send className="w-5 h-5" />, title: 'Get Hired', subtitle: 'Stand out with your skills, portfolio and practical knowledge.', num: 4, highlight: true },

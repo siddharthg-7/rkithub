@@ -40,7 +40,7 @@ export const InternshipProcess = () => {
     <section className="py-24 px-[80px] max-w-[1440px] mx-auto bg-white font-sans overflow-hidden">
       <div className="text-center mb-16">
         <h2 className="text-[40px] font-[800] text-[#0F172A] mb-4 font-['Inter']">
-          How Your Internship Experience Looks Like
+         Step by Step Internship Programme
         </h2>
         <p className="text-lg text-[#64748B] font-['Inter']">
           You won't just learn, you will experience real-world workflow.

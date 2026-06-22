@@ -4,7 +4,7 @@ import { HiringPartners } from '@/src/components/internships/HiringPartners';
 import { LearningJourney } from '@/src/components/internships/LearningJourney';
 import { CareerTracks } from '@/src/components/internships/CareerTracks';
 import { InternshipProcess } from '@/src/components/internships/InternshipProcess';
-import { LiveProjects } from '@/src/components/internships/LiveProjects';
+
 import { MentorEcosystem } from '@/src/components/internships/MentorEcosystem';
 import { ImpactMetrics } from '@/src/components/internships/ImpactMetrics';
 import { InternshipJourney } from '@/src/components/internships/InternshipJourney';
@@ -21,7 +21,6 @@ export const InternshipsPage = () => {
       <LearningJourney />
       <CareerTracks />
       <InternshipProcess />
-      <LiveProjects />
       
       {/* 2-Column Section: Mentor + Impact */}
       <div className="flex flex-col lg:flex-row bg-[#f8fafc]">

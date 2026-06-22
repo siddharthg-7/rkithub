@@ -51,16 +51,14 @@ export const HeroSection = () => {
         {/* Left Side (45%) */}
         <div className="w-full lg:w-[45%] flex flex-col items-start text-white">
           <h1 className="text-[clamp(40px,8vw,84px)] font-[800] leading-tight md:leading-none mb-6 font-['Inter'] mt-12 md:mt-0">
-            Your Degree<br />
-            Gives You Knowledge.<br />
+            Building<br />
             <span className="block mt-2 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#60A5FA]">
-              Internships<br />
-              Build Careers.
+              Industry-Ready Talent.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-[500px] font-['Inter']">
-            Work on industry projects, collaborate with mentors, build a portfolio that recruiters notice and become job ready.
+            Learn. Build. Get Hired.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
