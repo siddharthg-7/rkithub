@@ -107,7 +107,7 @@ export const BottomConversionBlock = () => {
                 <Users className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[20px] font-[800] text-[#0F172A] leading-none mb-0.5">300+</p>
+                <p className="text-[20px] font-[800] text-[#0F172A] leading-none mb-0.5">3000+</p>
                 <p className="text-[11px] font-[600] text-gray-500 uppercase tracking-wider leading-tight">Students Placed</p>
               </div>
             </div>

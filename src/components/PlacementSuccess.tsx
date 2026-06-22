@@ -16,11 +16,10 @@ export const PlacementSuccess = () => {
   ];
 
   const placements = [
-    { name: 'Sai Kumar',   course: 'Java Full Stack',    company: 'Infosys',        package: '4.5 LPA', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
-    { name: 'Priya Sharma',course: 'Python Full Stack',  company: 'TCS',            package: '5.2 LPA', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
-    { name: 'Rahul Verma', course: 'MERN Stack',         company: 'Wipro',          package: '4.6 LPA', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
-    { name: 'Divya Reddy', course: 'Data Science & AI',  company: 'HCL',            package: '6.0 LPA', image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
-    { name: 'Arjun Mehta', course: 'Automation Testing', company: 'Tech Mahindra',  package: '4.8 LPA', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
+    { name: 'Durga', course: 'Associate Software Engineer', company: 'Enmoval', package: '3.5 LPA', image: '/durga.png' },
+    { name: 'Vijaya', course: 'SDET', company: 'Broadridge', package: '5.5 LPA', image: '/vijaya.png' },
+    { name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.png' },
+    { name: 'Chaitanya', course: 'Full Stack Java Developer', company: 'Fin Echo Engineering', package: '3.5 LPA', image: '/Chaitanya .png' },
   ];
 
   const perPage = 3;

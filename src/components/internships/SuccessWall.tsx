@@ -5,68 +5,36 @@ import { Building2, IndianRupee, Code2 } from 'lucide-react';
 export const SuccessWall = () => {
   const students = [
     {
-      name: "Rohit Sharma",
-      role: "Software Developer",
-      company: "TCS",
-      package: "8 LPA",
-      skills: ["Java", "Spring Boot", "MySQL"],
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+      name: "Durga",
+      role: "Associate Software Engineer",
+      company: "Enmoval",
+      package: "3.5 LPA",
+      skills: ["Java", "Testing", "Selenium"],
+      avatar: "/durga.png"
     },
     {
-      name: "Priya Verma",
-      role: "Frontend Engineer",
-      company: "Infosys",
-      package: "6.5 LPA",
-      skills: ["React", "Tailwind", "JS"],
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
-    },
-    {
-      name: "Aman Patel",
-      role: "Backend Developer",
-      company: "Wipro",
-      package: "7 LPA",
-      skills: ["Node.js", "Express", "MongoDB"],
-      avatar: "https://randomuser.me/api/portraits/men/86.jpg"
-    },
-    {
-      name: "Sneha Reddy",
-      role: "Full Stack Developer",
-      company: "Cognizant",
-      package: "9 LPA",
-      skills: ["MERN", "AWS", "Docker"],
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg"
-    },
-    {
-      name: "Karan Singh",
-      role: "Data Analyst",
-      company: "Accenture",
-      package: "6 LPA",
-      skills: ["Python", "SQL", "Tableau"],
-      avatar: "https://randomuser.me/api/portraits/men/46.jpg"
-    },
-    {
-      name: "Neha Gupta",
-      role: "UI/UX Designer",
-      company: "Tech Mahindra",
+      name: "Vijaya",
+      role: "SDET",
+      company: "Broadridge",
       package: "5.5 LPA",
-      skills: ["Figma", "Adobe XD", "CSS"],
-      avatar: "https://randomuser.me/api/portraits/women/22.jpg"
+      skills: ["Java", "TestNG", "Selenium"],
+      avatar: "/vijaya.png"
     },
     {
-      name: "Rahul Desai",
-      role: "DevOps Engineer",
-      company: "Capgemini",
-      package: "10 LPA",
-      skills: ["Linux", "Jenkins", "Kubernetes"],
-      avatar: "https://randomuser.me/api/portraits/men/64.jpg"
+      name: "Manogna",
+      role: "Test Engineer",
+      company: "CGI",
+      package: "7.5 LPA",
+      skills: ["Manual Testing", "API Testing", "Postman"],
+      avatar: "/manogna.png"
     },
     {
-      name: "Anjali Mishra",
-      role: "Software Engineer",
-      company: "IBM",
-      package: "8.5 LPA",
-      skills: ["Python", "Django", "PostgreSQL"],
-      avatar: "https://randomuser.me/api/portraits/women/55.jpg"
+      name: "Chaitanya",
+      role: "Full Stack Java Developer",
+      company: "Fin Echo Engineering",
+      package: "3.5 LPA",
+      skills: ["Java", "Spring Boot", "React"],
+      avatar: "/Chaitanya .png"
     }
   ];
 

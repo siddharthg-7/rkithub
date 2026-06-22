@@ -1,11 +1,10 @@
 import React from 'react';
 
 const ticker =
-  '🎉 Sai Kumar placed at Infosys — 4.5 LPA   •   ' +
-  '🎉 Priya Sharma placed at TCS — 5.2 LPA   •   ' +
-  '🎉 Rahul Verma placed at Wipro — 4.6 LPA   •   ' +
-  '🎉 Divya Reddy placed at HCL — 6.0 LPA   •   ' +
-  '🎉 Arjun Mehta placed at Tech Mahindra — 4.8 LPA   •   ';
+  '🎉 Durga placed at Enmoval — 3.5 LPA   •   ' +
+  '🎉 Vijaya placed at Broadridge — 5.5 LPA   •   ' +
+  '🎉 Manogna placed at CGI — 7.5 LPA   •   ' +
+  '🎉 Chaitanya placed at Fin Echo Engineering — 3.5 LPA   •   ';
 
 export const LiveBatchStrip = () => (
   <div className="bg-[#07294D] flex items-stretch overflow-hidden">
