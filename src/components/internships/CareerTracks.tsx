@@ -120,8 +120,31 @@ const businessTracks = [
   }
 ];
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.3 }
+  }
+};
+
 const TrackCard: React.FC<{ track: any }> = ({ track }) => (
-  <div className={`relative overflow-hidden rounded-3xl border border-gray-200 bg-white/70 backdrop-blur-xl h-[320px] p-8 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col ${track.colSpan}`}>
+  <motion.div 
+    variants={itemVariants}
+    className={`relative overflow-hidden rounded-3xl border border-gray-200 bg-white/70 backdrop-blur-xl h-[320px] p-8 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 group flex flex-col ${track.colSpan}`}
+  >
     {/* Gradient Overlay */}
     <div className={`absolute inset-0 opacity-60 bg-gradient-to-br ${track.colors} pointer-events-none group-hover:opacity-100 transition-opacity duration-500`} />
     
@@ -170,7 +193,7 @@ const TrackCard: React.FC<{ track: any }> = ({ track }) => (
         </button>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export const CareerTracks = () => {
@@ -186,7 +209,13 @@ export const CareerTracks = () => {
       <section className="relative max-w-7xl mx-auto px-6 lg:px-10 py-32 z-10">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-semibold mb-6">
             Internship Tracks
           </div>
@@ -196,10 +225,16 @@ export const CareerTracks = () => {
           <p className="text-xl text-gray-500 max-w-3xl mx-auto">
             Work on real industry projects, gain practical skills, and build your career.
           </p>
-        </div>
+        </motion.div>
 
         {/* Segmented Tabs */}
-        <div className="flex justify-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="flex justify-center mb-16"
+        >
           <div className="bg-white p-2 rounded-2xl border border-gray-200 shadow-sm flex relative w-[500px]">
             <button
               onClick={() => setActiveTab('engineering')}
@@ -228,17 +263,18 @@ export const CareerTracks = () => {
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Dynamic Grid */}
         <div className="relative min-h-[700px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: true, margin: "-100px" }}
               className="grid grid-cols-1 md:grid-cols-12 gap-6"
             >
               {currentTracks.map((track) => (

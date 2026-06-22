@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import ReactFlow, { Background, Controls, Edge, Node, Position } from 'reactflow';
 import 'reactflow/dist/style.css';
+import { motion } from 'framer-motion';
 
 const initialNodes: Node[] = [
   {
@@ -90,16 +91,28 @@ const initialEdges: Edge[] = [
 export const MentorEcosystem = () => {
   return (
     <section className="h-[700px] flex flex-col justify-center relative font-sans overflow-hidden py-16 w-full">
-      <div className="text-center z-10 absolute top-8 left-0 right-0 pointer-events-none px-4">
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-center z-10 absolute top-8 left-0 right-0 pointer-events-none px-4"
+      >
         <h2 className="text-3xl font-[800] text-[#0F172A] mb-2 font-['Inter']">
           Learn From Industry Mentors
         </h2>
         <p className="text-sm text-[#64748B] font-['Inter']">
           Get guidance from professionals who are working in top companies.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="w-full h-full mx-auto mt-12 relative cursor-grab active:cursor-grabbing">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        className="w-full h-full mx-auto mt-12 relative cursor-grab active:cursor-grabbing"
+      >
         <ReactFlow 
           nodes={initialNodes} 
           edges={initialEdges} 
@@ -111,7 +124,7 @@ export const MentorEcosystem = () => {
         >
           <Background color="#cbd5e1" gap={24} size={2} />
         </ReactFlow>
-      </div>
+      </motion.div>
     </section>
   );
 };

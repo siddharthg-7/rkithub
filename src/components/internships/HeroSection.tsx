@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { motion } from 'framer-motion';
 import { Briefcase, Users, Wrench, FileText, UserCheck, Award, Target } from 'lucide-react';
 
 export const HeroSection = () => {
@@ -49,7 +50,12 @@ export const HeroSection = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-[1440px] px-6 md:px-[80px] mx-auto relative z-10">
         
         {/* Left Side (45%) */}
-        <div className="w-full lg:w-[45%] flex flex-col items-start text-white">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full lg:w-[45%] flex flex-col items-start text-white"
+        >
           <h1 className="text-[clamp(40px,8vw,84px)] font-[800] leading-tight md:leading-none mb-6 font-['Inter'] mt-12 md:mt-0">
             Building<br />
             <span className="block mt-2 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#60A5FA]">
@@ -69,7 +75,7 @@ export const HeroSection = () => {
               Explore Tracks <span>&rarr;</span>
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Side (55%) */}
         <div className="hidden lg:flex w-[55%] relative h-[600px] items-center justify-center perspective-[1000px]">

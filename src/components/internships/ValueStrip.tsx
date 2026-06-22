@@ -1,5 +1,6 @@
 import React from 'react';
 import { MonitorPlay, Users, Layers, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const ValueStrip = () => {
   const values = [
@@ -26,7 +27,13 @@ export const ValueStrip = () => {
   ];
 
   return (
-    <section className="w-full bg-[#071A52] text-white px-4 h-auto lg:h-[120px] flex items-center">
+    <motion.section 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full bg-[#071A52] text-white px-4 h-auto lg:h-[120px] flex items-center"
+    >
       <div className="max-w-[1280px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center py-8 lg:py-0">
           
@@ -50,6 +57,6 @@ export const ValueStrip = () => {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 };

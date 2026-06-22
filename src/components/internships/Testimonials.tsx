@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Quote, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Testimonials = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' }, [
@@ -57,7 +58,13 @@ export const Testimonials = () => {
   return (
     <section className="py-24 px-4 bg-white">
       <div className="max-w-[1280px] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
+        >
           <h2 className="text-[32px] md:text-[40px] font-[800] text-[#0F172A] leading-tight font-['Inter']">
             What Our Interns Say
           </h2>
@@ -65,9 +72,16 @@ export const Testimonials = () => {
             View All Stories
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-        </div>
+        </motion.div>
 
-        <div className="overflow-hidden cursor-grab active:cursor-grabbing pb-10" ref={emblaRef}>
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="overflow-hidden cursor-grab active:cursor-grabbing pb-10" 
+          ref={emblaRef}
+        >
           <div className="flex gap-6 -ml-4 pl-4">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="flex-[0_0_100%] md:flex-[0_0_48%] lg:flex-[0_0_31%] min-w-0 pt-4">
@@ -95,10 +109,16 @@ export const Testimonials = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Dots Pagination */}
-        <div className="flex justify-center gap-2 mt-4">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex justify-center gap-2 mt-4"
+        >
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -109,7 +129,7 @@ export const Testimonials = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Logo } from './Logo';
+import { motion } from 'framer-motion';
 
 export const Footer = () => {
   const quickLinks = [
@@ -21,10 +22,19 @@ export const Footer = () => {
     <footer className="bg-[var(--color-bg-dark)] text-white pt-20 pb-8 font-sans border-t border-gray-900">
       <div className="max-w-[1440px] mx-auto px-[80px]">
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-gray-800">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-gray-800"
+        >
           
           {/* Brand Info */}
-          <div className="lg:pr-8">
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="lg:pr-8">
             <a href="#" className="flex items-center mb-6">
               <Logo light={true} imageClassName="h-12 w-auto object-contain bg-white rounded p-1" />
             </a>
@@ -38,10 +48,10 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}>
             <h4 className="text-white font-[700] mb-6 text-lg tracking-wide font-['Inter']">Quick Links</h4>
             <ul className="space-y-4">
               {quickLinks.map((item) => (
@@ -53,10 +63,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Legal Links */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}>
             <h4 className="text-white font-[700] mb-6 text-lg tracking-wide font-['Inter']">Legal</h4>
             <ul className="space-y-4">
               {legalLinks.map((item) => (
@@ -68,10 +78,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Details */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}>
             <h4 className="text-white font-[700] mb-6 text-lg tracking-wide font-['Inter']">Contact Us</h4>
             <ul className="space-y-5">
               <li className="flex items-start gap-4 group">
@@ -101,9 +111,9 @@ export const Footer = () => {
                 <span className="text-[15px] text-gray-400 font-['Inter']">rrkithub@gmail.com</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* Bottom Row */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[14px] text-gray-500 font-['Inter']">
