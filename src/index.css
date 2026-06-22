@@ -3,8 +3,24 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cinzel", ui-serif, Georgia, serif;
   
+  /* Global Design System Colors */
+  --color-primary: #0A4DA2;
+  --color-primary-dark: #071A52;
+
+  --color-accent: #22C55E;
+  --color-accent-light: #4ADE80;
+
+  --color-bg-dark: #030712;
+  --color-bg-light: #FFFFFF;
+
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #64748B;
+
+  --color-border: #E2E8F0;
+
   /* Redefine Navy to be more premium and deep */
   --color-navy-900: #0a192f;
   --color-navy-800: #112240;
@@ -43,6 +59,11 @@
   --color-accent-gold: #d4af37;
   --color-alert-red: #991b1b;
   --color-success-green: #065f46;
+
+  /* Border Radius */
+  --radius-xl: 24px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
 }
 
 @layer base {

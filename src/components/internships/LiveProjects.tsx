@@ -1,129 +1,144 @@
-import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { ArrowLeft, ArrowRight, ArrowRightCircle } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight, Calendar, Code, Laptop } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const LiveProjects = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, [
-    Autoplay({ delay: 3000, stopOnInteraction: true })
-  ]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollPrev = React.useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  useEffect(() => {
+    const section = sectionRef.current;
+    const scrollContainer = scrollRef.current;
+    if (!section || !scrollContainer) return;
 
-  const scrollNext = React.useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+    // Calculate how far to scroll (width of container - viewport width + some padding)
+    const getScrollAmount = () => -(scrollContainer.scrollWidth - window.innerWidth + 160);
+
+    const tween = gsap.to(scrollContainer, {
+      x: getScrollAmount,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => `+=${scrollContainer.scrollWidth}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true
+      }
+    });
+
+    return () => {
+      tween.kill();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
 
   const projects = [
     {
       title: 'AI Resume Analyzer',
-      description: 'AI tool to analyze and improve resumes.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Python', 'NLP', 'ML']
+      skills: 'Analyze resumes using AI and give smart feedback.',
+      tech: ['Python', 'NLP', 'ML'],
+      duration: '4 Weeks',
+      type: 'AI Model',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Student Management System',
-      description: 'Manage students, exams and attendance.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['React', 'Node.js', 'MongoDB']
+      title: 'Hospital Management System',
+      skills: 'Complete hospital management solution.',
+      tech: ['MERN', 'JWT', 'Cloud'],
+      duration: '6 Weeks',
+      type: 'Web App',
+      image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce web application.',
-      image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['MERN', 'Stripe', 'AWS']
+      title: 'Student Placement Portal',
+      skills: 'Placement management and student tracking.',
+      tech: ['React', 'Node.js', 'MongoDB'],
+      duration: '5 Weeks',
+      type: 'Portal',
+      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task tracking application.',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['React', 'Firebase', 'Tailwind']
+      title: 'Inventory Tracker',
+      skills: 'Track stock, sales and inventory in real-time.',
+      tech: ['Next.js', 'PostgreSQL'],
+      duration: '4 Weeks',
+      type: 'App',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       title: 'Recruitment Dashboard',
-      description: 'Analytics dashboard for HR recruitment.',
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Next.js', 'Tailwind', 'Charts']
+      skills: 'HR dashboard to manage candidates and jobs.',
+      tech: ['React', 'Charts', 'API'],
+      duration: '3 Weeks',
+      type: 'Dashboard',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     }
   ];
 
   return (
-    <section className="bg-[#071A52] px-4 overflow-hidden h-[800px] flex items-center">
-      <div className="max-w-[1280px] mx-auto w-full">
-        
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <h2 className="text-[32px] md:text-[40px] font-[800] text-white leading-tight font-['Inter']">
-            Live Projects You'll Work On
-          </h2>
-          <button className="flex items-center gap-2 text-[#22C55E] font-semibold hover:text-white transition-colors group">
-            View All Projects
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-        </div>
+    <section ref={sectionRef} className="bg-[var(--color-bg-dark)] h-screen min-h-[900px] flex flex-col justify-center overflow-hidden font-sans relative">
+      
+      <div className="max-w-[1440px] px-[80px] mx-auto w-full mb-12 shrink-0">
+        <h2 className="text-[40px] font-[800] text-white leading-tight font-['Inter'] mb-4">
+          Live Projects You Will Work On
+        </h2>
+        <p className="text-gray-400 text-lg">
+          Industry-grade projects to build your portfolio.
+        </p>
+      </div>
 
-        {/* Carousel Container */}
-        <div className="relative group">
-          
-          {/* Navigation Buttons */}
-          <button 
-            onClick={scrollPrev}
-            className="absolute left-[-20px] md:left-[-40px] top-[40%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-[#0A4DA2] border border-white/20 text-white flex items-center justify-center backdrop-blur-sm transition-all z-10 opacity-0 group-hover:opacity-100"
-          >
-            <ArrowLeft className="w-6 h-6" />
-          </button>
-          
-          <button 
-            onClick={scrollNext}
-            className="absolute right-[-20px] md:right-[-40px] top-[40%] -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-[#0A4DA2] border border-white/20 text-white flex items-center justify-center backdrop-blur-sm transition-all z-10 opacity-0 group-hover:opacity-100"
-          >
-            <ArrowRight className="w-6 h-6" />
-          </button>
-
-          {/* Embla Carousel */}
-          <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
-            <div className="flex gap-6 -ml-4 pl-4">
-              {projects.map((project, index) => (
-                <div key={index} className="flex-[0_0_360px] min-w-0">
-                  <div className="bg-[#0F296D] rounded-[24px] overflow-hidden border border-white/10 hover:border-[#22C55E]/50 transition-colors h-full flex flex-col group/card">
-                    {/* Image Area */}
-                    <div className="h-[180px] w-full overflow-hidden relative">
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover object-left-top group-hover/card:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0F296D] via-transparent to-transparent opacity-80"></div>
-                    </div>
-                    
-                    {/* Content Area */}
-                    <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="text-lg font-bold text-white mb-2 font-['Inter'] line-clamp-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-slate-300 font-['Inter'] mb-6 flex-grow line-clamp-2">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.tags.map((tag, idx) => (
-                          <span 
-                            key={idx} 
-                            className="px-2 py-1 bg-white/5 border border-white/10 text-slate-200 text-[10px] font-semibold rounded uppercase tracking-wider"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+      <div className="px-[80px]">
+        <div ref={scrollRef} className="flex gap-8 w-max">
+          {projects.map((project, index) => (
+            <div 
+              key={index} 
+              className="w-[450px] h-[320px] bg-[#0f172a] rounded-[20px] border border-gray-800 overflow-hidden group flex flex-col hover:border-blue-500/50 transition-colors"
+            >
+              <div className="h-[160px] w-full overflow-hidden relative border-b border-gray-800">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                />
+                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-white/10 flex items-center gap-1.5">
+                  <Laptop size={12} />
+                  {project.type}
+                </div>
+              </div>
+              
+              <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-[#0f172a] to-[#030712]">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-white font-['Inter'] group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center gap-1 text-xs text-gray-400 whitespace-nowrap bg-gray-800/50 px-2 py-1 rounded-md">
+                    <Calendar size={12} />
+                    {project.duration}
                   </div>
                 </div>
-              ))}
+                
+                <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+                  {project.skills}
+                </p>
+                
+                <div className="mt-auto flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {project.tech.map((tag, idx) => (
+                      <span key={idx} className="text-xs px-2.5 py-1 bg-blue-900/30 text-blue-300 border border-blue-800/50 rounded-md font-semibold">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-
       </div>
     </section>
   );

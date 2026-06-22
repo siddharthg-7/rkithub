@@ -165,14 +165,13 @@ export const Navbar = () => {
             })}
           </div>
 
-          {/* Right Side Button */}
           <div className="hidden lg:flex items-center">
             <a 
               href="/internships" 
               onClick={(e) => handleNavClick(e, '/internships')}
-              className="bg-[#22C55E] hover:bg-[#1CA345] text-white px-6 py-2.5 rounded-lg font-[800] text-sm tracking-wide transition-all shadow-lg shadow-green-500/20 hover:-translate-y-0.5"
+              className="bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white px-6 py-2.5 rounded-[14px] font-[800] text-sm tracking-wide transition-all shadow-lg shadow-green-500/20 hover:-translate-y-0.5 flex items-center gap-2"
             >
-              Apply For Internship
+              Apply Now <span>&rarr;</span>
             </a>
           </div>
 
@@ -239,9 +238,9 @@ export const Navbar = () => {
               <a 
                 href="/internships" 
                 onClick={(e) => handleNavClick(e, '/internships')}
-                className="block w-full bg-[#22C55E] hover:bg-[#1CA345] text-white px-5 py-3 rounded-lg font-[800] tracking-wide text-sm text-center transition-colors shadow-md"
+                className="block w-full bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white px-5 py-3 rounded-[14px] font-[800] tracking-wide text-sm text-center transition-colors shadow-md flex items-center justify-center gap-2"
               >
-                Apply For Internship
+                Apply Now <span>&rarr;</span>
               </a>
             </div>
           </div>

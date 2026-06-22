@@ -6,17 +6,20 @@ export const Footer = () => {
   const quickLinks = [
     { name: 'Home', path: '#' },
     { name: 'About Us', path: '#about' },
+    { name: 'Internships', path: '/internships' },
     { name: 'Placements', path: '#placements' },
-    { name: 'Projects', path: '#projects' },
     { name: 'Contact', path: '#contact' },
+  ];
+  
+  const legalLinks = [
+    { name: 'Privacy Policy', path: '#' },
+    { name: 'Terms & Conditions', path: '#' },
+    { name: 'Refund Policy', path: '#' },
   ];
 
   return (
-    <footer className="bg-[#0F172A] text-white pt-20 pb-8 font-sans border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        
-
-
+    <footer className="bg-[var(--color-bg-dark)] text-white pt-20 pb-8 font-sans border-t border-gray-900">
+      <div className="max-w-[1440px] mx-auto px-[80px]">
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-gray-800">
           
@@ -25,12 +28,12 @@ export const Footer = () => {
             <a href="#" className="flex items-center mb-6">
               <Logo light={true} imageClassName="h-12 w-auto object-contain bg-white rounded p-1" />
             </a>
-            <p className="text-gray-400 text-[15px] leading-relaxed mb-8">
-              Transforming careers with industry-ready skills and placement-focused learning since 2015. We build the tech leaders of tomorrow.
+            <p className="text-gray-400 text-[15px] leading-relaxed mb-8 font-['Inter']">
+              RK IT HUB - Launching careers with premium tech internships and 100% placement support. We build the tech leaders of tomorrow.
             </p>
             <div className="flex gap-4">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 bg-[#1E293B] rounded-full flex items-center justify-center hover:bg-[#0B4F9C] hover:text-white transition-all hover:-translate-y-1">
+                <a key={i} href="#" className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center hover:bg-[var(--color-primary)] hover:text-white transition-all hover:-translate-y-1 border border-gray-800 hover:border-transparent">
                   <Icon className="w-4 h-4 text-gray-300" />
                 </a>
               ))}
@@ -39,12 +42,12 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-[700] mb-6 text-lg tracking-wide">Quick Links</h4>
+            <h4 className="text-white font-[700] mb-6 text-lg tracking-wide font-['Inter']">Quick Links</h4>
             <ul className="space-y-4">
               {quickLinks.map((item) => (
                 <li key={item.name}>
-                  <a href={item.path} className="text-gray-400 hover:text-[#22C55E] text-[15px] transition-colors flex items-center gap-2 group">
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[#22C55E]" />
+                  <a href={item.path} className="text-gray-400 hover:text-[var(--color-accent)] text-[15px] transition-colors flex items-center gap-2 group font-['Inter']">
+                    <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[var(--color-accent)]" />
                     {item.name}
                   </a>
                 </li>
@@ -52,15 +55,15 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Trainings */}
+          {/* Legal Links */}
           <div>
-            <h4 className="text-white font-[700] mb-6 text-lg tracking-wide">Popular Courses</h4>
+            <h4 className="text-white font-[700] mb-6 text-lg tracking-wide font-['Inter']">Legal</h4>
             <ul className="space-y-4">
-              {['Java Full Stack', 'Python Full Stack', 'MERN Stack', 'Data Science', 'AI & Machine Learning', 'Selenium Automation'].map((item) => (
-                <li key={item}>
-                  <a href="#courses" className="text-gray-400 hover:text-[#22C55E] text-[15px] transition-colors flex items-center gap-2 group">
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[#22C55E]" />
-                    {item}
+              {legalLinks.map((item) => (
+                <li key={item.name}>
+                  <a href={item.path} className="text-gray-400 hover:text-[var(--color-accent)] text-[15px] transition-colors flex items-center gap-2 group font-['Inter']">
+                    <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-[var(--color-accent)]" />
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -69,13 +72,13 @@ export const Footer = () => {
 
           {/* Contact Details */}
           <div>
-            <h4 className="text-white font-[700] mb-6 text-lg tracking-wide">Contact Us</h4>
+            <h4 className="text-white font-[700] mb-6 text-lg tracking-wide font-['Inter']">Contact Us</h4>
             <ul className="space-y-5">
               <li className="flex items-start gap-4 group">
-                <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">
-                  <MapPin className="w-4 h-4 text-[#22C55E] group-hover:text-white" />
+                <div className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary)] border border-gray-800 group-hover:border-transparent transition-colors">
+                  <MapPin className="w-4 h-4 text-[var(--color-accent)] group-hover:text-white" />
                 </div>
-                <span className="text-[15px] text-gray-400 leading-relaxed pt-1">
+                <span className="text-[15px] text-gray-400 leading-relaxed pt-1 font-['Inter']">
                   Hive Space 2.0, Whitefield<br/>
                   Ramalayam Temple Road<br/>
                   HITECH City, Hyderabad TG-500084<br/>
@@ -83,19 +86,19 @@ export const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-4 group">
-                <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">
-                  <Phone className="w-4 h-4 text-[#22C55E] group-hover:text-white" />
+                <div className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary)] border border-gray-800 group-hover:border-transparent transition-colors">
+                  <Phone className="w-4 h-4 text-[var(--color-accent)] group-hover:text-white" />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col font-['Inter']">
                   <span className="text-[15px] text-gray-400">+91-7702949304</span>
                   <span className="text-[15px] text-gray-400">+91-9000926486</span>
                 </div>
               </li>
               <li className="flex items-center gap-4 group">
-                <div className="w-10 h-10 rounded-full bg-[#1E293B] flex items-center justify-center flex-shrink-0 group-hover:bg-[#0B4F9C] transition-colors">
-                  <Mail className="w-4 h-4 text-[#22C55E] group-hover:text-white" />
+                <div className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary)] border border-gray-800 group-hover:border-transparent transition-colors">
+                  <Mail className="w-4 h-4 text-[var(--color-accent)] group-hover:text-white" />
                 </div>
-                <span className="text-[15px] text-gray-400">rrkithub@gmail.com</span>
+                <span className="text-[15px] text-gray-400 font-['Inter']">rrkithub@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -103,11 +106,10 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Row */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[14px] text-gray-500">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[14px] text-gray-500 font-['Inter']">
           <div>© {new Date().getFullYear()} RK IT Training HUB. All rights reserved.</div>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
+            <a href="#" className="hover:text-white transition-colors">Made in India</a>
           </div>
         </div>
 
