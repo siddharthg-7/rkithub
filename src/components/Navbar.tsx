@@ -101,16 +101,16 @@ export const Navbar = () => {
 
       {/* Sticky Navbar - Section 2 */}
       <div className="relative h-[80px] z-50">
-        <div className={`w-full transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 pt-4 px-4 sm:px-6 md:px-8 pointer-events-none' : 'absolute top-0 left-0'}`}>
+        <div className={`w-full transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 pt-4 px-4 pointer-events-none' : 'absolute top-0 left-0'}`}>
           <nav className={`mx-auto transition-all duration-300 ${
             isScrolled 
-              ? 'max-w-5xl bg-white/90 backdrop-blur-xl border border-gray-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl lg:rounded-full py-2 pointer-events-auto' 
+              ? 'max-w-[1280px] bg-white/90 backdrop-blur-xl border border-gray-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl lg:rounded-full py-2 pointer-events-auto' 
               : 'w-full bg-white border-b border-gray-100 py-4 pointer-events-auto'
           }`}>
-            <div className={`max-w-7xl mx-auto flex justify-between items-center ${isScrolled ? 'px-6 h-auto' : 'px-4 md:px-8 h-[80px] lg:h-auto'}`}>
+            <div className={`max-w-[1280px] mx-auto flex justify-between items-center ${isScrolled ? 'px-6 lg:px-8 h-auto' : 'px-4 md:px-8 h-[80px] lg:h-auto'}`}>
           {/* Logo */}
           <a href="#" onClick={(e) => handleNavClick(e, '#')} className="shrink-0">
-            <Logo imageClassName="h-8 md:h-10 w-auto object-contain" textClassName="flex flex-col justify-center" />
+            <Logo imageClassName={`${isScrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'} w-auto object-contain transition-all duration-300`} textClassName="flex flex-col justify-center" />
           </a>
 
           {/* Center Navigation */}
