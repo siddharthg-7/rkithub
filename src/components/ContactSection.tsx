@@ -1,7 +1,21 @@
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Hello RK IT Hub,\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/917702949304?text=${encodedText}`, '_blank');
+  };
   return (
     <section id="contact" className="py-20 bg-white font-sans border-t border-gray-100">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
@@ -28,11 +42,14 @@ export const ContactSection = () => {
             className="bg-white rounded-xl p-8 shadow-sm border border-gray-200"
           >
             <h3 className="text-xl font-[800] text-[#0F172A] mb-6">Send Us a Message</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="floating-label-group">
                 <input 
                   type="text" 
                   id="contact-name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
                   className="floating-label-input" 
                   placeholder=" " 
                 />
@@ -42,6 +59,9 @@ export const ContactSection = () => {
                 <input 
                   type="email" 
                   id="contact-email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
                   className="floating-label-input" 
                   placeholder=" " 
                 />
@@ -51,6 +71,9 @@ export const ContactSection = () => {
                 <input 
                   type="tel" 
                   id="contact-phone"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  required
                   className="floating-label-input" 
                   placeholder=" " 
                 />
@@ -60,6 +83,9 @@ export const ContactSection = () => {
                 <textarea 
                   id="contact-message"
                   rows={4} 
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
                   className="floating-label-input resize-none" 
                   placeholder=" "
                 ></textarea>
@@ -67,7 +93,7 @@ export const ContactSection = () => {
               </div>
               <div className="pt-2">
                 <button 
-                  type="button" 
+                  type="submit" 
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#0B4F9C] hover:bg-[#093A74] text-white px-6 py-3.5 rounded-lg font-[800] text-[14px] transition-all shadow-md hover:-translate-y-0.5"
                 >
                   <Send className="w-4 h-4" />

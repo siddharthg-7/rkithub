@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LandingPage } from './pages/LandingPage';
@@ -37,47 +38,49 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <AuthProvider>
-        <Routes>
-          {/* Public Routes with Navbar and Footer */}
-          <Route element={<PublicLayout />}>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-            <Route path="/courses/java-full-stack" element={<JavaFullStackPage />} />
-            <Route path="/courses/python-full-stack" element={<PythonFullStackPage />} />
-            <Route path="/courses/mern-stack" element={<MernStackPage />} />
-            <Route path="/courses/data-science" element={<DataSciencePage />} />
-            <Route path="/courses/ai-ml" element={<AiMlPage />} />
-            <Route path="/courses/selenium" element={<SeleniumPage />} />
-            <Route path="/courses/cypress" element={<CypressPage />} />
-            <Route path="/courses/:slug" element={<CourseDetailsPage />} />
-            <Route path="/internships" element={<InternshipsPage />} />
-          </Route>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <AuthProvider>
+          <Routes>
+            {/* Public Routes with Navbar and Footer */}
+            <Route element={<PublicLayout />}>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route path="/courses/java-full-stack" element={<JavaFullStackPage />} />
+              <Route path="/courses/python-full-stack" element={<PythonFullStackPage />} />
+              <Route path="/courses/mern-stack" element={<MernStackPage />} />
+              <Route path="/courses/data-science" element={<DataSciencePage />} />
+              <Route path="/courses/ai-ml" element={<AiMlPage />} />
+              <Route path="/courses/selenium" element={<SeleniumPage />} />
+              <Route path="/courses/cypress" element={<CypressPage />} />
+              <Route path="/courses/:slug" element={<CourseDetailsPage />} />
+              <Route path="/internships" element={<InternshipsPage />} />
+            </Route>
 
-          {/* Protected Student Routes */}
-          <Route element={<ProtectedRoute roles={['student', 'admin']} />}>
-            <Route path="/dashboard" element={<StudentDashboard />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/settings" element={<SettingsPage />} />
-            <Route path="/notifications" element={<StudentNotificationsPage />} />
-          </Route>
+            {/* Protected Student Routes */}
+            <Route element={<ProtectedRoute roles={['student', 'admin']} />}>
+              <Route path="/dashboard" element={<StudentDashboard />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/notifications" element={<StudentNotificationsPage />} />
+            </Route>
 
-          {/* Protected Admin Routes */}
-          <Route element={<ProtectedRoute roles={['admin']} />}>
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/courses" element={<AdminCoursesPage />} />
-            <Route path="/admin/notifications" element={<AdminNotificationsPage />} />
-          </Route>
+            {/* Protected Admin Routes */}
+            <Route element={<ProtectedRoute roles={['admin']} />}>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/courses" element={<AdminCoursesPage />} />
+              <Route path="/admin/notifications" element={<AdminNotificationsPage />} />
+            </Route>
 
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </AuthProvider>
-    </Router>
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
+    </HelmetProvider>
   );
 }
 

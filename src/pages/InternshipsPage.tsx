@@ -5,6 +5,7 @@ import { HiringPartners } from '@/src/components/internships/HiringPartners';
 import { LearningJourney } from '@/src/components/internships/LearningJourney';
 import { CareerTracks } from '@/src/components/internships/CareerTracks';
 import { InternshipProcess } from '@/src/components/internships/InternshipProcess';
+import { SEO } from '../components/SEO';
 
 import { MentorEcosystem } from '@/src/components/internships/MentorEcosystem';
 import { ImpactMetrics } from '@/src/components/internships/ImpactMetrics';
@@ -17,6 +18,11 @@ import { FinalCTA } from '@/src/components/internships/FinalCTA';
 export const InternshipsPage = () => {
   return (
     <div className="bg-[var(--color-bg-light)] min-h-screen font-sans overflow-hidden selection:bg-[var(--color-primary)] selection:text-white">
+      <SEO 
+        title="Software Internships & Real-Time Projects"
+        description="Join RK IT HUB's industry-focused internship programs. Work on real-time projects in Java, Python, and MERN stack with expert mentorship."
+        keywords="software internships, IT internships hyderabad, real-time projects, full stack internship, java internship, python internship"
+      />
       <HeroSection />
       <PartnershipTrustBar />
       <HiringPartners />

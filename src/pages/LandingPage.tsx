@@ -7,6 +7,7 @@ import { PopularCourses } from '../components/PopularCourses';
 import { WhyChoose } from '../components/WhyChoose';
 import { PlacementSuccess } from '../components/PlacementSuccess';
 import { Testimonials } from '../components/Testimonials';
+import { SEO } from '../components/SEO';
 import { CTABox } from '../components/CTABox';
 import { BottomConversionBlock } from '../components/BottomConversionBlock';
 import { ContactSection } from '../components/ContactSection';
@@ -14,6 +15,11 @@ import { ContactSection } from '../components/ContactSection';
 export const LandingPage = () => {
   return (
     <div className="relative bg-white flex flex-col min-h-screen">
+      <SEO 
+        title="Best Software Training Institute in Hyderabad"
+        description="RK IT HUB provides top-rated software training, real-time projects, internships, and 100% placement support for Java, Python, MERN Stack, Data Science, and Testing."
+        keywords="software training hyderabad, java full stack training, python full stack course, mern stack training, automation testing institute, placement support"
+      />
       <main className="flex-grow">
         {/* 1. Hero Area */}
         <CorporateHero />

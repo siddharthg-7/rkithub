@@ -23,6 +23,7 @@ import {
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { Logo } from '../components/Logo';
+import { SEO } from '../components/SEO';
 
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -62,6 +63,10 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex bg-white font-sans overflow-hidden">
+      <SEO 
+        title="Login | Student Portal"
+        description="Log in to your RK IT HUB student portal to access your courses, projects, and placement updates."
+      />
       
       {/* LEFT PANEL - Immersive Animated Experience */}
       <div className="hidden lg:flex flex-1 bg-[#0B132B] items-center justify-center p-12 relative overflow-hidden">

@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Monitor
 } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 const modules = [
   {
@@ -32,9 +33,16 @@ const modules = [
 export const CourseDetailsPage: React.FC = () => {
   const { slug } = useParams();
   const [activeModule, setActiveModule] = useState<number | null>(0);
+  
+  const courseName = slug?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || 'Course';
 
   return (
     <div className="min-h-screen bg-white font-sans">
+      <SEO 
+        title={`${courseName} Certification Course`}
+        description={`Enroll in the ${courseName} course at RK IT HUB. Get hands-on training, real-time projects, and 100% placement support in Hyderabad.`}
+        keywords={`${courseName.toLowerCase()}, course, training, certification, software institute`}
+      />
       
       {/* Hero Header */}
       <section className="pt-40 pb-24 bg-navy-900 text-white relative overflow-hidden">

@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SiSpringboot, SiMysql, SiReact, SiDocker } from 'react-icons/si';
+import { SEO } from '../components/SEO';
 import { FaJava } from 'react-icons/fa';
 import JavaEcosystemVisual from '../components/JavaEcosystemVisual';
 
@@ -84,6 +85,11 @@ export const JavaFullStackPage = () => {
 
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
+      <SEO 
+        title="Java Full Stack Developer Course"
+        description="Become an industry-ready Java Full Stack Developer. Master Core Java, Spring Boot, React, and Microservices with our comprehensive course."
+        keywords="java full stack course, spring boot training, react js course, microservices, java developer training, java internship"
+      />
       
       {/* 1. Hero Section */}
       <section 

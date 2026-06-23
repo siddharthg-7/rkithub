@@ -1,5 +1,7 @@
 import React from 'react';
-import { Clock, ArrowRight, Star, Code2, Database, Layout, Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Clock, ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FaJava, FaChartBar, FaBrain } from 'react-icons/fa';
+import { SiPython, SiMongodb, SiSelenium, SiCypress } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -9,46 +11,46 @@ export const PopularCourses = () => {
       title: 'Java Full Stack',
       description: 'Master Java, Spring Boot, Hibernate, and Angular/React.',
       technologies: ['Java', 'Spring Boot', 'React'],
-      duration: '4 Months',
+      duration: '2 Months',
       path: '/courses/java-full-stack',
       featured: true,
-      icon: Code2
+      icon: FaJava
     },
     {
       title: 'Python Full Stack',
       description: 'Learn Python, Django, Flask, and frontend technologies.',
       technologies: ['Python', 'Django', 'Vue.js'],
-      duration: '4 Months',
+      duration: '2 Months',
       path: '/courses/python-full-stack',
       featured: false,
-      icon: Layout
+      icon: SiPython
     },
     {
       title: 'MERN Stack',
       description: 'Become a full-stack developer with MongoDB, Express.js, React, and Node.js.',
       technologies: ['MongoDB', 'Express', 'React'],
-      duration: '3 Months',
+      duration: '2 Months',
       path: '/courses/mern-stack',
       featured: false,
-      icon: Database
+      icon: SiMongodb
     },
     {
       title: 'Data Science',
       description: 'Learn Data Analysis, Machine Learning, and statistics with real-time projects.',
       technologies: ['Python', 'Data Analysis', 'Stats'],
-      duration: '6 Months',
+      duration: '1 Months',
       path: '/courses/data-science',
       featured: false,
-      icon: Search
+      icon: FaChartBar
     },
     {
       title: 'AI & ML',
       description: 'Build intelligent systems, neural networks, and deep learning models.',
       technologies: ['AI', 'Deep Learning', 'PyTorch'],
-      duration: '6 Months',
+      duration: '1 Months',
       path: '/courses/ai-ml',
       featured: false,
-      icon: Search
+      icon: FaBrain
     },
     {
       title: 'Selenium',
@@ -57,7 +59,7 @@ export const PopularCourses = () => {
       duration: '2 Months',
       path: '/courses/selenium',
       featured: false,
-      icon: Layout
+      icon: SiSelenium
     },
     {
       title: 'Cypress',
@@ -66,27 +68,21 @@ export const PopularCourses = () => {
       duration: '2 Months',
       path: '/courses/cypress',
       featured: false,
-      icon: Code2
+      icon: SiCypress
     }
   ];
 
   return (
     <section id="courses" className="py-20 bg-[#FAFAFA] font-sans relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 md:px-12 relative">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.8 }}
           className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4"
         >
           <h2 className="text-3xl md:text-[32px] font-[800] text-[#0F172A] m-0">Popular Courses</h2>
-          <a 
-            href="#courses"
-            className="text-[#0B4F9C] font-[800] text-[15px] flex items-center gap-1.5 hover:text-[#093A74] transition-colors"
-          >
-            View All Courses <ArrowRight className="w-4 h-4" />
-          </a>
         </motion.div>
 
         {/* Carousel Arrows */}
@@ -101,12 +97,12 @@ export const PopularCourses = () => {
           {courses.map((course, i) => {
             const Icon = course.icon;
             return (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                key={i} 
+                key={i}
                 className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative"
               >
                 {/* Featured Badge */}
@@ -118,12 +114,12 @@ export const PopularCourses = () => {
 
                 <div className="p-6 flex-grow flex flex-col pt-12">
                   <div className="w-14 h-14 rounded-2xl bg-white text-[#0B4F9C] flex items-center justify-center mb-5 mx-auto -mt-2 group-hover:scale-110 transition-transform">
-                    <Icon className="w-8 h-8" />
+                    <Icon size={32} />
                   </div>
-                  
+
                   <h3 className="text-[19px] font-[800] text-[#0F172A] mb-3 text-center">{course.title}</h3>
                   <p className="text-[#475569] text-[14px] mb-6 flex-grow leading-relaxed font-medium text-center px-2">{course.description}</p>
-                  
+
                   {/* Technologies */}
                   <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {course.technologies.map((tech, j) => (
@@ -139,8 +135,8 @@ export const PopularCourses = () => {
                       <Clock className="w-4 h-4" />
                       <span>{course.duration}</span>
                     </div>
-                    <a 
-                      href={course.path} 
+                    <a
+                      href={course.path}
                       className="text-[#22C55E] hover:text-[#16A34A] font-[700] text-[13px] flex items-center gap-1 transition-colors group/link"
                     >
                       View Details

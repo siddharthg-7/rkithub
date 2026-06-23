@@ -18,6 +18,7 @@ import {
 import { Link } from 'react-router-dom';
 import { SiReact, SiDjango } from 'react-icons/si';
 import PythonEcosystemVisual from '../components/PythonEcosystemVisual';
+import { SEO } from '../components/SEO';
 
 // ─── Syllabus Data ─────────────────────────────────────────────────────────────
 const syllabus = [
@@ -252,6 +253,11 @@ export const PythonFullStackPage: React.FC = () => {
 
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
+      <SEO 
+        title="Python Full Stack Developer Course"
+        description="Become a Python Full Stack Developer. Learn Python, Django, REST APIs, React, and MySQL with hands-on projects and placement support."
+        keywords="python full stack, django course, python developer training, react js python, web development hyderabad"
+      />
       
       {/* 1. Hero Section */}
       <section 

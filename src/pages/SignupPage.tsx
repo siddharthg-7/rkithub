@@ -17,6 +17,7 @@ import {
   Users,
   TrendingUp
 } from 'lucide-react';
+import { SEO } from '../components/SEO';
 import { 
   createUserWithEmailAndPassword,
   updateProfile
@@ -68,6 +69,10 @@ export const SignupPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex bg-white font-sans overflow-hidden">
+      <SEO 
+        title="Sign Up | Student Portal"
+        description="Create an RK IT HUB student account to enroll in courses, access materials, and start your IT career journey."
+      />
       
       {/* LEFT PANEL - Immersive Animated Experience */}
       <div className="hidden lg:flex flex-1 bg-[#0B132B] items-center justify-center p-12 relative overflow-hidden">

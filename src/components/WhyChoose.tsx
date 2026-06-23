@@ -77,7 +77,7 @@ export const WhyChoose = () => {
           href="#courses"
           className="inline-flex items-center justify-center gap-2 bg-[#0B4F9C] hover:bg-[#093A74] text-white px-8 py-4 rounded-xl font-[800] text-[15px] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
         >
-          Explore Our Courses
+          Explore Our Journey
           <ArrowRight className="w-5 h-5" />
         </a>
       </div>

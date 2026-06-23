@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SEO } from '../components/SEO';
 
 export const AiMlPage = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-white font-sans flex flex-col justify-center items-center relative overflow-hidden">
+      <SEO 
+        title="AI & Machine Learning Course"
+        description="Master Artificial Intelligence and Machine Learning. Build deep learning models, neural networks, and real-time AI applications."
+        keywords="ai ml course, artificial intelligence training, machine learning, deep learning, neural networks, ai placement"
+      />
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 to-slate-900 pointer-events-none"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] blur-[150px] rounded-full pointer-events-none" style={{ background: 'rgba(59,130,246,0.08)' }}></div>

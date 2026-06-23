@@ -114,7 +114,18 @@ export const Navbar = () => {
             }`}>
             <div className={`max-w-[1280px] mx-auto flex justify-between items-center ${isScrolled ? 'px-6 lg:px-8 h-auto' : 'px-4 md:px-8 h-[80px] lg:h-auto'}`}>
               {/* Logo */}
-              <a href="#" onClick={(e) => handleNavClick(e, '#')} className="shrink-0">
+              <a 
+                href="/" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (location.pathname !== '/') {
+                    navigate('/');
+                  } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }} 
+                className="shrink-0"
+              >
                 <Logo imageClassName={`${isScrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'} w-auto object-contain transition-all duration-300`} textClassName="flex flex-col justify-center" />
               </a>
 

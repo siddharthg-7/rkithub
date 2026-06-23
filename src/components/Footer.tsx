@@ -95,7 +95,7 @@ export const Footer = () => {
                     HITECH City, Hyderabad TG-500084
                   </span>
                   <div className="mt-4 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-[#1e293b]/50 border border-gray-800 shadow-sm w-fit group-hover:border-gray-700 transition-colors">
-                    <span className="text-[11px] font-bold tracking-wider text-gray-400 uppercase">Partnered With</span>
+                    <span className="text-[11px] font-bold tracking-wider text-gray-400 uppercase">Powered By</span>
                     <div className="h-3 w-[1px] bg-gray-700"></div>
                     <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-4 object-contain grayscale-[40%] group-hover:grayscale-0 transition-all" />
                   </div>
