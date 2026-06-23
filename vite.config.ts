@@ -21,19 +21,7 @@ export default defineConfig(({mode}) => {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
     build: {
-      chunkSizeWarningLimit: 1000,
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('framer-motion')) return 'framer-motion';
-              if (id.includes('lucide-react')) return 'lucide-react';
-              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) return 'react-vendor';
-              return 'vendor';
-            }
-          }
-        }
-      }
+      chunkSizeWarningLimit: 3000,
     }
   };
 });
