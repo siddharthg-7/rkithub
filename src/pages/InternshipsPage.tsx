@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroSection } from '@/src/components/internships/HeroSection';
+import { PartnershipTrustBar } from '@/src/components/internships/PartnershipTrustBar';
 import { HiringPartners } from '@/src/components/internships/HiringPartners';
 import { LearningJourney } from '@/src/components/internships/LearningJourney';
 import { CareerTracks } from '@/src/components/internships/CareerTracks';
@@ -17,6 +18,7 @@ export const InternshipsPage = () => {
   return (
     <div className="bg-[var(--color-bg-light)] min-h-screen font-sans overflow-hidden selection:bg-[var(--color-primary)] selection:text-white">
       <HeroSection />
+      <PartnershipTrustBar />
       <HiringPartners />
       <LearningJourney />
       <CareerTracks />

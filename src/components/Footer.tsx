@@ -88,12 +88,18 @@ export const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary)] border border-gray-800 group-hover:border-transparent transition-colors">
                   <MapPin className="w-4 h-4 text-[var(--color-accent)] group-hover:text-white" />
                 </div>
-                <span className="text-[15px] text-gray-400 leading-relaxed pt-1 font-['Inter']">
-                  Hive Space 2.0, Whitefield<br/>
-                  Ramalayam Temple Road<br/>
-                  HITECH City, Hyderabad TG-500084<br/>
-                  (partnered with V-Hub)
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-[15px] text-gray-400 leading-relaxed pt-1 font-['Inter']">
+                    Hive Space 2.0, Whitefield<br/>
+                    Ramalayam Temple Road<br/>
+                    HITECH City, Hyderabad TG-500084
+                  </span>
+                  <div className="mt-4 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-[#1e293b]/50 border border-gray-800 shadow-sm w-fit group-hover:border-gray-700 transition-colors">
+                    <span className="text-[11px] font-bold tracking-wider text-gray-400 uppercase">Partnered With</span>
+                    <div className="h-3 w-[1px] bg-gray-700"></div>
+                    <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-4 object-contain grayscale-[40%] group-hover:grayscale-0 transition-all" />
+                  </div>
+                </div>
               </li>
               <li className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--color-primary)] border border-gray-800 group-hover:border-transparent transition-colors">

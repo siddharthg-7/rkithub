@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { MousePointerClick, UserCheck, BookOpen, Layers, CalendarCheck, MonitorPlay, Award, Briefcase } from 'lucide-react';
+import { Logo } from '../Logo';
 
 export const InternshipJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -30,7 +31,7 @@ export const InternshipJourney = () => {
   return (
     <section className="bg-white py-24 px-[80px] min-h-[1200px] font-sans relative">
       <div className="max-w-[1440px] mx-auto relative">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16">
           <h2 className="text-[40px] font-[800] text-[#0F172A] mb-4 font-['Inter']">
             Your Internship Journey
           </h2>
@@ -39,12 +40,24 @@ export const InternshipJourney = () => {
           </p>
         </div>
 
+        {/* Partnership Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto bg-white/80 backdrop-blur-md border border-[#E2E8F0] shadow-xl rounded-2xl p-6 md:p-8 mb-20 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 relative z-20"
+        >
+          <Logo imageClassName="h-12 object-contain" />
+          <div className="text-[#94A3B8] font-bold text-2xl">+</div>
+          <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-12 object-contain" />
+        </motion.div>
+
         <div ref={containerRef} className="relative max-w-4xl mx-auto h-[900px]">
           {/* Static Background Line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-[4px] -translate-x-1/2 bg-gray-200 rounded-full" />
-          
+
           {/* Animated Fill Line */}
-          <motion.div 
+          <motion.div
             className="absolute left-1/2 top-0 bottom-0 w-[4px] -translate-x-1/2 bg-[var(--color-primary)] rounded-full origin-top"
             style={{ scaleY }}
           />
@@ -56,7 +69,7 @@ export const InternshipJourney = () => {
               return (
                 <div key={index} className={`flex items-center justify-center w-full ${isEven ? 'flex-row-reverse' : ''}`}>
                   <div className={`w-1/2 flex ${isEven ? 'justify-start pl-16' : 'justify-end pr-16'}`}>
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
@@ -67,7 +80,7 @@ export const InternshipJourney = () => {
                       <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-[#E2E8F0] rotate-45 group-hover:border-[var(--color-primary)] transition-colors
                         ${isEven ? '-left-[9px] border-l border-b' : '-right-[9px] border-r border-t'}
                       `} />
-                      
+
                       <h3 className="text-xl font-bold text-[#0F172A] font-['Inter'] mb-2">{step.title}</h3>
                       <p className="text-[#64748B]">{step.desc}</p>
                     </motion.div>
@@ -76,7 +89,7 @@ export const InternshipJourney = () => {
                   {/* Center Icon Node */}
                   <div className="w-[60px] h-[60px] absolute left-1/2 -translate-x-1/2 bg-white border-4 border-gray-200 rounded-full flex items-center justify-center text-gray-400 z-20">
                     {/* Inner active fill handled by Framer Motion based on scroll can be complex, using a simple hover/view trigger for color */}
-                    <motion.div 
+                    <motion.div
                       initial={{ backgroundColor: '#fff', borderColor: '#E2E8F0', color: '#94A3B8' }}
                       whileInView={{ backgroundColor: 'var(--color-primary)', borderColor: '#bfdbfe', color: '#fff' }}
                       viewport={{ once: true, margin: "-200px" }}
