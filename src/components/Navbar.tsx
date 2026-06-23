@@ -51,13 +51,13 @@ export const Navbar = () => {
   };
 
   const trainings = [
-    { name: 'Java Full Stack', path: '#courses' },
-    { name: 'Python Full Stack', path: '#courses' },
-    { name: 'MERN Stack', path: '#courses' },
-    { name: 'Data Science', path: '#courses' },
-    { name: 'AI & ML', path: '#courses' },
-    { name: 'Selenium', path: '#courses' },
-    { name: 'Cypress', path: '#courses' },
+    { name: 'Java Full Stack', path: '/courses/java-full-stack' },
+    { name: 'Python Full Stack', path: '/courses/python-full-stack' },
+    { name: 'MERN Stack', path: '/courses/mern-stack' },
+    { name: 'Data Science', path: '/courses/data-science' },
+    { name: 'AI & ML', path: '/courses/ai-ml' },
+    { name: 'Selenium', path: '/courses/selenium' },
+    { name: 'Cypress', path: '/courses/cypress' },
   ];
 
   const routes = [

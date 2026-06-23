@@ -18,6 +18,12 @@ import { PublicLayout } from './components/PublicLayout';
 
 import { InternshipsPage } from './pages/InternshipsPage';
 import { JavaFullStackPage } from './pages/JavaFullStackPage';
+import { PythonFullStackPage } from './pages/PythonFullStackPage';
+import { MernStackPage } from './pages/MernStackPage';
+import { DataSciencePage } from './pages/DataSciencePage';
+import { AiMlPage } from './pages/AiMlPage';
+import { SeleniumPage } from './pages/SeleniumPage';
+import { CypressPage } from './pages/CypressPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -42,6 +48,12 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/courses/java-full-stack" element={<JavaFullStackPage />} />
+            <Route path="/courses/python-full-stack" element={<PythonFullStackPage />} />
+            <Route path="/courses/mern-stack" element={<MernStackPage />} />
+            <Route path="/courses/data-science" element={<DataSciencePage />} />
+            <Route path="/courses/ai-ml" element={<AiMlPage />} />
+            <Route path="/courses/selenium" element={<SeleniumPage />} />
+            <Route path="/courses/cypress" element={<CypressPage />} />
             <Route path="/courses/:slug" element={<CourseDetailsPage />} />
             <Route path="/internships" element={<InternshipsPage />} />
           </Route>
