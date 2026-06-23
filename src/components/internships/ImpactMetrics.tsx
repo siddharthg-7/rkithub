@@ -32,7 +32,7 @@ export const ImpactMetrics = () => {
   ];
 
   return (
-    <section className="w-full py-16 px-8 font-sans">
+    <section className="w-full py-8 md:py-16 px-8 font-sans">
       <div className="w-full max-w-[600px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-[800] text-[#0F172A] mb-2 font-['Inter']">

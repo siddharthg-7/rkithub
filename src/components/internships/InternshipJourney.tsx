@@ -29,7 +29,7 @@ export const InternshipJourney = () => {
   ];
 
   return (
-    <section className="bg-white py-24 px-[80px] min-h-[1200px] font-sans relative">
+    <section className="bg-white py-12 md:py-24 px-6 md:px-[80px] min-h-[800px] md:min-h-[1200px] font-sans relative">
       <div className="max-w-[1440px] mx-auto relative">
         <div className="text-center mb-16">
           <h2 className="text-[40px] font-[800] text-[#0F172A] mb-4 font-['Inter']">
@@ -40,17 +40,7 @@ export const InternshipJourney = () => {
           </p>
         </div>
 
-        {/* Partnership Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto bg-white/80 backdrop-blur-md border border-[#E2E8F0] shadow-xl rounded-2xl p-6 md:p-8 mb-20 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-12 relative z-20"
-        >
-          <Logo imageClassName="h-12 object-contain" />
-          <div className="text-[#94A3B8] font-bold text-2xl">+</div>
-          <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-12 object-contain" />
-        </motion.div>
+
 
         <div ref={containerRef} className="relative max-w-4xl mx-auto h-[900px]">
           {/* Static Background Line */}

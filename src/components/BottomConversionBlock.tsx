@@ -1,10 +1,11 @@
 import React from 'react';
 import { ArrowRight, Ribbon, Users, Building, Calendar, BookOpen, MonitorPlay, Briefcase, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const BottomConversionBlock = () => {
   return (
-    <section id="about" className="py-20 bg-white font-sans overflow-hidden">
+    <section id="about" className="py-10 md:py-20 bg-white font-sans overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 md:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -75,12 +76,12 @@ export const BottomConversionBlock = () => {
             </div>
 
             <div>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="inline-flex items-center justify-center gap-2 bg-[#0B4F9C] hover:bg-[#093A74] text-white px-6 py-3 rounded-lg font-bold text-[14px] transition-all shadow-md hover:-translate-y-0.5"
               >
                 Know More About Us <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </motion.div>
 

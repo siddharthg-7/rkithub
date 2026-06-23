@@ -56,7 +56,7 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-white">
+    <section className="py-12 md:py-24 px-4 bg-white">
       <div className="max-w-[1280px] mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

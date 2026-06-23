@@ -65,7 +65,7 @@ export const Navbar = () => {
     { name: 'Trainings', path: '#courses', hasDropdown: true },
     { name: 'Placements', path: '#placements' },
     { name: 'Internships', path: '/internships' },
-    { name: 'About Us', path: '#about' },
+    { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '#contact' },
   ];
 

@@ -73,7 +73,7 @@ export const PopularCourses = () => {
   ];
 
   return (
-    <section id="courses" className="py-20 bg-[#FAFAFA] font-sans relative overflow-hidden">
+    <section id="courses" className="py-10 md:py-20 bg-[#FAFAFA] font-sans relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 md:px-12 relative">
 
         <motion.div

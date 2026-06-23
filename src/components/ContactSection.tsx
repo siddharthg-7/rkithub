@@ -17,7 +17,7 @@ export const ContactSection = () => {
     window.open(`https://wa.me/917702949304?text=${encodedText}`, '_blank');
   };
   return (
-    <section id="contact" className="py-20 bg-white font-sans border-t border-gray-100">
+    <section id="contact" className="py-10 md:py-20 bg-white font-sans border-t border-gray-100">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

@@ -90,7 +90,7 @@ const initialEdges: Edge[] = [
 
 export const MentorEcosystem = () => {
   return (
-    <section className="h-[700px] flex flex-col justify-center relative font-sans overflow-hidden py-16 w-full">
+    <section className="h-[700px] flex flex-col justify-center relative font-sans overflow-hidden py-8 md:py-16 w-full">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

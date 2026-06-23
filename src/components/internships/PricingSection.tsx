@@ -120,7 +120,7 @@ export const PricingSection = () => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'onetime'>('onetime');
 
   return (
-    <section className="relative py-16 md:py-32 font-sans overflow-hidden bg-[#FAFAFA]">
+    <section className="relative py-8 md:py-16 md:py-32 font-sans overflow-hidden bg-[#FAFAFA]">
       {/* Background Layers */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Blurred gradient circles */}
@@ -184,16 +184,16 @@ export const PricingSection = () => {
           viewport={{ once: true }}
           className="flex justify-center mb-12 md:mb-16"
         >
-          <div className="bg-white/50 backdrop-blur-md p-1.5 rounded-2xl border border-gray-200 shadow-sm flex inline-flex relative">
+          <div className="bg-white/50 backdrop-blur-md p-1.5 rounded-2xl border border-gray-200 shadow-sm inline-flex relative w-full sm:w-auto max-w-[400px]">
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-8 py-3 rounded-xl font-semibold text-sm transition-all duration-300 relative z-10 ${billingCycle === 'monthly' ? 'text-[#0F172A]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
+              className={`flex-1 sm:flex-none px-4 sm:px-8 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 relative z-10 ${billingCycle === 'monthly' ? 'text-[#0F172A]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle('onetime')}
-              className={`px-8 py-3 rounded-xl font-semibold text-sm transition-all duration-300 relative z-10 ${billingCycle === 'onetime' ? 'text-[#0F172A]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
+              className={`flex-1 sm:flex-none px-4 sm:px-8 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 relative z-10 ${billingCycle === 'onetime' ? 'text-[#0F172A]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
             >
               One Time
             </button>
@@ -205,7 +205,7 @@ export const PricingSection = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-32 max-w-7xl mx-auto items-stretch">
           {plans.map((plan, index) => {
             const currentPrice = plan.prices[billingCycle];
             

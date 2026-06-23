@@ -37,7 +37,7 @@ export const InternshipProcess = () => {
   ];
 
   return (
-    <section className="py-24 px-[80px] max-w-[1440px] mx-auto bg-white font-sans overflow-hidden">
+    <section className="py-12 md:py-24 px-[80px] max-w-[1440px] mx-auto bg-white font-sans overflow-hidden">
       <div className="text-center mb-16">
         <h2 className="text-[40px] font-[800] text-[#0F172A] mb-4 font-['Inter']">
          Step by Step Internship Programme

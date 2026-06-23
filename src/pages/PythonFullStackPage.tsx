@@ -273,7 +273,7 @@ export const PythonFullStackPage: React.FC = () => {
 
         {/* Content Container */}
         <div className="max-w-[1280px] mx-auto px-[24px] h-full relative z-10">
-          <div className="grid grid-cols-[45%_55%] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[45%_55%] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
             
             {/* Left Content */}
             <motion.div 
@@ -293,7 +293,7 @@ export const PythonFullStackPage: React.FC = () => {
               </motion.div>
               
               {/* Heading */}
-              <h1 className="max-w-[520px] text-[72px] font-[800] leading-[0.95] text-white font-heading tracking-[-3px] mb-[24px] overflow-hidden">
+              <h1 className="w-full max-w-[520px] text-[48px] md:text-[72px] font-[800] leading-[1.05] md:leading-[0.95] text-white font-heading tracking-[-1.5px] md:tracking-[-3px] mb-[24px] overflow-hidden">
                 <motion.span 
                   className="block mb-2"
                   initial={{ opacity: 0, y: 30 }}
@@ -318,7 +318,7 @@ export const PythonFullStackPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-[480px] text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[480px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
                 Master Python, Django, ReactJS, SQL and build real-world projects to become an industry-ready Full Stack Developer.
               </motion.p>
@@ -351,13 +351,13 @@ export const PythonFullStackPage: React.FC = () => {
               </motion.div>
               
               {/* Buttons */}
-              <div className="flex gap-[16px] mb-0">
+              <div className="flex flex-col sm:flex-row gap-[16px] mb-0">
                 <motion.button 
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                   style={{ boxShadow: '0 10px 30px rgba(37,99,235,0.25)' }}
                 >
                   <span>Enroll Now</span>
@@ -375,7 +375,7 @@ export const PythonFullStackPage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Download Brochure</span>
                   <motion.span 
@@ -419,7 +419,7 @@ export const PythonFullStackPage: React.FC = () => {
                 }
               }
             }}
-            className="grid grid-cols-5 divide-x divide-[#E5E7EB]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
               { icon: BookOpen, title: 'Core Python', desc: 'Strong programming basics, variables, and logic flow' },
@@ -558,7 +558,7 @@ export const PythonFullStackPage: React.FC = () => {
           </motion.div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-[1fr_1fr] gap-[48px] items-center min-h-[320px] mb-[80px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[48px] items-center min-h-[320px] mb-[80px]">
             {/* Left SaaS Mockup Dashboard (Video Player) */}
             <motion.div 
               variants={{
@@ -567,7 +567,7 @@ export const PythonFullStackPage: React.FC = () => {
               }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              className="w-[500px] h-[280px] rounded-[18px] border border-[#E5E7EB] bg-[#020617] overflow-hidden relative mx-auto shadow-[0_15px_40px_rgba(15,23,42,0.08)] cursor-pointer shrink-0"
+              className="w-full max-w-[500px] h-[220px] md:h-[280px] rounded-[18px] border border-[#E5E7EB] bg-[#020617] overflow-hidden relative mx-auto shadow-[0_15px_40px_rgba(15,23,42,0.08)] cursor-pointer shrink-0"
             >
               <video 
                 src="/assets/project-demo.mp4" 
@@ -586,7 +586,7 @@ export const PythonFullStackPage: React.FC = () => {
                 hidden: { opacity: 0, x: 30 },
                 visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
               }}
-              className="w-[520px] flex flex-col gap-[16px] mx-auto"
+              className="w-full max-w-[520px] flex flex-col gap-[16px] mx-auto"
             >
               <div className="flex flex-col gap-2">
                 <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-[600] uppercase tracking-wider w-fit font-sans">
@@ -767,7 +767,7 @@ export const PythonFullStackPage: React.FC = () => {
           </motion.div>
 
           {/* 6. FAQ & Final CTA Banner Row */}
-          <div className="grid grid-cols-2 gap-[40px] items-stretch pb-[100px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[40px] items-stretch pb-[100px]">
             
             {/* FAQ Side */}
             <motion.div
@@ -871,10 +871,10 @@ export const PythonFullStackPage: React.FC = () => {
               </div>
 
               {/* Bottom: Buttons */}
-              <div className="flex gap-[16px] relative z-10">
+              <div className="flex flex-col sm:flex-row gap-[16px] relative z-10">
                 <motion.button 
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all cursor-pointer hover:-translate-y-0.5"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all cursor-pointer hover:-translate-y-0.5 w-full sm:w-auto"
                   style={{ boxShadow: '0 10px 30px rgba(37,99,235,0.25)' }}
                 >
                   <span>Enroll Now</span>
@@ -889,7 +889,7 @@ export const PythonFullStackPage: React.FC = () => {
                 
                 <motion.button 
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 cursor-pointer hover:-translate-y-0.5"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 cursor-pointer hover:-translate-y-0.5 w-full sm:w-auto"
                 >
                   <span>Download Brochure</span>
                   <motion.span 

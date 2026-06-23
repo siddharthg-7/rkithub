@@ -37,7 +37,7 @@ export const LandingPage = () => {
         <PopularCourses />
         
         {/* 5 & 6. Trust & Placements Split */}
-        <section className="py-24 bg-white font-sans">
+        <section className="py-12 md:py-24 bg-white font-sans">
           <div className="max-w-[1440px] mx-auto px-4 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-start">
               <WhyChoose />
@@ -47,7 +47,7 @@ export const LandingPage = () => {
         </section>
         
         {/* 7. Testimonials & CTA Split */}
-        <section className="py-24 bg-[#FAFAFA] font-sans">
+        <section className="py-12 md:py-24 bg-[#FAFAFA] font-sans">
           <div className="max-w-[1440px] mx-auto px-4 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 items-center">
               <Testimonials />

@@ -296,7 +296,7 @@ export const MernStackPage: React.FC = () => {
         />
 
         <div className="max-w-[1280px] mx-auto px-[24px] h-full relative z-10">
-          <div className="grid grid-cols-[45%_55%] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[45%_55%] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
 
             {/* ── LEFT ── */}
             <motion.div initial="hidden" animate="visible" className="relative z-20">
@@ -313,7 +313,7 @@ export const MernStackPage: React.FC = () => {
               </motion.div>
 
               {/* Heading */}
-              <h1 className="max-w-[520px] text-[68px] font-[800] leading-[0.95] text-white font-heading tracking-[-3px] mb-[24px] overflow-hidden">
+              <h1 className="w-full max-w-[520px] text-[48px] md:text-[68px] font-[800] leading-[1.05] md:leading-[0.95] text-white font-heading tracking-[-1.5px] md:tracking-[-3px] mb-[24px] overflow-hidden">
                 <motion.span
                   className="block mb-2"
                   initial={{ opacity: 0, y: 30 }}
@@ -338,7 +338,7 @@ export const MernStackPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-[460px] text-[18px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[460px] text-[18px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
                 Master Frontend, Backend, Databases, APIs, Deployment, and Full Stack Development through a structured 6-week hands-on internship program with real-world projects.
               </motion.p>
@@ -369,13 +369,13 @@ export const MernStackPage: React.FC = () => {
               </motion.div>
 
               {/* Buttons */}
-              <div className="flex gap-[16px] mb-[48px]">
+              <div className="flex flex-col sm:flex-row gap-[16px] mb-[48px]">
                 <motion.button
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                   style={{ boxShadow: '0 10px 30px rgba(37,99,235,0.25)' }}
                 >
                   <span>Enroll Now</span>
@@ -392,7 +392,7 @@ export const MernStackPage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Download Brochure</span>
                   <motion.span
@@ -410,7 +410,7 @@ export const MernStackPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                className="grid grid-cols-4 gap-[1px] rounded-[16px] overflow-hidden border border-white/10 bg-white/5"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-[1px] rounded-[16px] overflow-hidden border border-white/10 bg-white/5"
               >
                 {stats.map((s, i) => (
                   <div
@@ -450,7 +450,7 @@ export const MernStackPage: React.FC = () => {
 
           <motion.div
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-            className="grid grid-cols-5 divide-x divide-[#E5E7EB]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
               { icon: <Monitor  size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Frontend Dev',    desc: 'HTML, CSS, Bootstrap'    },
@@ -576,7 +576,7 @@ export const MernStackPage: React.FC = () => {
 
           <motion.div
             variants={{ visible: { transition: { staggerChildren: 0.07 } } }}
-            className="grid grid-cols-4 gap-[20px] max-w-4xl mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-[20px] max-w-4xl mx-auto"
           >
             {techStack.map(({ icon, label }, i) => (
               <motion.div
@@ -612,7 +612,7 @@ export const MernStackPage: React.FC = () => {
             <div className="w-[40px] h-[3px] bg-[#2563EB] mx-auto mt-[12px] rounded-[999px]" />
           </motion.div>
 
-          <div className="grid grid-cols-[1fr_1fr] gap-[48px] items-center min-h-[320px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[48px] items-center min-h-[320px]">
 
             {/* Left — video */}
             <motion.div
@@ -622,7 +622,7 @@ export const MernStackPage: React.FC = () => {
               }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              className="w-[520px] h-[280px] rounded-[18px] border border-[#E5E7EB] bg-[#020617] overflow-hidden relative mx-auto shadow-[0_15px_40px_rgba(15,23,42,0.08)] cursor-pointer shrink-0"
+              className="w-full max-w-[520px] h-[220px] md:h-[280px] rounded-[18px] border border-[#E5E7EB] bg-[#020617] overflow-hidden relative mx-auto shadow-[0_15px_40px_rgba(15,23,42,0.08)] cursor-pointer shrink-0"
             >
               <video
                 src="/assets/project-demo.mp4"
@@ -641,7 +641,7 @@ export const MernStackPage: React.FC = () => {
                 hidden:  { opacity: 0, x: 30 },
                 visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
               }}
-              className="w-[520px] flex flex-col gap-[16px] mx-auto"
+              className="w-full max-w-[520px] flex flex-col gap-[16px] mx-auto"
             >
               <div className="flex flex-col gap-2">
                 <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-[600] uppercase tracking-wider w-fit">
@@ -688,7 +688,7 @@ export const MernStackPage: React.FC = () => {
 
           <motion.div
             variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-            className="flex gap-[20px] justify-center"
+            className="flex flex-wrap gap-[20px] justify-center"
           >
             {projectIdeas.map(({ title, desc }, i) => (
               <motion.div
@@ -724,7 +724,7 @@ export const MernStackPage: React.FC = () => {
         <div className="max-w-[1280px] mx-auto px-[24px]">
           <motion.div
             variants={{ visible: { transition: { delayChildren: 0.1, staggerChildren: 0.08 } } }}
-            className="w-full grid grid-cols-3 gap-0 border-y border-[#E5E7EB] bg-white h-[180px]"
+            className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E7EB] rounded-xl lg:border-y lg:border-x-0 lg:rounded-none bg-white min-h-[180px] overflow-hidden"
           >
             {[
               { title: 'Internship Certificate', icon: BadgeCheck,        desc: 'Industry recognized certificate upon program completion.' },
@@ -741,8 +741,8 @@ export const MernStackPage: React.FC = () => {
                   }}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.2 }}
-                  className={`flex items-start gap-4 p-[40px] h-full bg-white relative transition-all cursor-pointer ${
-                    i < 2 ? 'after:content-[""] after:absolute after:right-0 after:top-[40px] after:bottom-[40px] after:w-[1px] after:bg-[#E5E7EB]' : ''
+                  className={`flex items-start gap-4 p-[30px] md:p-[40px] h-full bg-white relative transition-all cursor-pointer ${
+                    i < 2 ? 'border-b md:border-b-0 md:border-r border-[#E5E7EB]' : ''
                   }`}
                 >
                   <motion.div whileHover={{ rotate: 5, scale: 1.05 }} transition={{ duration: 0.2 }} className="shrink-0">
@@ -807,7 +807,7 @@ export const MernStackPage: React.FC = () => {
         className="bg-white pt-[80px] pb-[100px] font-sans"
       >
         <div className="max-w-[1280px] mx-auto px-[24px]">
-          <div className="grid grid-cols-[45%_55%] gap-[40px] items-stretch">
+          <div className="flex flex-col lg:grid lg:grid-cols-[45%_55%] gap-[40px] items-stretch">
 
             {/* FAQ */}
             <motion.div variants={{ visible: { transition: { staggerChildren: 0.08 } } }}>
@@ -901,10 +901,10 @@ export const MernStackPage: React.FC = () => {
                 </div>
 
                 {/* Bottom — buttons */}
-                <div className="flex gap-[16px]">
+                <div className="flex flex-col sm:flex-row gap-[16px]">
                   <motion.button
                     whileHover="hover"
-                    className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer"
+                    className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                     style={{ boxShadow: '0 10px 30px rgba(37,99,235,0.25)' }}
                   >
                     <span>Enroll Now</span>
@@ -918,7 +918,7 @@ export const MernStackPage: React.FC = () => {
                   </motion.button>
                   <motion.button
                     whileHover="hover"
-                    className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer"
+                    className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                   >
                     <span>Download Brochure</span>
                     <motion.span

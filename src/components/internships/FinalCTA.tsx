@@ -7,7 +7,7 @@ export const FinalCTA = () => {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
 
   return (
-    <section className="relative py-24 px-[80px] overflow-hidden bg-[var(--color-bg-dark)] flex items-center justify-center font-sans border-t border-[#1e293b]">
+    <section className="relative py-12 md:py-24 px-[80px] overflow-hidden bg-[var(--color-bg-dark)] flex items-center justify-center font-sans border-t border-[#1e293b]">
       {/* Parallax Background Elements */}
       <motion.div 
         style={{ y }} 

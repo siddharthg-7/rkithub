@@ -45,9 +45,9 @@ export const CourseDetailsPage: React.FC = () => {
       />
       
       {/* Hero Header */}
-      <section className="pt-40 pb-24 bg-navy-900 text-white relative overflow-hidden">
+      <section className="pt-40 pb-12 md:pb-24 bg-navy-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 to-navy-800 pointer-events-none"></div>
-        <div className="max-w-[1280px] mx-auto px-10 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1280px] mx-auto px-10 relative z-10 grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -115,7 +115,7 @@ export const CourseDetailsPage: React.FC = () => {
       </section>
 
       {/* Curriculum */}
-      <section className="py-24 max-w-[1280px] mx-auto px-10 grid lg:grid-cols-3 gap-16">
+      <section className="py-12 md:py-24 max-w-[1280px] mx-auto px-10 grid lg:grid-cols-3 gap-8 md:gap-16">
         <div className="lg:col-span-2">
           <h2 className="text-4xl font-extrabold text-navy-900 tracking-tight mb-12">Curriculum Timeline</h2>
           <div className="space-y-4">
@@ -222,7 +222,7 @@ export const CourseDetailsPage: React.FC = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-12 md:py-24 bg-slate-50">
         <div className="max-w-[1280px] mx-auto px-10">
           <h2 className="text-4xl font-extrabold text-navy-900 tracking-tight mb-16">Projects Included</h2>
           <div className="grid md:grid-cols-3 gap-8">

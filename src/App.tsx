@@ -25,6 +25,7 @@ import { DataSciencePage } from './pages/DataSciencePage';
 import { AiMlPage } from './pages/AiMlPage';
 import { SeleniumPage } from './pages/SeleniumPage';
 import { CypressPage } from './pages/CypressPage';
+import { AboutPage } from './pages/AboutPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -58,6 +59,7 @@ function App() {
               <Route path="/courses/cypress" element={<CypressPage />} />
               <Route path="/courses/:slug" element={<CourseDetailsPage />} />
               <Route path="/internships" element={<InternshipsPage />} />
+              <Route path="/about" element={<AboutPage />} />
             </Route>
 
             {/* Protected Student Routes */}

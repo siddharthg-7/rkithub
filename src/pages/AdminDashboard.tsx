@@ -155,14 +155,14 @@ export const AdminDashboard: React.FC = () => {
                 ))}
                 {users.length === 0 && !loading && (
                   <tr>
-                    <td colSpan={5} className="px-10 py-32 text-center text-slate-400 font-bold uppercase tracking-widest text-xs">
+                    <td colSpan={5} className="px-10 py-8 md:py-16 md:py-32 text-center text-slate-400 font-bold uppercase tracking-widest text-xs">
                       No users found in the system data.
                     </td>
                   </tr>
                 )}
                 {loading && (
                   <tr>
-                    <td colSpan={5} className="px-10 py-32 text-center">
+                    <td colSpan={5} className="px-10 py-8 md:py-16 md:py-32 text-center">
                       <div className="w-8 h-8 border-4 border-navy-900/20 border-t-navy-900 rounded-full animate-spin mx-auto" />
                     </td>
                   </tr>

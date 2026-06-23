@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const CorporateHero = () => {
   return (
-    <div className="relative w-full min-h-[600px] h-auto py-20 overflow-hidden">
+    <div className="relative w-full min-h-[600px] h-auto py-10 md:py-20 overflow-hidden">
       {/* Background Image with Overlay */}
       <motion.div
         initial={{ scale: 1.1 }}

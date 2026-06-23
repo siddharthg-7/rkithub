@@ -258,7 +258,7 @@ export const SeleniumPage: React.FC = () => {
         />
 
         <div className="max-w-[1280px] mx-auto px-[24px] h-full relative z-10">
-          <div className="grid grid-cols-[5fr_7fr] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[5fr_7fr] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
 
             {/* ── Left ── */}
             <motion.div initial="hidden" animate="visible" className="relative z-20">
@@ -275,7 +275,7 @@ export const SeleniumPage: React.FC = () => {
               </motion.div>
 
               {/* Heading */}
-              <h1 className="max-w-[520px] text-[72px] font-[800] leading-[0.95] text-white font-heading tracking-[-3px] mb-[24px] overflow-hidden">
+              <h1 className="w-full max-w-[520px] text-[48px] md:text-[72px] font-[800] leading-[1.05] md:leading-[0.95] text-white font-heading tracking-[-1.5px] md:tracking-[-3px] mb-[24px] overflow-hidden">
                 <motion.span
                   className="block mb-2"
                   initial={{ opacity: 0, y: 30 }}
@@ -300,7 +300,7 @@ export const SeleniumPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-[440px] text-[18px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[440px] text-[18px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
                 Become an industry-ready Automation Test Engineer. Master Manual Testing, Java, Selenium, TestNG, BDD frameworks, and Git/CI-CD.
               </motion.p>
@@ -334,13 +334,13 @@ export const SeleniumPage: React.FC = () => {
               </motion.div>
 
               {/* Buttons */}
-              <div className="flex gap-[16px] mb-0">
+              <div className="flex flex-col sm:flex-row gap-[16px] mb-0">
                 <motion.button
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                   style={{ boxShadow: '0 10px 30px rgba(37,99,235,0.25)' }}
                 >
                   <span>Enroll Now</span>
@@ -358,7 +358,7 @@ export const SeleniumPage: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
                 >
                   <span>Download Brochure</span>
                   <motion.span
@@ -398,7 +398,7 @@ export const SeleniumPage: React.FC = () => {
 
           <motion.div
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-            className="grid grid-cols-5 divide-x divide-[#E5E7EB]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
               { Icon: ClipboardCheck, title: 'Manual Testing',        desc: 'SDLC, STLC, Test Cases'   },
@@ -527,17 +527,17 @@ export const SeleniumPage: React.FC = () => {
             <div className="w-[40px] h-[3px] bg-[#2563EB] mx-auto mt-[12px] rounded-[999px]" />
           </motion.div>
 
-          <div className="grid grid-cols-[1fr_1fr] gap-[48px] items-center h-[320px] mb-[80px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-[48px] items-center min-h-[320px] h-auto mb-[80px]">
 
             {/* Left — Browser mockup */}
-            <motion.div
+              <motion.div
               variants={{
                 hidden:   { opacity: 0, x: -30 },
                 visible:  { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
               }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              className="w-[520px] h-[280px] rounded-[18px] border border-[#E5E7EB] bg-[#020617] overflow-hidden relative mx-auto shadow-[0_15px_40px_rgba(15,23,42,0.08)] cursor-pointer"
+              className="w-full max-w-[520px] h-[220px] md:h-[280px] rounded-[18px] border border-[#E5E7EB] bg-[#020617] overflow-hidden relative mx-auto shadow-[0_15px_40px_rgba(15,23,42,0.08)] cursor-pointer"
             >
               {/* Browser chrome */}
               <div className="h-[36px] bg-[#0F172A] flex items-center px-4 gap-2 border-b border-slate-700">
@@ -572,7 +572,7 @@ export const SeleniumPage: React.FC = () => {
                 hidden:   { opacity: 0, x: 30 },
                 visible:  { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
               }}
-              className="w-[520px] flex flex-col gap-[16px] mx-auto"
+              className="w-full max-w-[520px] flex flex-col gap-[16px] mx-auto"
             >
               <div className="flex flex-col gap-2">
                 <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-[600] uppercase tracking-wider w-fit">
@@ -602,7 +602,7 @@ export const SeleniumPage: React.FC = () => {
           {/* ── Internship | Certificate | Placement ── */}
           <motion.div
             variants={{ visible: { transition: { delayChildren: 0.1, staggerChildren: 0.08 } } }}
-            className="w-full grid grid-cols-3 gap-0 border-t border-[#E5E7EB] bg-white h-[180px] mb-[80px]"
+            className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E7EB] rounded-xl lg:border-t lg:border-x-0 lg:border-b-0 lg:rounded-none bg-white min-h-[180px] mb-[80px] overflow-hidden"
           >
             {[
               { title: 'Internship Opportunity',   icon: BriefcaseBusiness, desc: 'Work on live projects and gain real industry experience.'            },
@@ -619,9 +619,9 @@ export const SeleniumPage: React.FC = () => {
                   }}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.2 }}
-                  className={`flex items-start gap-4 p-[40px] h-full bg-white relative transition-all group cursor-pointer ${
+                  className={`flex flex-col sm:flex-row items-start gap-4 p-[30px] md:p-[40px] h-full bg-white relative transition-all group cursor-pointer ${
                     i < 2
-                      ? 'after:content-[""] after:absolute after:right-0 after:top-[40px] after:bottom-[40px] after:w-[1px] after:bg-[#E5E7EB]'
+                      ? 'border-b md:border-b-0 md:border-r border-[#E5E7EB]'
                       : ''
                   }`}
                 >
@@ -633,8 +633,8 @@ export const SeleniumPage: React.FC = () => {
                     <Icon size={48} strokeWidth={1.75} className="text-[#2563EB]" />
                   </motion.div>
                   <div className="flex flex-col gap-1">
-                    <h4 className="text-[26px] font-[600] text-[#111827] leading-[1.2] font-heading">{card.title}</h4>
-                    <p className="text-[16px] leading-[1.7] text-[#64748B] w-[280px] font-sans">{card.desc}</p>
+                    <h4 className="text-[22px] md:text-[26px] font-[600] text-[#111827] leading-[1.2] font-heading">{card.title}</h4>
+                    <p className="text-[15px] md:text-[16px] leading-[1.7] text-[#64748B] w-full max-w-[280px] font-sans">{card.desc}</p>
                   </div>
                 </motion.div>
               );
@@ -709,7 +709,7 @@ export const SeleniumPage: React.FC = () => {
           </motion.div>
 
           {/* ── FAQ + CTA ── */}
-          <div className="grid grid-cols-[45%_55%] gap-[40px] items-stretch pb-[100px]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[45%_55%] gap-[40px] items-stretch pb-[100px]">
 
             {/* FAQ */}
             <motion.div
@@ -769,7 +769,7 @@ export const SeleniumPage: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-[24px] p-[48px] relative overflow-hidden flex flex-col justify-between h-full bg-gradient-to-br from-[#020617] to-[#0F172A] border border-slate-800/40"
+              className="rounded-[24px] p-[32px] md:p-[48px] relative overflow-hidden flex flex-col justify-between h-full bg-gradient-to-br from-[#020617] to-[#0F172A] border border-slate-800/40"
             >
               {/* Ambient glow */}
               <div
@@ -806,10 +806,10 @@ export const SeleniumPage: React.FC = () => {
               </div>
 
               {/* Bottom — buttons */}
-              <div className="flex gap-[16px] relative z-10">
+              <div className="flex flex-col sm:flex-row gap-[16px] relative z-10">
                 <motion.button
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all cursor-pointer hover:-translate-y-0.5"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-[#2563EB] text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all cursor-pointer hover:-translate-y-0.5 w-full sm:w-auto"
                   style={{ boxShadow: '0 10px 30px rgba(37,99,235,0.25)' }}
                 >
                   <span>Enroll Now</span>
@@ -824,7 +824,7 @@ export const SeleniumPage: React.FC = () => {
 
                 <motion.button
                   whileHover="hover"
-                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 cursor-pointer hover:-translate-y-0.5"
+                  className="group h-[54px] pr-[12px] pl-[24px] bg-transparent text-white font-[600] text-[15px] font-sans rounded-[12px] flex items-center justify-between gap-[16px] transition-all border border-white/15 cursor-pointer hover:-translate-y-0.5 w-full sm:w-auto"
                 >
                   <span>Download Brochure</span>
                   <motion.span

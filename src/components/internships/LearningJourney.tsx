@@ -11,7 +11,7 @@ export const LearningJourney = () => {
   ];
 
   return (
-    <section className="bg-white py-24 px-[80px] font-sans border-b border-[#E2E8F0]">
+    <section className="bg-white py-12 md:py-24 px-[80px] font-sans border-b border-[#E2E8F0]">
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-[32px] font-[800] text-[#0F172A] mb-3 font-['Inter']">

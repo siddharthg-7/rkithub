@@ -29,7 +29,7 @@ export const HiringPartners = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
 
         <motion.div
-          className="flex items-center gap-16 min-w-max px-8"
+          className="flex items-center gap-8 md:gap-16 min-w-max px-8"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             duration: 30,

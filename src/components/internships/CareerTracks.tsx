@@ -206,7 +206,7 @@ export const CareerTracks = () => {
       {/* Aceternity Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      <section className="relative max-w-7xl mx-auto px-6 lg:px-10 py-32 z-10">
+      <section className="relative max-w-7xl mx-auto px-6 lg:px-10 py-8 md:py-16 md:py-32 z-10">
         
         {/* Header */}
         <motion.div 
@@ -235,10 +235,10 @@ export const CareerTracks = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="flex justify-center mb-16"
         >
-          <div className="bg-white p-2 rounded-2xl border border-gray-200 shadow-sm flex relative w-[500px]">
+          <div className="bg-white p-2 rounded-2xl border border-gray-200 shadow-sm inline-flex relative w-full sm:w-auto max-w-[500px]">
             <button
               onClick={() => setActiveTab('engineering')}
-              className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all duration-300 relative z-10 ${
+              className={`flex-1 py-3 px-2 sm:px-6 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 relative z-10 ${
                 activeTab === 'engineering' ? 'text-white' : 'text-gray-500 hover:text-gray-900'
               }`}
             >
@@ -246,7 +246,7 @@ export const CareerTracks = () => {
             </button>
             <button
               onClick={() => setActiveTab('business')}
-              className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all duration-300 relative z-10 ${
+              className={`flex-1 py-3 px-2 sm:px-6 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 relative z-10 ${
                 activeTab === 'business' ? 'text-white' : 'text-gray-500 hover:text-gray-900'
               }`}
             >

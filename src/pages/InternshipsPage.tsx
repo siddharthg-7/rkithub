@@ -1,6 +1,5 @@
 import React from 'react';
 import { HeroSection } from '@/src/components/internships/HeroSection';
-import { PartnershipTrustBar } from '@/src/components/internships/PartnershipTrustBar';
 import { HiringPartners } from '@/src/components/internships/HiringPartners';
 import { LearningJourney } from '@/src/components/internships/LearningJourney';
 import { CareerTracks } from '@/src/components/internships/CareerTracks';
@@ -24,7 +23,6 @@ export const InternshipsPage = () => {
         keywords="software internships, IT internships hyderabad, real-time projects, full stack internship, java internship, python internship"
       />
       <HeroSection />
-      <PartnershipTrustBar />
       <HiringPartners />
       <LearningJourney />
       <CareerTracks />
@@ -44,10 +42,10 @@ export const InternshipsPage = () => {
 
       {/* 2-Column Section: Success Wall + Comparison */}
       <div className="flex flex-col lg:flex-row bg-[#f8fafc] border-t border-[#E2E8F0]">
-        <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-[#E2E8F0] flex flex-col items-center py-24">
+        <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-[#E2E8F0] flex flex-col items-center py-12 md:py-24">
           <SuccessWall />
         </div>
-        <div className="w-full lg:w-1/2 flex items-center justify-center py-24">
+        <div className="w-full lg:w-1/2 flex items-center justify-center py-12 md:py-24">
           <ComparisonSection />
         </div>
       </div>
