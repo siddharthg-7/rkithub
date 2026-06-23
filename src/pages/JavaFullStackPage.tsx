@@ -14,7 +14,8 @@ import {
   Linkedin,
   Instagram,
   Youtube,
-  Facebook
+  Facebook,
+  X
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SiSpringboot, SiMysql, SiReact, SiDocker } from 'react-icons/si';
@@ -79,6 +80,7 @@ const fadeUp = {
 export const JavaFullStackPage = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isCertOpen, setIsCertOpen] = useState<boolean>(false);
 
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
@@ -100,7 +102,7 @@ export const JavaFullStackPage = () => {
         {/* Layer 2: Grid & Container */}
         <div className="max-w-[1280px] mx-auto px-[24px] h-full relative z-10">
 
-          <div className="grid grid-cols-[5fr_7fr] gap-[64px] items-center min-h-[720px] pt-[80px]">
+          <div className="grid grid-cols-[5fr_7fr] gap-[64px] items-start min-h-[720px] pt-[100px] pb-[80px]">
             {/* Left Content */}
             <motion.div 
               initial="hidden"
@@ -177,7 +179,7 @@ export const JavaFullStackPage = () => {
               </motion.div>
               
               {/* Buttons */}
-              <div className="flex gap-[16px] mb-[80px]">
+              <div className="flex gap-[16px] mb-0">
                 <motion.button 
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -216,7 +218,7 @@ export const JavaFullStackPage = () => {
             </motion.div>
 
             {/* Right Visual - Java Ecosystem */}
-            <div className="relative flex items-center justify-center w-full overflow-visible">
+            <div className="relative flex items-center justify-center w-full overflow-visible pt-[40px]">
               <JavaEcosystemVisual />
             </div>
 
@@ -495,6 +497,98 @@ export const JavaFullStackPage = () => {
             })}
           </motion.div>
 
+          {/* Certificate Section */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={fadeUp}
+            className="w-full grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-[64px] items-center mb-[100px] pt-10"
+          >
+            {/* Left Content */}
+            <div className="flex flex-col gap-6">
+              <div className="inline-flex items-center px-4 py-1.5 bg-blue-50/80 border border-blue-100 rounded-full text-xs font-semibold text-blue-600 tracking-wider w-fit">
+                Official Credential
+              </div>
+              <h3 className="text-[38px] font-[700] text-[#0F172A] font-heading leading-[1.2] tracking-tight">
+                Your Pathway to <span className="text-[#2563EB]">Verified Success</span>
+              </h3>
+              <p className="text-[16px] text-slate-500 leading-relaxed font-sans">
+                Upon successfully completing the Java Full Stack Development program and your internship projects, you will be awarded an industry-recognized Certificate of Completion from RK IT HUB. Showcase your new skills and verified achievements to potential employers.
+              </p>
+              
+              <div className="flex flex-col gap-4 mt-2">
+                {[
+                  {
+                    title: "Verifiable Credential ID",
+                    desc: "Comes with a unique tracking ID and QR code verifiable on our portal by HR and recruiting teams."
+                  },
+                  {
+                    title: "LinkedIn & Resume Ready",
+                    desc: "Add it to your LinkedIn profile under Licenses & Certifications or link it directly on your resume."
+                  },
+                  {
+                    title: "Demonstrate Project Experience",
+                    desc: "Highlights your hands-on development on real-time projects and enterprise applications."
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4 items-start">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#2563EB]">
+                      <BadgeCheck size={22} />
+                    </div>
+                    <div>
+                      <h5 className="text-[16px] font-bold text-slate-900">{item.title}</h5>
+                      <p className="text-[14px] text-slate-500 leading-relaxed mt-0.5">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Interactive Certificate Card */}
+            <div className="relative flex items-center justify-center w-full">
+              {/* Backlight glow */}
+              <div className="absolute inset-0 bg-[#2563EB]/5 rounded-[24px] blur-3xl -z-10 w-[80%] h-[80%] mx-auto" />
+              
+              <motion.div
+                whileHover={{ 
+                  scale: 1.03,
+                  rotateY: -2,
+                  rotateX: 2,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                style={{ perspective: 1000 }}
+                onClick={() => setIsCertOpen(true)}
+                className="relative cursor-pointer group rounded-[20px] border border-slate-200/80 bg-white p-4 shadow-[0_15px_45px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_60px_rgba(37,99,235,0.15)] transition-all duration-300 overflow-hidden w-full max-w-[580px]"
+              >
+                {/* Overlay Hover Icon */}
+                <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 z-20 rounded-[20px]">
+                  <motion.div 
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    className="flex flex-col items-center gap-2 text-white bg-slate-900/80 px-5 py-3 rounded-xl border border-white/10 backdrop-blur-sm shadow-xl"
+                  >
+                    <ArrowUpRight size={20} className="text-blue-400 animate-pulse" />
+                    <span className="text-xs font-semibold tracking-wider uppercase">Click to Enlarge</span>
+                  </motion.div>
+                </div>
+
+                {/* Ribbon Badge */}
+                <div className="absolute top-8 right-[-32px] rotate-45 bg-[#2563EB] text-white text-[10px] font-extrabold tracking-widest py-1.5 px-10 shadow-md uppercase z-10 border-b border-white/10">
+                  Demo
+                </div>
+
+                <div className="relative overflow-hidden rounded-[12px] bg-slate-50 border border-slate-100 aspect-[1.414/1] flex items-center justify-center">
+                  <img 
+                    src="/democertifiacte.jpeg" 
+                    alt="RK IT HUB Course Completion Certificate" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
           {/* 6. FAQ & Final CTA */}
           <div className="grid grid-cols-[45%_55%] gap-[40px] items-stretch pb-[100px]">
             {/* FAQ Side */}
@@ -699,6 +793,49 @@ export const JavaFullStackPage = () => {
           </div>
         </div>
       </motion.section>
+
+      {/* Certificate Lightbox Modal */}
+      <AnimatePresence>
+        {isCertOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsCertOpen(false)}
+            className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[9999] flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 350 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-4xl w-full bg-white p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-[0_30px_70px_rgba(0,0,0,0.5)] cursor-default overflow-hidden border border-white/20"
+            >
+              {/* Close Button */}
+              <button 
+                onClick={() => setIsCertOpen(false)}
+                className="absolute top-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/80 text-white hover:bg-slate-800 border border-white/10 transition-all shadow-md cursor-pointer"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="relative aspect-[1.414/1] rounded-xl overflow-hidden bg-slate-50 border border-slate-100">
+                <img 
+                  src="/democertifiacte.jpeg" 
+                  alt="RK IT HUB Course Completion Certificate - Large" 
+                  className="w-full h-full object-cover"
+                />
+                
+                {/* Floating Certificate Label */}
+                <div className="absolute bottom-4 left-4 bg-slate-900/90 text-white px-4 py-2 rounded-lg text-xs font-semibold tracking-wide border border-white/10 shadow-lg">
+                  Official Demo Certificate of Completion
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
