@@ -17,6 +17,7 @@ import { AdminNotificationsPage } from './pages/AdminNotificationsPage';
 import { PublicLayout } from './components/PublicLayout';
 
 import { InternshipsPage } from './pages/InternshipsPage';
+import { JavaFullStackPage } from './pages/JavaFullStackPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -40,6 +41,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/courses/java-full-stack" element={<JavaFullStackPage />} />
             <Route path="/courses/:slug" element={<CourseDetailsPage />} />
             <Route path="/internships" element={<InternshipsPage />} />
           </Route>
