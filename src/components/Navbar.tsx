@@ -18,7 +18,7 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLElement>, path: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
 
@@ -130,6 +130,7 @@ export const Navbar = () => {
                         onMouseLeave={() => setIsTrainingsOpen(false)}
                       >
                         <button
+                          onClick={(e) => handleNavClick(e, route.path)}
                           className="flex items-center gap-1 font-[700] text-[15px] py-2 transition-colors text-[#0F172A] hover:text-[#0B4F9C]"
                         >
                           {route.name}
