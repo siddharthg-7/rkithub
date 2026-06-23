@@ -35,9 +35,20 @@ export const InternshipJourney = () => {
           <h2 className="text-[40px] font-[800] text-[#0F172A] mb-4 font-['Inter']">
             Your Internship Journey
           </h2>
-          <p className="text-lg text-[#64748B] font-['Inter']">
+          <p className="text-lg text-[#64748B] font-['Inter'] mb-6">
             A step-by-step roadmap to launch your career in tech.
           </p>
+          <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center gap-2">
+              <img src="/logo.png" alt="RK IT Hub" className="h-8 object-contain" />
+              <div className="flex flex-col text-[#0B4F9C]" style={{ fontFamily: '"Cinzel", serif' }}>
+                <span className="font-semibold text-[18px] leading-none tracking-[0.12em] uppercase">RK IT</span>
+                <span className="font-normal text-[9px] leading-tight tracking-[0.12em] uppercase mt-[2px]">TRAINING HUB</span>
+              </div>
+            </div>
+            <span className="text-[#64748B] font-bold text-xl px-2">+</span>
+            <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-8 object-contain" />
+          </div>
         </div>
 
 

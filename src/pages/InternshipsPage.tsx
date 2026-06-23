@@ -13,6 +13,7 @@ import { SuccessWall } from '@/src/components/internships/SuccessWall';
 import { ComparisonSection } from '@/src/components/internships/ComparisonSection';
 import { PricingSection } from '@/src/components/internships/PricingSection';
 import { FinalCTA } from '@/src/components/internships/FinalCTA';
+import { PartnershipTrustBar } from '@/src/components/internships/PartnershipTrustBar';
 
 export const InternshipsPage = () => {
   return (
@@ -23,6 +24,7 @@ export const InternshipsPage = () => {
         keywords="software internships, IT internships hyderabad, real-time projects, full stack internship, java internship, python internship"
       />
       <HeroSection />
+      <PartnershipTrustBar />
       <HiringPartners />
       <LearningJourney />
       <CareerTracks />
