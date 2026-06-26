@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, GraduationCap, Code2, Briefcase, UserRound, Zap, Target, Headphones, BarChart3, ShieldCheck } from 'lucide-react';
 
 /* ─── SIMPLE CARD COMPONENT ─────────────────────────────────────────────────── */
-const SimpleCard = ({ num, title, desc, icon: Icon, delay }: { num: string, title: string, desc: string, icon: any, delay: number }) => {
+const SimpleCard: React.FC<{ num: string, title: string, desc: string, icon: any, delay: number }> = ({ num, title, desc, icon: Icon, delay }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

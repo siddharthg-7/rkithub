@@ -1,8 +1,5 @@
 import React from 'react';
-import { CorporateHero } from '../components/CorporateHero';
-import { StatsSection } from '../components/StatsSection';
-import { LiveBatchStrip } from '../components/LiveBatchStrip';
-import { TrainingModes } from '../components/TrainingModes';
+import { Hero } from '../components/home/hero/Hero';
 import { PopularCourses } from '../components/PopularCourses';
 import { WhyChoose } from '../components/WhyChoose';
 import { PlacementSuccess } from '../components/PlacementSuccess';
@@ -22,16 +19,14 @@ export const LandingPage = () => {
       />
       <main className="flex-grow">
         {/* 1. Hero Area */}
-        <CorporateHero />
+        <Hero />
         
-        {/* 2. Stats Bar */}
-        <StatsSection />
-
-        {/* 3. Live Placement Announcements */}
-        <LiveBatchStrip />
-
-        {/* 4. Training Modes */}
-        <TrainingModes />
+        {/* Soft Divider from Hero to Light Section */}
+        <div className="w-full h-12 sm:h-16 lg:h-24 bg-gradient-to-b from-[#0B1630] to-white" style={{ marginTop: '-2px' }}>
+          <svg className="w-full h-full fill-white" preserveAspectRatio="none" viewBox="0 0 1440 74">
+            <path d="M0,0 C240,74 720,74 1440,0 L1440,74 L0,74 Z" />
+          </svg>
+        </div>
 
         {/* 4. Popular Courses */}
         <PopularCourses />
