@@ -4,11 +4,9 @@ import { PopularCourses } from '../components/PopularCourses';
 import { WhyChoose } from '../components/WhyChoose';
 import { PlacementSuccess } from '../components/PlacementSuccess';
 import { CompanyTrust } from '../components/CompanyTrust';
-import { Testimonials } from '../components/Testimonials';
 import { SEO } from '../components/SEO';
-import { CTABox } from '../components/CTABox';
-import { BottomConversionBlock } from '../components/BottomConversionBlock';
-import { ContactSection } from '../components/ContactSection';
+import { StudentVoices } from '../components/StudentVoices';
+import { FinalCTA } from '../components/FinalCTA';
 
 export const LandingPage = () => {
   return (
@@ -34,21 +32,11 @@ export const LandingPage = () => {
         {/* 6. Placement Success */}
         <PlacementSuccess />
         
-        {/* 7. Testimonials & CTA Split */}
-        <section className="py-12 md:py-24 bg-[#FAFAFA] font-sans">
-          <div className="max-w-[1440px] mx-auto px-4 md:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 items-center">
-              <Testimonials />
-              <CTABox />
-            </div>
-          </div>
-        </section>
-        
-        {/* 8. Side-by-side About & CTA */}
-        <BottomConversionBlock />
+        {/* 7. Student Voices (Pinterest-Style Masonry Grid) */}
+        <StudentVoices />
 
-        {/* 9. Contact */}
-        <ContactSection />
+        {/* 8. High-Impact Final CTA (Bookending the Hero) */}
+        <FinalCTA />
       </main>
     </div>
   );

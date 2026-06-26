@@ -1,143 +1,301 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Linkedin } from 'lucide-react';
 
-export const PlacementSuccess = () => {
-  const companies = [
-    { name: 'CGI',          src: '/logo_cgi_color.png' },
-    { name: 'TCS',          src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
-    { name: 'Infosys',      src: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
-    { name: 'Broadridge',   src: '/broadridge.svg' },
-    { name: 'Wipro',        src: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
-    { name: 'Cognizant',    src: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
-    { name: 'Capgemini',    src: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
-    { name: 'Virtusa',      src: '/virtusa.png' },
-    { name: 'Tech Mahindra',src: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' },
-  ];
+const PLACEMENTS = [
+  { id: 1, name: 'Rahul Reddy', course: 'Java Full Stack', company: 'Infosys', package: '5.2 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
+  { id: 2, name: 'Sneha', course: 'Python Full Stack', company: 'Cognizant', package: '6.1 LPA', image: '/vijaya.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
+  { id: 3, name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.png', logo: '/logo_cgi_color.png' },
+  { id: 4, name: 'Chaitanya', course: 'Java Full Stack', company: 'TCS', package: '4.8 LPA', image: '/Chaitanya .png', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
+  { id: 5, name: 'Vikram', course: 'MERN Stack', company: 'Wipro', package: '5.0 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
+  { id: 6, name: 'Priya', course: 'Data Science', company: 'Capgemini', package: '6.5 LPA', image: '/vijaya.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
+  { id: 7, name: 'Arjun', course: 'Automation Testing', company: 'Tech Mahindra', package: '4.5 LPA', image: '/Chaitanya .png', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' },
+  { id: 8, name: 'Ravi', course: 'Java Full Stack', company: 'Virtusa', package: '5.8 LPA', image: '/durga.png', logo: '/virtusa.png' },
+  { id: 9, name: 'Kavya', course: 'Python Full Stack', company: 'Broadridge', package: '8.2 LPA', image: '/vijaya.png', logo: '/broadridge.svg' },
+  { id: 10, name: 'Sanjay', course: 'MERN Stack', company: 'Infosys', package: '5.2 LPA', image: '/Chaitanya .png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
+  { id: 11, name: 'Divya', course: 'Test Engineer', company: 'CGI', package: '7.0 LPA', image: '/manogna.png', logo: '/logo_cgi_color.png' },
+  { id: 12, name: 'Ajay', course: 'Data Science', company: 'Cognizant', package: '6.0 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
+];
 
-  const placements = [
-    { name: 'Durga', course: 'Associate Software Engineer', company: 'Enmoval', package: '3.5 LPA', image: '/durga.png' },
-    { name: 'Vijaya', course: 'SDET', company: 'Broadridge', package: '5.5 LPA', image: '/vijaya.png' },
-    { name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.png' },
-    { name: 'Chaitanya', course: 'Full Stack Java Developer', company: 'Fin Echo Engineering', package: '3.5 LPA', image: '/Chaitanya .png' },
-  ];
+const MiniCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | number }) => (
+  <div className="group w-[220px] h-[110px] bg-white border border-slate-200 rounded-[16px] p-4 flex gap-4 shrink-0 transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.06)] cursor-pointer">
+    <img src={student.image} alt={student.name} className="w-12 h-12 rounded-[12px] object-cover shrink-0 bg-slate-100" />
+    <div className="flex flex-col justify-between overflow-hidden relative w-full">
+      
+      {/* LinkedIn Tooltip & Icon */}
+      <div className="absolute right-0 top-0 group/li">
+        <Linkedin className="w-[14px] h-[14px] text-slate-300 group-hover:text-[#0A66C2] transition-all duration-300 group-hover:-translate-x-1" />
+        <span className="absolute -top-7 right-1/2 translate-x-1/2 bg-slate-900 text-white text-[10px] font-medium px-2 py-1 rounded opacity-0 group-hover/li:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          View LinkedIn
+        </span>
+      </div>
+      
+      <h4 className="font-bold text-slate-900 text-[14px] truncate pr-5">{student.name}</h4>
+      
+      <img src={student.logo} alt={student.company} className="h-[16px] max-w-[70px] object-contain object-left opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 origin-left" />
+      
+      <div className="inline-flex mt-1">
+        <span className="bg-[#DCFCE7] text-[#166534] text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
+          ₹{student.package}
+        </span>
+      </div>
+    </div>
+  </div>
+);
 
-  const perPage = 3;
-  const totalPages = Math.ceil(placements.length / perPage);
-  const [page, setPage] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const startTimer = () => {
-    timerRef.current = setInterval(() => {
-      setPage((p) => (p + 1) % totalPages);
-    }, 5000);
-  };
-
+const AnimatedNumber = ({ valueStr }: { valueStr: string }) => {
+  const [num, setNum] = useState(0);
+  const target = parseFloat(valueStr.replace(/[^0-9.]/g, '')) || 0;
+  
   useEffect(() => {
-    startTimer();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
+    setNum(0);
+    let start = 0;
+    const duration = 1000;
+    const startTime = performance.now();
+    
+    const update = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease out cubic
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setNum(start + (target - start) * ease);
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }, [target]);
 
-  const go = (dir: number) => {
-    setPage((p) => (p + dir + totalPages) % totalPages);
-    if (timerRef.current) clearInterval(timerRef.current);
-    startTimer();
-  };
+  return <span>{num.toFixed(1)}</span>;
+};
 
-  const visible = placements.slice(page * perPage, page * perPage + perPage);
+const FeaturedCard = ({ student }: { student: typeof PLACEMENTS[0] }) => {
+  const [activeStage, setActiveStage] = useState(0);
+
+  // Animate the timeline stages when the student changes
+  useEffect(() => {
+    setActiveStage(0);
+    const t1 = setTimeout(() => setActiveStage(1), 600);
+    const t2 = setTimeout(() => setActiveStage(2), 1200);
+    const t3 = setTimeout(() => setActiveStage(3), 1800);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, [student]);
+
+  const stages = ['Training', 'Projects', 'Internship', 'Placement'];
 
   return (
-    <section id="placements" className="py-12 md:py-24 bg-white font-sans flex flex-col items-center">
-      <div className="max-w-[1320px] mx-auto px-4 md:px-12 w-full flex flex-col items-start md:items-center text-left md:text-center">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.8 }}
-        className="text-[20px] font-[800] text-[#0F172A] mb-6"
-      >
-        Our Students Work At
-      </motion.h2>
-
-      {/* Logo Wall */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.8 }}
-        className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-12 items-center justify-items-center"
-      >
-        {companies.map((company, i) => (
-          <motion.img
-            key={i}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.05 }}
-            src={company.src}
-            alt={company.name}
-            className="max-h-8 max-w-[80px] object-contain transition-all opacity-100"
+    <div className="w-full lg:w-[70%] mx-auto bg-[#F8FAFC] border border-[#E2E8F0] rounded-[28px] overflow-hidden flex flex-col md:flex-row transition-transform duration-500 hover:-translate-y-[6px] shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] cursor-pointer">
+      
+      {/* Left: Image Container */}
+      <div className="md:w-[45%] relative h-[320px] md:h-auto overflow-hidden bg-slate-100 group">
+        <AnimatePresence mode="wait">
+          <motion.img 
+            key={student.id} 
+            src={student.image} 
+            alt={student.name}
+            initial={{ x: -40, opacity: 0 }} 
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 40, opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
           />
-        ))}
-      </motion.div>
-
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.8 }}
-        className="text-[20px] font-[800] text-[#0F172A] mb-6 mt-12 w-full"
-      >
-        Recent Placement Success
-      </motion.h2>
-
-      {/* Placement Cards with auto-scroll */}
-      <div className="relative w-full">
-        <button
-          onClick={() => go(-1)}
-          className="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-white border border-gray-200 rounded-full items-center justify-center text-gray-500 shadow-md hover:text-[#0B4F9C] hover:border-[#0B4F9C] z-10 transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => go(1)}
-          className="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-white border border-gray-200 rounded-full items-center justify-center text-gray-500 shadow-md hover:text-[#0B4F9C] hover:border-[#0B4F9C] z-10 transition-colors"
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {visible.map((student, i) => (
-            <motion.div
-              key={page * perPage + i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-white rounded-xl border border-gray-100 p-4 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
-            >
-              <img src={student.image} alt={student.name} className="w-16 h-16 rounded-full object-cover mb-3 border-2 border-gray-50" />
-              <h3 className="text-[14px] font-[800] text-[#0F172A] leading-tight mb-1">{student.name}</h3>
-              <p className="text-[#64748B] text-[11px] font-[600] mb-3">{student.course}</p>
-              <div className="mt-auto flex flex-col items-center w-full pt-3 border-t border-gray-50">
-                <p className="text-[#0B4F9C] text-[13px] font-[800] leading-tight mb-1">{student.company}</p>
-                <p className="text-[#22C55E] text-[12px] font-[800]">{student.package}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-4">
-          {Array.from({ length: totalPages }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => { setPage(i); if (timerRef.current) clearInterval(timerRef.current); startTimer(); }}
-              className={`rounded-full transition-all duration-300 ${
-                i === page ? 'w-5 h-2 bg-[#0B4F9C]' : 'w-2 h-2 bg-gray-200 hover:bg-gray-300'
-              }`}
-              aria-label={`Page ${i + 1}`}
-            />
-          ))}
-        </div>
+        </AnimatePresence>
       </div>
+
+      {/* Right: Details Container */}
+      <div className="md:w-[55%] p-8 md:p-12 flex flex-col justify-center">
+        
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={student.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <h3 className="text-3xl font-extrabold text-slate-900 mb-1">{student.name}</h3>
+            <p className="text-slate-500 font-medium mb-6">{student.course}</p>
+          </motion.div>
+        </AnimatePresence>
+        
+        <div className="flex items-center gap-6 mb-8">
+          <AnimatePresence mode="wait">
+            <motion.img 
+              key={student.id}
+              src={student.logo} 
+              alt={student.company} 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="h-[34px] max-w-[120px] object-contain object-left" 
+            />
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={student.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="bg-[#DCFCE7] border border-[#bbf7d0] text-[#166534] text-[15px] font-bold px-4 py-1.5 rounded-full"
+            >
+              ₹<AnimatedNumber valueStr={student.package} /> LPA
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Timeline */}
+        <div className="mb-10">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[13px] font-bold">
+            {stages.map((stage, i) => (
+              <React.Fragment key={stage}>
+                <span className={`px-2.5 py-1 rounded-md transition-colors duration-300 ${
+                  i === activeStage 
+                    ? 'bg-blue-100 text-blue-700' 
+                    : i < activeStage 
+                      ? 'text-slate-900' 
+                      : 'text-slate-400'
+                }`}>
+                  {stage}
+                </span>
+                {i < 3 && <ArrowRight className={`w-3.5 h-3.5 transition-colors duration-300 ${i < activeStage ? 'text-slate-400' : 'text-slate-200'}`} />}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        <button className="flex items-center gap-2 text-blue-600 font-bold text-[15px] hover:text-blue-700 transition-colors group/btn w-max">
+          View Journey <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+        </button>
+
+      </div>
+    </div>
+  );
+};
+
+export const PlacementSuccess = () => {
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+
+  // 8-second orchestrator for the featured card
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % PLACEMENTS.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const row1 = [...PLACEMENTS];
+
+  return (
+    <section id="placements" className="relative w-full bg-white py-24 overflow-hidden font-sans">
+      
+      {/* Decorative blurred blobs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+         <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-blue-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
+         <div className="absolute top-40 right-10 w-[400px] h-[400px] bg-purple-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
+         <div className="absolute bottom-20 left-1/3 w-[400px] h-[400px] bg-green-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
+      </div>
+
+      <style>{`
+        @keyframes marquee-left {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
+        }
+        .animate-marquee-left-fast { animation: marquee-left 90s linear infinite; }
+        .animate-marquee-right { animation: marquee-right 110s linear infinite; }
+        .animate-marquee-left-slow { animation: marquee-left 80s linear infinite; }
+        
+        /* Pause animations on hover for desktop */
+        .marquee-container:hover .animate-marquee-left-fast,
+        .marquee-container:hover .animate-marquee-right,
+        .marquee-container:hover .animate-marquee-left-slow {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="max-w-[1440px] mx-auto px-4 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-100 text-slate-600 font-bold text-xs tracking-widest uppercase mb-4"
+          >
+            SECTION 05
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight"
+          >
+            Placement Success Stories
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto"
+          >
+            Our students are building careers at leading technology companies across the globe.
+          </motion.p>
+        </div>
+
+        {/* Layer 1: Featured Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-20"
+        >
+          <FeaturedCard student={PLACEMENTS[featuredIndex]} />
+        </motion.div>
+
+        {/* Layer 2: Placement Marquees */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="w-full flex flex-col gap-6 marquee-container"
+        >
+          {/* Desktop: 3 Infinite Marquees */}
+          <div className="hidden md:flex flex-col gap-6 overflow-hidden w-full relative">
+            
+            {/* Soft fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+            {/* Row 1: Left */}
+            <div className="flex w-max animate-marquee-left-slow">
+              <div className="flex gap-6 pr-6">
+                {row1.map((c, i) => <MiniCard key={`${c.id}-${i}-1`} student={c} />)}
+              </div>
+              <div className="flex gap-6 pr-6">
+                {row1.map((c, i) => <MiniCard key={`${c.id}-${i}-2`} student={c} />)}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: Horizontal Swipe Container */}
+          <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-8 px-4 -mx-4 no-scrollbar">
+            {PLACEMENTS.map((c) => (
+              <div key={c.id} className="snap-center shrink-0">
+                <MiniCard student={c} />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
