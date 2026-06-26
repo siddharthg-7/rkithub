@@ -14,6 +14,7 @@ import {
   Monitor
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import { useApplicationModal } from '../contexts/ApplicationContext';
 
 const modules = [
   {
@@ -33,6 +34,7 @@ const modules = [
 export const CourseDetailsPage: React.FC = () => {
   const { slug } = useParams();
   const [activeModule, setActiveModule] = useState<number | null>(0);
+  const { openApplyModal } = useApplicationModal();
   
   const courseName = slug?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || 'Course';
 
@@ -75,9 +77,9 @@ export const CourseDetailsPage: React.FC = () => {
             </div>
             
             <div className="flex flex-wrap gap-5">
-              <Link to="/signup" className="px-10 py-4 bg-white text-navy-900 font-extrabold rounded-2xl shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2">
+              <button onClick={openApplyModal} className="px-10 py-4 bg-white text-navy-900 font-extrabold rounded-2xl shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2">
                 Enroll Now <ArrowRight size={18} />
-              </Link>
+              </button>
               <button className="px-10 py-4 bg-white/10 border border-white/10 text-white font-extrabold rounded-2xl hover:bg-white/20 transition-all flex items-center gap-2">
                 <Play className="text-blue-400" size={18} fill="currentColor" />
                 Watch Preview
@@ -183,9 +185,9 @@ export const CourseDetailsPage: React.FC = () => {
                 <input type="email" id="inq-email" className="floating-label-input" placeholder=" " />
                 <label htmlFor="inq-email" className="floating-label">Email Address</label>
               </div>
-              <Link to="/signup" className="btn-primary w-full shadow-navy-900/10 flex justify-center mt-6">
+              <button onClick={openApplyModal} className="btn-primary w-full shadow-navy-900/10 flex justify-center mt-6">
                 Register Interest
-              </Link>
+              </button>
             </form>
           </motion.div>
 

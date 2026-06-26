@@ -6,7 +6,7 @@ import { PlacementSuccess } from '../components/PlacementSuccess';
 import { CompanyTrust } from '../components/CompanyTrust';
 import { SEO } from '../components/SEO';
 import { StudentVoices } from '../components/StudentVoices';
-import { FinalCTA } from '../components/FinalCTA';
+import { CareerConsultationHub } from '../components/CareerConsultationHub';
 
 export const LandingPage = () => {
   return (
@@ -35,8 +35,8 @@ export const LandingPage = () => {
         {/* 7. Student Voices (Pinterest-Style Masonry Grid) */}
         <StudentVoices />
 
-        {/* 8. High-Impact Final CTA (Bookending the Hero) */}
-        <FinalCTA />
+        {/* 8. High-Impact Career Consultation Hub (Bookending the Hero) */}
+        <CareerConsultationHub />
       </main>
     </div>
   );

@@ -225,7 +225,7 @@ export const StudentVoices = () => {
   const staggerOrder = [1, 4, 2, 5, 3, 6];
 
   return (
-    <section id="testimonials" className="relative w-full bg-[#FAFBFC] py-24 md:py-32 overflow-hidden font-sans">
+    <section id="testimonials" className="relative w-full bg-[#FAFBFC] py-16 md:py-32 overflow-hidden font-sans">
       <div 
         className="absolute inset-0 z-0" 
         style={{
@@ -236,7 +236,7 @@ export const StudentVoices = () => {
       />
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center mb-20">
+        <div className="flex flex-col items-center text-center mb-12 md:mb-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -284,7 +284,7 @@ export const StudentVoices = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-16 flex justify-center"
+          className="mt-10 md:mt-16 flex justify-center"
         >
           <a href="#" className="inline-flex items-center gap-4 bg-white border border-slate-200 px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
             {/* Inline Google Logo SVG */}

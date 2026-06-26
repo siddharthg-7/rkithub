@@ -187,7 +187,7 @@ export const PlacementSuccess = () => {
   const row1 = [...PLACEMENTS];
 
   return (
-    <section id="placements" className="relative w-full bg-white py-24 overflow-hidden font-sans">
+    <section id="placements" className="relative w-full bg-white py-16 md:py-24 overflow-hidden font-sans">
       
       {/* Decorative blurred blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -220,7 +220,7 @@ export const PlacementSuccess = () => {
       <div className="max-w-[1440px] mx-auto px-4 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -255,7 +255,7 @@ export const PlacementSuccess = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-20"
+          className="mb-10 md:mb-20"
         >
           <FeaturedCard student={PLACEMENTS[featuredIndex]} />
         </motion.div>

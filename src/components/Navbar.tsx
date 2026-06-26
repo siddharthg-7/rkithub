@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Mail, Phone, ChevronDown, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Logo } from './Logo';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useApplicationModal } from '../contexts/ApplicationContext';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { openApplyModal } = useApplicationModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +68,7 @@ export const Navbar = () => {
     { name: 'Placements', path: '#placements' },
     { name: 'Internships', path: '/internships' },
     { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '#contact' },
+    { name: 'Contact', path: '#consultation-hub' },
   ];
 
   return (
@@ -88,13 +90,13 @@ export const Navbar = () => {
             <a href="#testimonials" onClick={(e) => handleNavClick(e, '#testimonials')} className="hover:text-[#22C55E] transition-colors font-medium">Testimonials</a>
             <a href="#placements" onClick={(e) => handleNavClick(e, '#placements')} className="hover:text-[#22C55E] transition-colors font-medium">Placements</a>
             <a
-              href="#blog"
+              href="#about"
               onClick={(e) => handleNavClick(e, '#about')}
               className="hover:text-[#22C55E] transition-colors font-medium"
             >
               Blog
             </a>
-            <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="hover:text-[#22C55E] transition-colors font-medium">Contact</a>
+            <a href="#consultation-hub" onClick={(e) => handleNavClick(e, '#consultation-hub')} className="hover:text-[#22C55E] transition-colors font-medium">Contact</a>
           </div>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-[#22C55E] transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
@@ -181,13 +183,12 @@ export const Navbar = () => {
               </div>
 
               <div className="hidden lg:flex items-center">
-                <a
-                  href="/internships"
-                  onClick={(e) => handleNavClick(e, '/internships')}
+                <button
+                  onClick={openApplyModal}
                   className="bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white px-6 py-2.5 rounded-[14px] font-[800] text-sm tracking-wide transition-all shadow-lg shadow-green-500/20 hover:-translate-y-0.5 flex items-center gap-2"
                 >
                   Apply Now <span>&rarr;</span>
-                </a>
+                </button>
               </div>
 
               {/* Mobile Menu Button */}
@@ -247,13 +248,15 @@ export const Navbar = () => {
                   );
                 })}
                 <div className="pt-4 pb-2">
-                  <a
-                    href="/internships"
-                    onClick={(e) => handleNavClick(e, '/internships')}
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      openApplyModal();
+                    }}
                     className="block w-full bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white px-5 py-3 rounded-[14px] font-[800] tracking-wide text-sm text-center transition-colors shadow-md flex items-center justify-center gap-2"
                   >
                     Apply Now <span>&rarr;</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

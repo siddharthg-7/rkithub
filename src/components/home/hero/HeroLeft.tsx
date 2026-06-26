@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, Award, Users, Briefcase } from 'lucide-react';
 import { JOURNEY_STEPS, ACCENT_GRADIENTS } from './types';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
+import { useApplicationModal } from '../../../contexts/ApplicationContext';
 
 /* ─── HERO STATS CARDS ──────────────────────────────────────────────────────── */
 const CardYears = () => {
@@ -114,6 +115,7 @@ const CardTrained = () => {
  * Animations are now entirely controlled by the parent Hero.tsx master timeline.
  */
 export const HeroLeft: React.FC = () => {
+  const { openApplyModal } = useApplicationModal();
   return (
     <div className="flex flex-col text-white z-10 w-full max-w-[620px]">
       {/* 1. BADGE REMOVED */}
@@ -173,20 +175,20 @@ export const HeroLeft: React.FC = () => {
 
       {/* 4. CTA BUTTONS */}
       <div className="hero-ctas flex flex-col sm:flex-row flex-wrap gap-4 mb-14">
-        <a
-          href="#courses"
+        <button
+          onClick={openApplyModal}
           className="group h-[56px] px-7 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-[3px] hover:shadow-[0_12px_30px_rgba(37,99,235,0.28)]"
           style={{
             backgroundColor: '#2563EB',
             boxShadow: '0 12px 30px rgba(37,99,235,0)',
           }}
         >
-          Explore Trainings
+          Apply Now
           <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-[6px]" />
-        </a>
+        </button>
 
         <a
-          href="#contact"
+          href="#consultation-hub"
           className="h-[56px] px-7 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center bg-transparent hover:bg-white/5"
           style={{ border: '1px solid rgba(255,255,255,.18)' }}
         >
