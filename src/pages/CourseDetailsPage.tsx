@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Play, 
-  Clock, 
-  Users, 
-  Star, 
-  CheckCircle2, 
-  ChevronDown, 
-  Code, 
-  Trophy, 
+import {
+  Play,
+  Clock,
+  Users,
+  Star,
+  CheckCircle2,
+  ChevronDown,
+  Code,
+  Trophy,
   ArrowRight,
   Monitor
 } from 'lucide-react';
@@ -35,17 +35,17 @@ export const CourseDetailsPage: React.FC = () => {
   const { slug } = useParams();
   const [activeModule, setActiveModule] = useState<number | null>(0);
   const { openApplyModal } = useApplicationModal();
-  
+
   const courseName = slug?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || 'Course';
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      <SEO 
+      <SEO
         title={`${courseName} Certification Course`}
         description={`Enroll in the ${courseName} course at RK IT HUB. Get hands-on training, real-time projects, and 100% placement support in Hyderabad.`}
         keywords={`${courseName.toLowerCase()}, course, training, certification, software institute`}
       />
-      
+
       {/* Hero Header */}
       <section className="pt-40 pb-12 md:pb-24 bg-navy-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 to-navy-800 pointer-events-none"></div>
@@ -75,7 +75,7 @@ export const CourseDetailsPage: React.FC = () => {
                 <span className="font-bold">Advanced</span>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap gap-5">
               <button onClick={openApplyModal} className="px-10 py-4 bg-white text-navy-900 font-extrabold rounded-2xl shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2">
                 Enroll Now <ArrowRight size={18} />
@@ -122,15 +122,15 @@ export const CourseDetailsPage: React.FC = () => {
           <h2 className="text-4xl font-extrabold text-navy-900 tracking-tight mb-12">Curriculum Timeline</h2>
           <div className="space-y-4">
             {modules.map((module, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="border border-slate-100 rounded-2xl overflow-hidden"
               >
-                <button 
+                <button
                   onClick={() => setActiveModule(activeModule === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors"
                 >
@@ -168,7 +168,7 @@ export const CourseDetailsPage: React.FC = () => {
 
         <div className="space-y-12">
           {/* Inquiry Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -191,7 +191,7 @@ export const CourseDetailsPage: React.FC = () => {
             </form>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -212,12 +212,12 @@ export const CourseDetailsPage: React.FC = () => {
               ))}
             </div>
             <div className="mt-10 pt-10 border-t border-slate-200">
-               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6">Partners Include</p>
-               <div className="flex gap-4 grayscale opacity-40">
-                  <div className="font-black italic text-sm">GOOGLE</div>
-                  <div className="font-black italic text-sm">MICROSOFT</div>
-                  <div className="font-black italic text-sm">AWS</div>
-               </div>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-6">Partners Include</p>
+              <div className="flex gap-4 grayscale opacity-40">
+                <div className="font-black italic text-sm">GOOGLE</div>
+                <div className="font-black italic text-sm">MICROSOFT</div>
+                <div className="font-black italic text-sm">AWS</div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -233,8 +233,8 @@ export const CourseDetailsPage: React.FC = () => {
               { title: 'FinTech Dashboard', tech: 'React, Node.js, SQL', diff: 'Medium' },
               { title: 'AI Recommendation Eng.', tech: 'Python, ML, Redis', diff: 'Expert' }
             ].map((p, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}

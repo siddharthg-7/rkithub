@@ -12,8 +12,8 @@ export const LandingPage = () => {
   return (
     <div className="relative bg-white flex flex-col min-h-screen">
       <SEO 
-        title="Best Software Training Institute in Hyderabad"
-        description="RK IT HUB provides top-rated software training, real-time projects, internships, and 100% placement support for Java, Python, MERN Stack, Data Science, and Testing."
+        title="Rk-IT Training Hub"
+        description="Transform your career with RK IT HUB's industry-aligned software training in Hyderabad. Real-time projects, internships, and 100% placement support for Java, Python, MERN Stack, Data Science, and Testing."
         keywords="software training hyderabad, java full stack training, python full stack course, mern stack training, automation testing institute, placement support"
       />
       <main className="flex-grow">
