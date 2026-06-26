@@ -92,13 +92,13 @@ export const CompanyTrust = () => {
         {/* Floating White Panel (Agency-Level Improvement) */}
         <div 
           ref={containerRef}
-          className="bg-white rounded-[24px] border border-[#E2E8F0] w-full flex flex-col items-center justify-center pt-8 pb-8 overflow-hidden"
+          className="bg-white rounded-[24px] border border-[#E2E8F0] w-full flex flex-col items-start md:items-center justify-center pt-8 pb-8 px-[24px] md:px-0 overflow-hidden"
           style={{ boxShadow: '0 20px 60px rgba(15,23,42,0.08)' }}
         >
-          <h2 className="font-heading font-[600] text-[#0F172A] text-[28px] lg:text-[34px] m-0 mb-[8px]">
+          <h2 className="font-heading font-[600] text-[#0F172A] text-[28px] lg:text-[34px] m-0 mb-[8px] text-left md:text-center w-full md:w-auto">
             Where Our Students Work
           </h2>
-          <p className="font-sans text-[16px] text-[#64748B] m-0 mb-[36px] text-center px-4 leading-none">
+          <p className="font-sans text-[16px] text-[#64748B] m-0 mb-[36px] text-left md:text-center w-full md:w-auto md:px-4 leading-relaxed md:leading-none">
             Placed across leading IT companies and growing startups.
           </p>
           

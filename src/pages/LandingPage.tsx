@@ -28,15 +28,11 @@ export const LandingPage = () => {
         {/* 4. Popular Courses */}
         <PopularCourses />
         
-        {/* 5 & 6. Trust & Placements Split */}
-        <section className="py-12 md:py-24 bg-white font-sans">
-          <div className="max-w-[1440px] mx-auto px-4 md:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-start">
-              <WhyChoose />
-              <PlacementSuccess />
-            </div>
-          </div>
-        </section>
+        {/* 5. Why RK IT Hub (What Makes Us Different) */}
+        <WhyChoose />
+        
+        {/* 6. Placement Success */}
+        <PlacementSuccess />
         
         {/* 7. Testimonials & CTA Split */}
         <section className="py-12 md:py-24 bg-[#FAFAFA] font-sans">

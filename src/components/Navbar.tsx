@@ -112,7 +112,7 @@ export const Navbar = () => {
               ? 'max-w-[1280px] bg-white/90 backdrop-blur-xl border border-gray-200/50 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl lg:rounded-full py-2 pointer-events-auto'
               : 'w-full bg-white border-b border-gray-100 py-4 pointer-events-auto'
             }`}>
-            <div className={`max-w-[1280px] mx-auto flex justify-between items-center ${isScrolled ? 'px-6 lg:px-8 h-auto' : 'px-4 md:px-8 h-[80px] lg:h-auto'}`}>
+            <div className={`max-w-[1280px] mx-auto flex justify-between items-center ${isScrolled ? 'px-6 lg:px-8' : 'px-4 md:px-8 h-auto'}`}>
               {/* Logo */}
               <a 
                 href="/" 

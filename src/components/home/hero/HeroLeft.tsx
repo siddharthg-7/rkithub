@@ -119,7 +119,7 @@ export const HeroLeft: React.FC = () => {
       {/* 1. BADGE REMOVED */}
 
       {/* 2. HEADING & DESCRIPTION (ABSOLUTE LAYERS) */}
-      <div className="relative min-h-[220px] md:min-h-[260px] flex flex-col justify-start mb-6 w-full">
+      <div className="relative min-h-[350px] sm:min-h-[280px] md:min-h-[260px] flex flex-col justify-start mb-6 w-full">
         {JOURNEY_STEPS.map((step, i) => {
           const titleWords = step.heading.split(' ');
           const normalWords = titleWords.slice(0, -1).join(' ');
@@ -128,7 +128,7 @@ export const HeroLeft: React.FC = () => {
           return (
             <div
               key={i}
-              className={`absolute top-1/2 left-0 w-full hero-step-${i} -translate-y-1/2`}
+              className={`absolute top-0 left-0 w-full hero-step-${i}`}
               style={{
                 opacity: i === 0 ? 1 : 0,
                 pointerEvents: i === 0 ? 'auto' : 'none',

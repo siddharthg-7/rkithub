@@ -243,16 +243,24 @@ export const PopularCourses = () => {
   return (
     <section id="courses" className="bg-white py-[96px] pb-[100px] font-sans relative overflow-hidden">
       <IconGradients />
-      <div className="max-w-[1320px] mx-auto px-[20px] md:px-[24px] lg:px-[32px] flex flex-col items-center">
+      <div className="max-w-[1320px] mx-auto px-[20px] md:px-[24px] lg:px-[32px] flex flex-col items-start md:items-center">
         
         {/* Header Block */}
-        <div className="flex flex-col items-center text-center mb-[48px]">
+        <div className="flex flex-col items-start md:items-center text-left md:text-center mb-[48px] w-full">
           <h2 className="font-heading font-[700] text-[36px] md:text-[48px] text-[#0F172A] m-0 mb-[16px] leading-[1.1]">
             Choose Your Career Path
           </h2>
           <p className="font-sans text-[16px] md:text-[18px] text-[#64748B] m-0 max-w-[620px] leading-relaxed">
             Master industry-demand technologies through projects, internships and placement-focused learning.
           </p>
+        </div>
+
+        {/* Mobile Scroll Hint */}
+        <div className="lg:hidden w-full flex justify-center mb-[24px]">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-[16px] py-[8px] flex items-center gap-[8px] text-[#475569] text-[12px] font-[600] shadow-sm">
+            <span>Swipe left to see all courses</span>
+            <ArrowRight className="w-3 h-3 text-[#64748B]" />
+          </div>
         </div>
 
         {/* Grid / Snapping Scroller */}

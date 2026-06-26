@@ -47,7 +47,8 @@ export const PlacementSuccess = () => {
   const visible = placements.slice(page * perPage, page * perPage + perPage);
 
   return (
-    <div id="placements" className="flex flex-col h-full pl-0 lg:pl-12 lg:border-l lg:border-gray-100 mt-16 lg:mt-0">
+    <section id="placements" className="py-12 md:py-24 bg-white font-sans flex flex-col items-center">
+      <div className="max-w-[1320px] mx-auto px-4 md:px-12 w-full flex flex-col items-start md:items-center text-left md:text-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +84,7 @@ export const PlacementSuccess = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.8 }}
-        className="text-[20px] font-[800] text-[#0F172A] mb-6"
+        className="text-[20px] font-[800] text-[#0F172A] mb-6 mt-12 w-full"
       >
         Recent Placement Success
       </motion.h2>
@@ -137,6 +138,7 @@ export const PlacementSuccess = () => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
+    </section>
   );
 };

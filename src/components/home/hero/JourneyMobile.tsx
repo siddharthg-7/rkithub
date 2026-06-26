@@ -14,35 +14,16 @@ export const JourneyMobile: React.FC<JourneyMobileProps> = ({ activeNode, onNode
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: 'center',
-    skipSnaps: false
+    skipSnaps: false,
+    watchDrag: false
   });
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    const index = emblaApi.selectedScrollSnap() as JourneyState;
-    if (index !== activeNode) {
-      onNodeChange(index);
-    }
-  }, [emblaApi, activeNode, onNodeChange]);
+  // No longer need to listen for 'select' events because watchDrag is false 
+  // and all scrolling is controlled externally via activeNode prop.
 
   useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on('select', onSelect);
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
-  useEffect(() => {
-    if (!emblaApi || isPaused) return;
-    
-    // Auto advance every 4.55s
-    const interval = setInterval(() => {
-      emblaApi.scrollNext();
-    }, 4550);
-
-    return () => clearInterval(interval);
+    // The auto-advance is entirely managed by the parent Hero GSAP timeline.
+    // Removing the conflicting setInterval fixes the glitching.
   }, [emblaApi, isPaused]);
 
   useEffect(() => {

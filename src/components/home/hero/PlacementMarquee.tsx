@@ -13,21 +13,21 @@ export const PlacementMarquee = () => {
 
     let totalWidth = 0;
     for (let i = 0; i < elements.length; i++) {
-      totalWidth += (elements[i] as HTMLElement).offsetWidth;
+      totalWidth += (elements[i] as HTMLElement).getBoundingClientRect().width;
     }
 
     // 40px per second speed
     const duration = totalWidth / 40;
 
-    const tl = gsap.to(scrollRef.current, {
-      x: `-=${totalWidth / 2}`,
-      duration: duration / 2, // Because we duplicated it, half the width is one full cycle
-      ease: "none",
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize(x => parseFloat(x) % (totalWidth / 2))
+    const tl = gsap.fromTo(scrollRef.current,
+      { x: 0 },
+      {
+        x: -(totalWidth / 2),
+        duration: duration / 2,
+        ease: "none",
+        repeat: -1,
       }
-    });
+    );
 
     return () => {
       tl.kill();
@@ -55,13 +55,9 @@ export const PlacementMarquee = () => {
     >
       {/* Left Badge - Fixed */}
       <div 
-        className="h-full flex items-center justify-center shrink-0 z-20"
-        style={{ 
-          width: '180px',
-          background: 'rgba(37,99,235,0.15)',
-        }}
+        className="h-full flex items-center justify-center shrink-0 z-20 bg-blue-600/15 w-[140px] md:w-[180px]"
       >
-        <span className="text-[12px] font-bold text-blue-100 tracking-wider">
+        <span className="text-[10px] md:text-[12px] font-bold text-blue-100 tracking-wider">
            RECENT PLACEMENTS
         </span>
       </div>

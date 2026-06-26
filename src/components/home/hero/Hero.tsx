@@ -308,7 +308,7 @@ export const Hero = () => {
         }
       `}</style>
       {/* LAYER 7: Placement Marquee */}
-      <div className="z-50 relative">
+      <div className="z-50 relative shrink-0">
         <PlacementMarquee />
       </div>
 
