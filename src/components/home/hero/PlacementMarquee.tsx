@@ -62,7 +62,7 @@ export const PlacementMarquee = () => {
         }}
       >
         <span className="text-[12px] font-bold text-blue-100 tracking-wider">
-          🔥 RECENT PLACEMENTS
+           RECENT PLACEMENTS
         </span>
       </div>
 

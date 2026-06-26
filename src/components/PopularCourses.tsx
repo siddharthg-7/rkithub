@@ -1,152 +1,271 @@
-import React from 'react';
-import { Clock, ArrowRight, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { FaJava, FaChartBar, FaBrain } from 'react-icons/fa';
-import { SiPython, SiMongodb, SiSelenium, SiCypress } from 'react-icons/si';
+import React, { useRef, useState } from 'react';
+import { Clock, ArrowRight } from 'lucide-react';
+import { FaJava, FaBrain } from 'react-icons/fa';
+import { SiPython, SiReact, SiSelenium, SiCypress } from 'react-icons/si';
+import { FcBarChart } from 'react-icons/fc'; // Using Flat Color for Data Science since it looks 3D natively
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-export const PopularCourses = () => {
-  const courses = [
-    {
-      title: 'Java Full Stack',
-      description: 'Master Java, Spring Boot, Hibernate, and Angular/React.',
-      technologies: ['Java', 'Spring Boot', 'React'],
-      duration: '2 Months',
-      path: '/courses/java-full-stack',
-      featured: true,
-      icon: FaJava
-    },
-    {
-      title: 'Python Full Stack',
-      description: 'Learn Python, Django, Flask, and frontend technologies.',
-      technologies: ['Python', 'Django', 'Vue.js'],
-      duration: '2 Months',
-      path: '/courses/python-full-stack',
-      featured: false,
-      icon: SiPython
-    },
-    {
-      title: 'MERN Stack',
-      description: 'Become a full-stack developer with MongoDB, Express.js, React, and Node.js.',
-      technologies: ['MongoDB', 'Express', 'React'],
-      duration: '2 Months',
-      path: '/courses/mern-stack',
-      featured: false,
-      icon: SiMongodb
-    },
-    {
-      title: 'Data Science',
-      description: 'Learn Data Analysis, Machine Learning, and statistics with real-time projects.',
-      technologies: ['Python', 'Data Analysis', 'Stats'],
-      duration: '1 Months',
-      path: '/courses/data-science',
-      featured: false,
-      icon: FaChartBar
-    },
-    {
-      title: 'AI & ML',
-      description: 'Build intelligent systems, neural networks, and deep learning models.',
-      technologies: ['AI', 'Deep Learning', 'PyTorch'],
-      duration: '1 Months',
-      path: '/courses/ai-ml',
-      featured: false,
-      icon: FaBrain
-    },
-    {
-      title: 'Selenium',
-      description: 'Automate web testing seamlessly and ensure software quality.',
-      technologies: ['Selenium', 'Automation', 'Java'],
-      duration: '2 Months',
-      path: '/courses/selenium',
-      featured: false,
-      icon: SiSelenium
-    },
-    {
-      title: 'Cypress',
-      description: 'Modern front-end testing for the modern web.',
-      technologies: ['Cypress', 'JavaScript', 'Testing'],
-      duration: '2 Months',
-      path: '/courses/cypress',
-      featured: false,
-      icon: SiCypress
-    }
-  ];
+// Gradient Definitions for the Icons
+const IconGradients = () => (
+  <svg width="0" height="0" className="absolute">
+    <defs>
+      <linearGradient id="java-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#F97316" offset="0%" />
+        <stop stopColor="#EA580C" offset="100%" />
+      </linearGradient>
+      <linearGradient id="python-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#3B82F6" offset="0%" />
+        <stop stopColor="#2563EB" offset="100%" />
+      </linearGradient>
+      <linearGradient id="mern-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#06B6D4" offset="0%" />
+        <stop stopColor="#0891B2" offset="100%" />
+      </linearGradient>
+      <linearGradient id="data-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#8B5CF6" offset="0%" />
+        <stop stopColor="#7C3AED" offset="100%" />
+      </linearGradient>
+      <linearGradient id="ai-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#F43F5E" offset="0%" />
+        <stop stopColor="#E11D48" offset="100%" />
+      </linearGradient>
+      <linearGradient id="selenium-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#10B981" offset="0%" />
+        <stop stopColor="#059669" offset="100%" />
+      </linearGradient>
+      <linearGradient id="cypress-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop stopColor="#14B8A6" offset="0%" />
+        <stop stopColor="#0D9488" offset="100%" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const COURSES = [
+  {
+    title: 'Full Stack Java Developer',
+    description: 'Build enterprise-grade applications using Java, Spring Boot and React.',
+    technologies: ['Java', 'Spring', 'React', 'SQL'],
+    duration: '5 Months',
+    path: '/courses/java-full-stack',
+    icon: FaJava,
+    iconFill: 'url(#java-grad)',
+    gradient: 'from-[#F97316] to-[#EA580C]',
+    spotlightColor: 'rgba(249, 115, 22, 0.08)',
+    glowColor: 'rgba(249, 115, 22, 0.3)',
+    previewCode: '@RestController',
+    featured: true
+  },
+  {
+    title: 'Python Backend Developer',
+    description: 'Master backend architecture with Python, Django, and RESTful APIs.',
+    technologies: ['Python', 'Django', 'APIs', 'Docker'],
+    duration: '5 Months',
+    path: '/courses/python-full-stack',
+    icon: SiPython,
+    iconFill: 'url(#python-grad)',
+    gradient: 'from-[#3B82F6] to-[#2563EB]',
+    spotlightColor: 'rgba(59, 130, 246, 0.08)',
+    glowColor: 'rgba(59, 130, 246, 0.3)',
+    previewCode: 'def predict():'
+  },
+  {
+    title: 'MERN Stack Developer',
+    description: 'Create scalable, interactive single-page web apps with MERN stack.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    duration: '5 Months',
+    path: '/courses/mern-stack',
+    icon: SiReact,
+    iconFill: 'url(#mern-grad)',
+    gradient: 'from-[#06B6D4] to-[#0891B2]',
+    spotlightColor: 'rgba(6, 182, 212, 0.08)',
+    glowColor: 'rgba(6, 182, 212, 0.3)',
+    previewCode: 'useState()'
+  },
+  {
+    title: 'Data Scientist',
+    description: 'Analyze data, build models, and visualize insights with Python.',
+    technologies: ['Pandas', 'ML', 'Stats', 'SQL'],
+    duration: '5 Months',
+    path: '/courses/data-science',
+    icon: FcBarChart,
+    iconFill: undefined, // Fc uses its own colors
+    gradient: 'from-[#8B5CF6] to-[#7C3AED]',
+    spotlightColor: 'rgba(139, 92, 246, 0.08)',
+    glowColor: 'rgba(139, 92, 246, 0.3)',
+    previewCode: 'plt.plot()'
+  },
+  {
+    title: 'AI & ML Engineer',
+    description: 'Build intelligent systems, neural networks, and deep learning models.',
+    technologies: ['AI', 'Deep Learning', 'PyTorch'],
+    duration: '1 Months',
+    path: '/courses/ai-ml',
+    icon: FaBrain,
+    iconFill: 'url(#ai-grad)',
+    gradient: 'from-[#F43F5E] to-[#E11D48]',
+    spotlightColor: 'rgba(244, 63, 94, 0.08)',
+    glowColor: 'rgba(244, 63, 94, 0.3)',
+    previewCode: 'model.fit()'
+  },
+  {
+    title: 'Automation Test Engineer',
+    description: 'Automate web testing seamlessly and ensure software quality with Java.',
+    technologies: ['Selenium', 'Java', 'Testing'],
+    duration: '2 Months',
+    path: '/courses/selenium',
+    icon: SiSelenium,
+    iconFill: 'url(#selenium-grad)',
+    gradient: 'from-[#10B981] to-[#059669]',
+    spotlightColor: 'rgba(16, 185, 129, 0.08)',
+    glowColor: 'rgba(16, 185, 129, 0.3)',
+    previewCode: 'driver.get()'
+  },
+  {
+    title: 'Front-end Test Engineer',
+    description: 'Modern front-end testing for the modern web.',
+    technologies: ['Cypress', 'JavaScript', 'Mocha'],
+    duration: '2 Months',
+    path: '/courses/cypress',
+    icon: SiCypress,
+    iconFill: 'url(#cypress-grad)',
+    gradient: 'from-[#14B8A6] to-[#0D9488]',
+    spotlightColor: 'rgba(20, 184, 166, 0.08)',
+    glowColor: 'rgba(20, 184, 166, 0.3)',
+    previewCode: 'cy.visit()'
+  }
+];
+
+const CourseCard = ({ course, index }: { course: any, index: number }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const Icon = course.icon;
 
   return (
-    <section id="courses" className="py-10 md:py-20 bg-[#FAFAFA] font-sans relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-12 relative">
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative w-full sm:w-[310px] h-[380px] bg-white rounded-[24px] border border-[#E2E8F0] hover:border-[#2563EB] transition-all duration-[250ms] overflow-hidden flex flex-col hover:-translate-y-[8px] cursor-pointer shrink-0"
+      style={{
+        boxShadow: isHovered ? '0 20px 50px rgba(15,23,42,0.08)' : 'none',
+      }}
+    >
+      {/* Top Border Strip */}
+      <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r ${course.gradient}`} />
+      
+      {/* Spotlight Hover Effect */}
+      <div
+        className="pointer-events-none absolute -inset-px rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms]"
+        style={{
+          background: `radial-gradient(180px circle at ${mousePosition.x}px ${mousePosition.y}px, ${course.spotlightColor}, transparent 100%)`,
+        }}
+      />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4"
-        >
-          <h2 className="text-3xl md:text-[32px] font-[800] text-[#0F172A] m-0">Popular Courses</h2>
-        </motion.div>
+      {/* Code Preview Background */}
+      <div className="absolute top-[28px] left-1/2 -translate-x-1/2 opacity-[0.03] pointer-events-none whitespace-nowrap font-mono text-[24px] font-bold z-0 transition-opacity duration-[250ms] group-hover:opacity-[0.08]">
+        {course.previewCode}
+      </div>
 
-        {/* Carousel Arrows */}
-        <button className="hidden xl:flex absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full items-center justify-center text-gray-500 shadow-md hover:text-[#0B4F9C] transition-all hover:scale-105 z-10 -ml-5">
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button className="hidden xl:flex absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white border border-gray-200 rounded-full items-center justify-center text-gray-500 shadow-md hover:text-[#0B4F9C] transition-all hover:scale-105 z-10 -mr-5">
-          <ChevronRight className="w-5 h-5" />
-        </button>
+      <div className="p-[28px] pt-[32px] flex flex-col h-full relative z-10">
+        
+        {/* Top Icon Area */}
+        <div className="w-full flex items-center justify-center h-[72px] mb-[16px] relative">
+          {/* Subtle glow behind icon on hover */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-[250ms]"
+            style={{ backgroundColor: course.glowColor }}
+          />
+          <div className="relative z-10 transition-transform duration-[250ms] group-hover:rotate-6">
+            <Icon 
+              size={56} 
+              style={course.iconFill ? { fill: course.iconFill } : undefined} 
+            />
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {courses.map((course, i) => {
-            const Icon = course.icon;
-            return (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                key={i}
-                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative"
-              >
-                {/* Featured Badge */}
-                {course.featured && (
-                  <div className="absolute top-4 left-4 bg-[#EAB308] text-white text-[10px] font-[800] px-3 py-1 rounded-full z-10 uppercase tracking-wider">
-                    Most Popular
-                  </div>
-                )}
+        {/* Text Content */}
+        <div className="text-center mb-[20px]">
+          <h3 className="font-heading font-[700] text-[20px] leading-tight text-[#0F172A] mb-[12px] h-[48px] flex items-center justify-center">
+            {course.title}
+          </h3>
+          <p className="font-sans text-[14px] text-[#64748B] leading-[1.4] line-clamp-2 h-[40px]">
+            {course.description}
+          </p>
+        </div>
 
-                <div className="p-6 flex-grow flex flex-col pt-12">
-                  <div className="w-14 h-14 rounded-2xl bg-white text-[#0B4F9C] flex items-center justify-center mb-5 mx-auto -mt-2 group-hover:scale-110 transition-transform">
-                    <Icon size={32} />
-                  </div>
+        {/* Tech Chips */}
+        <div className="flex flex-wrap justify-center gap-2 mb-auto">
+          {course.technologies.map((tech: string, j: number) => (
+            <span 
+              key={j} 
+              className="font-sans text-[12px] font-[600] h-[28px] px-[12px] rounded-full bg-[#F8FAFC] text-[#475569] flex items-center transition-colors duration-[250ms] group-hover:bg-[#EFF6FF] group-hover:text-[#2563EB]"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
 
-                  <h3 className="text-[19px] font-[800] text-[#0F172A] mb-3 text-center">{course.title}</h3>
-                  <p className="text-[#475569] text-[14px] mb-6 flex-grow leading-relaxed font-medium text-center px-2">{course.description}</p>
+        {/* Footer */}
+        <div className="flex items-center justify-between mt-[24px] pt-[20px] border-t border-[#E2E8F0]">
+          <div className="flex items-center gap-[6px] text-[#64748B] font-sans font-[500] text-[13px]">
+            <Clock className="w-4 h-4" />
+            <span>{course.duration}</span>
+          </div>
+          <Link to={course.path} className="text-[#0F172A] font-sans font-[600] text-[14px] flex items-center gap-1 group-hover:text-[#2563EB] transition-colors duration-[250ms]">
+            Explore
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-[6px] transition-transform duration-[250ms]" />
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
-                  {/* Technologies */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-8">
-                    {course.technologies.map((tech, j) => (
-                      <span key={j} className="text-[11px] bg-blue-50/50 border border-blue-100 text-[#0B4F9C] px-2.5 py-1 rounded-md font-[700]">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+export const PopularCourses = () => {
+  return (
+    <section id="courses" className="bg-white py-[96px] pb-[100px] font-sans relative overflow-hidden">
+      <IconGradients />
+      <div className="max-w-[1320px] mx-auto px-[20px] md:px-[24px] lg:px-[32px] flex flex-col items-center">
+        
+        {/* Header Block */}
+        <div className="flex flex-col items-center text-center mb-[48px]">
+          <h2 className="font-heading font-[700] text-[36px] md:text-[48px] text-[#0F172A] m-0 mb-[16px] leading-[1.1]">
+            Choose Your Career Path
+          </h2>
+          <p className="font-sans text-[16px] md:text-[18px] text-[#64748B] m-0 max-w-[620px] leading-relaxed">
+            Master industry-demand technologies through projects, internships and placement-focused learning.
+          </p>
+        </div>
 
-                  {/* Footer details */}
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                    <div className="flex items-center gap-1.5 text-[#64748B] font-[600] text-[13px]">
-                      <Clock className="w-4 h-4" />
-                      <span>{course.duration}</span>
-                    </div>
-                    <a
-                      href={course.path}
-                      className="text-[#22C55E] hover:text-[#16A34A] font-[700] text-[13px] flex items-center gap-1 transition-colors group/link"
-                    >
-                      View Details
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* Grid / Snapping Scroller */}
+        <div className="w-full">
+          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 lg:grid lg:grid-cols-4 gap-[28px] justify-start lg:justify-center">
+            {COURSES.map((course, i) => (
+              <div key={i} className="snap-center shrink-0 w-[85vw] sm:w-[310px] lg:w-auto h-full first:ml-0 last:mr-0 ml-4 sm:ml-0">
+                <CourseCard course={course} index={i} />
+              </div>
+            ))}
+            {/* Spacer for mobile scroll boundary */}
+            <div className="lg:hidden w-4 shrink-0" />
+          </div>
         </div>
       </div>
     </section>
