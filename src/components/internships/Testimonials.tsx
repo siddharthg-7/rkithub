@@ -30,28 +30,28 @@ export const Testimonials = () => {
       name: "Durga",
       role: "Associate Software Engineer",
       company: "Enmoval - 3.5 LPA",
-      avatar: "/durga.png"
+      avatar: "/durga.webp"
     },
     {
       text: "I had the opportunity to take a software testing course at RK IT Training HUB, and the experience was incredibly valuable. The training was highly practical, incorporating real-time examples that made even the most complex concepts easy to grasp. The faculty at RK IT Training HUB also provided insightful tips and strategies for acing interviews, which helped me approach my job search with confidence. Thanks to their guidance and support, I was able to successfully clear my interview and secure a job in software testing. I am truly grateful to RK IT Training HUB for their help and encouragement.",
       name: "Vijaya",
       role: "SDET",
       company: "Broadridge - 5.5 LPA",
-      avatar: "/vijaya.png"
+      avatar: "/vijaya.webp"
     },
     {
       text: "After taking a year-long break from my career, joining RK IT Training Hub really helped me reconnect with the tech world. The trainers made complex concepts easy to understand and focused on practical, hands-on learning, which boosted my confidence. Their guidance during interview preparation was especially valuable. With their support, I was able to land a job as a Test Engineer. I’m truly thankful to the entire team for helping me restart my journey in technology with confidence",
       name: "Manogna",
       role: "Test Engineer",
       company: "CGI - 7.5 LPA",
-      avatar: "/manogna.png"
+      avatar: "/manogna.webp"
     },
     {
       text: "I sincerely thank RK IT TRAINING HUB for providing top-quality training that helped me launch my career as a Full Stack Java Developer. The instructors’ real-world insights and hands-on teaching approach made complex concepts easy to understand and apply. Their constant support and guidance played a key role in building my technical confidence and skill set. I’m happy to share that I’ve been placed at Fin ECHO Engineering, and this achievement wouldn’t have been possible without the strong foundation built during my time at RK IT. I highly recommend RK IT TRAINING HUB to anyone aspiring to succeed in Full Stack Java Development.",
       name: "Chaitanya",
       role: "Full Stack Java Developer",
       company: "Fin Echo Engineering - 3.5 LPA",
-      avatar: "/Chaitanya .png"
+      avatar: "/Chaitanya .webp"
     }
   ];
 

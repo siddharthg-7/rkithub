@@ -12,9 +12,22 @@ export const LandingPage = () => {
   return (
     <div className="relative bg-white flex flex-col min-h-screen">
       <SEO
-        title="Rk-IT Training Hub"
-        description="Transform your career with RK IT HUB's industry-aligned software training in Hyderabad. Real-time projects, internships, and 100% placement support for Java, Python, MERN Stack, Data Science, and Testing."
-        keywords="software training hyderabad, java full stack training, python full stack course, mern stack training, automation testing institute, placement support"
+        title="Best IT Training Institute in Hyderabad"
+        description="RK IT HUB provides top-tier IT courses in Java Full Stack, Python, MERN Stack, Data Science, and AI. Get trained by industry experts with 100% placement support."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "RK IT HUB",
+          "url": "https://rkithub.com",
+          "logo": "https://rkithub.com/VHUB_Logo.svg",
+          "description": "Leading software training institute offering real-time, project-based IT training with 100% placement support.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "IN"
+          }
+        }}
       />
       <main className="flex-grow">
         {/* 1. Hero Area */}

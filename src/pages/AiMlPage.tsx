@@ -8,9 +8,19 @@ export const AiMlPage = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-white font-sans flex flex-col justify-center items-center relative overflow-hidden">
       <SEO 
-        title="AI & Machine Learning Course"
-        description="Master Artificial Intelligence and Machine Learning. Build deep learning models, neural networks, and real-time AI applications."
-        keywords="ai ml course, artificial intelligence training, machine learning, deep learning, neural networks, ai placement"
+        title="AI & Machine Learning Certification Course | RK IT HUB"
+        description="Become a Job-Ready AI Engineer. Master Deep Learning, NLP, and Predictive Modeling. Real-time projects, 100% placement support in Hyderabad."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "AI & Machine Learning Certification Course",
+          "description": "Master Artificial Intelligence, Machine Learning, NLP, and Deep Learning.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "sameAs": "https://rkithub.com"
+          }
+        }}
       />
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 to-slate-900 pointer-events-none"></div>
@@ -29,7 +39,7 @@ export const AiMlPage = () => {
             AI & ML
           </h1>
           <p className="text-slate-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
-            Build intelligent systems, neural networks, and deep learning models with Python, TensorFlow, and PyTorch.
+            Become a Job-Ready AI Engineer. Build intelligent systems, neural networks, and master deep learning models using Python, TensorFlow, and PyTorch.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/" className="px-8 py-3.5 bg-[#0B4F9C] hover:bg-[#093A74] text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20 flex items-center gap-2">

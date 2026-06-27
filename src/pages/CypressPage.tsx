@@ -244,8 +244,19 @@ export const CypressPage: React.FC = () => {
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
       <SEO 
-        title="Cypress Automation Testing Course"
-        description="Master Cypress Automation Testing, API Validation, Cross Browser Testing, and CI/CD Integration. Become an industry-ready Automation Test Engineer."
+        title="Cypress Automation Testing Course | RK IT HUB"
+        description="Become a Job-Ready Automation Tester. Master Cypress, JavaScript, and CI/CD. Real-time projects, 100% placement support in Hyderabad."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "Cypress Automation Testing Course",
+          "description": "Modern E2E testing with Cypress, JavaScript, and continuous integration.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "sameAs": "https://rkithub.com"
+          }
+        }}
         keywords="cypress testing course, automation testing, javascript testing, cypress automation, sdet internship"
       />
 
@@ -313,9 +324,9 @@ export const CypressPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full max-w-[480px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[540px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
-                Master Cypress Automation Testing, API Validation, Cross Browser Testing, Framework Design, and CI/CD Integration to become an industry-ready Automation Test Engineer.
+                Become a Job-Ready Cypress Automation Engineer. Build enterprise-grade testing frameworks and master the tools that top tech companies use daily.
               </motion.p>
 
               {/* Feature list */}
@@ -404,7 +415,7 @@ export const CypressPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">What You'll Learn</h2>
+            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -413,11 +424,11 @@ export const CypressPage: React.FC = () => {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
-              { Icon: SiCypress,  title: 'Core Cypress',       desc: 'Architecture, Commands, Test Runner',     iconColor: '#00BF88', isReactIcon: true  },
-              { Icon: Target,     title: 'Element Handling',   desc: 'Locators, Assertions & DOM Interaction',  iconColor: '',        isReactIcon: false },
-              { Icon: Webhook,    title: 'API Testing',        desc: 'XHR, Intercepts & Network Validation',    iconColor: '',        isReactIcon: false },
-              { Icon: Layers3,    title: 'Framework Design',   desc: 'Fixtures, Hooks & Custom Commands',       iconColor: '',        isReactIcon: false },
-              { Icon: GitBranch,  title: 'CI/CD Integration',  desc: 'GitHub Actions & Automation Pipelines',   iconColor: '',        isReactIcon: false },
+              { Icon: SiCypress,  title: 'Core Concepts',       desc: 'Master the test runner and command architecture to write robust automation.',     iconColor: '#00BF88', isReactIcon: true  },
+              { Icon: Target,     title: 'Element Handling',   desc: 'Build resilient locators and assertions to guarantee UI stability across releases.',  iconColor: '',        isReactIcon: false },
+              { Icon: Webhook,    title: 'API Testing',        desc: 'Mock and validate backend services to ensure flawless data integration.',    iconColor: '',        isReactIcon: false },
+              { Icon: Layers3,    title: 'Frameworks',   desc: 'Design scalable, data-driven frameworks (POM, Fixtures) for enterprise scale.',       iconColor: '',        isReactIcon: false },
+              { Icon: GitBranch,  title: 'CI/CD Integration',  desc: 'Integrate automated tests into deployment pipelines ensuring global quality.',   iconColor: '',        isReactIcon: false },
             ].map(({ Icon, title, desc, iconColor, isReactIcon }, i) => (
               <motion.div
                 key={i}
@@ -602,7 +613,11 @@ export const CypressPage: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* ── Internship | Certificate | Placement ── */}
+          {/* ── Career Path ── */}
+          <div className="mb-[24px] mt-[40px]">
+            <h3 className="text-[28px] font-[700] text-[#0F172A] font-heading">Your Career Path:</h3>
+            <p className="text-[16px] text-slate-600 mt-2 font-sans">Prepare for roles like: <span className="font-semibold text-slate-900">SDET, QA Automation Engineer, or Frontend Test Specialist.</span></p>
+          </div>
           <motion.div
             variants={{ visible: { transition: { delayChildren: 0.1, staggerChildren: 0.08 } } }}
             className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E7EB] rounded-xl lg:border-t lg:border-x-0 lg:border-b-0 lg:rounded-none bg-white min-h-[180px] mb-[80px] overflow-hidden"
@@ -610,7 +625,7 @@ export const CypressPage: React.FC = () => {
             {[
               { title: 'Internship Opportunity',    icon: BriefcaseBusiness, desc: 'Work on live projects and gain real industry experience.'          },
               { title: 'Certificate of Completion', icon: BadgeCheck,        desc: 'Earn industry-recognized certificate to showcase your skills.'     },
-              { title: 'Placement Support',         icon: UserRoundCheck,    desc: 'Resume building, interview prep & job assistance.'                 },
+              { title: '100% Interview Ready', icon: UserRoundCheck, desc: 'Includes 5+ mock technical interviews and resume optimization with professional mentors.' },
             ].map((card, i) => {
               const Icon = card.icon;
               return (
@@ -703,7 +718,7 @@ export const CypressPage: React.FC = () => {
                 </div>
                 <div className="relative overflow-hidden rounded-[12px] bg-slate-50 border border-slate-100 aspect-[1.414/1] flex items-center justify-center">
                   <img
-                    src="/democertifiacte.jpeg"
+                    src="/democertifiacte.webp"
                     alt="RK IT HUB Cypress Automation Certificate"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -876,7 +891,7 @@ export const CypressPage: React.FC = () => {
               </button>
               <div className="relative aspect-[1.414/1] rounded-xl overflow-hidden bg-slate-50 border border-slate-100">
                 <img
-                  src="/democertifiacte.jpeg"
+                  src="/democertifiacte.webp"
                   alt="RK IT HUB Certificate — Large"
                   className="w-full h-full object-cover"
                 />

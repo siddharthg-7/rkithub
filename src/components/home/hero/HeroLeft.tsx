@@ -174,10 +174,10 @@ export const HeroLeft: React.FC = () => {
       </div>
 
       {/* 4. CTA BUTTONS */}
-      <div className="hero-ctas flex flex-col sm:flex-row flex-wrap gap-4 mb-14">
+      <div className="hero-ctas flex flex-col sm:flex-row flex-wrap gap-4 mb-14 w-full">
         <button
           onClick={openApplyModal}
-          className="group h-[56px] px-7 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-[3px] hover:shadow-[0_12px_30px_rgba(37,99,235,0.28)]"
+          className="group w-full sm:w-auto h-[60px] px-8 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-[3px] hover:shadow-[0_12px_30px_rgba(37,99,235,0.28)]"
           style={{
             backgroundColor: '#2563EB',
             boxShadow: '0 12px 30px rgba(37,99,235,0)',
@@ -189,7 +189,7 @@ export const HeroLeft: React.FC = () => {
 
         <a
           href="#consultation-hub"
-          className="h-[56px] px-7 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center bg-transparent hover:bg-white/5"
+          className="group w-full sm:w-auto h-[60px] px-8 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center gap-2 bg-transparent hover:bg-white/5"
           style={{ border: '1px solid rgba(255,255,255,.18)' }}
         >
           Talk to Counselor

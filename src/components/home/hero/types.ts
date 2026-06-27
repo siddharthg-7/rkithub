@@ -5,10 +5,10 @@ export type JourneyState = 0 | 1 | 2 | 3;
 export const JOURNEY_STEPS = [
   {
     id: 0,
-    label: 'Expert Training',
-    heading: 'Master Industry Skills.',
+    label: 'Training',
+    heading: 'Master Tech Skills.',
     description:
-      'Learn from industry experts through structured classroom sessions, live coding and practical exercises.',
+      'Gain industry-standard expertise with hands-on training.',
     icon: GraduationCap,
     color: '#2563EB',      // Blue
     position: { x: 160, y: 90 },
@@ -16,9 +16,9 @@ export const JOURNEY_STEPS = [
   {
     id: 1,
     label: 'Projects',
-    heading: 'Build Real Projects.',
+    heading: 'Build Real Products.',
     description:
-      'Develop production-style applications using modern technologies and build a strong portfolio.',
+      'Develop an impressive portfolio that proves your capability.',
     icon: CodeXml,
     color: '#06B6D4',      // Cyan
     position: { x: 323, y: 202 },
@@ -26,9 +26,9 @@ export const JOURNEY_STEPS = [
   {
     id: 2,
     label: 'Internship',
-    heading: 'Gain Industry Experience.',
+    heading: 'Gain Live Experience.',
     description:
-      'Work on real business scenarios and understand professional software development workflows.',
+      'Step into real-world workflows with industry-led internships.',
     icon: BriefcaseBusiness,
     color: '#8B5CF6',      // Purple
     position: { x: 360, y: 396 },
@@ -36,9 +36,9 @@ export const JOURNEY_STEPS = [
   {
     id: 3,
     label: 'Placement',
-    heading: 'Launch Your Career.',
+    heading: 'Get Hired Fast.',
     description:
-      'Prepare for interviews, improve communication and get placed with leading technology companies.',
+      '100% placement support to land your dream IT career.',
     icon: BadgeCheck,
     color: '#F59E0B',      // Gold
     position: { x: 250, y: 560 },

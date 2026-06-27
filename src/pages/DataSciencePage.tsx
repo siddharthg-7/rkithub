@@ -8,9 +8,19 @@ export const DataSciencePage = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-white font-sans flex flex-col justify-center items-center relative overflow-hidden">
       <SEO 
-        title="Data Science Certification Course"
-        description="Learn Data Analysis, Machine Learning, and statistical modeling with real-time projects using Python, Pandas, and Scikit-Learn."
-        keywords="data science course, machine learning training, python data analysis, data science hyderabad, pandas scikit learn"
+        title="Data Science Certification Course | RK IT HUB"
+        description="Become a Job-Ready Data Scientist. Master Machine Learning, Python, and Data Visualization. Real-time projects, 100% placement support in Hyderabad."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "Data Science Certification Course",
+          "description": "Learn Data Science with Python, Machine Learning, and Big Data technologies.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "sameAs": "https://rkithub.com"
+          }
+        }}
       />
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 to-slate-900 pointer-events-none"></div>
@@ -29,7 +39,7 @@ export const DataSciencePage = () => {
             Data Science
           </h1>
           <p className="text-slate-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
-            Learn Data Analysis, Machine Learning, and statistical modeling with real-time projects using Python, Pandas, and Scikit-Learn.
+            Become a Job-Ready Data Scientist. Master data analysis, machine learning, and build predictive models with Python, Pandas, and Scikit-Learn.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/" className="px-8 py-3.5 bg-[#0B4F9C] hover:bg-[#093A74] text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20 flex items-center gap-2">

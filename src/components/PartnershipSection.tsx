@@ -32,7 +32,7 @@ export const PartnershipSection = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <img src="/logo.png" alt="RK IT Hub" className="h-16 object-contain" />
+            <img src="/logo.webp" alt="RK IT Hub" className="h-16 object-contain" />
             <div className="text-center" style={{ fontFamily: '"Cinzel", serif' }}>
               <div className="font-semibold text-[16px] text-[#0B4F9C]">RK IT</div>
               <div className="text-[10px] text-[#0B4F9C] tracking-wider">TRAINING HUB</div>

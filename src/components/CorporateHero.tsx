@@ -11,7 +11,7 @@ export const CorporateHero = () => {
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero_classroom.png')" }}
+        style={{ backgroundImage: "url('/hero_classroom.webp')" }}
       >
         <div className="absolute inset-0 bg-[#07294D]/85 mix-blend-multiply" />
       </motion.div>

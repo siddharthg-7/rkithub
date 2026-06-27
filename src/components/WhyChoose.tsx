@@ -6,10 +6,10 @@ import { ArrowRight, Users, Briefcase, Code, Compass, Star } from 'lucide-react'
 const NODES = [
   {
     id: 0,
-    title: 'Industry Mentors',
+    title: 'Expert Mentorship',
     stat: 18,
     statSuffix: '+',
-    statLabel: 'Experts',
+    statLabel: 'Industry Experts',
     icon: Users,
     pos: { x: 50, y: 12 }, 
     color: '#3B82F6', // blue
@@ -26,10 +26,10 @@ const NODES = [
   },
   {
     id: 2,
-    title: 'Career Launch',
+    title: 'Career Placement',
     stat: 95,
     statSuffix: '%',
-    statLabel: 'Success Rate',
+    statLabel: 'Placement Success Rate',
     icon: Star,
     pos: { x: 72.3, y: 80.7 },
     color: '#06B6D4', // cyan
@@ -46,10 +46,10 @@ const NODES = [
   },
   {
     id: 4,
-    title: 'Production Projects',
+    title: 'Project-Based Learning',
     stat: 120,
     statSuffix: '+',
-    statLabel: 'Projects Built',
+    statLabel: 'Production Projects Built',
     icon: Code,
     pos: { x: 13.9, y: 38.3 },
     color: '#10B981', // emerald
@@ -133,13 +133,13 @@ export const WhyChoose = () => {
   useEffect(() => {
     if (isHovered) return; // Pause auto-play if user is interacting
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 5);
+      setActiveIndex((prev) => (prev + 1) % NODES.length);
     }, 2500);
     return () => clearInterval(interval);
   }, [isHovered]);
 
   return (
-    <section className="relative w-full bg-[#F8FAFC] pt-[120px] pb-[180px] overflow-hidden font-sans">
+    <section className="relative w-full bg-[#F8FAFC] pt-16 pb-24 md:pt-[120px] md:pb-[180px] overflow-hidden font-sans">
       
       <div className="max-w-[1320px] mx-auto px-4 relative z-10">
         
@@ -217,7 +217,7 @@ export const WhyChoose = () => {
             
             {/* Logo and Text */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center">
-              <img src="/logo.png" alt="RK IT Hub Logo" className="w-12 h-12 object-contain mb-1.5" />
+              <img src="/logo.webp" alt="RK IT Hub Logo" className="w-12 h-12 object-contain mb-1.5" />
               <span className="font-extrabold text-[15px] text-slate-900 tracking-tight leading-none">RK IT HUB</span>
             </div>
             
@@ -256,10 +256,10 @@ export const WhyChoose = () => {
                     duration: 0.4,
                     ease: [0.16, 1, 0.3, 1] 
                   }}
-                  className={`w-[260px] bg-white/70 backdrop-blur-xl rounded-[24px] p-6 cursor-pointer border border-white transition-all duration-500 ${
+                  className={`group w-[280px] bg-white/80 backdrop-blur-xl rounded-[24px] p-6 cursor-pointer border border-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,23,42,0.1)] ${
                     isActive 
-                      ? 'shadow-[0_20px_40px_rgba(15,23,42,0.06)]' 
-                      : 'shadow-[0_4px_10px_rgba(15,23,42,0.02)]'
+                      ? 'shadow-[0_20px_40px_rgba(15,23,42,0.08)]' 
+                      : 'shadow-[0_4px_10px_rgba(15,23,42,0.02)] hover:opacity-80'
                   }`}
                 >
                   {/* Icon Area */}
@@ -331,7 +331,7 @@ export const WhyChoose = () => {
                  animate={{ scale: [1, 1.4, 1], opacity: [0, 0.3, 0] }}
                  transition={{ duration: 0.8, ease: "easeOut" }}
                />
-               <img src="/logo.png" alt="RK IT Hub Logo" className="w-10 h-10 object-contain relative z-10" />
+               <img src="/logo.webp" alt="RK IT Hub Logo" className="w-10 h-10 object-contain relative z-10" />
             </div>
           </div>
 

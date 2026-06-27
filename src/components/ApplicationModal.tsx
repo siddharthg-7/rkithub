@@ -99,103 +99,126 @@ export const ApplicationModal = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
+                    <div className="relative">
                       <input 
+                        id="fullName"
                         {...register("fullName")}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.fullName ? 'border-red-400 bg-red-50/50' : 'border-slate-200 bg-slate-50'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all`}
-                        placeholder="John Doe"
+                        className={`block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border ${errors.fullName ? 'border-red-400 bg-red-50/50' : 'border-slate-200'} appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 peer transition-all`}
+                        placeholder=" "
                       />
+                      <label htmlFor="fullName" className="absolute text-sm font-semibold text-slate-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3">
+                        Full Name *
+                      </label>
                       {errors.fullName && <p className="text-red-500 text-xs mt-1 font-medium">{errors.fullName.message}</p>}
                     </div>
                     
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                    <div className="relative">
                       <input 
+                        id="phone"
                         {...register("phone")}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-400 bg-red-50/50' : 'border-slate-200 bg-slate-50'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all`}
-                        placeholder="9876543210"
+                        className={`block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border ${errors.phone ? 'border-red-400 bg-red-50/50' : 'border-slate-200'} appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 peer transition-all`}
+                        placeholder=" "
                       />
+                      <label htmlFor="phone" className="absolute text-sm font-semibold text-slate-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3">
+                        Phone Number *
+                      </label>
                       {errors.phone && <p className="text-red-500 text-xs mt-1 font-medium">{errors.phone.message}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Email Address *</label>
+                    <div className="relative">
                       <input 
+                        id="email"
                         {...register("email")}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-400 bg-red-50/50' : 'border-slate-200 bg-slate-50'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all`}
-                        placeholder="john@example.com"
+                        className={`block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border ${errors.email ? 'border-red-400 bg-red-50/50' : 'border-slate-200'} appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 peer transition-all`}
+                        placeholder=" "
                       />
+                      <label htmlFor="email" className="absolute text-sm font-semibold text-slate-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3">
+                        Email Address *
+                      </label>
                       {errors.email && <p className="text-red-500 text-xs mt-1 font-medium">{errors.email.message}</p>}
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">College Name *</label>
+                    <div className="relative">
                       <input 
+                        id="college"
                         {...register("college")}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.college ? 'border-red-400 bg-red-50/50' : 'border-slate-200 bg-slate-50'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all`}
-                        placeholder="VNR VJIET"
+                        className={`block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border ${errors.college ? 'border-red-400 bg-red-50/50' : 'border-slate-200'} appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 peer transition-all`}
+                        placeholder=" "
                       />
+                      <label htmlFor="college" className="absolute text-sm font-semibold text-slate-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3">
+                        College Name *
+                      </label>
                       {errors.college && <p className="text-red-500 text-xs mt-1 font-medium">{errors.college.message}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Current Year *</label>
+                    <div className="relative">
                       <select 
+                        id="year"
                         {...register("year")}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.year ? 'border-red-400 bg-red-50/50' : 'border-slate-200 bg-slate-50'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all`}
+                        className={`block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border ${errors.year ? 'border-red-400 bg-red-50/50' : 'border-slate-200'} appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all`}
                       >
-                        <option value="">Select Year</option>
+                        <option value="" disabled selected hidden></option>
                         <option value="1st Year">1st Year</option>
                         <option value="2nd Year">2nd Year</option>
                         <option value="3rd Year">3rd Year</option>
                         <option value="4th Year">4th Year</option>
                         <option value="Passed Out">Passed Out</option>
                       </select>
+                      <label htmlFor="year" className="absolute text-sm font-semibold text-slate-500 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4">
+                        Current Year *
+                      </label>
                       {errors.year && <p className="text-red-500 text-xs mt-1 font-medium">{errors.year.message}</p>}
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Course Interested</label>
+                    <div className="relative">
                       <select 
+                        id="course"
                         {...register("course")}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                        className="block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border border-slate-200 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                       >
-                        <option value="">Select Course</option>
+                        <option value="" disabled selected hidden></option>
                         <option value="Java Full Stack">Java Full Stack</option>
                         <option value="Python Full Stack">Python Full Stack</option>
                         <option value="MERN Stack">MERN Stack</option>
                         <option value="Data Science">Data Science</option>
                         <option value="Testing">Testing</option>
                       </select>
+                      <label htmlFor="course" className="absolute text-sm font-semibold text-slate-500 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4">
+                        Course Interested
+                      </label>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Preferred Batch</label>
+                    <div className="relative">
                       <select 
+                        id="batch"
                         {...register("batch")}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                        className="block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border border-slate-200 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                       >
-                        <option value="">Select Mode</option>
+                        <option value="" disabled selected hidden></option>
                         <option value="Online">Online</option>
-                        <option value="Offline (Classroom)">Offline (Classroom)</option>
                         <option value="Weekend Special">Weekend Special</option>
                       </select>
+                      <label htmlFor="batch" className="absolute text-sm font-semibold text-slate-500 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4">
+                        Preferred Batch
+                      </label>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                    <div className="relative">
                       <input 
+                        id="message"
                         {...register("message")}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
-                        placeholder="Any questions?"
+                        className="block px-4 pb-2.5 pt-6 w-full text-sm text-slate-900 bg-slate-50 rounded-xl border border-slate-200 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 peer transition-all"
+                        placeholder=" "
                       />
+                      <label htmlFor="message" className="absolute text-sm font-semibold text-slate-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3">
+                        Message
+                      </label>
                     </div>
                   </div>
 

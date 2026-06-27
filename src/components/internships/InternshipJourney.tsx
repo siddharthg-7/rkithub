@@ -40,7 +40,7 @@ export const InternshipJourney = () => {
           </p>
           <div className="flex items-center justify-center gap-4">
             <div className="flex items-center gap-2">
-              <img src="/logo.png" alt="RK IT Hub" className="h-8 object-contain" />
+              <img src="/logo.webp" alt="RK IT Hub" className="h-8 object-contain" />
               <div className="flex flex-col text-[#0B4F9C]" style={{ fontFamily: '"Cinzel", serif' }}>
                 <span className="font-semibold text-[18px] leading-none tracking-[0.12em] uppercase">RK IT</span>
                 <span className="font-normal text-[9px] leading-tight tracking-[0.12em] uppercase mt-[2px]">TRAINING HUB</span>

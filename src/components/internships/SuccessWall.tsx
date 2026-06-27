@@ -10,7 +10,7 @@ export const SuccessWall = () => {
       company: "Enmoval",
       package: "3.5 LPA",
       skills: ["Java", "Testing", "Selenium"],
-      avatar: "/durga.png"
+      avatar: "/durga.webp"
     },
     {
       name: "Vijaya",
@@ -18,7 +18,7 @@ export const SuccessWall = () => {
       company: "Broadridge",
       package: "5.5 LPA",
       skills: ["Java", "TestNG", "Selenium"],
-      avatar: "/vijaya.png"
+      avatar: "/vijaya.webp"
     },
     {
       name: "Manogna",
@@ -26,7 +26,7 @@ export const SuccessWall = () => {
       company: "CGI",
       package: "7.5 LPA",
       skills: ["Manual Testing", "API Testing", "Postman"],
-      avatar: "/manogna.png"
+      avatar: "/manogna.webp"
     },
     {
       name: "Chaitanya",
@@ -34,7 +34,7 @@ export const SuccessWall = () => {
       company: "Fin Echo Engineering",
       package: "3.5 LPA",
       skills: ["Java", "Spring Boot", "React"],
-      avatar: "/Chaitanya .png"
+      avatar: "/Chaitanya .webp"
     }
   ];
 

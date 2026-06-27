@@ -17,7 +17,7 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <img src="/logo.png" alt="RK IT Training Hub" className={imageClassName} />
+      <img src="/logo.webp" alt="RK IT Training Hub" className={imageClassName} />
       {showText && (
         <div className={`${textClassName} ${light ? 'text-white' : 'text-[#0B4F9C]'}`} style={{ fontFamily: '"Cinzel", serif' }}>
           <span className="font-semibold text-[22px] leading-tight tracking-[0.12em] uppercase">RK IT</span>

@@ -11,7 +11,7 @@ const students = [
     company: 'INFOSYS',
     package: '5.2 LPA',
     quote: "The real-time projects completely changed how I approach coding. I didn't just learn syntax; I learned how to build production-grade applications. The mock interviews were exactly like the real thing.",
-    image: '/vijaya.png',
+    image: '/vijaya.webp',
     height: 'h-[320px]'
   },
   {
@@ -22,7 +22,7 @@ const students = [
     company: 'TCS',
     package: '4.8 LPA',
     quote: "From learning Java to deploying my first full-stack app, the journey was incredible. The mentors guided me through every bug and architecture decision.",
-    image: '/durga.png',
+    image: '/durga.webp',
     height: 'h-[280px]'
   },
   {
@@ -33,7 +33,7 @@ const students = [
     company: 'COGNIZANT',
     package: '6.1 LPA',
     quote: "I had a career gap and was nervous about re-entering the industry. RK IT Hub not only upgraded my skills but also built my confidence to clear top MNC interviews.",
-    image: '/manogna.png',
+    image: '/manogna.webp',
     height: 'h-[310px]'
   },
   {
@@ -44,7 +44,7 @@ const students = [
     company: 'BROADRIDGE',
     package: '5.5 LPA',
     quote: "RK IT Hub’s testing curriculum is unmatched. The focus on automation frameworks like Selenium and Cypress directly helped me clear my technical rounds with confidence.",
-    image: '/Chaitanya .png',
+    image: '/Chaitanya .webp',
     height: 'h-[330px]'
   },
   {
@@ -55,7 +55,7 @@ const students = [
     company: 'WIPRO',
     package: '5.0 LPA',
     quote: "The mentorship here is what makes the difference. They don't just teach; they guide you on how to think like an engineer and solve real business problems.",
-    image: '/vijaya.png',
+    image: '/vijaya.webp',
     height: 'h-[300px]'
   },
   {
@@ -66,7 +66,7 @@ const students = [
     company: 'CAPGEMINI',
     package: '6.5 LPA',
     quote: "The intensive focus on practical implementation over theory is why I got placed. The portfolio I built here was the main topic during my HR rounds.",
-    image: '/durga.png',
+    image: '/durga.webp',
     height: 'h-[290px]'
   }
 ];

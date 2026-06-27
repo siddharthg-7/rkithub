@@ -86,9 +86,19 @@ export const JavaFullStackPage = () => {
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
       <SEO 
-        title="Java Full Stack Developer Course"
-        description="Become an industry-ready Java Full Stack Developer. Master Core Java, Spring Boot, React, and Microservices with our comprehensive course."
-        keywords="java full stack course, spring boot training, react js course, microservices, java developer training, java internship"
+        title="Java Full Stack Developer Course | RK IT HUB"
+        description="Become a Job-Ready Java Full-Stack Developer. Master Spring Boot, React, and Hibernate. Real-time projects, 100% placement support in Hyderabad."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "Java Full Stack Developer Course",
+          "description": "Master front-end and back-end development with Java, Spring Boot, React, and MySQL. Includes real-time projects and placement support.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "sameAs": "https://rkithub.com"
+          }
+        }}
       />
       
       {/* 1. Hero Section */}
@@ -152,9 +162,9 @@ export const JavaFullStackPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full max-w-[480px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[540px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
-                From Core Java to Microservices & Modern Web Applications.
+                Become a Job-Ready Java Full-Stack Developer. Build enterprise-grade applications and master the tools that top tech companies use daily.
               </motion.p>
               
               {/* Feature List */}
@@ -241,7 +251,7 @@ export const JavaFullStackPage = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">What You'll Learn</h2>
+            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full"></div>
           </motion.div>
 
@@ -256,11 +266,11 @@ export const JavaFullStackPage = () => {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
-              { icon: FaJava, title: 'Core Java', desc: 'Strong programming basics' },
-              { icon: FaJava, title: 'Advanced Java', desc: 'J2EE, Servlets, JDBC, Collections' },
-              { icon: SiSpringboot, title: 'Spring & Spring Boot', desc: 'Build robust & scalable applications' },
-              { icon: SiReact, title: 'Front-end Development', desc: 'HTML, CSS, JavaScript, ReactJS' },
-              { icon: SiMysql, title: 'Databases', desc: 'MySQL, SQL Queries & Joins' }
+              { icon: FaJava, title: 'Core Concepts', desc: 'Master Core Java fundamentals to write robust, error-free logic.' },
+              { icon: SiSpringboot, title: 'Architecture', desc: 'Design scalable backends using Spring Boot so your applications can handle enterprise traffic.' },
+              { icon: SiReact, title: 'Modern UI', desc: 'Build reactive, fluid front-ends with React to deliver seamless user experiences.' },
+              { icon: SiMysql, title: 'Database', desc: 'Manage high-performance data with Hibernate and SQL to handle massive datasets like an industry pro.' },
+              { icon: SiDocker, title: 'Deployment', desc: 'Launch your applications to cloud environments ensuring global availability.' }
             ].map((item, i) => (
               <motion.div 
                 key={i} 
@@ -280,7 +290,7 @@ export const JavaFullStackPage = () => {
                   <item.icon size={48} />
                 </motion.div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-[15px] text-slate-500 leading-relaxed">{item.desc}</p>
+                <p className="text-[14px] text-slate-500 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -445,6 +455,10 @@ export const JavaFullStackPage = () => {
           </div>
 
           {/* 5. Internship | Certificate | Placement Row */}
+          <div className="mb-[24px] mt-[40px]">
+            <h3 className="text-[28px] font-[700] text-[#0F172A] font-heading">Your Career Path:</h3>
+            <p className="text-[16px] text-slate-600 mt-2">Prepare for roles like: <span className="font-semibold text-slate-900">Junior Software Engineer, Full-Stack Developer, or Backend Specialist.</span></p>
+          </div>
           <motion.div 
             variants={{
               visible: {
@@ -468,9 +482,9 @@ export const JavaFullStackPage = () => {
                 desc: 'Earn industry-recognized certificate to showcase your skills.' 
               },
               { 
-                title: 'Placement Support', 
+                title: '100% Interview Ready', 
                 icon: UserRoundCheck, 
-                desc: 'Resume building, interview prep & job assistance.' 
+                desc: 'Includes 5+ mock technical interviews and resume optimization with professional mentors.' 
               }
             ].map((card, i) => {
               const Icon = card.icon;
@@ -586,7 +600,7 @@ export const JavaFullStackPage = () => {
 
                 <div className="relative overflow-hidden rounded-[12px] bg-slate-50 border border-slate-100 aspect-[1.414/1] flex items-center justify-center">
                   <img 
-                    src="/democertifiacte.jpeg" 
+                    src="/democertifiacte.webp" 
                     alt="RK IT HUB Course Completion Certificate" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -828,7 +842,7 @@ export const JavaFullStackPage = () => {
 
               <div className="relative aspect-[1.414/1] rounded-xl overflow-hidden bg-slate-50 border border-slate-100">
                 <img 
-                  src="/democertifiacte.jpeg" 
+                  src="/democertifiacte.webp" 
                   alt="RK IT HUB Course Completion Certificate - Large" 
                   className="w-full h-full object-cover"
                 />

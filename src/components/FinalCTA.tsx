@@ -7,7 +7,7 @@ export const FinalCTA = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full bg-[#0F172A] py-32 overflow-hidden font-sans border-t border-white/10">
+    <section className="relative w-full bg-[#0F172A] py-16 md:py-32 overflow-hidden font-sans border-t border-white/10">
       
       {/* Background Grid */}
       <div 
@@ -101,9 +101,9 @@ export const FinalCTA = () => {
           className="mt-16 flex items-center justify-center gap-4 text-slate-500 text-sm font-semibold"
         >
           <div className="flex -space-x-3">
-            <img src="/durga.png" alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
-            <img src="/vijaya.png" alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
-            <img src="/manogna.png" alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
+            <img src="/durga.webp" alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
+            <img src="/vijaya.webp" alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
+            <img src="/manogna.webp" alt="Student" className="w-8 h-8 rounded-full border-2 border-[#0F172A] object-cover" />
           </div>
           <p>Joined by 500+ students this month</p>
         </motion.div>

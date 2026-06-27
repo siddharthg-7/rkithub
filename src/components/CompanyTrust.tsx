@@ -2,14 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const COMPANIES = [
-  { name: 'CGI', src: '/logo_cgi_color.png' },
+  { name: 'CGI', src: '/logo_cgi_color.webp' },
   { name: 'TCS', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
   { name: 'Infosys', src: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
   { name: 'Broadridge', src: '/broadridge.svg' },
   { name: 'Wipro', src: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
   { name: 'Cognizant', src: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
   { name: 'Capgemini', src: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
-  { name: 'Virtusa', src: '/virtusa.png' },
+  { name: 'Virtusa', src: '/virtusa.webp' },
   { name: 'Tech Mahindra', src: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' }
 ];
 
@@ -86,7 +86,7 @@ export const CompanyTrust = () => {
     <section 
       ref={sectionRef}
       className="w-full relative z-20 pb-12"
-      style={{ background: 'linear-gradient(180deg, #08111F 0%, #F8FAFC 18%, #FFFFFF 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #F8FAFC 18%, #FFFFFF 100%)' }}
     >
       <div className="max-w-[1320px] mx-auto px-[20px] md:px-[24px] lg:px-[32px] -mt-10">
         {/* Floating White Panel (Agency-Level Improvement) */}

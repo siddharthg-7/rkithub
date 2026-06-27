@@ -241,7 +241,7 @@ const CourseCard = ({ course, index }: { course: any, index: number }) => {
 
 export const PopularCourses = () => {
   return (
-    <section id="courses" className="bg-white py-[96px] pb-[100px] font-sans relative overflow-hidden">
+    <section id="courses" className="bg-white pt-16 pb-16 md:pt-[96px] md:pb-[100px] font-sans relative overflow-hidden">
       <IconGradients />
       <div className="max-w-[1320px] mx-auto px-[20px] md:px-[24px] lg:px-[32px] flex flex-col items-start md:items-center">
         

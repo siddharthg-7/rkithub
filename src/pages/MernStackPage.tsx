@@ -271,8 +271,19 @@ export const MernStackPage: React.FC = () => {
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
       <SEO 
-        title="MERN Stack Developer Internship"
-        description="Master Frontend, Backend, Databases, APIs, Deployment, and Full Stack Development through a structured 6-week hands-on MERN Stack internship program."
+        title="MERN Stack Developer Course | RK IT HUB"
+        description="Become a Job-Ready MERN Stack Developer. Master MongoDB, Express, React, and Node.js. Real-time projects, 100% placement support in Hyderabad."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "MERN Stack Developer Course",
+          "description": "Master MongoDB, Express.js, React.js, and Node.js. Build scalable modern web applications.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "sameAs": "https://rkithub.com"
+          }
+        }}
         keywords="mern stack internship, react node js course, full stack web development, web dev training, mongodb express react node"
       />
 
@@ -338,9 +349,9 @@ export const MernStackPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full max-w-[460px] text-[18px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[540px] text-[18px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
-                Master Frontend, Backend, Databases, APIs, Deployment, and Full Stack Development through a structured 6-week hands-on internship program with real-world projects.
+                Become a Job-Ready MERN Full-Stack Developer. Build enterprise-grade applications and master the tools that top tech companies use daily.
               </motion.p>
 
               {/* Feature list */}
@@ -444,7 +455,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">What You'll Learn</h2>
+            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -453,11 +464,11 @@ export const MernStackPage: React.FC = () => {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
-              { icon: <Monitor  size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Frontend Dev',    desc: 'HTML, CSS, Bootstrap'    },
-              { icon: <Code     size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'JavaScript',      desc: 'DOM, Events, ES6'         },
-              { icon: <SiReact  size={48} color="#61DAFB"                              />, title: 'React Dev',       desc: 'Components & State'        },
-              { icon: <Server   size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Backend Dev',     desc: 'NodeJS & ExpressJS'        },
-              { icon: <Database size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Databases',       desc: 'MongoDB & MySQL'           },
+              { icon: <Monitor  size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Core Concepts',    desc: 'Master core web fundamentals to write robust, error-free logic.'    },
+              { icon: <Server   size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Architecture',     desc: 'Design scalable backends using Node & Express so your applications can handle enterprise traffic.'        },
+              { icon: <SiReact  size={48} color="#61DAFB"                              />, title: 'Modern UI',       desc: 'Build reactive, fluid front-ends with React to deliver seamless user experiences.'        },
+              { icon: <Database size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Database',       desc: 'Manage high-performance data with MongoDB to handle massive datasets like an industry pro.'           },
+              { icon: <Code     size={48} strokeWidth={1.5} className="text-[#2563EB]" />, title: 'Deployment',      desc: 'Launch your applications to cloud environments ensuring global availability.'         },
             ].map(({ icon, title, desc }, i) => (
               <motion.div
                 key={i}
@@ -713,7 +724,7 @@ export const MernStackPage: React.FC = () => {
       </motion.section>
 
       {/* ══════════════════════════════════════════════════════════════════════ */}
-      {/* 7 ▸ INTERNSHIP BENEFITS                                              */}
+      {/* 7 ▸ CAREER PATH                                                      */}
       {/* ══════════════════════════════════════════════════════════════════════ */}
       <motion.section
         initial="hidden"
@@ -721,15 +732,19 @@ export const MernStackPage: React.FC = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="bg-[#F8FAFC]"
       >
-        <div className="max-w-[1280px] mx-auto px-[24px]">
+        <div className="max-w-[1280px] mx-auto px-[24px] pb-10">
+          <div className="mb-[24px] mt-[40px]">
+            <h3 className="text-[28px] font-[700] text-[#0F172A] font-heading">Your Career Path:</h3>
+            <p className="text-[16px] text-slate-600 mt-2 font-sans">Prepare for roles like: <span className="font-semibold text-slate-900">Junior Software Engineer, Full-Stack Developer, or Backend Specialist.</span></p>
+          </div>
           <motion.div
             variants={{ visible: { transition: { delayChildren: 0.1, staggerChildren: 0.08 } } }}
-            className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E7EB] rounded-xl lg:border-y lg:border-x-0 lg:rounded-none bg-white min-h-[180px] overflow-hidden"
+            className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E7EB] rounded-xl lg:border-t lg:border-x-0 lg:border-b-0 lg:rounded-none bg-white min-h-[180px] overflow-hidden"
           >
             {[
-              { title: 'Internship Certificate', icon: BadgeCheck,        desc: 'Industry recognized certificate upon program completion.' },
-              { title: 'Project Experience',     icon: BriefcaseBusiness, desc: 'Hands-on practical learning with real-world projects.'     },
-              { title: 'Career Support',         icon: UserRoundCheck,    desc: 'Resume building, interview guidance & job assistance.'     },
+              { title: 'Internship Opportunity', icon: BriefcaseBusiness, desc: 'Work on live projects and gain real industry experience.' },
+              { title: 'Certificate of Completion', icon: BadgeCheck, desc: 'Earn industry-recognized certificate to showcase your skills.' },
+              { title: '100% Interview Ready', icon: UserRoundCheck, desc: 'Includes 5+ mock technical interviews and resume optimization with professional mentors.' },
             ].map((card, i) => {
               const Icon = card.icon;
               return (
@@ -965,7 +980,7 @@ export const MernStackPage: React.FC = () => {
               </button>
               <div className="relative aspect-[1.414/1] rounded-xl overflow-hidden bg-slate-50 border border-slate-100">
                 <img
-                  src="/democertifiacte.jpeg"
+                  src="/democertifiacte.webp"
                   alt="RK IT HUB Certificate — Large"
                   className="w-full h-full object-cover"
                 />

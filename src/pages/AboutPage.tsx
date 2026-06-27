@@ -118,7 +118,7 @@ const HeroSection = () => {
             >
               {/* Logo & Text */}
               <div className="flex flex-col items-center justify-center h-[120px] w-full mb-4">
-                <img src="/logo.png" alt="RK IT Hub" className="w-[120px] object-contain mb-2" />
+                <img src="/logo.webp" alt="RK IT Hub" className="w-[120px] object-contain mb-2" />
                 <div className="text-center" style={{ fontFamily: '"Cinzel", serif' }}>
                   <div className="font-semibold text-[18px] text-[#0B4F9C] tracking-[0.1em] uppercase">RK IT</div>
                   <div className="font-normal text-[10px] text-[#0B4F9C] tracking-[0.12em] uppercase">Training Hub</div>
@@ -254,18 +254,98 @@ const EcosystemSection = () => {
 
 
 
+/* ─── EXPERTS SECTION (E-E-A-T) ──────────────────────────────────────────────────────── */
+const ExpertsSection = () => {
+  const experts = [
+    {
+      name: "Srinivas Reddy",
+      role: "Lead Java Instructor",
+      experience: "12+ Years Industry Experience",
+      bio: "Former Senior Solutions Architect at TCS. Srinivas brings deep enterprise expertise in microservices and scalable backend systems.",
+      linkedin: "#",
+      image: "/durga.webp"
+    },
+    {
+      name: "Kavitha",
+      role: "Python & Data Science Head",
+      experience: "10+ Years Industry Experience",
+      bio: "Ex-Cognizant Data Engineer specializing in Python automation and Machine Learning pipelines. Passionate about simplifying complex algorithms.",
+      linkedin: "#",
+      image: "/vijaya.webp"
+    },
+    {
+      name: "Ramesh Babu",
+      role: "Automation Testing Expert",
+      experience: "14+ Years Industry Experience",
+      bio: "QA Lead with extensive experience in Selenium, Cypress, and CI/CD pipelines at top-tier product companies.",
+      linkedin: "#",
+      image: "/Chaitanya .webp"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-white font-sans border-t border-slate-100">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="text-center mb-16">
+          <h2 className="text-[32px] font-[700] text-[#0F172A] mb-4">
+            Learn from Industry Veterans
+          </h2>
+          <p className="text-[18px] text-[#475569] max-w-[700px] mx-auto">
+            Our training is delivered by working professionals who bring real-world experience, enterprise best practices, and proven methodologies directly to the classroom.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {experts.map((expert, idx) => (
+            <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4 mb-6">
+                <img src={expert.image} alt={expert.name} className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm" />
+                <div>
+                  <h3 className="font-[700] text-[18px] text-[#0F172A]">{expert.name}</h3>
+                  <p className="text-[14px] text-[#0D5EFF] font-[600]">{expert.role}</p>
+                </div>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-[#E2E8F0] rounded-full text-[12px] font-[600] text-[#475569] mb-4">
+                <Briefcase size={14} className="text-[#0D5EFF]" /> {expert.experience}
+              </div>
+              <p className="text-[#475569] text-[15px] leading-relaxed mb-6">
+                {expert.bio}
+              </p>
+              <a href={expert.linkedin} className="inline-flex items-center text-[14px] font-[600] text-[#0D5EFF] hover:text-[#0050D5] transition-colors gap-1">
+                View LinkedIn Profile <ArrowRight size={14} />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
 /* ─── MAIN PAGE ──────────────────────────────────────────────────────────────── */
 export const AboutPage = () => {
   return (
     <div className="w-full overflow-x-hidden">
       <SEO
-        title="About Us | RK IT Training Hub"
-        description="Learn about RK IT Training HUB — a leading IT training and career development institute in Hyderabad with 10+ years of excellence in placement-focused training."
+        title="About RK IT HUB | Top Software Training Institute"
+        description="Learn about RK IT HUB, Hyderabad's premier software training institute. We specialize in project-based learning and 100% placement assistance."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "foundingDate": "2015",
+            "url": "https://rkithub.com"
+          }
+        }}
         keywords="about rk it hub, software training institute hyderabad, it training history, placement institute"
       />
       <HeroSection />
       <CareerTransformationEngine />
       <EcosystemSection />
+      <ExpertsSection />
       <PartnershipSection />
     </div>
   );

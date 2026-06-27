@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const testimonials = [
@@ -8,28 +8,29 @@ const testimonials = [
     course: 'Associate Software Engineer',
     company: 'Enmoval - 3.5 LPA',
     review: "I am immensely grateful to RK IT TRAINING HUB for their outstanding training, which equipped me with the skills to confidently step into the field as an Associate Software Engineer. The faculty's deep knowledge, enthusiasm, and practical teaching approach made it easy to understand and apply complex concepts. Their mentorship has been invaluable in building my technical foundation and boosting my confidence as a fresher. I highly recommend RK IT TRAINING HUB to anyone aspiring to develop expertise in automation testing and kickstart their career in the software industry.",
-    image: '/durga.png',
+    image: '/durga.webp',
   },
   {
     name: 'Vijaya',
     course: 'SDET',
     company: 'Broadridge - 5.5 LPA',
     review: "I had the opportunity to take a software testing course at RK IT Training HUB, and the experience was incredibly valuable. The training was highly practical, incorporating real-time examples that made even the most complex concepts easy to grasp. The faculty at RK IT Training HUB also provided insightful tips and strategies for acing interviews, which helped me approach my job search with confidence. Thanks to their guidance and support, I was able to successfully clear my interview and secure a job in software testing. I am truly grateful to RK IT Training HUB for their help and encouragement.",
-    image: '/vijaya.png',
+    image: '/vijaya.webp',
   },
   {
     name: 'Manogna',
     course: 'Test Engineer',
     company: 'CGI - 7.5 LPA',
     review: "After taking a year-long break from my career, joining RK IT Training Hub really helped me reconnect with the tech world. The trainers made complex concepts easy to understand and focused on practical, hands-on learning, which boosted my confidence. Their guidance during interview preparation was especially valuable. With their support, I was able to land a job as a Test Engineer. I’m truly thankful to the entire team for helping me restart my journey in technology with confidence",
-    image: '/manogna.png',
+    image: '/manogna.webp',
   },
   {
     name: 'Chaitanya',
     course: 'Full Stack Java Developer',
     company: 'Fin Echo Engineering - 3.5 LPA',
     review: "I sincerely thank RK IT TRAINING HUB for providing top-quality training that helped me launch my career as a Full Stack Java Developer. The instructors’ real-world insights and hands-on teaching approach made complex concepts easy to understand and apply. Their constant support and guidance played a key role in building my technical confidence and skill set. I’m happy to share that I’ve been placed at Fin ECHO Engineering, and this achievement wouldn’t have been possible without the strong foundation built during my time at RK IT. I highly recommend RK IT TRAINING HUB to anyone aspiring to succeed in Full Stack Java Development.",
-    image: '/Chaitanya .png',
+    image: '/Chaitanya .webp',
+    linkedinUrl: '#',
   },
 ];
 
@@ -103,11 +104,18 @@ export const Testimonials = () => {
                 {testimonial.review}
               </p>
               <div className="mt-auto flex items-center gap-3">
-                <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full object-cover" />
+                <div className="relative">
+                  <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border-2 border-slate-100" />
+                  <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-[2px] shadow-sm">
+                    <Linkedin className="w-3.5 h-3.5 text-[#0A66C2] fill-[#0A66C2]" />
+                  </div>
+                </div>
                 <div>
-                  <h4 className="font-[800] text-[#0F172A] text-[12px] leading-tight mb-0.5">{testimonial.name}</h4>
-                  <p className="text-[10px] text-[#64748B] font-[600] leading-tight">{testimonial.course}</p>
-                  <p className="text-[10px] text-[#64748B] font-[600] leading-tight">Placed at {testimonial.company}</p>
+                  <h4 className="font-bold text-slate-900 text-[13px] leading-tight mb-0.5 flex items-center gap-1.5">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-[11px] text-slate-500 font-medium leading-tight">{testimonial.course}</p>
+                  <p className="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">Placed at <span className="text-slate-700 font-semibold">{testimonial.company}</span></p>
                 </div>
               </div>
             </motion.div>

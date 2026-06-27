@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { HeroLeft } from './HeroLeft';
 import { HeroRight } from './HeroRight';
 import { JourneyMobile } from './JourneyMobile';
-import { PlacementMarquee } from './PlacementMarquee';
+import { PlacementTicker } from './PlacementTicker';
 import { JourneyState, JOURNEY_STEPS, NODE_PROGRESS } from './types';
 import gsap from 'gsap';
 
@@ -286,7 +286,7 @@ export const Hero = () => {
   return (
     <div
       ref={heroRef}
-      className="relative w-full h-auto min-h-[760px] md:h-[760px] lg:h-[840px] xl:h-[880px] overflow-hidden flex flex-col z-0"
+      className="relative w-full h-auto min-h-[600px] md:min-h-[760px] md:h-[760px] lg:h-[840px] xl:h-[880px] overflow-hidden flex flex-col z-0"
     >
       <style>{`
         @keyframes breathe {
@@ -307,18 +307,18 @@ export const Hero = () => {
           transform-origin: bottom center;
         }
       `}</style>
-      {/* LAYER 7: Placement Marquee */}
+      {/* LAYER 7: Placement Ticker (only on step 3) */}
       <div className="z-50 relative shrink-0">
-        <PlacementMarquee />
+        <PlacementTicker isActive={currentStep === 3} />
       </div>
 
       {/* LAYER 1: Solid Background */}
-      <div className="absolute inset-0 bg-[#08111F] -z-10" />
+      <div className="absolute inset-0 bg-[#0a0a0a] -z-10" />
 
       {/* LAYER 2: Gradient Overlay */}
       <div
         className="absolute inset-0 -z-10"
-        style={{ background: 'linear-gradient(135deg, #08111F 0%, #112347 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #171717 100%)' }}
       />
 
       {/* LAYER 3: Background Grid - opacity 3% */}
@@ -346,7 +346,7 @@ export const Hero = () => {
       <div className="hidden md:block absolute bottom-0 left-[15%] lg:left-[25%] xl:left-[30%] w-[600px] lg:w-[850px] xl:w-[1050px] z-0 pointer-events-none hero-programmer-wrapper">
          <div className="relative w-full h-full">
             <img 
-              src="/codingperson.png" 
+              src="/codingperson.webp" 
               alt="Programmer"
               className="w-full h-auto origin-bottom"
             />

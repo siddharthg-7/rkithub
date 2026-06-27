@@ -43,11 +43,11 @@ const PhilosophyNetwork = () => {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
   const nodes = [
-    { id: 1, label: 'Excellence', desc: 'Deliver quality learning experiences.', x: '50%', y: '10%' },
-    { id: 2, label: 'Innovation', desc: 'Adapt to emerging technologies.', x: '10%', y: '40%' },
-    { id: 3, label: 'Impact', desc: 'Focus on career transformation.', x: '90%', y: '40%' },
-    { id: 4, label: 'Growth', desc: 'Help learners improve and evolve.', x: '25%', y: '85%' },
-    { id: 5, label: 'Trust', desc: 'Build long-term relationships.', x: '75%', y: '85%' },
+    { id: 1, label: 'Excellence', desc: 'Deliver quality learning experiences.', x: '50%', y: '0%' },
+    { id: 2, label: 'Innovation', desc: 'Adapt to emerging technologies.', x: '0%', y: '40%' },
+    { id: 3, label: 'Impact', desc: 'Focus on career transformation.', x: '100%', y: '40%' },
+    { id: 4, label: 'Growth', desc: 'Help learners improve and evolve.', x: '15%', y: '95%' },
+    { id: 5, label: 'Trust', desc: 'Build long-term relationships.', x: '85%', y: '95%' },
   ];
 
   return (

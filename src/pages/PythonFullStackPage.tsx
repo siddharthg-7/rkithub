@@ -254,8 +254,19 @@ export const PythonFullStackPage: React.FC = () => {
   return (
     <div className="w-full bg-white font-sans text-slate-600 selection:bg-blue-600 selection:text-white">
       <SEO 
-        title="Python Full Stack Developer Course"
-        description="Become a Python Full Stack Developer. Learn Python, Django, REST APIs, React, and MySQL with hands-on projects and placement support."
+        title="Python Full Stack Developer Course | RK IT HUB"
+        description="Become a Job-Ready Python Full-Stack Developer. Master Django, React, and PostgreSQL. Real-time projects, 100% placement support in Hyderabad."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "Python Full Stack Developer Course",
+          "description": "Master Python, Django, React, and database management. Includes real-time projects and placement support.",
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "RK IT HUB",
+            "sameAs": "https://rkithub.com"
+          }
+        }}
         keywords="python full stack, django course, python developer training, react js python, web development hyderabad"
       />
       
@@ -318,9 +329,9 @@ export const PythonFullStackPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full max-w-[480px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[540px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
-                Master Python, Django, ReactJS, SQL and build real-world projects to become an industry-ready Full Stack Developer.
+                Become a Job-Ready Python Full-Stack Developer. Build enterprise-grade applications and master the tools that top tech companies use daily.
               </motion.p>
               
               {/* Feature List */}
@@ -407,7 +418,7 @@ export const PythonFullStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-[24px]">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">What You'll Learn</h2>
+            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
             <div className="w-[40px] h-[3px] bg-[#2563EB] mx-auto mt-4 rounded-full"></div>
           </motion.div>
 
@@ -422,11 +433,11 @@ export const PythonFullStackPage: React.FC = () => {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[#E5E7EB]"
           >
             {[
-              { icon: BookOpen, title: 'Core Python', desc: 'Strong programming basics, variables, and logic flow' },
-              { icon: Code, title: 'Advanced Python', desc: 'OOP, generators, decorators, and multithreading' },
-              { icon: SiDjango, title: 'Django', desc: 'Robust MVT web architecture, admin panels, & Rest APIs' },
-              { icon: SiReact, title: 'Frontend Development', desc: 'HTML5, CSS3, modern JavaScript, and ReactJS components' },
-              { icon: Database, title: 'Database', desc: 'MySQL relational database management, CRUD & joins' }
+              { icon: BookOpen, title: 'Core Concepts', desc: 'Master core programming fundamentals to write robust, error-free scripts.' },
+              { icon: SiDjango, title: 'Architecture', desc: 'Design scalable backends using Django so your applications can handle enterprise traffic.' },
+              { icon: SiReact, title: 'Modern UI', desc: 'Build reactive, fluid front-ends with React to deliver seamless user experiences.' },
+              { icon: Database, title: 'Database', desc: 'Manage high-performance data with MySQL to handle massive datasets like an industry pro.' },
+              { icon: Code, title: 'Deployment', desc: 'Launch your full-stack applications to cloud environments ensuring global availability.' }
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -615,6 +626,10 @@ export const PythonFullStackPage: React.FC = () => {
           </div>
 
           {/* 5. Internship | Certificate | Placement Row */}
+          <div className="mb-[24px] mt-[40px]">
+            <h3 className="text-[28px] font-[700] text-[#0F172A] font-heading">Your Career Path:</h3>
+            <p className="text-[16px] text-slate-600 mt-2 font-sans">Prepare for roles like: <span className="font-semibold text-slate-900">Junior Software Engineer, Full-Stack Developer, or Backend Specialist.</span></p>
+          </div>
           <motion.div 
             variants={{
               visible: {
@@ -624,7 +639,7 @@ export const PythonFullStackPage: React.FC = () => {
                 }
               }
             }}
-            className="w-full grid grid-cols-3 gap-0 border-t border-[#E5E7EB] bg-white h-[180px] mb-[80px]"
+            className="w-full grid grid-cols-3 gap-0 border-t border-[#E5E7EB] bg-white min-h-[180px] mb-[80px]"
           >
             {[
               { 
@@ -638,9 +653,9 @@ export const PythonFullStackPage: React.FC = () => {
                 desc: 'Earn industry-recognized certificate to showcase your skills.' 
               },
               { 
-                title: 'Placement Support', 
+                title: '100% Interview Ready', 
                 icon: UserRoundCheck, 
-                desc: 'Resume building, interview prep & job assistance.' 
+                desc: 'Includes 5+ mock technical interviews and resume optimization with professional mentors.' 
               }
             ].map((card, i) => {
               const Icon = card.icon;
@@ -757,7 +772,7 @@ export const PythonFullStackPage: React.FC = () => {
 
                 <div className="relative overflow-hidden rounded-[12px] bg-slate-50 border border-slate-100 aspect-[1.414/1] flex items-center justify-center">
                   <img 
-                    src="/democertifiacte.jpeg" 
+                    src="/democertifiacte.webp" 
                     alt="RK IT HUB Course Completion Certificate" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -934,7 +949,7 @@ export const PythonFullStackPage: React.FC = () => {
 
               <div className="relative aspect-[1.414/1] rounded-xl overflow-hidden bg-slate-50 border border-slate-100">
                 <img 
-                  src="/democertifiacte.jpeg" 
+                  src="/democertifiacte.webp" 
                   alt="RK IT HUB Course Completion Certificate - Large" 
                   className="w-full h-full object-cover"
                 />

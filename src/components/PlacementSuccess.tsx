@@ -4,18 +4,18 @@ import { ArrowRight, Linkedin } from 'lucide-react';
 import { StudentVoices } from './StudentVoices';
 
 const PLACEMENTS = [
-  { id: 1, name: 'Rahul Reddy', course: 'Java Full Stack', company: 'Infosys', package: '5.2 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
-  { id: 2, name: 'Sneha', course: 'Python Full Stack', company: 'Cognizant', package: '6.1 LPA', image: '/vijaya.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
-  { id: 3, name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.png', logo: '/logo_cgi_color.png' },
-  { id: 4, name: 'Chaitanya', course: 'Java Full Stack', company: 'TCS', package: '4.8 LPA', image: '/Chaitanya .png', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
-  { id: 5, name: 'Vikram', course: 'MERN Stack', company: 'Wipro', package: '5.0 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
-  { id: 6, name: 'Priya', course: 'Data Science', company: 'Capgemini', package: '6.5 LPA', image: '/vijaya.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
-  { id: 7, name: 'Arjun', course: 'Automation Testing', company: 'Tech Mahindra', package: '4.5 LPA', image: '/Chaitanya .png', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' },
-  { id: 8, name: 'Ravi', course: 'Java Full Stack', company: 'Virtusa', package: '5.8 LPA', image: '/durga.png', logo: '/virtusa.png' },
-  { id: 9, name: 'Kavya', course: 'Python Full Stack', company: 'Broadridge', package: '8.2 LPA', image: '/vijaya.png', logo: '/broadridge.svg' },
-  { id: 10, name: 'Sanjay', course: 'MERN Stack', company: 'Infosys', package: '5.2 LPA', image: '/Chaitanya .png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
-  { id: 11, name: 'Divya', course: 'Test Engineer', company: 'CGI', package: '7.0 LPA', image: '/manogna.png', logo: '/logo_cgi_color.png' },
-  { id: 12, name: 'Ajay', course: 'Data Science', company: 'Cognizant', package: '6.0 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
+  { id: 1, name: 'Rahul Reddy', course: 'Java Full Stack', company: 'Infosys', package: '5.2 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
+  { id: 2, name: 'Sneha', course: 'Python Full Stack', company: 'Cognizant', package: '6.1 LPA', image: '/vijaya.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
+  { id: 3, name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.webp', logo: '/logo_cgi_color.webp' },
+  { id: 4, name: 'Chaitanya', course: 'Java Full Stack', company: 'TCS', package: '4.8 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
+  { id: 5, name: 'Vikram', course: 'MERN Stack', company: 'Wipro', package: '5.0 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
+  { id: 6, name: 'Priya', course: 'Data Science', company: 'Capgemini', package: '6.5 LPA', image: '/vijaya.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
+  { id: 7, name: 'Arjun', course: 'Automation Testing', company: 'Tech Mahindra', package: '4.5 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' },
+  { id: 8, name: 'Ravi', course: 'Java Full Stack', company: 'Virtusa', package: '5.8 LPA', image: '/durga.webp', logo: '/virtusa.webp' },
+  { id: 9, name: 'Kavya', course: 'Python Full Stack', company: 'Broadridge', package: '8.2 LPA', image: '/vijaya.webp', logo: '/broadridge.svg' },
+  { id: 10, name: 'Sanjay', course: 'MERN Stack', company: 'Infosys', package: '5.2 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
+  { id: 11, name: 'Divya', course: 'Test Engineer', company: 'CGI', package: '7.0 LPA', image: '/manogna.webp', logo: '/logo_cgi_color.webp' },
+  { id: 12, name: 'Ajay', course: 'Data Science', company: 'Cognizant', package: '6.0 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
 ];
 
 const MiniCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | number }) => (

@@ -6,9 +6,10 @@ interface SEOProps {
   description: string;
   keywords?: string;
   url?: string;
+  schema?: Record<string, any>;
 }
 
-export const SEO: React.FC<SEOProps> = ({ title, description, keywords, url = 'https://rkithub.com' }) => {
+export const SEO: React.FC<SEOProps> = ({ title, description, keywords, url = 'https://rkithub.com', schema }) => {
   const fullTitle = `${title} | RK IT HUB`;
 
   return (
@@ -31,6 +32,13 @@ export const SEO: React.FC<SEOProps> = ({ title, description, keywords, url = 'h
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={`${url}/assets/og-image.jpg`} />
+      
+      {/* Schema.org JSON-LD */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };
