@@ -116,23 +116,62 @@ const Timeline = () => {
   const steps = ["Learn", "Practice", "Build", "Experience", "Grow"];
 
   return (
-    <div className="mt-8 md:mt-12">
-      <h3 className="text-xl font-bold text-slate-900 mb-6 text-center md:text-left">The Journey</h3>
-      <div className="flex flex-wrap justify-center md:justify-start gap-3">
+    <div className="mt-12 md:mt-16 w-full">
+      <h3 className="text-xl font-bold text-slate-900 mb-8 sm:mb-14 text-center lg:text-left tracking-tight">The Journey</h3>
+      
+      <div className="relative flex flex-col sm:flex-row justify-between items-start sm:items-center w-full max-w-2xl mx-auto lg:mx-0 gap-8 sm:gap-0 pl-4 sm:pl-0">
+        
+        {/* Mobile Vertical Line */}
+        <div className="absolute left-[35px] top-4 bottom-4 w-1 bg-slate-200 rounded-full sm:hidden" />
+        <motion.div 
+          className="absolute left-[35px] top-4 bottom-4 w-1 bg-gradient-to-b from-blue-600 to-indigo-500 rounded-full origin-top sm:hidden"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
+
+        {/* Desktop Horizontal Line */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-slate-200 rounded-full hidden sm:block" />
+        <motion.div 
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-blue-600 to-indigo-500 rounded-full origin-left hidden sm:block w-full"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
+
         {steps.map((step, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="flex items-center gap-2 md:gap-3 bg-white pr-4 pl-2 py-1.5 md:pr-5 md:py-2 rounded-full border border-slate-200 shadow-sm"
-          >
-            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-[11px] md:text-[12px] font-bold shrink-0">
-              0{i + 1}
+          <div key={i} className="relative z-10 flex flex-row sm:flex-col items-center gap-6 sm:gap-0 group cursor-default">
+            
+            <div className="relative">
+              {/* Outer pulsing ring */}
+              <div className="absolute -inset-3 rounded-full bg-blue-400/20 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-500" />
+              
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + (i * 0.15), type: "spring", stiffness: 200, damping: 15 }}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-[3px] border-slate-200 flex items-center justify-center relative transition-all duration-300 group-hover:border-blue-600 group-hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] z-10"
+              >
+                <div className="absolute inset-1 rounded-full bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10 text-[13px] md:text-[15px] font-extrabold text-slate-400 group-hover:text-blue-600 transition-colors">
+                  0{i + 1}
+                </span>
+              </motion.div>
             </div>
-            <span className="font-bold text-slate-700 text-[13px] md:text-[14px]">{step}</span>
-          </motion.div>
+            
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 + (i * 0.15) }}
+              className="sm:absolute sm:top-16 text-[16px] sm:text-[13px] md:text-[15px] font-extrabold text-slate-500 group-hover:text-slate-900 transition-colors sm:whitespace-nowrap"
+            >
+              {step}
+            </motion.span>
+          </div>
         ))}
       </div>
     </div>
