@@ -2,40 +2,40 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 /* ─── ANIMATED BEAM SVG ─────────────────────────────────────────────────────── */
-const BeamConnection: React.FC<{ 
-  startX: string, startY: string, endX: string, endY: string, isHovered: boolean, delay: number 
-}> = ({ 
-  startX, startY, endX, endY, isHovered, delay 
+const BeamConnection: React.FC<{
+  startX: string, startY: string, endX: string, endY: string, isHovered: boolean, delay: number
+}> = ({
+  startX, startY, endX, endY, isHovered, delay
 }) => {
-  return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-      {/* Background Track Line */}
-      <line 
-        x1={startX} y1={startY} x2={endX} y2={endY} 
-        stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4 4" 
-      />
-      {/* Glowing Moving Beam */}
-      <motion.line
-        x1={startX} y1={startY} x2={endX} y2={endY}
-        stroke="url(#beam-gradient)" strokeWidth="2" strokeLinecap="round"
-        initial={{ strokeDasharray: "0 100", opacity: 0 }}
-        animate={{ 
-          strokeDasharray: ["0 100", "100 100"], 
-          strokeDashoffset: [100, -100],
-          opacity: isHovered ? [0, 1, 0] : [0, 0.4, 0]
-        }}
-        transition={{ duration: isHovered ? 1.5 : 3, repeat: Infinity, ease: "linear", delay }}
-      />
-      <defs>
-        <linearGradient id="beam-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="transparent" />
-          <stop offset="50%" stopColor="#0D5EFF" />
-          <stop offset="100%" stopColor="transparent" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-};
+    return (
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+        {/* Background Track Line */}
+        <line
+          x1={startX} y1={startY} x2={endX} y2={endY}
+          stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4 4"
+        />
+        {/* Glowing Moving Beam */}
+        <motion.line
+          x1={startX} y1={startY} x2={endX} y2={endY}
+          stroke="url(#beam-gradient)" strokeWidth="2" strokeLinecap="round"
+          initial={{ strokeDasharray: "0 100", opacity: 0 }}
+          animate={{
+            strokeDasharray: ["0 100", "100 100"],
+            strokeDashoffset: [100, -100],
+            opacity: isHovered ? [0, 1, 0] : [0, 0.4, 0]
+          }}
+          transition={{ duration: isHovered ? 1.5 : 3, repeat: Infinity, ease: "linear", delay }}
+        />
+        <defs>
+          <linearGradient id="beam-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="transparent" />
+            <stop offset="50%" stopColor="#0D5EFF" />
+            <stop offset="100%" stopColor="transparent" />
+          </linearGradient>
+        </defs>
+      </svg>
+    );
+  };
 
 /* ─── PHILOSOPHY NETWORK ─────────────────────────────────────────────────────── */
 const PhilosophyNetwork = () => {
@@ -51,23 +51,23 @@ const PhilosophyNetwork = () => {
 
   return (
     <div className="relative w-full max-w-[800px] h-[500px] md:h-[600px] mx-auto mt-20 mb-32">
-      
+
       {/* Central Orb Glow */}
       <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-400 rounded-full blur-[150px] opacity-10 pointer-events-none" />
 
       {/* SVG Beams Container */}
       {nodes.map((node, i) => (
-        <BeamConnection 
-          key={node.id} 
-          startX="50%" startY="55%" 
-          endX={node.x} endY={node.y} 
+        <BeamConnection
+          key={node.id}
+          startX="50%" startY="55%"
+          endX={node.x} endY={node.y}
           isHovered={hoveredNode === node.id}
           delay={i * 0.5}
         />
       ))}
 
       {/* Center Orb */}
-      <motion.div 
+      <motion.div
         className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center"
         animate={{ y: ['-50%', 'calc(-50% - 10px)', '-50%'] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -78,7 +78,7 @@ const PhilosophyNetwork = () => {
           <div className="absolute inset-1 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-center p-6">
             <div>
               <div className="text-[12px] font-[800] text-[#0D5EFF] tracking-widest uppercase mb-1">Core Philosophy</div>
-              <h3 className="text-[18px] md:text-[22px] font-[800] text-[#0F172A] leading-tight">Empower<br/>Learners</h3>
+              <h3 className="text-[18px] md:text-[22px] font-[800] text-[#0F172A] leading-tight">Empower<br />Learners</h3>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@ const PhilosophyNetwork = () => {
           onMouseEnter={() => setHoveredNode(node.id)}
           onMouseLeave={() => setHoveredNode(null)}
         >
-          <motion.div 
+          <motion.div
             className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xl text-center group transition-colors"
             animate={{ scale: hoveredNode === node.id ? 1.05 : 1 }}
             transition={{ duration: 0.2 }}
@@ -122,7 +122,7 @@ const BeliefTimeline = () => {
       {/* Continuous Vertical Beam */}
       <div className="absolute left-8 top-8 bottom-8 w-[2px] bg-slate-100 rounded-full" />
       <div className="absolute left-8 top-8 bottom-8 w-[2px] overflow-hidden rounded-full">
-        <motion.div 
+        <motion.div
           className="w-full h-[120px] bg-gradient-to-b from-transparent via-[#0D5EFF] to-transparent"
           animate={{ y: ['-100%', '400%'] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
@@ -131,7 +131,7 @@ const BeliefTimeline = () => {
 
       {/* Animated List Nodes */}
       {steps.map((step, i) => (
-        <motion.div 
+        <motion.div
           key={i}
           className="flex items-center gap-8 relative z-10"
           initial={{ opacity: 0, x: 20 }}
@@ -156,10 +156,10 @@ const BeliefTimeline = () => {
 export const OurFoundation = () => {
   return (
     <section className="relative py-20 md:py-32 bg-[#FAFAFA] font-sans overflow-hidden">
-      
+
       {/* Background DotPattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0"
-           style={{ backgroundImage: 'radial-gradient(#0F172A 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }} />
+        style={{ backgroundImage: 'radial-gradient(#0F172A 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }} />
 
       {/* Giant Watermark */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 text-[100px] md:text-[220px] font-[800] text-[#0F172A] opacity-[0.02] tracking-tighter whitespace-nowrap z-0 pointer-events-none select-none font-['Clash_Display',sans-serif]">
@@ -167,7 +167,7 @@ export const OurFoundation = () => {
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-20 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-center text-center">
           <motion.div
@@ -178,7 +178,7 @@ export const OurFoundation = () => {
           >
             Our Foundation
           </motion.div>
-          <motion.h2 
+          <motion.h2
             className="text-[36px] md:text-[56px] font-[800] text-[#0F172A] leading-[1.1] tracking-tight mb-6 max-w-[800px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -187,7 +187,7 @@ export const OurFoundation = () => {
           >
             More Than Training —<br />Building Confidence, Careers & Opportunities
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-[18px] md:text-[20px] font-[400] text-[#64748B] leading-[1.7] max-w-[800px]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,9 +203,9 @@ export const OurFoundation = () => {
 
         {/* Split Layout (Part 2) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-[1100px] mx-auto mt-12 md:mt-0">
-          
+
           {/* Left: Huge Quote */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -214,7 +214,7 @@ export const OurFoundation = () => {
           >
             <span className="absolute -top-12 -left-8 text-[120px] text-[#0D5EFF] font-serif opacity-10 leading-none pointer-events-none">"</span>
             <p className="text-[28px] md:text-[42px] font-[600] text-[#0F172A] leading-[1.3] tracking-tight">
-              We don't measure success by the number of courses completed.<br/><br/>
+              We don't measure success by the number of courses completed.<br /><br />
               We measure success by the careers launched, the confidence built and the opportunities created.
             </p>
           </motion.div>

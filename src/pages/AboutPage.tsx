@@ -27,7 +27,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden w-full font-sans" style={{ height: '100vh', minHeight: '850px', background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)' }}>
-      
+
       <div className="max-w-[1440px] mx-auto px-6 lg:px-[80px] h-full flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center relative z-10">
 
@@ -95,7 +95,7 @@ const HeroSection = () => {
 
           {/* RIGHT SIDE — 5 cols */}
           <div className="lg:col-span-5 relative h-full flex justify-center items-center mt-12 lg:mt-0">
-            
+
             {/* LAYER 1: Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none">
               <div className="absolute top-[10%] right-[10%] w-[380px] h-[380px] bg-[#0D5EFF] opacity-[0.08] blur-[120px] rounded-full" />
@@ -105,15 +105,15 @@ const HeroSection = () => {
 
             {/* LAYER 2: Grid Pattern */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.15]"
-                 style={{ backgroundImage: 'linear-gradient(#0D5EFF 1px, transparent 1px), linear-gradient(90deg, #0D5EFF 1px, transparent 1px)', backgroundSize: '40px 40px', WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 70%)' }} />
+              style={{ backgroundImage: 'linear-gradient(#0D5EFF 1px, transparent 1px), linear-gradient(90deg, #0D5EFF 1px, transparent 1px)', backgroundSize: '40px 40px', WebkitMaskImage: 'radial-gradient(circle at center, black, transparent 70%)' }} />
 
             {/* LAYER 3: Main Glass Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1, y: [0, -15, 0] }}
               viewport={{ once: true }}
-              transition={{ 
-                opacity: { duration: 0.8, delay: 0.4 }, 
+              transition={{
+                opacity: { duration: 0.8, delay: 0.4 },
                 scale: { duration: 0.8, delay: 0.4 },
                 y: { duration: 5, repeat: Infinity, ease: 'easeInOut' }
               }}
@@ -190,64 +190,63 @@ const EcosystemSection = () => {
               style={{ width: 460, height: 460 }}
             />
 
-          {/* Orbiting labels */}
-          {orbitItems.map(({ label }, i) => {
-            const angle = i * (360 / orbitItems.length);
-            const r = 230;
-            return (
-              <motion.div
-                key={i}
-                className="absolute left-1/2 top-1/2 pointer-events-none"
-                style={{ width: r * 2, height: r * 2, marginLeft: -r, marginTop: -r }}
-                animate={{ rotate: [angle, angle + 360] }}
-                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-              >
-                <div className="absolute left-1/2 top-0" style={{ marginLeft: -48, marginTop: -48 }}>
-                  <motion.div
-                    animate={{ rotate: [-angle, -(angle + 360)] }}
-                    transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-                  >
-                    <motion.div
-                      className="pointer-events-auto"
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                    >
-                      <div className="w-[96px] h-[96px] rounded-full bg-white border border-[#E2E8F0] shadow-[0_8px_20px_rgba(0,0,0,0.06)] flex items-center justify-center text-center p-2 text-[12px] font-[700] text-[#0F172A] leading-tight hover:border-[#0D5EFF] transition-colors cursor-default">
-                        {label}
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
-
-          {/* Center flow card */}
-          <motion.div
-            className="relative z-10 bg-white rounded-[28px] border border-[#E2E8F0] shadow-xl px-10 py-8 flex flex-col items-center gap-1"
-            style={{ minWidth: 180 }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            {flow.map((step, i) => (
-              <React.Fragment key={i}>
-                <div
-                  className={`px-6 py-2 md:px-8 md:py-2.5 rounded-xl text-[14px] font-[700] w-full text-center ${
-                    step === 'Placement'
-                      ? 'bg-[#0D5EFF] text-white'
-                      : 'bg-[#EEF4FF] text-[#0D5EFF]'
-                  }`}
+            {/* Orbiting labels */}
+            {orbitItems.map(({ label }, i) => {
+              const angle = i * (360 / orbitItems.length);
+              const r = 230;
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute left-1/2 top-1/2 pointer-events-none"
+                  style={{ width: r * 2, height: r * 2, marginLeft: -r, marginTop: -r }}
+                  animate={{ rotate: [angle, angle + 360] }}
+                  transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
                 >
-                  {step}
-                </div>
-                {i < flow.length - 1 && (
-                  <div className="text-[#0D5EFF] font-bold text-lg">↓</div>
-                )}
-              </React.Fragment>
-            ))}
-          </motion.div>
+                  <div className="absolute left-1/2 top-0" style={{ marginLeft: -48, marginTop: -48 }}>
+                    <motion.div
+                      animate={{ rotate: [-angle, -(angle + 360)] }}
+                      transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+                    >
+                      <motion.div
+                        className="pointer-events-auto"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                      >
+                        <div className="w-[96px] h-[96px] rounded-full bg-white border border-[#E2E8F0] shadow-[0_8px_20px_rgba(0,0,0,0.06)] flex items-center justify-center text-center p-2 text-[12px] font-[700] text-[#0F172A] leading-tight hover:border-[#0D5EFF] transition-colors cursor-default">
+                          {label}
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
+
+            {/* Center flow card */}
+            <motion.div
+              className="relative z-10 bg-white rounded-[28px] border border-[#E2E8F0] shadow-xl px-10 py-8 flex flex-col items-center gap-1"
+              style={{ minWidth: 180 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6 }}
+            >
+              {flow.map((step, i) => (
+                <React.Fragment key={i}>
+                  <div
+                    className={`px-6 py-2 md:px-8 md:py-2.5 rounded-xl text-[14px] font-[700] w-full text-center ${step === 'Placement'
+                        ? 'bg-[#0D5EFF] text-white'
+                        : 'bg-[#EEF4FF] text-[#0D5EFF]'
+                      }`}
+                  >
+                    {step}
+                  </div>
+                  {i < flow.length - 1 && (
+                    <div className="text-[#0D5EFF] font-bold text-lg">↓</div>
+                  )}
+                </React.Fragment>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>

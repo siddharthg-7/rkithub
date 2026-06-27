@@ -18,7 +18,7 @@ import { PartnershipTrustBar } from '@/src/components/internships/PartnershipTru
 export const InternshipsPage = () => {
   return (
     <div className="bg-[var(--color-bg-light)] min-h-screen font-sans overflow-hidden selection:bg-[var(--color-primary)] selection:text-white">
-      <SEO 
+      <SEO
         title="Software Internships & Real-Time Projects"
         description="Join RK IT HUB's industry-focused internship programs. Work on real-time projects in Java, Python, and MERN stack with expert mentorship."
         keywords="software internships, IT internships hyderabad, real-time projects, full stack internship, java internship, python internship"
@@ -29,7 +29,7 @@ export const InternshipsPage = () => {
       <LearningJourney />
       <CareerTracks />
       <InternshipProcess />
-      
+
       {/* 2-Column Section: Mentor + Impact */}
       <div className="flex flex-col lg:flex-row bg-[#f8fafc]">
         <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">

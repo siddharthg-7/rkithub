@@ -21,7 +21,7 @@ const MiniCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | n
   <div className="group w-[220px] h-[110px] bg-white border border-slate-200 rounded-[16px] p-4 flex gap-4 shrink-0 transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.06)] cursor-pointer">
     <img src={student.image} alt={student.name} className="w-12 h-12 rounded-[12px] object-cover shrink-0 bg-slate-100" />
     <div className="flex flex-col justify-between overflow-hidden relative w-full">
-      
+
       {/* LinkedIn Tooltip & Icon */}
       <div className="absolute right-0 top-0 group/li">
         <Linkedin className="w-[14px] h-[14px] text-slate-300 group-hover:text-[#0A66C2] transition-all duration-300 group-hover:-translate-x-1" />
@@ -29,11 +29,11 @@ const MiniCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | n
           View LinkedIn
         </span>
       </div>
-      
+
       <h4 className="font-bold text-slate-900 text-[14px] truncate pr-5">{student.name}</h4>
-      
+
       <img src={student.logo} alt={student.company} className="h-[16px] max-w-[70px] object-contain object-left opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 origin-left" />
-      
+
       <div className="inline-flex mt-1">
         <span className="bg-[#DCFCE7] text-[#166534] text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
           ₹{student.package}
@@ -46,13 +46,13 @@ const MiniCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | n
 const AnimatedNumber = ({ valueStr }: { valueStr: string }) => {
   const [num, setNum] = useState(0);
   const target = parseFloat(valueStr.replace(/[^0-9.]/g, '')) || 0;
-  
+
   useEffect(() => {
     setNum(0);
     let start = 0;
     const duration = 1000;
     const startTime = performance.now();
-    
+
     const update = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
@@ -83,15 +83,15 @@ const FeaturedCard = ({ student }: { student: typeof PLACEMENTS[0] }) => {
 
   return (
     <div className="w-full lg:w-[70%] mx-auto bg-[#F8FAFC] border border-[#E2E8F0] rounded-[28px] overflow-hidden flex flex-col md:flex-row transition-transform duration-500 hover:-translate-y-[6px] shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] cursor-pointer">
-      
+
       {/* Left: Image Container */}
       <div className="md:w-[45%] relative h-[320px] md:h-auto overflow-hidden bg-slate-100 group">
         <AnimatePresence mode="wait">
-          <motion.img 
-            key={student.id} 
-            src={student.image} 
+          <motion.img
+            key={student.id}
+            src={student.image}
             alt={student.name}
-            initial={{ x: -40, opacity: 0 }} 
+            initial={{ x: -40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 40, opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -102,7 +102,7 @@ const FeaturedCard = ({ student }: { student: typeof PLACEMENTS[0] }) => {
 
       {/* Right: Details Container */}
       <div className="md:w-[55%] p-8 md:p-12 flex flex-col justify-center">
-        
+
         <AnimatePresence mode="wait">
           <motion.div
             key={student.id}
@@ -115,23 +115,23 @@ const FeaturedCard = ({ student }: { student: typeof PLACEMENTS[0] }) => {
             <p className="text-slate-500 font-medium mb-6">{student.course}</p>
           </motion.div>
         </AnimatePresence>
-        
+
         <div className="flex items-center gap-6 mb-8">
           <AnimatePresence mode="wait">
-            <motion.img 
+            <motion.img
               key={student.id}
-              src={student.logo} 
-              alt={student.company} 
+              src={student.logo}
+              alt={student.company}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="h-[34px] max-w-[120px] object-contain object-left" 
+              className="h-[34px] max-w-[120px] object-contain object-left"
             />
           </AnimatePresence>
 
           <AnimatePresence mode="wait">
-            <motion.div 
+            <motion.div
               key={student.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -149,13 +149,12 @@ const FeaturedCard = ({ student }: { student: typeof PLACEMENTS[0] }) => {
           <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[13px] font-bold">
             {stages.map((stage, i) => (
               <React.Fragment key={stage}>
-                <span className={`px-2.5 py-1 rounded-md transition-colors duration-300 ${
-                  i === activeStage 
-                    ? 'bg-blue-100 text-blue-700' 
-                    : i < activeStage 
-                      ? 'text-slate-900' 
+                <span className={`px-2.5 py-1 rounded-md transition-colors duration-300 ${i === activeStage
+                    ? 'bg-blue-100 text-blue-700'
+                    : i < activeStage
+                      ? 'text-slate-900'
                       : 'text-slate-400'
-                }`}>
+                  }`}>
                   {stage}
                 </span>
                 {i < 3 && <ArrowRight className={`w-3.5 h-3.5 transition-colors duration-300 ${i < activeStage ? 'text-slate-400' : 'text-slate-200'}`} />}
@@ -188,12 +187,12 @@ export const PlacementSuccess = () => {
 
   return (
     <section id="placements" className="relative w-full bg-white py-16 md:py-24 overflow-hidden font-sans">
-      
+
       {/* Decorative blurred blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-         <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-blue-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
-         <div className="absolute top-40 right-10 w-[400px] h-[400px] bg-purple-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
-         <div className="absolute bottom-20 left-1/3 w-[400px] h-[400px] bg-green-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
+        <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-blue-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
+        <div className="absolute top-40 right-10 w-[400px] h-[400px] bg-purple-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
+        <div className="absolute bottom-20 left-1/3 w-[400px] h-[400px] bg-green-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-[0.06]" />
       </div>
 
       <style>{`
@@ -218,10 +217,10 @@ export const PlacementSuccess = () => {
       `}</style>
 
       <div className="max-w-[1440px] mx-auto px-4 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -229,7 +228,7 @@ export const PlacementSuccess = () => {
           >
             SECTION 05
           </motion.div>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -270,7 +269,7 @@ export const PlacementSuccess = () => {
         >
           {/* Desktop: 3 Infinite Marquees */}
           <div className="hidden md:flex flex-col gap-6 overflow-hidden w-full relative">
-            
+
             {/* Soft fade edges */}
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

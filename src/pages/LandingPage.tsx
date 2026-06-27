@@ -11,7 +11,7 @@ import { CareerConsultationHub } from '../components/CareerConsultationHub';
 export const LandingPage = () => {
   return (
     <div className="relative bg-white flex flex-col min-h-screen">
-      <SEO 
+      <SEO
         title="Rk-IT Training Hub"
         description="Transform your career with RK IT HUB's industry-aligned software training in Hyderabad. Real-time projects, internships, and 100% placement support for Java, Python, MERN Stack, Data Science, and Testing."
         keywords="software training hyderabad, java full stack training, python full stack course, mern stack training, automation testing institute, placement support"
@@ -19,19 +19,19 @@ export const LandingPage = () => {
       <main className="flex-grow">
         {/* 1. Hero Area */}
         <Hero />
-        
+
         {/* 2. Company Trust (Agency-Level Bridge) */}
         <CompanyTrust />
 
         {/* 4. Popular Courses */}
         <PopularCourses />
-        
+
         {/* 5. Why RK IT Hub (What Makes Us Different) */}
         <WhyChoose />
-        
+
         {/* 6. Placement Success */}
         <PlacementSuccess />
-        
+
         {/* 7. Student Voices (Pinterest-Style Masonry Grid) */}
         <StudentVoices />
 
