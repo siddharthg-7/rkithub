@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Linkedin } from 'lucide-react';
+import { StudentVoices } from './StudentVoices';
 
 const PLACEMENTS = [
   { id: 1, name: 'Rahul Reddy', course: 'Java Full Stack', company: 'Infosys', package: '5.2 LPA', image: '/durga.png', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
@@ -186,7 +187,7 @@ export const PlacementSuccess = () => {
   const row1 = [...PLACEMENTS];
 
   return (
-    <section id="placements" className="relative w-full bg-white py-16 md:py-24 overflow-hidden font-sans">
+    <section id="placements" className="relative w-full bg-[#FAFBFC] pt-16 md:pt-24 pb-8 overflow-hidden font-sans">
 
       {/* Decorative blurred blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
@@ -244,20 +245,9 @@ export const PlacementSuccess = () => {
             transition={{ delay: 0.2 }}
             className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto"
           >
-            Our students are building careers at leading technology companies across the globe.
+            See how our students transformed their skills into careers through real projects and mentorship.
           </motion.p>
         </div>
-
-        {/* Layer 1: Featured Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-10 md:mb-20"
-        >
-          <FeaturedCard student={PLACEMENTS[featuredIndex]} />
-        </motion.div>
 
         {/* Layer 2: Placement Marquees */}
         <motion.div
@@ -295,6 +285,7 @@ export const PlacementSuccess = () => {
           </div>
         </motion.div>
 
+        <StudentVoices />
       </div>
     </section>
   );

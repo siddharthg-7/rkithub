@@ -10,9 +10,6 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { CareerTransformationEngine } from '../components/about/CareerTransformationEngine';
-import { ImpactWall } from '../components/about/ImpactWall';
-import { WhyChooseUsBento } from '../components/about/WhyChooseUsBento';
-import { OurFoundation } from '../components/about/OurFoundation';
 import { PartnershipSection } from '../components/PartnershipSection';
 
 /* ─── HERO SECTION ───────────────────────────────────────────────────────────── */
@@ -179,7 +176,7 @@ const EcosystemSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
-          Our Training Ecosystem
+          Why Students Choose Us
         </motion.h2>
 
         <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden">
@@ -268,11 +265,8 @@ export const AboutPage = () => {
       />
       <HeroSection />
       <CareerTransformationEngine />
-      <ImpactWall />
-      <WhyChooseUsBento />
       <EcosystemSection />
       <PartnershipSection />
-      <OurFoundation />
     </div>
   );
 };

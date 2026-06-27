@@ -223,45 +223,8 @@ export const StudentVoices = () => {
   const staggerOrder = [1, 4, 2, 5, 3, 6];
 
   return (
-    <section id="testimonials" className="relative w-full bg-[#FAFBFC] py-16 md:py-32 overflow-hidden font-sans">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'linear-gradient(to right, #000000 1px, transparent 1px), linear-gradient(to bottom, #000000 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-          opacity: 0.02
-        }}
-      />
-
+    <div className="relative w-full overflow-hidden font-sans pt-12 pb-16">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#EFF6FF] text-blue-700 font-extrabold text-[13px] tracking-wide mb-6"
-          >
-            Student Voices
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight leading-tight"
-          >
-            Hear It From <br className="md:hidden" /> Our Students
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 text-slate-500 text-lg max-w-2xl mx-auto font-medium"
-          >
-            See how our students transformed their skills into careers through real projects and mentorship.
-          </motion.p>
-        </div>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-7 mx-auto max-w-[1200px]">
           {students.map((student, i) => (
@@ -308,6 +271,6 @@ export const StudentVoices = () => {
           </a>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };

@@ -5,8 +5,8 @@ import { WhyChoose } from '../components/WhyChoose';
 import { PlacementSuccess } from '../components/PlacementSuccess';
 import { CompanyTrust } from '../components/CompanyTrust';
 import { SEO } from '../components/SEO';
-import { StudentVoices } from '../components/StudentVoices';
 import { CareerConsultationHub } from '../components/CareerConsultationHub';
+import { OurFoundation } from '../components/about/OurFoundation';
 
 export const LandingPage = () => {
   return (
@@ -23,19 +23,19 @@ export const LandingPage = () => {
         {/* 2. Company Trust (Agency-Level Bridge) */}
         <CompanyTrust />
 
+        {/* 3. Our Foundation */}
+        <OurFoundation />
+
         {/* 4. Popular Courses */}
         <PopularCourses />
 
         {/* 5. Why RK IT Hub (What Makes Us Different) */}
         <WhyChoose />
 
-        {/* 6. Placement Success */}
+        {/* 6. Placement Success & Student Voices */}
         <PlacementSuccess />
 
-        {/* 7. Student Voices (Pinterest-Style Masonry Grid) */}
-        <StudentVoices />
-
-        {/* 8. High-Impact Career Consultation Hub (Bookending the Hero) */}
+        {/* 7. High-Impact Career Consultation Hub */}
         <CareerConsultationHub />
       </main>
     </div>

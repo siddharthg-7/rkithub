@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { Target, Zap, Rocket, TrendingUp, Shield, Lightbulb, CheckCircle2 } from 'lucide-react';
+
+import { useState } from 'react';
 
 /* ─── ANIMATED BEAM SVG ─────────────────────────────────────────────────────── */
 const BeamConnection: React.FC<{
@@ -9,12 +12,10 @@ const BeamConnection: React.FC<{
 }) => {
     return (
       <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-        {/* Background Track Line */}
         <line
           x1={startX} y1={startY} x2={endX} y2={endY}
           stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4 4"
         />
-        {/* Glowing Moving Beam */}
         <motion.line
           x1={startX} y1={startY} x2={endX} y2={endY}
           stroke="url(#beam-gradient)" strokeWidth="2" strokeLinecap="round"
@@ -22,7 +23,7 @@ const BeamConnection: React.FC<{
           animate={{
             strokeDasharray: ["0 100", "100 100"],
             strokeDashoffset: [100, -100],
-            opacity: isHovered ? [0, 1, 0] : [0, 0.4, 0]
+            opacity: isHovered ? [0, 1, 0] : [0, 0.5, 0]
           }}
           transition={{ duration: isHovered ? 1.5 : 3, repeat: Infinity, ease: "linear", delay }}
         />
@@ -42,24 +43,24 @@ const PhilosophyNetwork = () => {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
   const nodes = [
-    { id: 1, label: 'Excellence', desc: 'Deliver quality learning experiences and practical outcomes.', x: '50%', y: '5%' },
-    { id: 2, label: 'Innovation', desc: 'Continuously adapt to emerging technologies and industry needs.', x: '10%', y: '35%' },
-    { id: 3, label: 'Impact', desc: 'Focus on career transformation rather than course completion.', x: '90%', y: '35%' },
-    { id: 4, label: 'Growth', desc: 'Help learners continuously improve and evolve.', x: '25%', y: '85%' },
-    { id: 5, label: 'Trust', desc: 'Build long-term relationships through transparency and support.', x: '75%', y: '85%' },
+    { id: 1, label: 'Excellence', desc: 'Deliver quality learning experiences.', x: '50%', y: '10%' },
+    { id: 2, label: 'Innovation', desc: 'Adapt to emerging technologies.', x: '10%', y: '40%' },
+    { id: 3, label: 'Impact', desc: 'Focus on career transformation.', x: '90%', y: '40%' },
+    { id: 4, label: 'Growth', desc: 'Help learners improve and evolve.', x: '25%', y: '85%' },
+    { id: 5, label: 'Trust', desc: 'Build long-term relationships.', x: '75%', y: '85%' },
   ];
 
   return (
-    <div className="relative w-full max-w-[800px] h-[500px] md:h-[600px] mx-auto mt-20 mb-32">
+    <div className="relative w-full aspect-square max-w-[500px] mx-auto transform scale-[0.65] sm:scale-[0.8] md:scale-100 origin-center lg:origin-left -mt-16 md:mt-12 -mb-20 md:mb-12">
 
       {/* Central Orb Glow */}
-      <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-400 rounded-full blur-[150px] opacity-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-blue-400 rounded-full blur-[100px] opacity-10 pointer-events-none" />
 
       {/* SVG Beams Container */}
       {nodes.map((node, i) => (
         <BeamConnection
           key={node.id}
-          startX="50%" startY="55%"
+          startX="50%" startY="50%"
           endX={node.x} endY={node.y}
           isHovered={hoveredNode === node.id}
           delay={i * 0.5}
@@ -68,17 +69,16 @@ const PhilosophyNetwork = () => {
 
       {/* Center Orb */}
       <motion.div
-        className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center"
         animate={{ y: ['-50%', 'calc(-50% - 10px)', '-50%'] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full bg-white/40 backdrop-blur-xl border border-white shadow-[0_0_40px_rgba(13,94,255,0.2)] flex items-center justify-center relative overflow-hidden group">
-          {/* Shine Border effect */}
-          <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(13,94,255,0.4)_360deg)] animate-[spin_4s_linear_infinite]" />
-          <div className="absolute inset-1 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-center p-6">
+        <div className="w-[140px] h-[140px] md:w-[160px] md:h-[160px] rounded-full bg-white/60 backdrop-blur-xl border border-white shadow-[0_0_30px_rgba(13,94,255,0.15)] flex items-center justify-center relative overflow-hidden group">
+          <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0_340deg,rgba(13,94,255,0.3)_360deg)] animate-[spin_4s_linear_infinite]" />
+          <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center text-center p-4">
             <div>
-              <div className="text-[12px] font-[800] text-[#0D5EFF] tracking-widest uppercase mb-1">Core Philosophy</div>
-              <h3 className="text-[18px] md:text-[22px] font-[800] text-[#0F172A] leading-tight">Empower<br />Learners</h3>
+              <div className="text-[10px] font-bold text-blue-600 tracking-widest uppercase mb-1">Core</div>
+              <h3 className="text-[16px] md:text-[18px] font-extrabold text-slate-900 leading-tight">Empower<br />Learners</h3>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ const PhilosophyNetwork = () => {
       {nodes.map((node, i) => (
         <motion.div
           key={node.id}
-          className="absolute z-10 w-[140px] md:w-[180px] transform -translate-x-1/2 -translate-y-1/2 cursor-default"
+          className="absolute z-10 w-[120px] md:w-[140px] transform -translate-x-1/2 -translate-y-1/2 cursor-default"
           style={{ left: node.x, top: node.y }}
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -98,12 +98,12 @@ const PhilosophyNetwork = () => {
           onMouseLeave={() => setHoveredNode(null)}
         >
           <motion.div
-            className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xl text-center group transition-colors"
+            className="bg-white p-3 rounded-xl border border-slate-200 shadow-lg text-center group transition-colors"
             animate={{ scale: hoveredNode === node.id ? 1.05 : 1 }}
             transition={{ duration: 0.2 }}
           >
-            <h4 className={`text-[14px] md:text-[16px] font-[800] mb-2 transition-colors ${hoveredNode === node.id ? 'text-[#0D5EFF]' : 'text-[#0F172A]'}`}>{node.label}</h4>
-            <p className="text-[11px] md:text-[12px] text-slate-500 font-[500] leading-snug">{node.desc}</p>
+            <h4 className={`text-[12px] md:text-[14px] font-extrabold mb-1 transition-colors ${hoveredNode === node.id ? 'text-blue-600' : 'text-slate-800'}`}>{node.label}</h4>
+            <p className="text-[10px] md:text-[11px] text-slate-500 font-medium leading-snug">{node.desc}</p>
           </motion.div>
         </motion.div>
       ))}
@@ -112,116 +112,102 @@ const PhilosophyNetwork = () => {
   );
 };
 
-
-/* ─── BELIEF TIMELINE ────────────────────────────────────────────────────────── */
-const BeliefTimeline = () => {
-  const steps = ['Learn', 'Practice', 'Build', 'Experience', 'Grow'];
+const Timeline = () => {
+  const steps = ["Learn", "Practice", "Build", "Experience", "Grow"];
 
   return (
-    <div className="w-full flex flex-col gap-6 relative py-4 pl-4">
-      {/* Continuous Vertical Beam */}
-      <div className="absolute left-8 top-8 bottom-8 w-[2px] bg-slate-100 rounded-full" />
-      <div className="absolute left-8 top-8 bottom-8 w-[2px] overflow-hidden rounded-full">
-        <motion.div
-          className="w-full h-[120px] bg-gradient-to-b from-transparent via-[#0D5EFF] to-transparent"
-          animate={{ y: ['-100%', '400%'] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-        />
+    <div className="mt-8 md:mt-12">
+      <h3 className="text-xl font-bold text-slate-900 mb-6 text-center md:text-left">The Journey</h3>
+      <div className="flex flex-wrap justify-center md:justify-start gap-3">
+        {steps.map((step, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="flex items-center gap-2 md:gap-3 bg-white pr-4 pl-2 py-1.5 md:pr-5 md:py-2 rounded-full border border-slate-200 shadow-sm"
+          >
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-[11px] md:text-[12px] font-bold shrink-0">
+              0{i + 1}
+            </div>
+            <span className="font-bold text-slate-700 text-[13px] md:text-[14px]">{step}</span>
+          </motion.div>
+        ))}
       </div>
-
-      {/* Animated List Nodes */}
-      {steps.map((step, i) => (
-        <motion.div
-          key={i}
-          className="flex items-center gap-8 relative z-10"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: i * 0.15 }}
-        >
-          <div className="w-10 h-10 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[12px] font-[800] text-slate-400">
-            0{i + 1}
-          </div>
-          <div className="bg-white/60 backdrop-blur-sm px-6 py-3 rounded-xl border border-slate-100 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] w-full max-w-[200px]">
-            <span className="text-[16px] font-[800] text-[#0F172A]">{step}</span>
-          </div>
-        </motion.div>
-      ))}
     </div>
   );
 };
 
-
-/* ─── MAIN COMPONENT ─────────────────────────────────────────────────────────── */
 export const OurFoundation = () => {
   return (
-    <section className="relative py-20 md:py-32 bg-[#FAFAFA] font-sans overflow-hidden">
+    <section className="relative py-12 md:py-24 bg-[#FAFAFA] font-sans overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 relative">
+          
+          {/* LEFT COLUMN: Content */}
+          <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-[12px] font-bold tracking-widest uppercase mb-6 w-max"
+            >
+              Our Foundation
+            </motion.div>
+            
+            <motion.h2
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              More Than Training —<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                Building Confidence, Careers & Opportunities
+              </span>
+            </motion.h2>
+            
+            <motion.p
+              className="text-base sm:text-lg font-medium text-slate-500 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              For over a decade, RK IT Training HUB has focused on one simple belief: every learner deserves practical skills, real opportunities and the confidence to succeed in the technology industry.
+            </motion.p>
 
-      {/* Background DotPattern */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0"
-        style={{ backgroundImage: 'radial-gradient(#0F172A 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }} />
+            <PhilosophyNetwork />
+            <Timeline />
+          </div>
 
-      {/* Giant Watermark */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 text-[100px] md:text-[220px] font-[800] text-[#0F172A] opacity-[0.02] tracking-tighter whitespace-nowrap z-0 pointer-events-none select-none font-['Clash_Display',sans-serif]">
-        FOUNDATION
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-6 md:px-20 relative z-10">
-
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-[11px] font-[800] tracking-widest uppercase mb-6"
-          >
-            Our Foundation
-          </motion.div>
-          <motion.h2
-            className="text-[36px] md:text-[56px] font-[800] text-[#0F172A] leading-[1.1] tracking-tight mb-6 max-w-[800px]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            More Than Training —<br />Building Confidence, Careers & Opportunities
-          </motion.h2>
-          <motion.p
-            className="text-[18px] md:text-[20px] font-[400] text-[#64748B] leading-[1.7] max-w-[800px]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            For over a decade, RK IT Training HUB has focused on one simple belief: every learner deserves practical skills, real opportunities and the confidence to succeed in the technology industry.
-          </motion.p>
-        </div>
-
-        {/* Philosophy Network (Part 1) */}
-        <PhilosophyNetwork />
-
-        {/* Split Layout (Part 2) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-[1100px] mx-auto mt-12 md:mt-0">
-
-          {/* Left: Huge Quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <span className="absolute -top-12 -left-8 text-[120px] text-[#0D5EFF] font-serif opacity-10 leading-none pointer-events-none">"</span>
-            <p className="text-[28px] md:text-[42px] font-[600] text-[#0F172A] leading-[1.3] tracking-tight">
-              We don't measure success by the number of courses completed.<br /><br />
-              We measure success by the careers launched, the confidence built and the opportunities created.
-            </p>
-          </motion.div>
-
-          {/* Right: Vertical Belief Timeline */}
-          <div className="flex justify-center lg:justify-end">
-            <BeliefTimeline />
+          {/* RIGHT COLUMN: Sticky Quote */}
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+            <div className="lg:sticky lg:top-32">
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[28px] md:rounded-[32px] p-8 md:p-14 text-white shadow-2xl relative overflow-hidden"
+              >
+                {/* Decorative background elements */}
+                <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-black/10 rounded-full blur-3xl pointer-events-none" />
+                
+                <span className="absolute -top-6 -left-2 text-[120px] md:-top-8 md:-left-2 md:text-[160px] text-white/10 font-serif leading-none pointer-events-none select-none">"</span>
+                
+                <div className="relative z-10 flex flex-col h-full justify-center">
+                  <p className="text-[20px] sm:text-[24px] md:text-[32px] font-bold leading-snug tracking-tight">
+                    We don't measure success by the number of courses completed.<br/><br/>
+                    We measure success by the <span className="text-blue-200">careers launched</span>, the confidence built and the opportunities created.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
           </div>
 
         </div>

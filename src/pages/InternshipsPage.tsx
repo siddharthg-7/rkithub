@@ -8,7 +8,6 @@ import { SEO } from '../components/SEO';
 
 import { MentorEcosystem } from '@/src/components/internships/MentorEcosystem';
 import { ImpactMetrics } from '@/src/components/internships/ImpactMetrics';
-import { InternshipJourney } from '@/src/components/internships/InternshipJourney';
 import { SuccessWall } from '@/src/components/internships/SuccessWall';
 import { ComparisonSection } from '@/src/components/internships/ComparisonSection';
 import { PricingSection } from '@/src/components/internships/PricingSection';
@@ -39,8 +38,6 @@ export const InternshipsPage = () => {
           <ImpactMetrics />
         </div>
       </div>
-
-      <InternshipJourney />
 
       {/* 2-Column Section: Success Wall + Comparison */}
       <div className="flex flex-col lg:flex-row bg-[#f8fafc] border-t border-[#E2E8F0]">
