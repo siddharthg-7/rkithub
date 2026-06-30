@@ -7,16 +7,16 @@ export const PartnershipSection = () => {
   const inView = useInView(ref, { once: true, amount: 0.2 });
 
   const rkFeatures = [
-    { text: 'Training Excellence', icon: Award },
-    { text: 'Skill Development', icon: Zap },
-    { text: 'Career Guidance', icon: TrendingUp },
-    { text: 'Internships', icon: Building2 }
+    { text: 'Real-time Training', icon: Award },
+    { text: 'Live Projects', icon: Zap },
+    { text: 'Expert Mentorship', icon: TrendingUp },
+    { text: 'Assured Internships', icon: Building2 }
   ];
   const vhubFeatures = [
-    { text: 'IT Consulting', icon: Building2 },
-    { text: 'Recruitment Services', icon: ShieldCheck },
-    { text: 'Corporate Training', icon: Award },
-    { text: 'Industry Opportunities', icon: TrendingUp }
+    { text: 'Tech Consulting', icon: Building2 },
+    { text: 'Talent Acquisition', icon: ShieldCheck },
+    { text: 'Corporate Upskilling', icon: Award },
+    { text: 'Direct Placements', icon: TrendingUp }
   ];
 
   return (
@@ -123,10 +123,10 @@ export const PartnershipSection = () => {
               <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-16 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-500" />
             </div>
             
-            <div className="text-center relative z-10 w-full pb-6 border-b border-slate-100">
-              <div className="font-extrabold text-2xl text-[#0A4DA2] mb-1" style={{ fontFamily: '"Outfit", sans-serif', letterSpacing: '0.05em' }}>V-HUB</div>
-              <div className="text-xs font-semibold text-slate-500 tracking-[0.2em] uppercase" style={{ fontFamily: '"Outfit", sans-serif' }}>IT Consulting</div>
-              <div className="text-[10px] font-semibold text-slate-400 tracking-widest uppercase mt-2">Industry Partner</div>
+            <div className="text-center relative z-10 w-full pb-6 border-b border-slate-100 flex justify-center">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0A4DA2] text-[11px] font-bold tracking-[0.2em] uppercase mt-2 border border-blue-100/50 shadow-sm">
+                Industry Partner
+              </div>
             </div>
             
             <div className="w-full space-y-4 relative z-10">
