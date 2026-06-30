@@ -243,7 +243,7 @@ export const PlacementSuccess = () => {
             viewport={{ once: true }}
             className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-100 text-slate-600 font-bold text-xs tracking-widest uppercase mb-4"
           >
-            SECTION 05
+            PLACEMENTS
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

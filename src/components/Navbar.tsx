@@ -8,6 +8,7 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isTrainingsOpen, setIsTrainingsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('#');
   const navigate = useNavigate();
   const location = useLocation();
   const { openApplyModal } = useApplicationModal();
@@ -15,10 +16,42 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      if (location.pathname === '/') {
+        const sections = ['courses', 'placements', 'consultation-hub'];
+        let current = '#';
+        for (const id of sections) {
+          const element = document.getElementById(id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 300) {
+              current = `#${id}`;
+            }
+          }
+        }
+        setActiveSection(current);
+      } else {
+        setActiveSection('');
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
+
+  const isRouteActive = (routePath: string, routeName: string) => {
+    if (routeName === 'Internships' && location.pathname.includes('internships')) {
+      return true;
+    }
+    if (routeName === 'Trainings' && location.pathname.includes('/courses')) {
+      return true;
+    }
+    if (location.pathname === '/' && routePath.startsWith('#')) {
+      return activeSection === routePath;
+    }
+    return location.pathname === routePath;
+  };
 
   const handleNavClick = (e: React.MouseEvent<HTMLElement>, path: string) => {
     e.preventDefault();
@@ -144,10 +177,15 @@ export const Navbar = () => {
                       >
                         <button
                           onClick={(e) => handleNavClick(e, route.path)}
-                          className={`relative flex items-center gap-1 font-[700] text-[15px] py-2 transition-colors ${location.pathname.includes('/courses') ? 'text-[#0B4F9C]' : 'text-[#0F172A] hover:text-[#0B4F9C]'}`}
+                          className={`relative flex items-center gap-1 font-[700] text-[15px] py-2 transition-colors group ${isRouteActive(route.path, route.name) ? 'text-[#0B4F9C]' : 'text-[#0F172A] hover:text-[#0B4F9C]'}`}
                         >
                           {route.name}
                           <ChevronDown className={`w-4 h-4 transition-transform ${isTrainingsOpen ? 'rotate-180' : ''}`} />
+                          <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-[#0B4F9C] transition-transform duration-300 ease-out ${
+                            isRouteActive(route.path, route.name)
+                              ? 'scale-x-100 origin-left'
+                              : 'scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left'
+                          }`} />
                         </button>
                         {/* Dropdown */}
                         <div className={`absolute top-full left-0 bg-white border border-gray-100 shadow-xl rounded-xl py-2 w-56 transition-all duration-200 mt-2 ${isTrainingsOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
@@ -171,12 +209,17 @@ export const Navbar = () => {
                       key={route.name}
                       href={route.path}
                       onClick={(e) => handleNavClick(e, route.path)}
-                      className={`relative font-[700] text-[15px] py-2 transition-colors ${location.pathname === route.path || (route.name === 'Internships' && location.pathname.includes('internships')) || (location.pathname === '/' && route.path === '#')
+                      className={`relative font-[700] text-[15px] py-2 transition-colors group ${isRouteActive(route.path, route.name)
                           ? 'text-[#0B4F9C]'
                           : 'text-[#0F172A] hover:text-[#0B4F9C]'
                         }`}
                     >
                       {route.name}
+                      <span className={`absolute -bottom-1 left-0 w-full h-[2px] bg-[#0B4F9C] transition-transform duration-300 ease-out ${
+                        isRouteActive(route.path, route.name)
+                          ? 'scale-x-100 origin-left'
+                          : 'scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left'
+                      }`} />
                     </a>
                   );
                 })}
@@ -240,7 +283,7 @@ export const Navbar = () => {
                       key={route.name}
                       href={route.path}
                       onClick={(e) => handleNavClick(e, route.path)}
-                      className={`font-bold text-[15px] py-3 border-b border-slate-50 last:border-none transition-colors flex items-center justify-between ${location.pathname === route.path || (route.name === 'Internships' && location.pathname.includes('internships')) || (location.pathname === '/' && route.path === '#')
+                      className={`font-bold text-[15px] py-3 border-b border-slate-50 last:border-none transition-colors flex items-center justify-between ${isRouteActive(route.path, route.name)
                           ? 'text-[#0B4F9C]'
                           : 'text-[#0F172A] hover:text-[#0B4F9C]'
                         }`}
