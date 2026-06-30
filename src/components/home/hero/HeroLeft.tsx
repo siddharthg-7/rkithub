@@ -29,7 +29,7 @@ const CardYears = () => {
             />
           </svg>
           {/* Number */}
-          <div className="text-[28px] font-[800] text-[#0F172A] tracking-tighter flex items-baseline">
+          <div className="text-2xl lg:text-3xl font-[800] text-[#0F172A] tracking-tighter flex items-baseline">
             <CountUp end={10} duration={2.5} />
             <span className="text-[#0D5EFF] ml-0.5">+</span>
           </div>
@@ -68,7 +68,7 @@ const CardInterns = () => {
       </div>
 
       <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-20">
-        <div className="text-[24px] font-[800] text-[#0F172A] tracking-tight leading-none">500+</div>
+        <div className="text-2xl lg:text-3xl font-[800] text-[#0F172A] tracking-tight leading-none">500+</div>
         <div className="text-[9px] font-[700] text-[#475569] tracking-wider uppercase text-right w-16 leading-tight">Internship Learners</div>
       </div>
     </div>
@@ -88,7 +88,7 @@ const CardTrained = () => {
   return (
     <div className="relative h-full min-h-[160px] flex-1 rounded-[20px] bg-white border border-[#E2E8F0] shadow-sm p-4 flex flex-col justify-between overflow-hidden group hover:border-[#0D5EFF]/30 transition-colors">
       <div>
-        <div className="text-[24px] font-[800] text-[#0F172A] tracking-tight leading-none">3000+</div>
+        <div className="text-2xl lg:text-3xl font-[800] text-[#0F172A] tracking-tight leading-none">3000+</div>
         <div className="text-[10px] font-[700] text-[#475569] tracking-wider uppercase mt-1 leading-tight">Students Trained & Placed</div>
       </div>
 
@@ -117,7 +117,7 @@ const CardTrained = () => {
 export const HeroLeft: React.FC = () => {
   const { openApplyModal } = useApplicationModal();
   return (
-    <div className="flex flex-col text-white z-10 w-full max-w-[620px]">
+    <div className="flex flex-col items-center lg:items-start text-center lg:text-left text-white z-10 w-full max-w-[620px] mx-auto lg:mx-0">
       {/* 1. BADGE REMOVED */}
 
       {/* 2. HEADING & DESCRIPTION (ABSOLUTE LAYERS) */}
@@ -137,8 +137,8 @@ export const HeroLeft: React.FC = () => {
                 visibility: i === 0 ? 'visible' : 'hidden',
               }}
             >
-              <h1 className="font-bold font-heading text-[40px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-[1.1] tracking-[-2px] m-0 mb-6">
-                <span className="flex flex-wrap">
+              <h1 className="font-bold font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.2] tracking-tight m-0 mb-5 flex flex-wrap justify-center lg:justify-start">
+                <span className="flex flex-wrap justify-center lg:justify-start">
                   {normalWords.split(' ').filter(Boolean).map((word, j) => (
                     <span
                       key={`n-${i}-${j}`}
@@ -163,7 +163,7 @@ export const HeroLeft: React.FC = () => {
                 </span>
               </h1>
               <p
-                className="hero-desc font-sans font-medium text-[18px] leading-[1.75] max-w-[520px] m-0"
+                className="hero-desc font-sans font-medium text-base sm:text-lg leading-[1.75] max-w-[520px] m-0 mx-auto lg:mx-0 text-center lg:text-left"
                 style={{ color: 'rgba(255,255,255,.75)' }}
               >
                 {step.description}
@@ -174,10 +174,10 @@ export const HeroLeft: React.FC = () => {
       </div>
 
       {/* 4. CTA BUTTONS */}
-      <div className="hero-ctas flex flex-col sm:flex-row flex-wrap gap-4 mb-14 w-full">
+      <div className="hero-ctas flex flex-col sm:flex-row flex-wrap gap-4 mb-14 w-full justify-center lg:justify-start">
         <button
           onClick={openApplyModal}
-          className="group w-full sm:w-auto h-[60px] px-8 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-[3px] hover:shadow-[0_12px_30px_rgba(37,99,235,0.28)]"
+          className="group w-full sm:w-auto h-[50px] px-8 rounded-[12px] font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-[2px] hover:shadow-[0_12px_30px_rgba(37,99,235,0.28)]"
           style={{
             backgroundColor: '#2563EB',
             boxShadow: '0 12px 30px rgba(37,99,235,0)',
@@ -189,7 +189,7 @@ export const HeroLeft: React.FC = () => {
 
         <a
           href="#consultation-hub"
-          className="group w-full sm:w-auto h-[60px] px-8 rounded-[14px] font-semibold text-[16px] transition-all duration-300 flex items-center justify-center gap-2 bg-transparent hover:bg-white/5"
+          className="group w-full sm:w-auto h-[50px] px-8 rounded-[12px] font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 bg-transparent hover:bg-white/5"
           style={{ border: '1px solid rgba(255,255,255,.18)' }}
         >
           Talk to Counselor
@@ -197,7 +197,7 @@ export const HeroLeft: React.FC = () => {
       </div>
 
       {/* 5. STATS */}
-      <div className="hero-stats flex flex-col sm:flex-row gap-4 mt-auto flex-wrap">
+      <div className="hero-stats flex flex-col sm:flex-row gap-4 mt-auto flex-wrap justify-center lg:justify-start w-full">
         <CardYears />
         <CardInterns />
         <CardTrained />

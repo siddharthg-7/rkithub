@@ -175,7 +175,7 @@ const WorkflowNode = ({ title, icon: Icon, children, delay }: { title: string, i
 
 export const CareerTransformationEngine = () => {
   return (
-    <section className="relative py-16 md:py-32 font-sans bg-[#FAFAFA] overflow-hidden">
+    <section className="relative py-10 md:py-16 font-sans bg-[#FAFAFA] overflow-hidden">
       
       {/* Background Layers */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
@@ -195,7 +195,7 @@ export const CareerTransformationEngine = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-[80px] relative z-20">
         
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-10 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -209,7 +209,7 @@ export const CareerTransformationEngine = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-[56px] font-[800] text-[#0F172A] mb-6 tracking-tight leading-tight max-w-4xl mx-auto font-['Plus_Jakarta_Sans']"
+            className="text-2xl sm:text-3xl lg:text-4xl font-[800] text-[#0F172A] mb-5 tracking-tight leading-tight max-w-4xl mx-auto font-['Plus_Jakarta_Sans']"
           >
             From Learning to Hiring —<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -221,7 +221,7 @@ export const CareerTransformationEngine = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base md:text-xl text-[#64748B] font-medium max-w-3xl mx-auto leading-relaxed"
+            className="text-xs sm:text-sm md:text-base text-[#64748B] font-medium max-w-3xl mx-auto leading-relaxed"
           >
             We don't just teach technologies. We build a structured pathway that transforms learners into industry-ready professionals through practical training, projects, internships and placement support.
           </motion.p>

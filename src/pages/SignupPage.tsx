@@ -108,7 +108,7 @@ export const SignupPage: React.FC = () => {
                 Start Your IT Journey
               </div>
               
-              <h2 className="text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
                 Start Your IT Journey.
               </h2>
               
@@ -198,8 +198,8 @@ export const SignupPage: React.FC = () => {
           className="max-w-md w-full mx-auto"
         >
           <div className="mb-10 text-center md:text-left">
-            <h1 className="text-4xl font-extrabold text-navy-900 mb-3 tracking-tight">Create account</h1>
-            <p className="text-slate-500 font-medium">Join our community of professional engineers.</p>
+            <h1 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-3 tracking-tight">Create account</h1>
+            <p className="text-slate-500 text-sm sm:text-base font-medium">Join our community of professional engineers.</p>
           </div>
 
           <form onSubmit={handleSignup} className="space-y-6">

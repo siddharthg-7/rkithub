@@ -56,7 +56,15 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-full lg:w-[45%] flex flex-col items-start text-white"
         >
-          <h1 className="text-[clamp(40px,8vw,84px)] font-[800] leading-tight md:leading-none mb-6 font-['Inter'] mt-12 md:mt-0">
+          <div className="flex items-center gap-4 mb-8 bg-white/5 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:bg-white/10 transition-colors">
+            <span className="text-[#93C5FD] font-bold text-sm md:text-base tracking-widest uppercase">
+              Official Internship Partner
+            </span>
+            <div className="w-[2px] h-8 bg-white/20"></div>
+            <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-8 md:h-10 object-contain" />
+          </div>
+
+          <h1 className="text-[clamp(40px,8vw,84px)] font-[800] leading-tight md:leading-none mb-6 font-['Inter']">
             Building<br />
             <span className="block mt-2 md:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#60A5FA]">
               Industry-Ready Talent.

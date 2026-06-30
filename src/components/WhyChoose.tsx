@@ -149,7 +149,7 @@ export const WhyChoose = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight"
+            className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
           >
             A living <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">ecosystem</span>
           </motion.h2>
@@ -158,7 +158,7 @@ export const WhyChoose = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mt-4 text-slate-500 text-lg"
+            className="mt-4 text-slate-500 text-sm sm:text-base"
           >
             Everything you need for a successful tech career, all in one place.
           </motion.p>

@@ -455,7 +455,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -502,7 +502,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] w-full mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Program Roadmap</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Program Roadmap</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -581,7 +581,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Tools & Technologies</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Tools & Technologies</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -619,7 +619,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-[24px]">
           <motion.div variants={fadeUp} className="text-center mb-[48px]">
-            <h2 className="text-[42px] font-[700] text-[#0F172A] font-heading">Real-time Project</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-[#0F172A] font-heading">Real-time Project</h2>
             <div className="w-[40px] h-[3px] bg-[#2563EB] mx-auto mt-[12px] rounded-[999px]" />
           </motion.div>
 
@@ -693,7 +693,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Project Ideas</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Project Ideas</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -785,7 +785,7 @@ export const MernStackPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Tools You'll Use</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Tools You'll Use</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -826,7 +826,7 @@ export const MernStackPage: React.FC = () => {
 
             {/* FAQ */}
             <motion.div variants={{ visible: { transition: { staggerChildren: 0.08 } } }}>
-              <motion.h2 variants={fadeUp} className="text-[42px] font-[700] text-[#0F172A] mb-[12px] font-heading">
+              <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-[700] text-[#0F172A] mb-[12px] font-heading">
                 Frequently Asked Questions
               </motion.h2>
               <motion.div variants={fadeUp} className="w-[40px] h-[3px] bg-[#2563EB] mb-[40px] rounded-[999px]" />

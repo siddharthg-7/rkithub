@@ -78,42 +78,17 @@ const plans = [
       text: 'text-[#EF4444]'
     }
   },
-  {
-    id: 'premium',
-    name: 'Premium Industry Experience',
-    icon: Sparkles,
-    prices: {
-      monthly: { price: '999', originalPrice: '1999', suffix: '/mo' },
-      onetime: { price: '9999', originalPrice: '19999', suffix: '' }
-    },
-    description: 'The ultimate package with guaranteed support and live clients.',
-    features: [
-      'Everything in Accelerator',
-      'Live Client Projects',
-      '1-on-1 CTO Mentorship',
-      'Guaranteed Placement Help',
-      'Letter of Recommendation',
-    ],
-    cta: 'Go Premium',
-    theme: {
-      primary: '#8B5CF6',
-      secondary: '#C4B5FD',
-      bgHover: 'hover:shadow-[#8B5CF6]/20',
-      borderHover: 'hover:border-[#8B5CF6]',
-      text: 'text-[#8B5CF6]'
-    }
-  }
 ];
 
 const comparisonData = [
-  { feature: 'Training Hours', starter: '20+ Hours', pro: '50+ Hours', accelerator: '100+ Hours', premium: '200+ Hours' },
-  { feature: 'Projects', starter: '1 Mini', pro: '1 Major', accelerator: 'Live Project', premium: 'Live Client' },
-  { feature: 'Certificate', starter: true, pro: true, accelerator: true, premium: true },
-  { feature: 'Resume Support', starter: false, pro: true, accelerator: true, premium: true },
-  { feature: 'Interview Prep', starter: false, pro: 'Basic', accelerator: 'Advanced', premium: 'Expert' },
-  { feature: 'Mentorship', starter: false, pro: false, accelerator: 'Group', premium: '1-on-1' },
-  { feature: 'Mock Interviews', starter: false, pro: false, accelerator: true, premium: true },
-  { feature: 'Recommendation Letter', starter: false, pro: false, accelerator: false, premium: true },
+  { feature: 'Training Hours', starter: '20+ Hours', pro: '50+ Hours', accelerator: '100+ Hours' },
+  { feature: 'Projects', starter: '1 Mini', pro: '1 Major', accelerator: 'Live Project' },
+  { feature: 'Certificate', starter: true, pro: true, accelerator: true },
+  { feature: 'Resume Support', starter: false, pro: true, accelerator: true },
+  { feature: 'Interview Prep', starter: false, pro: 'Basic', accelerator: 'Advanced' },
+  { feature: 'Mentorship', starter: false, pro: false, accelerator: 'Group' },
+  { feature: 'Mock Interviews', starter: false, pro: false, accelerator: true },
+  { feature: 'Recommendation Letter', starter: false, pro: false, accelerator: false },
 ];
 
 export const PricingSection = () => {
@@ -171,41 +146,27 @@ export const PricingSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-[#64748B] font-['Inter'] max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-[#64748B] font-['Inter'] max-w-2xl mx-auto mb-8"
           >
             Flexible plans designed for every stage of your career growth. No hidden fees, just pure value.
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col items-center justify-center gap-3"
+          >
+            <span className="text-xs md:text-sm font-bold text-gray-400 uppercase tracking-widest">Powered by Industry Collaboration</span>
+            <img src="/VHUB_Logo.svg" alt="V-HUB" className="h-10 md:h-12 object-contain" />
+          </motion.div>
         </div>
 
-        {/* Toggle */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-12 md:mb-16"
-        >
-          <div className="bg-white/50 backdrop-blur-md p-1.5 rounded-2xl border border-gray-200 shadow-sm inline-flex relative w-full sm:w-auto max-w-[400px]">
-            <button
-              onClick={() => setBillingCycle('monthly')}
-              className={`flex-1 sm:flex-none px-4 sm:px-8 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 relative z-10 ${billingCycle === 'monthly' ? 'text-[#0F172A]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle('onetime')}
-              className={`flex-1 sm:flex-none px-4 sm:px-8 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 relative z-10 ${billingCycle === 'onetime' ? 'text-[#0F172A]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
-            >
-              One Time
-            </button>
-            <div 
-              className="absolute top-1.5 left-1.5 bottom-1.5 w-[calc(50%-6px)] bg-white rounded-xl shadow-sm border border-gray-100 transition-transform duration-300 ease-out z-0"
-              style={{ transform: billingCycle === 'monthly' ? 'translateX(0)' : 'translateX(100%)' }}
-            />
-          </div>
-        </motion.div>
+        {/* Toggle Removed - Default to One Time */}
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 md:mb-32 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 md:mb-32 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, index) => {
             const currentPrice = plan.prices[billingCycle];
             
@@ -314,10 +275,9 @@ export const PricingSection = () => {
                 <thead>
                   <tr className="border-b border-gray-200">
                     <th className="py-4 px-4 font-semibold text-gray-500 font-['Inter'] w-1/5">Features</th>
-                    <th className="py-4 px-4 font-bold text-[#10B981] font-['Inter'] text-center w-1/5">Starter</th>
-                    <th className="py-4 px-4 font-bold text-[#F59E0B] font-['Inter'] text-center w-1/5">Professional</th>
-                    <th className="py-4 px-4 font-bold text-[#EF4444] font-['Inter'] text-center w-1/5">Accelerator</th>
-                    <th className="py-4 px-4 font-bold text-[#8B5CF6] font-['Inter'] text-center w-1/5">Premium</th>
+                    <th className="py-4 px-4 font-bold text-[#10B981] font-['Inter'] text-center w-1/4">Starter</th>
+                    <th className="py-4 px-4 font-bold text-[#F59E0B] font-['Inter'] text-center w-1/4">Professional</th>
+                    <th className="py-4 px-4 font-bold text-[#EF4444] font-['Inter'] text-center w-1/4">Accelerator</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -338,11 +298,6 @@ export const PricingSection = () => {
                         {typeof row.accelerator === 'boolean' ? (
                           row.accelerator ? <CheckCircle2 className="w-5 h-5 mx-auto text-[#EF4444]" /> : <span className="text-gray-300">-</span>
                         ) : row.accelerator}
-                      </td>
-                      <td className="py-4 px-4 text-center text-gray-600 font-['Inter'] bg-purple-50/30 group-hover:bg-purple-50/50 transition-colors">
-                        {typeof row.premium === 'boolean' ? (
-                          row.premium ? <CheckCircle2 className="w-5 h-5 mx-auto text-[#8B5CF6]" /> : <span className="text-gray-300">-</span>
-                        ) : row.premium}
                       </td>
                     </tr>
                   ))}

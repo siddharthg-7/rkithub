@@ -219,7 +219,7 @@ export const CareerTracks = () => {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-semibold mb-6">
             Internship Tracks
           </div>
-          <h2 className="text-4xl md:text-6xl font-[800] text-[#0F172A] mb-6 tracking-tight font-['Plus_Jakarta_Sans'] leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-[800] text-[#0F172A] mb-6 tracking-tight font-['Plus_Jakarta_Sans'] leading-tight">
             Choose Your Internship Track
           </h2>
           <p className="text-xl text-gray-500 max-w-3xl mx-auto">

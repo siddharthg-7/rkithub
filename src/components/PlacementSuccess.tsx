@@ -1,48 +1,77 @@
 import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Linkedin } from 'lucide-react';
-import { StudentVoices } from './StudentVoices';
-
+import { ArrowRight, Star, Linkedin } from 'lucide-react';
 const PLACEMENTS = [
-  { id: 1, name: 'Rahul Reddy', course: 'Java Full Stack', company: 'Infosys', package: '5.2 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
-  { id: 2, name: 'Sneha', course: 'Python Full Stack', company: 'Cognizant', package: '6.1 LPA', image: '/vijaya.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
-  { id: 3, name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.webp', logo: '/logo_cgi_color.webp' },
-  { id: 4, name: 'Chaitanya', course: 'Java Full Stack', company: 'TCS', package: '4.8 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944' },
-  { id: 5, name: 'Vikram', course: 'MERN Stack', company: 'Wipro', package: '5.0 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
-  { id: 6, name: 'Priya', course: 'Data Science', company: 'Capgemini', package: '6.5 LPA', image: '/vijaya.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg' },
-  { id: 7, name: 'Arjun', course: 'Automation Testing', company: 'Tech Mahindra', package: '4.5 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg' },
-  { id: 8, name: 'Ravi', course: 'Java Full Stack', company: 'Virtusa', package: '5.8 LPA', image: '/durga.webp', logo: '/virtusa.webp' },
-  { id: 9, name: 'Kavya', course: 'Python Full Stack', company: 'Broadridge', package: '8.2 LPA', image: '/vijaya.webp', logo: '/broadridge.svg' },
-  { id: 10, name: 'Sanjay', course: 'MERN Stack', company: 'Infosys', package: '5.2 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg' },
-  { id: 11, name: 'Divya', course: 'Test Engineer', company: 'CGI', package: '7.0 LPA', image: '/manogna.webp', logo: '/logo_cgi_color.webp' },
-  { id: 12, name: 'Ajay', course: 'Data Science', company: 'Cognizant', package: '6.0 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg' },
+  { id: 1, name: 'Rahul Reddy', course: 'Java Full Stack', company: 'Infosys', package: '5.2 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg', quote: "The real-time projects completely changed how I approach coding. I didn't just learn syntax; I learned how to build production-grade applications." },
+  { id: 2, name: 'Sneha', course: 'Python Full Stack', company: 'Cognizant', package: '6.1 LPA', image: '/vijaya.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg', quote: "From learning Python to deploying my first full-stack app, the journey was incredible. The mentors guided me through every bug and architecture decision." },
+  { id: 3, name: 'Manogna', course: 'Test Engineer', company: 'CGI', package: '7.5 LPA', image: '/manogna.webp', logo: '/logo_cgi_color.webp', quote: "RK IT Hub’s testing curriculum is unmatched. The focus on automation frameworks like Selenium directly helped me clear my technical rounds." },
+  { id: 4, name: 'Chaitanya', course: 'Java Full Stack', company: 'TCS', package: '4.8 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Tata_Consultancy_Services_old_logo.svg/1280px-Tata_Consultancy_Services_old_logo.svg.png?_=20210617123944', quote: "The mentorship here is what makes the difference. They don't just teach; they guide you on how to think like an engineer and solve real problems." },
+  { id: 5, name: 'Vikram', course: 'MERN Stack', company: 'Wipro', package: '5.0 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg', quote: "The intensive focus on practical implementation over theory is why I got placed. The React portfolio I built here was the main topic during HR rounds." },
+  { id: 6, name: 'Priya', course: 'Data Science', company: 'Capgemini', package: '6.5 LPA', image: '/vijaya.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg', quote: "I had a career gap and was nervous. RK IT Hub not only upgraded my data skills but also built my confidence to clear top MNC interviews." },
+  { id: 7, name: 'Arjun', course: 'Automation Testing', company: 'Tech Mahindra', package: '4.5 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Tech_Mahindra_New_Logo.svg', quote: "The mock interviews and resume building sessions were game-changers. I felt completely prepared for the real industry expectations." },
+  { id: 8, name: 'Ravi', course: 'Java Full Stack', company: 'Virtusa', package: '5.8 LPA', image: '/durga.webp', logo: '/virtusa.webp', quote: "Learning Java with Spring Boot here was the best decision. The advanced architectural concepts taught are exactly what top companies look for." },
+  { id: 9, name: 'Kavya', course: 'Python Full Stack', company: 'Broadridge', package: '8.2 LPA', image: '/vijaya.webp', logo: '/broadridge.svg', quote: "The Python curriculum is incredibly comprehensive. The project-based learning approach made complex backend concepts easy to grasp." },
+  { id: 10, name: 'Sanjay', course: 'MERN Stack', company: 'Infosys', package: '5.2 LPA', image: '/Chaitanya .webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg', quote: "MERN stack seemed daunting at first, but the step-by-step guidance and 24/7 doubt clarification made it a breeze to master." },
+  { id: 11, name: 'Divya', course: 'Test Engineer', company: 'CGI', package: '7.0 LPA', image: '/manogna.webp', logo: '/logo_cgi_color.webp', quote: "The hands-on practice with real testing tools gave me a competitive edge. I landed my dream job within weeks of completing the course." },
+  { id: 12, name: 'Ajay', course: 'Data Science', company: 'Cognizant', package: '6.0 LPA', image: '/durga.webp', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Cognizant_logo_2022.svg', quote: "Data Science concepts were taught with so much clarity. Working on live datasets during the training helped me crack my technical interview." },
 ];
 
-const MiniCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | number }) => (
-  <div className="group w-[220px] h-[110px] bg-white border border-slate-200 rounded-[16px] p-4 flex gap-4 shrink-0 transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.06)] cursor-pointer">
-    <img src={student.image} alt={student.name} className="w-12 h-12 rounded-[12px] object-cover shrink-0 bg-slate-100" />
-    <div className="flex flex-col justify-between overflow-hidden relative w-full">
-
-      {/* LinkedIn Tooltip & Icon */}
-      <div className="absolute right-0 top-0 group/li">
-        <Linkedin className="w-[14px] h-[14px] text-slate-300 group-hover:text-[#0A66C2] transition-all duration-300 group-hover:-translate-x-1" />
-        <span className="absolute -top-7 right-1/2 translate-x-1/2 bg-slate-900 text-white text-[10px] font-medium px-2 py-1 rounded opacity-0 group-hover/li:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          View LinkedIn
-        </span>
+const ModernPlacementCard = ({ student }: { student: typeof PLACEMENTS[0], key?: string | number }) => {
+  const role = student.course;
+  const quote = student.quote || "The hands-on training and mentorship at RK IT Hub were instrumental in helping me secure my position. The mock interviews gave me the confidence I needed to clear technical rounds.";
+  
+  return (
+    <div className="w-[340px] h-[340px] bg-white border border-slate-200 rounded-[28px] p-7 flex flex-col relative overflow-hidden group hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-300 hover:border-blue-200 cursor-default">
+      {/* Decorative Quote Mark */}
+      <div className="absolute top-2 right-4 text-[120px] leading-none font-serif text-blue-50 opacity-[0.6] select-none pointer-events-none group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+        "
+      </div>
+      
+      {/* Header: Avatar & Info */}
+      <div className="flex items-center gap-4 relative z-10 mb-5">
+        <div className="relative">
+          <img src={student.image} alt={student.name} className="w-14 h-14 rounded-full object-cover border-[3px] border-white shadow-sm bg-slate-100" />
+          <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-sm">
+            <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
+          </div>
+        </div>
+        <div>
+          <h4 className="font-bold text-slate-900 text-[16px]">{student.name}</h4>
+          <p className="text-slate-500 text-[13px] font-semibold">{role}</p>
+        </div>
       </div>
 
-      <h4 className="font-bold text-slate-900 text-[14px] truncate pr-5">{student.name}</h4>
+      {/* Quote */}
+      <div className="flex-1 relative z-10 flex flex-col justify-center">
+        <div className="flex gap-1 mb-3">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+        <p className="text-slate-600 text-[14.5px] leading-relaxed line-clamp-4 font-medium">
+          "{quote}"
+        </p>
+      </div>
 
-      <img src={student.logo} alt={student.company} className="h-[16px] max-w-[70px] object-contain object-left opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 origin-left" />
-
-      <div className="inline-flex mt-1">
-        <span className="bg-[#DCFCE7] text-[#166534] text-[11px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-          ₹{student.package}
-        </span>
+      {/* Footer: Package & Company */}
+      <div className="mt-4 pt-5 border-t border-slate-100 flex items-center justify-between relative z-10">
+        {student.logo ? (
+          <img src={student.logo} alt={student.company} className="h-[24px] max-w-[110px] object-contain object-left opacity-90 group-hover:opacity-100 transition-opacity" />
+        ) : (
+          <span className="font-bold text-slate-700">{student.company}</span>
+        )}
+        
+        <div className="bg-green-50 border border-green-200 text-green-700 text-[13px] font-bold px-3 py-1.5 rounded-full whitespace-nowrap shadow-sm">
+          {student.package.includes('LPA') ? student.package : `₹${student.package}`}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const AnimatedNumber = ({ valueStr }: { valueStr: string }) => {
   const [num, setNum] = useState(0);
@@ -184,7 +213,8 @@ export const PlacementSuccess = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const row1 = [...PLACEMENTS];
+  // Duplicate to ensure Swiper loop doesn't have empty spaces
+  const displayItems = [...PLACEMENTS, ...PLACEMENTS, ...PLACEMENTS];
 
   return (
     <section id="placements" className="relative w-full bg-[#FAFBFC] pt-16 md:pt-24 pb-8 overflow-hidden font-sans">
@@ -197,23 +227,9 @@ export const PlacementSuccess = () => {
       </div>
 
       <style>{`
-        @keyframes marquee-left {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-          from { transform: translateX(-50%); }
-          to { transform: translateX(0); }
-        }
-        .animate-marquee-left-fast { animation: marquee-left 90s linear infinite; }
-        .animate-marquee-right { animation: marquee-right 110s linear infinite; }
-        .animate-marquee-left-slow { animation: marquee-left 80s linear infinite; }
-        
-        /* Pause animations on hover for desktop */
-        .marquee-container:hover .animate-marquee-left-fast,
-        .marquee-container:hover .animate-marquee-right,
-        .marquee-container:hover .animate-marquee-left-slow {
-          animation-play-state: paused;
+        .swiper-slide {
+          width: 340px !important;
+          height: auto !important;
         }
       `}</style>
 
@@ -234,7 +250,7 @@ export const PlacementSuccess = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight"
+            className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight"
           >
             Placement Success Stories
           </motion.h2>
@@ -243,7 +259,7 @@ export const PlacementSuccess = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto"
+            className="mt-3 text-slate-500 text-sm sm:text-base max-w-2xl mx-auto"
           >
             See how our students transformed their skills into careers through real projects and mentorship.
           </motion.p>
@@ -255,37 +271,36 @@ export const PlacementSuccess = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="w-full flex flex-col gap-6 marquee-container"
+          className="w-full flex flex-col gap-6"
         >
-          {/* Desktop: 3 Infinite Marquees */}
-          <div className="hidden md:flex flex-col gap-6 overflow-hidden w-full relative">
+          {/* Swiper Carousel */}
+          <div className="overflow-hidden w-full relative">
 
             {/* Soft fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#FAFBFC] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#FAFBFC] to-transparent z-10 pointer-events-none" />
 
-            {/* Row 1: Left */}
-            <div className="flex w-max animate-marquee-left-slow">
-              <div className="flex gap-6 pr-6">
-                {row1.map((c, i) => <MiniCard key={`${c.id}-${i}-1`} student={c} />)}
-              </div>
-              <div className="flex gap-6 pr-6">
-                {row1.map((c, i) => <MiniCard key={`${c.id}-${i}-2`} student={c} />)}
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile: Horizontal Swipe Container */}
-          <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-8 px-4 -mx-4 no-scrollbar">
-            {PLACEMENTS.map((c) => (
-              <div key={c.id} className="snap-center shrink-0">
-                <MiniCard student={c} />
-              </div>
-            ))}
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={20}
+              slidesPerView="auto"
+              loop={true}
+              speed={1000}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              allowTouchMove={true}
+              className="w-full !overflow-visible items-center"
+            >
+              {displayItems.map((item, i) => (
+                <SwiperSlide key={`modern-${item.id}-${i}`} className="flex items-center justify-center py-6">
+                  <ModernPlacementCard student={item} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </motion.div>
-
-        <StudentVoices />
       </div>
     </section>
   );

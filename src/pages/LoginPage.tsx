@@ -102,7 +102,7 @@ export const LoginPage: React.FC = () => {
                 Trusted by 12,000+ learners
               </div>
               
-              <h2 className="text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
                 Master the Future of Tech.
               </h2>
               
@@ -192,8 +192,8 @@ export const LoginPage: React.FC = () => {
           className="max-w-md w-full mx-auto"
         >
           <div className="mb-10 text-center md:text-left">
-            <h1 className="text-4xl font-extrabold text-navy-900 mb-3 tracking-tight">Welcome back</h1>
-            <p className="text-slate-500 font-medium">Continue your professional journey today.</p>
+            <h1 className="text-3xl lg:text-4xl font-extrabold text-navy-900 mb-3 tracking-tight">Welcome back</h1>
+            <p className="text-slate-500 text-sm sm:text-base font-medium">Continue your professional journey today.</p>
           </div>
 
           {/* Google Button */}

@@ -144,7 +144,7 @@ export const Navbar = () => {
                       >
                         <button
                           onClick={(e) => handleNavClick(e, route.path)}
-                          className="flex items-center gap-1 font-[700] text-[15px] py-2 transition-colors text-[#0F172A] hover:text-[#0B4F9C]"
+                          className={`relative flex items-center gap-1 font-[700] text-[15px] py-2 transition-colors ${location.pathname.includes('/courses') ? 'text-[#0B4F9C]' : 'text-[#0F172A] hover:text-[#0B4F9C]'}`}
                         >
                           {route.name}
                           <ChevronDown className={`w-4 h-4 transition-transform ${isTrainingsOpen ? 'rotate-180' : ''}`} />
@@ -171,7 +171,7 @@ export const Navbar = () => {
                       key={route.name}
                       href={route.path}
                       onClick={(e) => handleNavClick(e, route.path)}
-                      className={`font-[700] text-[15px] py-2 transition-colors ${location.pathname === route.path || (route.name === 'Internships' && location.pathname.includes('internships'))
+                      className={`relative font-[700] text-[15px] py-2 transition-colors ${location.pathname === route.path || (route.name === 'Internships' && location.pathname.includes('internships')) || (location.pathname === '/' && route.path === '#')
                           ? 'text-[#0B4F9C]'
                           : 'text-[#0F172A] hover:text-[#0B4F9C]'
                         }`}
@@ -212,9 +212,11 @@ export const Navbar = () => {
                       <div key={route.name} className="flex flex-col border-b border-slate-50 last:border-none">
                         <button
                           onClick={() => setIsTrainingsOpen(!isTrainingsOpen)}
-                          className="flex justify-between items-center font-bold text-[15px] text-[#0F172A] py-3 text-left w-full"
+                          className={`flex justify-between items-center font-bold text-[15px] py-3 text-left w-full ${location.pathname.includes('/courses') ? 'text-[#0B4F9C]' : 'text-[#0F172A]'}`}
                         >
-                          {route.name}
+                          <div className="flex items-center gap-2">
+                            {route.name}
+                          </div>
                           <ChevronDown className={`w-4 h-4 transition-transform ${isTrainingsOpen ? 'rotate-180' : ''}`} />
                         </button>
                         <div className={`pl-4 flex flex-col overflow-hidden transition-all duration-200 bg-slate-50 rounded-lg ${isTrainingsOpen ? 'max-h-[500px] py-2 mb-2' : 'max-h-0'
@@ -238,7 +240,7 @@ export const Navbar = () => {
                       key={route.name}
                       href={route.path}
                       onClick={(e) => handleNavClick(e, route.path)}
-                      className={`font-bold text-[15px] py-3 border-b border-slate-50 last:border-none transition-colors ${location.pathname === route.path || (route.name === 'Internships' && location.pathname.includes('internships'))
+                      className={`font-bold text-[15px] py-3 border-b border-slate-50 last:border-none transition-colors flex items-center justify-between ${location.pathname === route.path || (route.name === 'Internships' && location.pathname.includes('internships')) || (location.pathname === '/' && route.path === '#')
                           ? 'text-[#0B4F9C]'
                           : 'text-[#0F172A] hover:text-[#0B4F9C]'
                         }`}

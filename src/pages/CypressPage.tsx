@@ -299,7 +299,7 @@ export const CypressPage: React.FC = () => {
               </motion.div>
 
               {/* Heading */}
-              <h1 className="w-full max-w-[520px] text-[48px] md:text-[72px] font-[800] leading-[1.05] md:leading-[0.95] text-white font-heading tracking-[-1.5px] md:tracking-[-3px] mb-[24px] overflow-hidden">
+              <h1 className="w-full max-w-[520px] text-4xl lg:text-5xl font-[800] leading-[1.05] md:leading-[0.95] text-white font-heading tracking-[-1.5px] md:tracking-[-3px] mb-[24px] overflow-hidden">
                 <motion.span
                   className="block mb-2"
                   initial={{ opacity: 0, y: 30 }}
@@ -324,7 +324,7 @@ export const CypressPage: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full max-w-[540px] text-[18px] md:text-[20px] leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
+                className="w-full max-w-[540px] text-sm sm:text-base leading-[1.7] font-[400] text-[#CBD5E1] font-sans mb-[32px]"
               >
                 Become a Job-Ready Cypress Automation Engineer. Build enterprise-grade testing frameworks and master the tools that top tech companies use daily.
               </motion.p>
@@ -415,7 +415,7 @@ export const CypressPage: React.FC = () => {
       >
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Master the Skills That Get You Hired</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -470,7 +470,7 @@ export const CypressPage: React.FC = () => {
       >
         <div className="max-w-[1280px] w-full mx-auto px-6">
           <motion.div variants={fadeUp} className="text-center mb-16">
-            <h2 className="text-[42px] font-[700] text-slate-900 font-heading">Chapter-wise Syllabus</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-slate-900 font-heading">Chapter-wise Syllabus</h2>
             <div className="w-[40px] h-[4px] bg-[#2563EB] mx-auto mt-4 rounded-full" />
           </motion.div>
 
@@ -551,7 +551,7 @@ export const CypressPage: React.FC = () => {
 
           {/* ── Section Title ── */}
           <motion.div variants={fadeUp} className="text-center mb-[48px]">
-            <h2 className="text-[42px] font-[700] text-[#0F172A] font-heading">Real-time Project</h2>
+            <h2 className="text-3xl lg:text-4xl font-[700] text-[#0F172A] font-heading">Real-time Project</h2>
             <div className="w-[40px] h-[3px] bg-[#2563EB] mx-auto mt-[12px] rounded-[999px]" />
           </motion.div>
 
@@ -734,7 +734,7 @@ export const CypressPage: React.FC = () => {
             <motion.div
               variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
             >
-              <motion.h2 variants={fadeUp} className="text-[42px] font-[700] text-[#0F172A] mb-[12px] font-heading">
+              <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-[700] text-[#0F172A] mb-[12px] font-heading">
                 Frequently Asked Questions
               </motion.h2>
               <motion.div variants={fadeUp} className="w-[40px] h-[3px] bg-[#2563EB] mb-[40px] rounded-[999px]" />

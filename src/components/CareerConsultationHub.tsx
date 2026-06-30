@@ -52,13 +52,13 @@ export const CareerConsultationHub = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
+            <h2 className="text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-8">
               Ready to Build Your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
                 Tech Career?
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-medium">
+            <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto mb-12 font-medium">
               Join thousands of students building successful careers through real-time projects and expert mentorship.
             </p>
           </motion.div>

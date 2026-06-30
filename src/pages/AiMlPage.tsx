@@ -35,10 +35,10 @@ export const AiMlPage = () => {
           <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6 inline-block">
             Course Page
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
             AI & ML
           </h1>
-          <p className="text-slate-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base mb-12 max-w-xl mx-auto leading-relaxed">
             Become a Job-Ready AI Engineer. Build intelligent systems, neural networks, and master deep learning models using Python, TensorFlow, and PyTorch.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

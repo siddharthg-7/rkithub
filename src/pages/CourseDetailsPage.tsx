@@ -57,7 +57,7 @@ export const CourseDetailsPage: React.FC = () => {
             <div className="inline-flex items-center px-3 py-1 bg-white/10 rounded-lg text-[10px] font-bold text-white tracking-widest uppercase mb-8 border border-white/10">
               Tech Elite Path
             </div>
-            <h1 className="text-6xl font-extrabold tracking-tight leading-tight mb-8">
+            <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-8">
               {slug?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
             </h1>
             <div className="flex flex-wrap items-center gap-8 mb-12">
@@ -119,7 +119,7 @@ export const CourseDetailsPage: React.FC = () => {
       {/* Curriculum */}
       <section className="py-12 md:py-24 max-w-[1280px] mx-auto px-10 grid lg:grid-cols-3 gap-8 md:gap-16">
         <div className="lg:col-span-2">
-          <h2 className="text-4xl font-extrabold text-navy-900 tracking-tight mb-12">Curriculum Timeline</h2>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 tracking-tight mb-12">Curriculum Timeline</h2>
           <div className="space-y-4">
             {modules.map((module, i) => (
               <motion.div
@@ -226,7 +226,7 @@ export const CourseDetailsPage: React.FC = () => {
       {/* Projects Section */}
       <section className="py-12 md:py-24 bg-slate-50">
         <div className="max-w-[1280px] mx-auto px-10">
-          <h2 className="text-4xl font-extrabold text-navy-900 tracking-tight mb-16">Projects Included</h2>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-navy-900 tracking-tight mb-16">Projects Included</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { title: 'Cloud-Native Platform', tech: 'AWS, Docker, K8s', diff: 'Hard' },

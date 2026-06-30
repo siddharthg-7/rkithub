@@ -180,7 +180,7 @@ const Timeline = () => {
 
 export const OurFoundation = () => {
   return (
-    <section className="relative py-12 md:py-24 bg-[#FAFAFA] font-sans overflow-hidden">
+    <section className="relative py-10 md:py-16 bg-[#FAFAFA] font-sans overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 relative">
@@ -197,7 +197,7 @@ export const OurFoundation = () => {
             </motion.div>
             
             <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] tracking-tight mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 leading-[1.2] tracking-tight mb-5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -210,7 +210,7 @@ export const OurFoundation = () => {
             </motion.h2>
             
             <motion.p
-              className="text-base sm:text-lg font-medium text-slate-500 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+              className="text-xs sm:text-sm md:text-base font-medium text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -240,7 +240,7 @@ export const OurFoundation = () => {
                 <span className="absolute -top-6 -left-2 text-[120px] md:-top-8 md:-left-2 md:text-[160px] text-white/10 font-serif leading-none pointer-events-none select-none">"</span>
                 
                 <div className="relative z-10 flex flex-col h-full justify-center">
-                  <p className="text-[20px] sm:text-[24px] md:text-[32px] font-bold leading-snug tracking-tight">
+                  <p className="text-lg sm:text-xl md:text-2xl font-bold leading-snug tracking-tight">
                     We don't measure success by the number of courses completed.<br/><br/>
                     We measure success by the <span className="text-blue-200">careers launched</span>, the confidence built and the opportunities created.
                   </p>

@@ -160,9 +160,7 @@ export const SeleniumRoadmapVisual: React.FC = () => (
               style={{ filter: 'drop-shadow(0 0 4px #60A5FA)' }}
             />
             {/* travelling particle */}
-            <motion.circle
-              r="2" fill="#93C5FD"
-              animate={{ cx: [ln.x1, ln.x2], cy: [ln.y1, ln.y2], opacity: [0, 1, 0] }}
+            <motion.circle cx={ln.x1} cy={ln.y1} r="2" fill="#93C5FD" animate={{ cx: [ln.x1, ln.x2], cy: [ln.y1, ln.y2], opacity: [0, 1, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'linear', delay: ln.delay + 0.5 }}
             />
             {/* arrowhead near destination */}

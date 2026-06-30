@@ -23,9 +23,9 @@ const HeroSection = () => {
 
 
   return (
-    <section className="relative overflow-hidden w-full font-sans" style={{ height: '100vh', minHeight: '850px', background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)' }}>
+    <section className="relative overflow-hidden w-full font-sans pt-28 lg:pt-32 pb-16" style={{ minHeight: '100vh', background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)' }}>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-[80px] h-full flex items-center">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-[80px] h-full flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center relative z-10">
 
           {/* LEFT SIDE — 7 cols */}
@@ -47,8 +47,8 @@ const HeroSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-[#0F172A] font-[700] leading-[1.05] tracking-[-2px] mb-6 max-w-[650px]"
-              style={{ fontSize: 'clamp(48px, 5vw, 72px)', fontFamily: '"Satoshi", sans-serif' }}
+              className="text-[#0F172A] font-[700] text-4xl lg:text-5xl xl:text-6xl leading-[1.15] tracking-tight mb-6 max-w-[650px]"
+              style={{ fontFamily: '"Satoshi", sans-serif' }}
             >
               Empowering Careers Through<br />
               Practical Learning &<br />
@@ -61,7 +61,7 @@ const HeroSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-[#475569] text-[20px] font-[400] leading-[1.8] max-w-[600px] mb-10"
+              className="text-[#475569] text-sm sm:text-base lg:text-lg font-[400] leading-[1.8] max-w-[600px] mb-10"
             >
               RK IT Training HUB bridges the gap between academic learning and industry requirements through practical training, internships, real-world projects and career-focused mentorship.
             </motion.p>
@@ -172,7 +172,7 @@ const EcosystemSection = () => {
     <section className="py-10 md:py-20 bg-[#F8FAFC] font-sans" ref={ref}>
       <div className="max-w-[1440px] mx-auto px-6 md:px-20">
         <motion.h2
-          className="text-[32px] font-[700] text-[#0F172A] mb-16 text-center"
+          className="text-3xl lg:text-4xl font-[700] text-[#0F172A] mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
@@ -287,10 +287,10 @@ const ExpertsSection = () => {
     <section className="py-20 bg-white font-sans border-t border-slate-100">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-[32px] font-[700] text-[#0F172A] mb-4">
+          <h2 className="text-3xl lg:text-4xl font-[700] text-[#0F172A] mb-4">
             Learn from Industry Veterans
           </h2>
-          <p className="text-[18px] text-[#475569] max-w-[700px] mx-auto">
+          <p className="text-sm sm:text-base text-[#475569] max-w-[700px] mx-auto">
             Our training is delivered by working professionals who bring real-world experience, enterprise best practices, and proven methodologies directly to the classroom.
           </p>
         </div>

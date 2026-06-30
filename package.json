@@ -41,7 +41,7 @@
     "react-router-dom": "^7.15.0",
     "reactflow": "^11.11.4",
     "svg-path-properties": "^2.0.2",
-    "swiper": "^12.1.4",
+    "swiper": "^12.2.0",
     "tailwind-merge": "^3.5.0",
     "tsparticles": "^4.2.1",
     "vite": "^6.2.3",

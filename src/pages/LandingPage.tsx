@@ -1,12 +1,10 @@
 import React from 'react';
 import { Hero } from '../components/home/hero/Hero';
 import { PopularCourses } from '../components/PopularCourses';
-import { WhyChoose } from '../components/WhyChoose';
 import { PlacementSuccess } from '../components/PlacementSuccess';
 import { CompanyTrust } from '../components/CompanyTrust';
 import { SEO } from '../components/SEO';
 import { CareerConsultationHub } from '../components/CareerConsultationHub';
-import { OurFoundation } from '../components/about/OurFoundation';
 
 export const LandingPage = () => {
   return (
@@ -36,14 +34,8 @@ export const LandingPage = () => {
         {/* 2. Company Trust (Agency-Level Bridge) */}
         <CompanyTrust />
 
-        {/* 3. Our Foundation */}
-        <OurFoundation />
-
         {/* 4. Popular Courses */}
         <PopularCourses />
-
-        {/* 5. Why RK IT Hub (What Makes Us Different) */}
-        <WhyChoose />
 
         {/* 6. Placement Success & Student Voices */}
         <PlacementSuccess />

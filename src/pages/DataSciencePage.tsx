@@ -35,10 +35,10 @@ export const DataSciencePage = () => {
           <span className="px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6 inline-block">
             Course Page
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
             Data Science
           </h1>
-          <p className="text-slate-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base mb-12 max-w-xl mx-auto leading-relaxed">
             Become a Job-Ready Data Scientist. Master data analysis, machine learning, and build predictive models with Python, Pandas, and Scikit-Learn.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

@@ -118,10 +118,11 @@ const JavaCenterLogo: React.FC = () => (
 // ─── Main Component ────────────────────────────────────────────────────────────
 export const JavaEcosystemVisual: React.FC = () => {
   return (
-    <div
-      style={{ width: W, height: H, position: 'relative', overflow: 'visible' }}
-      className="hero-visual select-none flex-shrink-0 mx-auto"
-    >
+    <div className="w-full max-w-[700px] aspect-[7/6] mx-auto relative flex items-center justify-center">
+      <div
+        style={{ width: W, height: H, position: 'absolute', overflow: 'visible' }}
+        className="hero-visual select-none transform scale-[0.45] sm:scale-[0.65] md:scale-[0.8] lg:scale-100 origin-center"
+      >
       {/* ━━━ LAYER 1 — AMBIENT GLOW ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div
         style={{
@@ -221,6 +222,7 @@ export const JavaEcosystemVisual: React.FC = () => {
                 style={{ filter: 'drop-shadow(0 0 4px #60A5FA)' }}
               />
               <motion.circle
+                cx={CX} cy={CY}
                 r="2" fill="#93C5FD"
                 animate={{ cx: [CX, card.cx], cy: [CY, card.cy], opacity: [0, 0.9, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'linear', delay: card.delay + 0.5 }}
@@ -314,6 +316,7 @@ export const JavaEcosystemVisual: React.FC = () => {
       >
         <JavaCenterLogo />
       </motion.div>
+    </div>
     </div>
   );
 };

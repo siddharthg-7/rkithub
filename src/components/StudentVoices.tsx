@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 import { Linkedin, ArrowRight, Star } from 'lucide-react';
 
-const students = [
+export const students = [
   {
     id: 1,
     type: 'quote',
@@ -71,7 +75,7 @@ const students = [
   }
 ];
 
-const TiltCard = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number, key?: React.Key }) => {
+export const TiltCard = ({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number, key?: React.Key }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -126,7 +130,7 @@ const TiltCard = ({ children, className, delay = 0 }: { children: React.ReactNod
   );
 };
 
-const QuoteCard = ({ student }: { student: any }) => (
+export const QuoteCard = ({ student }: { student: any }) => (
   <div className="p-8 h-full flex flex-col relative">
     {/* Huge background quote mark */}
     <div className="absolute top-4 right-8 text-[120px] leading-none font-serif text-slate-900 opacity-[0.03] select-none pointer-events-none">
@@ -161,7 +165,7 @@ const QuoteCard = ({ student }: { student: any }) => (
   </div>
 );
 
-const PhotoCard = ({ student }: { student: any }) => (
+export const PhotoCard = ({ student }: { student: any }) => (
   <div className="h-full relative overflow-hidden bg-slate-900">
     <img
       src={student.image}
@@ -184,7 +188,7 @@ const PhotoCard = ({ student }: { student: any }) => (
   </div>
 );
 
-const TimelineCard = ({ student }: { student: any }) => {
+export const TimelineCard = ({ student }: { student: any }) => {
   const stages = ['Joined', 'Projects', 'Internship', 'Placed'];
 
   return (
@@ -226,18 +230,38 @@ export const StudentVoices = () => {
     <div className="relative w-full overflow-hidden font-sans pt-12 pb-16">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 relative z-10">
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-7 mx-auto max-w-[1200px]">
-          {students.map((student, i) => (
-            <TiltCard
-              key={student.id}
-              className={`w-full ${student.height}`}
-              delay={staggerOrder[i] || i}
-            >
-              {student.type === 'quote' && <QuoteCard student={student} />}
-              {student.type === 'photo' && <PhotoCard student={student} />}
-              {student.type === 'timeline' && <TimelineCard student={student} />}
-            </TiltCard>
-          ))}
+        <div className="mx-auto max-w-[1200px] overflow-visible">
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={28}
+            slidesPerView={1}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            loop={true}
+            speed={1500}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            allowTouchMove={true}
+            className="w-full !overflow-visible"
+            style={{ transitionTimingFunction: 'linear' } as React.CSSProperties}
+          >
+            {students.map((student, i) => (
+              <SwiperSlide key={student.id} className="!h-auto flex">
+                <TiltCard
+                  className={`w-full ${student.height} flex-grow`}
+                  delay={staggerOrder[i] || i}
+                >
+                  {student.type === 'quote' && <QuoteCard student={student} />}
+                  {student.type === 'photo' && <PhotoCard student={student} />}
+                  {student.type === 'timeline' && <TimelineCard student={student} />}
+                </TiltCard>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <motion.div
