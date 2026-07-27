@@ -1,4 +1,4 @@
-# RK IT Training HUB
+# RK IT Training HUB ( In collabaration With V-hub) 
 
 A premium, modern landing page and platform designed for RK IT HUB, a premier tech training institute. The platform enables students to explore various engineering and business internship tracks, view pricing tiers, browse testimonials, and enroll in industry-ready programs. The website is built with a focus on stunning UI/UX, utilizing glassmorphism, floating elements, and smooth Framer Motion animations.
 
