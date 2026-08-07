@@ -4,7 +4,7 @@ A premium, modern landing page and platform designed for RK IT HUB which is in c
 
 ## Demo
 
-https://rkithub-f20ae.web.app/
+https://rkithub-f20ae.web.app/ - hosted in firebase
 
 ## Features
 
