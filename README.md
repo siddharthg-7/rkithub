@@ -20,7 +20,7 @@ https://rkithub-f20ae.web.app/ - hosted in firebase
 
 ---
 
-## Tech Stack
+## Tech Stack used 
 
 ### Frontend
 - React.js (Vite)
